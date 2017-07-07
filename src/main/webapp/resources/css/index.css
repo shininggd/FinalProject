@@ -97,6 +97,19 @@ display: inline-block;
 	background: #f08b41;
 	border : 2px solid red;
 }
+/*병훈 슬라이드   */
+.img_size{
+	width: 1000px;
+	height: 516px;
+}
+.banner_content{
+	background: #f08b41;
+	width: 39%;
+	height: 100px;
+	float: left;
+	margin-right: 13%;
+}
+/*병훈 슬라이드 */
 /* main 끝 */
 
 /* footer 시작 */
