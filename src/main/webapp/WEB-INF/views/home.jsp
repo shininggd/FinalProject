@@ -18,7 +18,7 @@
 		<div id="header_menu">
 			<div id="header_logo">logo</div>
 				<article id="header-left-menus">
-					<a href="#">메뉴1<span class="arrow_icon"></span></a>
+					<a href="#">메뉴1<span class="arrow_icon"><img alt="" src="<%=application.getContextPath() %>/resources/img/arrow_icon.Png"> </span></a>
 					<span class="bar"></span>
 					<a href="#">메뉴2<span class="arrow_icon"></span></a>
 					<span class="bar"></span>
@@ -34,6 +34,7 @@
 						<span class="bar"></span>
 						<a href="#">여기 뭐넣지<span class="arrow_icon"></span></a>
 						<span class="bar"></span>
+						<a href="study/studyList">ㄱㄱ</a>
 						</article>
 		
 		</div>
@@ -46,6 +47,7 @@
 <div id="introduce"></div>
 <div id="exex3"></div>
 </section>
+
 
 <footer id="main_footer">
 

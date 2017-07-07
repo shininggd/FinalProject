@@ -1,0 +1,116 @@
+@CHARSET "UTF-8";
+/* ======================================== 섹션=============================================  */
+  
+  /*윗부분  */
+ .top{
+ 	width: 100%;
+ 	height: 350px;
+ 	background-position: 50%;
+ 	background-repeat: no-repeat;
+ 	background-size: 100%;
+ 	background-image: url('../img/studyImage.png');
+ 	overflow: hidden; 
+ }
+ .topBox{
+ 	width: 320px; 
+ 	height: 180px;
+ 	background-color: white;
+ 	
+ 	font-weight: 200;
+ 	margin-top: 80px;
+ 	margin-left: 25%;	
+ }
+ .innerText{
+ 	font-size: 30pt;	
+ 	font-weight: 200;
+    color: #505050;
+ 	text-align: center;
+ }
+ 
+ /*윗부분 끝 */
+ 
+ /*중간부분  */
+ .mid{
+ 	width: 100%;
+ 	height: 230px;
+ 	
+ 	overflow: hidden;
+ 	
+ }
+ .midBox{
+ 	overflow: hidden;
+ 	margin: 0 auto;
+ 	width: 50%;
+ 	height: 100%;
+ 	
+ }
+ .midTitle{
+ 	font-size: 32px;
+ }
+ .midInner{
+ 	width: 100%;
+ 	height: 79px;
+ 	background-color: #f2ffe5;
+ 	overflow: hidden;
+ 	
+ }
+ .innerBox{
+ 	width: 40%;
+ 	height: 100%;
+ 	float: left;
+ 	
+ 	font-size: 20px;
+ 	line-height: 400%;
+ 	
+ 	
+ }
+ .innerBox > select{
+ 	display: inline;
+ 	font-size:20px;
+ 	width: 80%;
+ 	height: 50px;
+ 	border: none;
+ }
+  .innerBox2{
+ 	width: 20%;
+ 	height: 100%;
+ 	float: left;
+ 	line-height: 100%;
+ 	
+ 	
+ }
+ .innerBox2 > input{
+ 	margin-top: 17px;
+ 	display: inline;
+ 	font-size: 20px;
+ 	color: white;
+ 	width: 90%;
+ 	height: 45px;
+ 	background: #4c8def;
+ 	border: none;
+ 	line-height: 100%;
+ }
+ /*중간부분 끝 */
+ 
+ 
+ 
+ /* 아랫부분  */
+ .bottom{
+ width: 100%;
+ height: 900px;
+ background-color: #ebebeb;
+ overflow: hidden;
+ }
+ .bottomBox{
+ overflow: hidden;
+ margin: 0 auto;
+ background-color: red;
+ width: 50%;
+ height: 100%;
+ 
+ }
+ .bottomTitle{
+ 	font-size: 16pt;
+ }
+ /* 아랫부분 끝 */
+/* ======================================== 섹션END==========================================  */ 
