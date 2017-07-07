@@ -20,6 +20,7 @@ background-color: green;
 position: relative;
 }
 
+
 #header_content{
 width: 100%;
 height: 92px;
@@ -43,19 +44,25 @@ padding-top: 20px;
 }
 
 #header_logo{
-width: 56px;
-height: 72px;
+width: 50px;
+height: 50px;
 float: left;
 display: inline-block;
+margin-top : 10px;
 background-color: blue;
 }
 
 .arrow_icon{
 width: 10px;
+
 height: 6px;
 
-background-image: url("<%=application.getContextPath() %>/resources/img/arrow_icon.Png");
+
+
+height: 10px;
+
 display: inline-block;
+margin: 5px 0 0 2px;
 }
 
 .bar{
@@ -74,7 +81,6 @@ padding-top: 20px;
 width:24px;
 height:24px;
 float:left;
-background-image : url("resources/img/SearchIcon.png");
 }
 #top-right-menus .bar{
 width: 1px;
@@ -82,6 +88,11 @@ height: 9px;
 background: #dcdcdc;
 display: inline-block;
 }
+
+#lsearch_form{
+    border-radius: 20px;
+    border: 1px solid #dcdcdc;
+    }
 /* header 끝 */
 
 /* main 시작 */

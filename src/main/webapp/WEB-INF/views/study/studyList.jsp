@@ -1,15 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/home.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/studyList.css">
+
 </head>
 <body>
 
-
+<c:import url="../temp/header.jsp"></c:import>
 <!-- ======================================== 섹션=============================================  -->
 <section>
 <div class="top">
@@ -58,11 +61,10 @@
 
 
 </div>
-
-
 </section>
 <!-- ======================================== 섹션END==========================================  -->
 
+<c:import url="../temp/footer.jsp"></c:import>
 
 </body>
 </html>
