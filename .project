@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-<<<<<<< HEAD
-	<name>final</name>
-=======
-	<name>spring_final</name>
->>>>>>> 9c013e03aa40f474effc3f1d305250aba5db704f
+
+	<name>learn_run</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -41,10 +38,7 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
-<<<<<<< HEAD
-		<nature>org.eclipse.jem.workbench.JavaEMFNature</nature>
-=======
->>>>>>> 9c013e03aa40f474effc3f1d305250aba5db704f
+
 		<nature>org.springframework.ide.eclipse.core.springnature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
