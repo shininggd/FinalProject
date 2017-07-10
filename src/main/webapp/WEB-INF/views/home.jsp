@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 	<title>Home</title>
@@ -14,43 +14,16 @@
 <script src="<%=application.getContextPath()%>/resources/js/slider.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/slide.css">
 <!-- 메인화면 slide 소스 끝 -->
-<!-- 메인화면 css -->
-<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/index.css">
 
+<!-- 메인화면 css -->
+<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/home.css">
 
 </head>
 <body>
-<header>
-<div id="level_test_banner">
-<div id="level_test_banner_content">
-			<a href="#" id="banner_content">내용</a>
-		</div>
-		</div>
-	<div id="header_content">
-		<div id="header_menu">
-			<div id="header_logo">logo</div>
-				<article id="header-left-menus">
-					<a href="#">메뉴1<span class="arrow_icon"></span></a>
-					<span class="bar"></span>
-					<a href="#">메뉴2<span class="arrow_icon"></span></a>
-					<span class="bar"></span>
-					<a href="#">메뉴33<span class="arrow_icon"></span></a>
-					<span class="bar"></span>
-				</article>
-						<a class="sear_form"></a>
-						<article id="header-right-menus">
-						<a id="header_search"></a>
-						<a href="#">로그인<span class="arrow_icon"></span></a>
-						<span class="bar"></span>
-						<a href="#">회원가입<span class="arrow_icon"></span></a>
-						<span class="bar"></span>
-						<a href="#">여기 뭐넣지<span class="arrow_icon"></span></a>
-						<span class="bar"></span>
-						</article>
-		
-		</div>
-	</div>
-</header>
+
+<c:import url="temp/header.jsp"></c:import>
+<!-- main 시작 -->
+
 
 <section id="main_wrap">
 <!-- 메인화면 slide 시작 -->
@@ -79,10 +52,13 @@
 <div id="introduce"></div>
 <div id="exex3"></div>
 </section>
+<img alt="" src="./resources/a.jpg">
 
-<footer id="main_footer">
 
-</footer>
 
+<!-- main 끝 -->
+
+
+<c:import url="temp/footer.jsp"></c:import>
 </body>
 </html>
