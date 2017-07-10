@@ -120,7 +120,132 @@ body {
 /* footer 시작 */
 #main_footer{
 	width: 100%;
-	height: 200px;
-	background-color: black;
+	position : relative;
+	margin-top: -418px;
+	z-index: 50;
+	height: 418px;
+	background: #1e1e1e;
 }
+
+#main_footer li {
+	text-align: -webkit-match-parent;
+
+}
+
+#main_footer a {
+	text-decoration: none;
+}
+
+
+#main_footer .customer-center-bg {
+	position: absolute;
+    right: 0;
+    width: calc((100% - 960px)/2 + 269px);
+    height: 345px;
+    background: #7ab6b4;
+}
+
+#main_footer .footer-content {
+	position: relative;
+    margin: 0 auto;
+    padding-top: 54px;
+    width: 60pc;
+}
+
+#main_footer .footer-content .logo {
+	float: left;
+    width: 72px;
+    height: 54px;
+    background: transparent url(https://cdn.studysearch.co.kr/static/images/icon_asset_footer.e41e4ab8e66d.png);
+    text-indent: -9999em;
+}
+
+#main_footer .footer-content .links {
+	margin-left: 99pt;
+	width: auto;
+	padding: 0;
+}
+
+#main_footer .footer-content .links>li {
+	vertical-align: top;
+    display: inline-block;
+    width: 207px;
+    line-height: 1.6em;
+}
+
+#main_footer .footer-content .links>li .title {
+	text-indent: -9999em;
+    margin-bottom: 6px;
+}
+
+#main_footer .footer-content .links>li .title.company {
+	background: transparent url(https://cdn.studysearch.co.kr/static/images/icon_asset_footer.e41e4ab8e66d.png)no-repeat 0 -102px;
+}
+
+#main_footer .footer-content .links>li .title.support {
+	    background: transparent url(https://cdn.studysearch.co.kr/static/images/icon_asset_footer.e41e4ab8e66d.png)no-repeat 0 -162px;
+}
+
+#main_footer .footer-content .links>li .title.policies {
+	background: transparent url(https://cdn.studysearch.co.kr/static/images/icon_asset_footer.e41e4ab8e66d.png)no-repeat 0 -14pc;
+}
+
+#main_footer .footer-content .links>li .title.customer-center {
+	background: transparent url(https://cdn.studysearch.co.kr/static/images/icon_asset_footer.e41e4ab8e66d.png)no-repeat 0 -286px;
+}
+
+#main_footer .footer-content .links>li.customer-center-wrap .description {
+	margin-top: 10px;
+    font-size: 9pt;
+    line-height: 2em;
+    color: #fff;
+}
+
+#main_footer .footer-content .links>li.customer-center-wrap .operation-hours {
+	font-size: 15pt;
+    color: #fff;
+    font-weight: 600;
+}
+
+#main_footer .footer-content .links>li.customer-center-wrap .operation-days {
+	font-size: 9pt;
+    color: hsla(0,0%,100%,.6);
+}
+
+.footer_ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.footer_ul li {
+	display: list-item;
+    text-align: -webkit-match-parent;
+    line-height: 1.6em;
+}
+
+.footer_ul li a {
+	color: #b4b4b4;
+    font-size: 9pt;
+}
+
+#main_footer .footer-content .company-info {
+	height: 72px;
+    line-height: 72px;
+    margin-top: 72px;
+    font-size: 9pt;
+    border-top: 1px solid #2f2f2f;
+}
+
+#main_footer .footer-content .company-info .column {
+	display: inline-block;
+    color: #747474;
+}
+
+#main_footer .footer-content .company-info .slash {
+	color: #3c3c3c;
+    padding: 0 4px;
+}
+
+
 /* footer 끝 */
