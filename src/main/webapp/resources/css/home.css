@@ -121,17 +121,51 @@ body {
 	width: 39%;
 	height: 100%;
 	float: right;
-/* 	margin-left: 13%; */
+ 	margin-left: 13%;
 }
 .banner_top_text{
     width: 390px;
-    height: 22px;	
+    height: 22px;
+    margin: 0 auto;
+    margin-top: 100px;
 }
-.banner_content > div > span{
+.area, .level{	
 	font-size: 1pc;
-    font-weight: 500;
+    font-weight: 600;
     color: #fff;
 }
+.bar{
+	display: inline-block;
+    width: 2px;
+    height: 9pt;
+    background: #fff;
+    margin: 0 9pt;
+}
+.banner_title{
+	margin: 24px 88px 36px 0;
+    font-size: 36px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.43em;
+}
+.banner_bottom_text{
+	position: absolute;
+    bottom: 98px;
+    width: 138.52px;
+    height: 29px;
+}
+.price_value{
+	color: #fff;
+    font-weight: 700;
+    font-size: 15pt;
+    margin-right: 9px;
+}
+.price_unit{
+	font-size: 14px;
+    font-weight: 200;
+    color: hsla(0,0%,100%,.7);
+}
+
 /*병훈 슬라이드 */
 /* main 끝 */
 

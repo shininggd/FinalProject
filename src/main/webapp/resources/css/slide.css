@@ -5,6 +5,11 @@
 	display:block;
 	opacity:0.4;
 }
+.uk-slider li.uk-slide-after .banner_content,
+.uk-slider li.uk-slide-before .banner_content{
+	display:block;
+	opacity:0.4;
+}
 .uk-slider{
 	transition:transform 300ms linear !important;
 }
@@ -19,6 +24,7 @@
    	transition: opacity 0.5s ease-in-out;
    	margin: 0;
 }
+
 .uk-slider a, .uk-slider img{
 	/* width:100%; */
 }
