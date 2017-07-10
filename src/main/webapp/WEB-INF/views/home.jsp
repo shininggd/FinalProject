@@ -24,7 +24,6 @@
 <c:import url="temp/header.jsp"></c:import>
 <!-- main 시작 -->
 
-
 <section id="main_wrap">
 <!-- 메인화면 slide 시작 -->
 <div id="lecture_banner">
@@ -68,8 +67,6 @@
 <div id="exex3"></div>
 </section>
 <img alt="" src="./resources/a.jpg">
-
-
 
 <!-- main 끝 -->
 
