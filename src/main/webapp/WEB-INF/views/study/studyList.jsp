@@ -6,15 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/home.css">
+<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/basic_table.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyList.css">
 
 </head>
 <body>
-
 <c:import url="../temp/header.jsp"></c:import>
 <!-- ======================================== 섹션=============================================  -->
-<section>
+<section id="main_section">
 <div class="top">
 	<div class="topBox">
 		<br>
@@ -52,7 +51,7 @@
 
 </div>
 <div class="bottom">
-	<div class="bottomBox">
+	<div class="main_container">
 		<p class="bottomTitle">개의 스터디</p>
 	</div>
 	

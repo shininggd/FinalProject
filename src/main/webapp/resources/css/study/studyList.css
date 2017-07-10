@@ -5,11 +5,12 @@
  .top{
  	width: 100%;
  	height: 350px;
- 	background-position: 50%;
+	background-position:50%;
  	background-image: url('/learn_run/resources/img/studyImage.png');
  	background-repeat: no-repeat;
  	background-size: 100%;
  	overflow: hidden; 
+ 
  }
  .topBox{
  	width: 320px; 
@@ -31,6 +32,7 @@
  
  /*중간부분  */
  .mid{
+ 	
  	width: 100%;
  	height: 230px;
  	
@@ -101,14 +103,7 @@
  background-color: #ebebeb;
  overflow: hidden;
  }
- .bottomBox{
- overflow: hidden;
- margin: 0 auto;
- background-color: red;
- width: 50%;
- height: 100%;
- 
- }
+
  .bottomTitle{
  	font-size: 16pt;
  }
