@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/basic_table.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyList.css">
 <style type="text/css">
@@ -108,7 +109,6 @@ hr{
 <div class="bottom">
 	<div class="main_container">
 		<p class="bottomTitle">개의 스터디</p>
-<<<<<<< HEAD
 		
 			
 				<c:forEach items="${list }" var="i"  varStatus="s" >
@@ -135,14 +135,7 @@ hr{
 						
 							
 				</c:forEach>
-		
-
-			
 	
-		
-=======
-		<%=application.getContextPath()%>
->>>>>>> footer
 	</div>
 	
 	
