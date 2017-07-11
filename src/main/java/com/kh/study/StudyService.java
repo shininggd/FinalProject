@@ -12,8 +12,8 @@ public class StudyService {
 	@Autowired
 	private StudyDAO studyDAO;
 	
-	public List<StudyDTO> list(){
-		return studyDAO.list();
+	public List<StudyDTO> list(ListInfo listInfo){
+		return studyDAO.list(listInfo);
 		
 	}
 	public List<StudyDTO> homeList(ListInfo listInfo){

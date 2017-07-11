@@ -3,17 +3,28 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="StudyMapper">
-  <sql id="search">
+   <sql id="categoryHome">
  	<trim prefix="where" prefixOverrides="and || or">
   		<if test="find == 'category'">category like '%' || #{search} || '%'</if>  
   	</trim>
   </sql>
-  <select id="list" resultType="com.kh.study.StudyDTO">
-  	select * from study order by num desc
+  <sql id="searchList">
+ 	<trim prefix="where" prefixOverrides="and || or">
+  		<if test="find1 == 'category'">category like '%' || #{search1} || '%'</if>
+  	</trim>
+  </sql>
+  <select id="searchList" resultType="com.kh.study.StudyDTO" parameterType="java.util.Map">
+  	select * from (select rownum R, S.* from (select * from study where
+  	 category like '%' || #{search1} || '%'
+  		<if test="search2 != null">and location like '%' || #{search2} || '%'</if>
+  		<if test="search3 != null">and lv like '%' || #{search3} || '%'</if>
+  	 order by num desc) S) where R between 1 and 6 
   </select>
+  
+  
   <select id="homeList" resultType="com.kh.study.StudyDTO" parameterType="com.kh.util.ListInfo">
   	 select * from (select rownum R, S.* from (select * from study  
-  	 <include refid="search"/>
+  	 <include refid="categoryHome"/>
   	 order by num desc) S) where R between 1 and 3 
   </select>
   

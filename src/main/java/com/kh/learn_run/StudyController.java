@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 import com.kh.study.StudyService;
+import com.kh.util.ListInfo;
 
 @Controller
 @RequestMapping(value = "/study", method = RequestMethod.GET)
@@ -21,9 +22,9 @@ public class StudyController {
 	private StudyService studyService;
 	
 	@RequestMapping(value = "studyList", method = RequestMethod.GET)
-	public void list(Model model) {
+	public void list(Model model,ListInfo listInfo) {
 		
-		model.addAttribute("list",studyService.list());
+		model.addAttribute("list",studyService.list(listInfo));
 		
 		
 		

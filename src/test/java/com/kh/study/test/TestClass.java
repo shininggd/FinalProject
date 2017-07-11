@@ -17,12 +17,12 @@ public class TestClass extends MyAbstarctTestUnit{
 	private StudyDAO dao; 
 	@Test
 	public void test() {
+		
 		ListInfo listInfo = new ListInfo();
-		List<StudyDTO> ar = dao.homeList(listInfo);
-		System.out.println(ar.size());
-		System.out.println(dao.homeList(listInfo).get(1).getNum());
-		System.out.println(dao.homeList(listInfo).get(2).getNum());
-		System.out.println(ar.get(0).getNum());
+		listInfo.setFind("category/location/lv");
+		listInfo.setSearch("영어회화/none/none");
+		List<StudyDTO> ar = dao.list(listInfo);
+		
 		
 	}
 
