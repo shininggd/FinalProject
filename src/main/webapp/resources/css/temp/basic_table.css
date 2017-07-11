@@ -156,7 +156,7 @@ body {
 	float: left;
     width: 72px;
     height: 54px;
-    background: transparent url(https://cdn.studysearch.co.kr/static/images/icon_asset_footer.e41e4ab8e66d.png);
+    background: transparent url(/learn_run/resources/img/temp/footer_img.png);
     text-indent: -9999em;
 }
 
@@ -179,19 +179,19 @@ body {
 }
 
 #main_footer .footer-content .links>li .title.company {
-	background: transparent url(https://cdn.studysearch.co.kr/static/images/icon_asset_footer.e41e4ab8e66d.png)no-repeat 0 -102px;
+	background: transparent url(/learn_run/resources/img/temp/footer_img.png)no-repeat 0 -102px;
 }
 
 #main_footer .footer-content .links>li .title.support {
-	    background: transparent url(https://cdn.studysearch.co.kr/static/images/icon_asset_footer.e41e4ab8e66d.png)no-repeat 0 -162px;
+	    background: transparent url(/learn_run/resources/img/temp/footer_img.png)no-repeat 0 -162px;
 }
 
 #main_footer .footer-content .links>li .title.policies {
-	background: transparent url(https://cdn.studysearch.co.kr/static/images/icon_asset_footer.e41e4ab8e66d.png)no-repeat 0 -14pc;
+	background: transparent url(/learn_run/resources/img/temp/footer_img.png)no-repeat 0 -14pc;
 }
 
 #main_footer .footer-content .links>li .title.customer-center {
-	background: transparent url(https://cdn.studysearch.co.kr/static/images/icon_asset_footer.e41e4ab8e66d.png)no-repeat 0 -286px;
+	background: transparent url(/learn_run/resources/img/temp/footer_img.png)no-repeat 0 -286px;
 }
 
 #main_footer .footer-content .links>li.customer-center-wrap .description {

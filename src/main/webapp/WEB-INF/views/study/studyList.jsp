@@ -53,6 +53,7 @@
 <div class="bottom">
 	<div class="main_container">
 		<p class="bottomTitle">개의 스터디</p>
+		<%=application.getContextPath()%>
 	</div>
 	
 	
