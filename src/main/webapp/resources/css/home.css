@@ -102,7 +102,7 @@ body {
 }
 #main_wrap{
 	width: 100%;
-	height: 900px;
+	min-height: 900px;
 }
 #lecture_banner{
 	position: relative;

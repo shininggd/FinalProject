@@ -9,61 +9,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/basic_table.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyList.css">
-<style type="text/css">
 
-.listBox{
-	width: 270px;
-	height: 400px;
-	display: inline-block;
-	overflow: hidden;
-	margin-left: 30px;
-	margin-top: 10px;
-	background-color: white;
-	
-}
-hr{
-	width:92.5%;
-	margin-left: 30px;
-	margin-top: 10px;
-}
-.boxTop{
-	width: 100%;
-	height: 5px;
-	text-align: center;
-	margin-top: 10px;
-	color: #a0a0a0;
-}
-.boxMiddle_1{
-	width: 100%;
-	min-height: 30px;
-	margin-top:30px;
-	text-align: center;
-	font-size: 20px;
-	overflow: hidden;
-}
-.boxMiddle_2{
-	margin-top: 10px;
-	width: 100%;
-	height: 20px;
-	text-align: center;
-	color: #f48210;
-
-}
-.people{
-	font-size: 5px;    
-	color: #a0a0a0;
-}
-.boxBottom{
-	margin-top: 10px;
-	position: static;
-	width: 100%;
-	min-height: 15.5pc;
-	background-color: red;
-	background-size: cover;
-}
-
-
-</style>
 </head>
 <body>
 <c:import url="../temp/header.jsp"></c:import>
@@ -116,7 +62,7 @@ hr{
 						${i.location } | ${i.lv }
 						</div>
 						<div class="boxMiddle_1">
-							${i.title }
+							 ${i.title }
 						</div>
 						<div class="boxMiddle_2">
 							<fmt:formatNumber type="currency" currencySymbol="">${i.price }</fmt:formatNumber>원 <span class="people">${i.people }명</span> 
@@ -140,11 +86,6 @@ hr{
 	
 		
 	</div>
-	
-	
-	
-
-
 </div>
 </section>
 <!-- ======================================== 섹션END==========================================  -->
