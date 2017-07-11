@@ -6,6 +6,7 @@
 <head>
 	<title>Home</title>
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/home.css">
+<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
 </head>
 <body>
 
