@@ -17,7 +17,11 @@
 
 <!-- 메인화면 css -->
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/home.css">
+<<<<<<< HEAD
 
+=======
+<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
+>>>>>>> footer
 </head>
 <body>
 
