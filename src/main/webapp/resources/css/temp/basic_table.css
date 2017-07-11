@@ -10,13 +10,13 @@ body {
 	min-height: 700px;
 	height: auto;
 	margin: 0 auto;
-	overflow: hidden;
 }
  .main_container{
  overflow: hidden;
  margin: 0 auto;
  width: 50%;
  height: 100%;
+ padding-bottom: 100px;
  }
 
 /* main 끝 */

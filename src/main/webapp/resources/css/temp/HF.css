@@ -101,8 +101,8 @@ display: inline-block;
 /* footer 시작 */
 #main_footer{
 	width: 100%;
-	position : relative;
-	margin-top: -418px;
+	/* position : relative;
+	margin-top: -418px; */
 	z-index: 50;
 	height: 418px;
 	background: #1e1e1e;
