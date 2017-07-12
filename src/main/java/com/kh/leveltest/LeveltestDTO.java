@@ -6,7 +6,6 @@ private String category;
 private String question;
 private String answer;
 
-
 public int getNum() {
 	return num;
 }
@@ -31,5 +30,6 @@ public String getAnswer() {
 public void setAnswer(String answer) {
 	this.answer = answer;
 }
+
 
 }
