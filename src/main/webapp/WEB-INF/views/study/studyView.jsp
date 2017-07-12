@@ -23,7 +23,7 @@
 	.productIntroduce{
 	margin-top: 10px;
     margin: 0 auto;
-    width: 696px;
+    width: 780px;
     overflow: hidden;
     background-color: white;
 	}
@@ -31,7 +31,7 @@
 	
 	/*이미지 박스  */
 	.imageBox{
-	width: 696px;
+	width: 780px;
 	height: 400px;
 	overflow: hidden;;
 	background-color: lime;
@@ -72,7 +72,7 @@
 	
 	/* 타이틀 박스  */
 	.titleBox{
-		width: 696px;
+		width: 780px;
 		height: 221px;
 		
 		
@@ -108,7 +108,7 @@
 	.introduceContent{
 	
 	float:right;
-	margin-right: 5px;
+	margin-right: 20px;
 	padding: 60px 0;
     width: 570px;
 	}
@@ -123,7 +123,7 @@
 		
 	}
 	.introduceBottom{
-	margin-right: 5px;
+	margin-right: 20px;
     float:right;
     padding: 60px 0;
     width: 570px;
