@@ -20,5 +20,11 @@ public class StudyService {
 		return studyDAO.homeList(listInfo);
 		
 	}
+	public int regist(StudyDTO studyDTO){
+		return studyDAO.regist(studyDTO);
+	}
+	public StudyDTO studyView(int num){
+		return studyDAO.studyView(num);
+	}
 
 }

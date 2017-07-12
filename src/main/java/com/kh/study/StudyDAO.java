@@ -60,4 +60,14 @@ public class StudyDAO {
 		return ar;
 		
 	}
+	public int regist(StudyDTO studyDTO){
+		return sqlSession.insert(NAMESPACE+"studyRegist",studyDTO);
+	}
+	public StudyDTO studyView(int num){
+		return sqlSession.selectOne(NAMESPACE+"studyView", num);
+	}
+	
+	
+	
+	
 }

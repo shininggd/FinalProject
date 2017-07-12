@@ -19,8 +19,6 @@
 			document.frm.find.value = find;
 			document.frm.search.value = search;
 			document.frm.submit();
-			
-		
 		});
 		
 	});
@@ -47,13 +45,15 @@
 			<div class="midInner">
 			<form action="studyList" name="frm">
 				<div class="innerBox">
-				지역 <select name="location">
+				장소 <select name="location">
+						<option value="all">전체보기</option>
 						<option value="온라인">온라인</option>
 						<option value="천호동">천호동</option>
 					</select>
 				</div>
 				<div class="innerBox" >
 				레벨 <select name="lv">
+						<option value="all">전체보기</option>
 						<option value="초보">초보</option>
 						<option value="중수">중수</option>
 						<option value="고수">고수</option>
@@ -84,7 +84,7 @@
 						${i.location } | ${i.lv }
 						</div>
 						<div class="boxMiddle_1">
-							 ${i.title }
+							<a href="studyView?num=${i.num }">${i.title }</a> 
 						</div>
 						<div class="boxMiddle_2">
 							<fmt:formatNumber type="currency" currencySymbol="">${i.price }</fmt:formatNumber>원 <span class="people">${i.people }명</span> 
