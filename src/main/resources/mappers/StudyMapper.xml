@@ -5,9 +5,9 @@
   <mapper namespace="StudyMapper">
    <sql id="list">
  	<trim prefix="where" prefixOverrides="and || or">
-  		<if test="search1 != null">category like '%' || #{search1} || '%'
-  			<if test="search2 != null">and location like '%' || #{search2} || '%'</if>
-  			<if test="search3 != null">and lv like '%' || #{search3} || '%'</if>
+  		<if test="search1 != null and find1 == 'category'">category like '%' || #{search1} || '%'
+  			<if test="search2 != null and find2 == 'location'">and location like '%' || #{search2} || '%'</if>
+  			<if test="search3 != null and find3 == 'lv'">and lv like '%' || #{search3} || '%'</if>
   	 </if>
   	</trim>
   </sql>

@@ -36,6 +36,9 @@ public class StudyDAO {
 		System.out.println(sar[2]+"3¹øÂ°");
 		List<StudyDTO> ar = new ArrayList<StudyDTO>();
 		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("find1", far[0]);
+		map.put("find2", far[1]);
+		map.put("find3", far[2]);
 		map.put("search1", sar[0]);
 		map.put("search2", sar[1]);
 		map.put("search3", sar[2]);
