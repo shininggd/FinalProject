@@ -5,7 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/LevelTestQuiz.css">
+<script src="<%=application.getContextPath()%>/resources/js/LevelTestQuiz.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -17,8 +20,18 @@
 	<div id="intro_Lavel">LEVEL TEST</div>
 		<div id="intro_title">당신의 수준을 측정!</div>
 				<div id="intro_content">10문제로 너의 Class를 평가해주마</div>
-					<button id="test_start_button">TEST START</button>
+					<input type="button" id="test_start_button" value="TEST START">
+					<div>
+					</div>
 	</section>
-</div>
+	</div>
+			<!-- 카테고리 선택 -->
+			<div id="category_select">
+			<button class ="cate" name="category" value="E">영어</button>
+			<button class ="cate" name="category" value="C">중국어</button>
+			<button class ="cate" name="category" value="P">프로그래밍</button>
+			</div>
+			<!-- 카테고리 선택 -->
+
 </body>
 </html>

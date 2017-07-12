@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="LeveltestMapper">
-  <select id="TQlist" resultType="com.kh.leveltest.LeveltestDTO">
-  select * from SLEVEL_QUESTION where #{category}
+  <select id="TQlist" parameterType="java.lang.String"   resultType="com.kh.leveltest.LeveltestDTO">
+  select * from slevel_question where category=#{category}
   </select>
   </mapper>

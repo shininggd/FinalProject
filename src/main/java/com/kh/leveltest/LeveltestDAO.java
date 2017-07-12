@@ -14,10 +14,9 @@ public class LeveltestDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "LeveltestMapper.";
 	
-	public List<LeveltestDTO> TQlist() throws Exception{
-		List<LeveltestDTO> ar = new ArrayList<LeveltestDTO>();
-		ar= sqlSession.selectList(NAMESPACE+"TQlist");
-		return ar;
+	public LeveltestDTO TQlist(String category) throws Exception{
+		LeveltestDTO dto= sqlSession.selectOne(NAMESPACE+"TQlist", category);
+		return dto;
 	}
 	
 }

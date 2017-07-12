@@ -10,8 +10,8 @@ public class LeveltestService {
 	@Autowired
 	LeveltestDAO leveltestDAO;
 	
-	public List<LeveltestDTO> TQlist() throws Exception{
-		List<LeveltestDTO> ar = leveltestDAO.TQlist();
-		return ar;
+	public LeveltestDTO TQlist(String category) throws Exception{
+		LeveltestDTO dto = leveltestDAO.TQlist(category);
+		return dto;
 	}
 }
