@@ -4,11 +4,6 @@
 <!DOCTYPE html>
 <!-- header 시작 -->
 <header>
-<div id="level_test_banner">
-<div id="level_test_banner_content">
-			내용
-		</div>
-		</div>
 	<div id="header_content">
 		<div id="header_menu">
 			<div id="header_logo">logo</div>
