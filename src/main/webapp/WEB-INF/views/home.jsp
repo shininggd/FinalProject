@@ -87,7 +87,7 @@
 			</div>
 			<div class="middleRight">
 				<div class="viewBox">
-					<a class="viewAll" href="./study/studyList?find=category/location/lv&search=영어회화/all/all">전체보기 〉</a>
+					<a class="viewAll" href="./study/studyList?find=category,location,lv&search=영어회화,all,all">전체보기 〉</a>
 				</div>
 			</div>
 		</div>

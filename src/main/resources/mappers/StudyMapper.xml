@@ -3,21 +3,26 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="StudyMapper">
+   <sql id="list">
+ 	<trim prefix="where" prefixOverrides="and || or">
+  		<if test="search1 != null">category like '%' || #{search1} || '%'
+  			<if test="search2 != null">and location like '%' || #{search2} || '%'</if>
+  			<if test="search3 != null">and lv like '%' || #{search3} || '%'</if>
+  	 </if>
+  	</trim>
+  </sql>
+   
    <sql id="categoryHome">
  	<trim prefix="where" prefixOverrides="and || or">
-  		<if test="find == 'category'">category like '%' || #{search} || '%'</if>  
+  		<if test="find == 'category'">
+  		category like '%' || #{search} || '%'
+  		</if>  
   	</trim>
   </sql>
-  <sql id="searchList">
- 	<trim prefix="where" prefixOverrides="and || or">
-  		<if test="find1 == 'category'">category like '%' || #{search1} || '%'</if>
-  	</trim>
-  </sql>
+
   <select id="searchList" resultType="com.kh.study.StudyDTO" parameterType="java.util.Map">
-  	select * from (select rownum R, S.* from (select * from study where
-  	 category like '%' || #{search1} || '%'
-  		<if test="search2 != null">and location like '%' || #{search2} || '%'</if>
-  		<if test="search3 != null">and lv like '%' || #{search3} || '%'</if>
+  	select * from (select rownum R, S.* from (select * from study
+  	 <include refid="list"></include>
   	 order by num desc) S) where R between 1 and 6 
   </select>
   

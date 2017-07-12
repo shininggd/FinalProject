@@ -23,8 +23,8 @@ public class StudyDAO {
 	public List<StudyDTO> list(ListInfo listInfo){
 		String find =  listInfo.getFind();
 		String search = listInfo.getSearch();
-		String [] far = find.split("/");
-		String [] sar = search.split("/");	
+		String [] far = find.split(",");
+		String [] sar = search.split(",");	
 		if(sar[1].equals("all")){
 			sar[1] = "";
 		}
@@ -32,17 +32,14 @@ public class StudyDAO {
 			sar[2] = "";
 		}
 		System.out.println(sar[0]);
-		System.out.println(sar[1]);
-		System.out.println(sar[2]);
+		System.out.println(sar[1]+"2번째");
+		System.out.println(sar[2]+"3번째");
 		List<StudyDTO> ar = new ArrayList<StudyDTO>();
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("find1", far[0]);
-		map.put("find2", far[1]);
-		map.put("find3", far[2]);
 		map.put("search1", sar[0]);
 		map.put("search2", sar[1]);
 		map.put("search3", sar[2]);
-		ar = sqlSession.selectList(NAMESPACE+"list", map);
+		ar = sqlSession.selectList(NAMESPACE+"searchList", map);
 		return ar;
 		
 	}

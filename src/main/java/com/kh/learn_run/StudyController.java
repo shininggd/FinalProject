@@ -1,9 +1,5 @@
 package com.kh.learn_run;
 
-
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,9 +18,10 @@ public class StudyController {
 	private StudyService studyService;
 	
 	@RequestMapping(value = "studyList", method = RequestMethod.GET)
-	public void list(Model model,ListInfo listInfo) {
-		
+	public void list(Model model,ListInfo listInfo,String search) {
+		String [] ar = search.split(",");
 		model.addAttribute("list",studyService.list(listInfo));
+		model.addAttribute("category",ar[0]);
 		
 		
 		

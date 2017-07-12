@@ -10,7 +10,21 @@
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/basic_table.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyList.css">
-
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#btn").click(function() {
+			var find = "category,location,lv";
+			var search = "${category},"+document.frm.location.value+","+document.frm.lv.value;
+			document.frm.find.value = find;
+			document.frm.search.value = search;
+			document.frm.submit();
+			
+		
+		});
+		
+	});
+</script>
 </head>
 <body>
 <c:import url="../temp/header.jsp"></c:import>
@@ -21,7 +35,7 @@
 		<br>
 	
 		<span class="innerText">&ensp; 다양한</span><br>
-		<span class="innerText">&ensp; 영어회화</span><br>
+		<span class="innerText">&ensp; ${category }</span><br>
 	</div>	
 </div>
 <div class="mid">
@@ -31,20 +45,27 @@
 			<br>
 			<br>
 			<div class="midInner">
-			<div class="innerBox">
-			지역 <select >
-					<option>온라인</option>
-				</select>
-			</div>
-			<div class="innerBox" >
-			레벨 <select >
-					<option>초보</option>
-				</select>
-			</div>
-			<div class="innerBox2">
-			<input type="button" value="필터검색         →">
-			</div>
-			
+			<form action="studyList" name="frm">
+				<div class="innerBox">
+				지역 <select name="location">
+						<option value="온라인">온라인</option>
+						<option value="천호동">천호동</option>
+					</select>
+				</div>
+				<div class="innerBox" >
+				레벨 <select name="lv">
+						<option value="초보">초보</option>
+						<option value="중수">중수</option>
+						<option value="고수">고수</option>
+					</select>
+				</div>
+				
+				<div class="innerBox2">
+				<input type="hidden" name="find">
+				<input type="hidden" name="search">
+				<input type="button" id="btn" value="필터검색         →">
+				</div>
+			</form>
 			</div>
 			
 		
