@@ -26,7 +26,133 @@ $(function(){
 		$("#joinForm").css("display","none");
 	});
 	
-	
+	var id_check = false;
+  	var pw_check = false;
+  	var all_check = false;
+  	
+  	var ch_id = "";
+  	var ch_pw = $("#pw").val();
+
+//id중복확인
+  		$("#id").change(function(){
+  			ch_id = $(this).prop("value")
+  			$.post("member/IdCheck",
+  					{id:ch_id},
+  					function(data) {
+						var reg_id = /^[a-z0-9]{6,20}$/;
+						var R_id = data.trim();
+						
+						//alert(R_id);
+						if(R_id != 'true'){
+							$("#idmessage").html("<font color=red> 존재하는 아이디입니다.</font>");
+							id_check = false;
+						}
+						
+						if(R_id=='true'){
+							
+							if(!reg_id.test(ch_id)){
+								$("#idmessage").html("<font color=red>영문, 숫자를 혼합하여 6~20자 이내로 입력해주세요.</font");
+								id_check = false;
+							}
+							if(reg_id.test(ch_id)){
+								$("#idmessage").html("<font color=green>사용 가능한 아이디입니다.</font>");
+								id_check = true;
+							}
+						}
+						
+					});
+		});
+  		
+  		//pw일치여부
+          $("#pw").change(function(){
+           
+           if($("#pw").val()==$("#pw2").val()){
+              $("#pwmessage").html("<font color=blue>사용 가능한 비밀번호 입니다.</font>");
+              pw_check = true; 
+           }else{
+              $("#pwmessage").html("<font color=red>비밀번호가 일치하지 않습니다.</font>");
+              pw_check = false;
+           }
+           
+        });       
+  		
+         $("#pw2").change(function(){
+             
+             if($("#pw").val()==$("#pw2").val()){
+                $("#pwmessage").html("<font color=blue>사용 가능한 비밀번호 입니다.</font>");
+                pw_check = true; 
+             }else{
+                $("#pwmessage").html("<font color=red>비밀번호가 일치하지 않습니다.</font>");
+                pw_check = false;
+             }
+             
+          });       
+  		
+         
+        //회원가입버튼을 눌렀을 때
+  		$("#join").click(function() {
+			
+  			if(	$("#id").val != "" &&
+  				$("#pw").val != "" &&
+  				$("#pw2").val != "" &&
+  				$("#name").val != "" &&
+  				$("#birth").val != "" &&
+  				$("#email").val != "" &&
+  				$("#telecom").val != "" &&
+  				$("#phone1").val != "" &&
+  				$("#phone2").val != "" &&
+  				$("#phone3").val != "" &&
+  				id_check == true &&
+  				pw_check == true){
+  					all_check = true;
+  				}else {
+  					all_check = false;
+  				}
+  			
+
+  				if($("#id").val() == "" ||
+  					$("#pw").val() == "" ||
+  					$("#pw2").val() == "" ||
+  					$("#name").val() == "" ||
+  					$("#birth").val() == "" ||
+  					$("#email").val() == "" ||
+  					$("#telecom").val() == "" ||
+  					$("#phone1").val()  == "" ||
+  					$("#phone2").val()  == "" ||
+  					$("#phone3").val() == "" ) {
+  						alert("필수 항목을 모두 입력해주세요.");
+  				}
+  				
+  				if(id_check == false){
+  					alert("아이디를 확인해주세요.");
+  					all_check = false;
+  				}
+  				if(pw_check == false){
+  					alert("비밀번호가 일치하지 않습니다.");
+  					all_check = false;
+  				}
+  			
+  				if(all_check == true) {
+  				$("#joinFrm").submit();
+  				}
+  			
+  			});
+  		
+
+		
+		$(".g_check").click(function() {
+			var path = $(this).prop("value");
+			$("#joinFrm").prop("action","member/"+path+"Join");
+		});
+		
+		$(".g_login").click(function() {
+			var joinPath = $(this).prop("value");
+			$("#loginFrm").prop("action", "member/"+path+"Login");
+		});
+		
+		$("#login").click(function() {
+			$("#loginFrm").submit();
+		});
 	
 	/* ---------------------login , join ------------------------------*/
 	
