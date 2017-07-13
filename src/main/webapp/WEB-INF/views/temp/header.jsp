@@ -81,7 +81,7 @@
 							</section>
 							<section class="my_page_list_section">
 								<a class="my_page_menu" href="" style="text-decoration: none;">자주 묻는 질문</a>
-								<a class="my_page_menu logout" href="" style="text-decoration: none;">로그아웃</a>
+								<a class="my_page_menu_logout" href="" style="text-decoration: none; color: #a0a0a0;">로그아웃</a>
 							</section>
 						</section>
 					<!-- 로그인 후 -->
