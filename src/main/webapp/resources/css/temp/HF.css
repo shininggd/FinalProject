@@ -156,6 +156,7 @@ header > #header_content > #header_menu > article > a{
     border: 1px solid #dcdcdc;
     background: #fff;
     z-index: 10;
+    list-style: none;
 }
 #theme_menus_popup > li{
 	display: list-item;
@@ -237,6 +238,7 @@ header > #header_content > #header_menu > article > a{
 #gm_scrollbar_horizontal{
 	height: 6px;
     left: 2px;
+    display: none;
 }
 .thumb{
 	position: relative;
