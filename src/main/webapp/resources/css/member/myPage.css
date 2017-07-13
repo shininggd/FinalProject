@@ -1,0 +1,195 @@
+@CHARSET "UTF-8";
+
+#my_page_header {
+	background-color: #5a5e64;
+	widows: 100%;
+	height: 171px;
+}
+
+#header_content {
+    padding-top: 24px;
+    width: 60pc;
+    margin: 0 auto;
+}
+
+#user-photo {
+	display: inline-block;
+    background-image: url(/learn_run/resources/img/member/defult_user.png);
+    background-size: cover;
+    background-position: 50% 50%;
+    float: left;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+}
+
+#tabs {
+	margin-left: 81pt;
+    padding-top: 22px;
+}
+
+#user_name {
+	box-sizing: border-box;
+    height: 50px;
+    border-bottom: 1px solid #6a6e73;
+    font-size: 16pt;
+    color: #fff;
+    text-align: left;
+}
+
+#tab_box {
+	margin-left: -20px;
+}
+
+.tab {
+    width: 75pt;
+    height: 50px;
+    color: #aeb5be;
+    font-size: 14px;
+    text-decoration: none;
+    float: left;
+    padding-top: 25px;
+}
+
+.tab.selected {
+	color: #fff;
+    border-bottom: 3px solid #ef6c00;
+    font-weight: 700;
+}
+
+#main_section {
+	background-color: #ebebeb;
+}
+
+.main_container {
+	margin: 20px auto 0;
+    width: 500px;
+}
+
+#my_photo {
+	display: inline-block;
+    background-image: url(/learn_run/resources/img/member/defult_user.png);
+    background-size: cover;
+    background-position: 50% 50%;
+    width: 75pt;
+    height: 75pt;
+    border-radius: 50px;
+}
+
+#edit_photo_fieldset {
+	margin: 20px 24px 0;
+    display: inline-block;
+    vertical-align: top;
+    border: none;
+}
+
+#edit_photo_legend {
+	display: block;
+    font-weight: 700;
+    font-size: 8pt;
+    color: #a0a0a0;
+}
+
+#edit_photo_button_label {
+	display: block;
+    margin-top: 10px;
+    outline: 0;
+    width: 6pc;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border: 2px solid #ef6c00;
+    border-radius: 2px;
+    font-size: 9pt;
+    font-weight: 700;
+    color: #ef6c00;
+    cursor: pointer;
+}
+
+#edit_photo_button {
+	display: none;
+}
+
+.introduction {
+	margin-top: 24px;
+    display: block;
+    line-height: 1.6em;
+    color: #505050;
+    font-size: 10pt;
+}
+
+#edit_profile_form {
+	margin-top: 40px;
+}
+
+#my_name {
+	margin-left: 23px;
+	display: block;
+    color: #ef6c00;
+    font-size: 12pt;
+    font-weight: 700;
+}
+
+.profile_label {
+	margin: 0;
+	display: block;
+    color: #ef6c00;
+    font-size: 8pt;
+    font-weight: 700;
+}
+
+.profile_text {
+	display: block;
+    margin-top: 6px;
+    width: 100%;
+    height: 36px;
+    background: transparent;
+    outline: 0;
+    border: none;
+    border-bottom: 1px solid #b4b4b4;
+    font-size: 14pt;
+    margin-bottom: 10px;
+}
+
+.profile_phone {
+    margin-top: 6px;
+    width: 50px;
+    height: 36px;
+    background: transparent;
+    outline: 0;
+    border: none;
+    border-bottom: 1px solid #b4b4b4;
+    font-size: 14pt;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+#profile_submit {
+	margin-top: 40px;
+    width: 100%;
+    height: 3pc;
+    outline: 0;
+    background: #ef6c00;
+    border: none;
+    border-radius: 2px;
+    font-size: 10pt;
+    font-weight: 700;
+    color: #fff;
+}
+
+#member_leave {
+	border-top: 1px solid #d2d2d2;
+    margin-top: 40px;
+}
+
+#member_leave_a {
+	display: block;
+    color: #a0a0a0;
+    text-align: center;
+    margin: 40px 0;
+    font-size: 10pt;
+    border: 2px solid #d2d2d2;
+    padding: 10px;
+    text-decoration: none;
+}
