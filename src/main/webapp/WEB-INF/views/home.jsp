@@ -19,8 +19,7 @@
 <!-- 메인화면 css 시작 -->
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/home.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
-<<<<<<< HEAD
-=======
+
 <!-- 메인화면 css 끝 -->
 <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script type="text/javascript">
@@ -69,7 +68,7 @@ $(document).ready(function(){
     });
 });
 </script>
->>>>>>> gqg
+
 </head>
 <body>
 <c:import url="temp/header.jsp" />
@@ -175,10 +174,7 @@ $(document).ready(function(){
 </div>
 <div id="exex3"></div>
 </section>
-<<<<<<< HEAD
 
-=======
->>>>>>> gqg
 
 <!-- main 끝 -->
 
