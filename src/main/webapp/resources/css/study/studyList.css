@@ -1,5 +1,14 @@
 @CHARSET "UTF-8";
 /* ======================================== 섹션=============================================  */
+  /*a태그 효과 없애기  */
+  .middleTitle{
+  	color: #3c3c3c;
+  	text-decoration: none;
+  }
+    .aBlock{
+  	display: inline-block;
+  }
+  
   
   /*윗부분  */
  .top{

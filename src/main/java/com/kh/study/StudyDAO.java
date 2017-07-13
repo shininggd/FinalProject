@@ -20,7 +20,7 @@ public class StudyDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "StudyMapper.";
 	
-	public List<StudyDTO> list(ListInfo listInfo){
+	public List<StudyDTO> list(ListInfo listInfo)throws Exception{
 		String find =  listInfo.getFind();
 		String search = listInfo.getSearch();
 		String [] far = find.split(",");
@@ -45,17 +45,27 @@ public class StudyDAO {
 		
 	}
 	
-	public List<StudyDTO> homeList(ListInfo listInfo){
+	public List<StudyDTO> homeList(ListInfo listInfo)throws Exception{
 		
 		if(listInfo.getFind()==null||listInfo.getFind()==""){
 			listInfo.setFind("category");
 		}
 		if(listInfo.getSearch()==null||listInfo.getSearch()==""){
-			listInfo.setSearch("ÏòÅÏñ¥ÌöåÌôî");
+			listInfo.setSearch("øµæÓ»∏»≠");
 		}
 		List<StudyDTO> ar = new ArrayList<StudyDTO>();
 		ar = sqlSession.selectList(NAMESPACE+"homeList",listInfo);
 		return ar;
 		
 	}
+	public int regist(StudyDTO studyDTO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"studyRegist",studyDTO);
+	}
+	public StudyDTO studyView(Integer num)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"studyView", num);
+	}
+	
+	
+	
+	
 }
