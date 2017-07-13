@@ -143,6 +143,10 @@ overflow: hidden;
     padding: 5px 13px 5px 12px;
     font-weight: 300;
 }
+.viewAll:HOVER{
+	color: #fff;
+	text-decoration: none;
+}
 
 
 .studyBottom{
@@ -202,6 +206,17 @@ hr{
 	min-height: 17.2pc;
 	background-color: red;
 	background-size: cover;
+}
+  .middleTitle{
+  	color: #3c3c3c;
+  	text-decoration: none;
+  }
+    .aBlock{
+  	display: inline-block;
+  	color: #3c3c3c;
+  }
+a{
+	color: #3c3c3c;
 }
 
 /*리스트 부분 끝  */

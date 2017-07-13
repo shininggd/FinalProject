@@ -16,7 +16,7 @@ public class TestClass extends MyAbstarctTestUnit{
 	@Autowired
 	private StudyDAO dao; 
 	@Test
-	public void test() {
+	public void test()throws Exception {
 		
 		ListInfo listInfo = new ListInfo();
 		listInfo.setFind("category/location/lv");

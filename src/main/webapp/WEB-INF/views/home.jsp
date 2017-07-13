@@ -97,13 +97,17 @@
 		</div>
 		<div class="studyBottom">
 			<div class="main_container">
-				<c:forEach items="${list}" var="i"  varStatus="s" >
+
+
+				<c:forEach items="${list }" var="i"  varStatus="s" >
+				<a href="./study/studyView?num=${i.num }" class="aBlock">
+
 					<div class="listBox">
 						<div class="boxTop">
 						${i.location } | ${i.lv }
 						</div>
 						<div class="boxMiddle_1">
-							${i.title }
+							<span class="middleTitle">${i.title }</span>
 						</div>
 						<div class="boxMiddle_2">
 							<fmt:formatNumber type="currency" currencySymbol="">${i.price }</fmt:formatNumber>원 <span class="people">${i.people }명</span> 
@@ -114,6 +118,7 @@
 						
 						
 					</div>
+					</a>
 					<c:if test="${s.index%3 eq 2 }">
 						
 						<hr>
