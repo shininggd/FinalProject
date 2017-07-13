@@ -146,7 +146,7 @@ $(function(){
 		});
 		
 		$(".g_login").click(function() {
-			var joinPath = $(this).prop("value");
+			var path = $(this).prop("value");
 			$("#loginFrm").prop("action", "member/"+path+"Login");
 		});
 		
@@ -315,14 +315,14 @@ $(function(){
 						</div>
 						<a id="my_page_list_toggle" href="javascript:void(0)">
 							<div class="my_photo"></div>
-							<span class="my_name">가나다</span>
+							<span class="my_name">${member.id }</span>
 							<span class="triangle"></span>
 						</a>
 						<section id="my_page_menus" class="show">
 							<section class="profile_section">
 								<div class="user_photo"></div>
 								<div class="user_name_wrap">
-									<div class="user_name">가나다</div>
+									<div class="user_name">${member.id }</div>
 									<a class="link_to_edit_profile" href="" style="text-decoration: none;">프로필 보기</a>
 								</div>							
 							</section>

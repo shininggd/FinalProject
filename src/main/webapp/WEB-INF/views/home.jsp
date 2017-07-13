@@ -97,7 +97,7 @@
 		</div>
 		<div class="studyBottom">
 			<div class="main_container">
-				<c:forEach items="${list }" var="i"  varStatus="s" >
+				<c:forEach items="${list}" var="i"  varStatus="s" >
 					<div class="listBox">
 						<div class="boxTop">
 						${i.location } | ${i.lv }

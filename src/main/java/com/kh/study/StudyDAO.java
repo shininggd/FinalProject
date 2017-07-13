@@ -31,9 +31,7 @@ public class StudyDAO {
 		if(sar[2].equals("all")){
 			sar[2] = "";
 		}
-		System.out.println(sar[0]);
-		System.out.println(sar[1]+"2¹øÂ°");
-		System.out.println(sar[2]+"3¹øÂ°");
+		
 		List<StudyDTO> ar = new ArrayList<StudyDTO>();
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("find1", far[0]);
@@ -53,7 +51,7 @@ public class StudyDAO {
 			listInfo.setFind("category");
 		}
 		if(listInfo.getSearch()==null||listInfo.getSearch()==""){
-			listInfo.setSearch("¿µ¾îÈ¸È­");
+			listInfo.setSearch("ì˜ì–´íšŒí™”");
 		}
 		List<StudyDTO> ar = new ArrayList<StudyDTO>();
 		ar = sqlSession.selectList(NAMESPACE+"homeList",listInfo);

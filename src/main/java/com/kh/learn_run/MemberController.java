@@ -32,7 +32,7 @@ public class MemberController {
 	@RequestMapping(value="/IdCheck", method=RequestMethod.POST)
 	public String memberIdCheck(String id, Model model) throws Exception{
 		
-		//System.out.println("controller="+id);
+		System.out.println("controller="+id);
 		String result = studentServiceImpl.memberIdCheck(id);
 		if(result == null) {
 			result = "true";
@@ -75,6 +75,8 @@ public class MemberController {
 	
 	@RequestMapping(value="/studentLogin", method=RequestMethod.POST)
 	public ModelAndView studentLogin(MemberDTO memberDTO, HttpSession session)throws Exception{
+		
+		System.out.println("studentLogin");
 		memberDTO = studentServiceImpl.memberLogin(memberDTO, session);
 		String message = "로그인에 실패하였습니다.";
 		if(memberDTO != null){
