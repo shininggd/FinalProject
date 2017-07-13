@@ -18,13 +18,13 @@ public class StudyController {
 	private StudyService studyService;
 	
 	@RequestMapping(value = "studyList", method = RequestMethod.GET)
-	public void list(Model model,ListInfo listInfo,String search) {
+	public void list(Model model,ListInfo listInfo,String search)throws Exception {
 		String [] ar = search.split(",");
 		model.addAttribute("list",studyService.list(listInfo));
 		model.addAttribute("category",ar[0]);
 	}
 	@RequestMapping(value = "studyRegist", method = RequestMethod.GET)
-	public String regist(Model model,StudyDTO studyDTO) {
+	public String regist(Model model,StudyDTO studyDTO)throws Exception {
 		int result = studyService.regist(studyDTO);
 		if(result>0){
 		model.addAttribute("message", "강의등록 성공");
@@ -32,8 +32,8 @@ public class StudyController {
 		return "../home";
 	}
 	@RequestMapping(value = "studyView", method = RequestMethod.GET)
-	public void studyView(Model model/*, int num*/){
-		/*model.addAttribute("dto", studyService.studyView(num));*/
+	public void studyView(Model model, Integer num)throws Exception{
+		model.addAttribute("dto", studyService.studyView(num));
 	}
 	
 }

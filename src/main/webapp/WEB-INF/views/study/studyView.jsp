@@ -10,170 +10,10 @@
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/basic_table.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyList.css">
+<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyView.css">
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 
-<style type="text/css">
-	/* 메인 부분  */
-	.Space{
-		background-color: #ebebeb;
-		position: relative;
-		min-height: 1200px;
-	}
-	/*본문 틀 */
-	.productIntroduce{
-	margin-top: 10px;
-    margin: 0 auto;
-    width: 780px;
-    overflow: hidden;
-    background-color: white;
-	}
-	/*본문 틀  끝*/
-	
-	/*이미지 박스  */
-	.imageBox{
-	width: 780px;
-	height: 400px;
-	overflow: hidden;;
-	background-color: lime;
-	}
-	/*이미지 박스 끝 */
-	
-	/* 레벨 표기 박스 */
-	.levelBox{
-	width: 108px;
-	height: 108px;
-	top:346px;
-	margin-left: 30px;
-	position:absolute;
-    text-align: center;
-    overflow: hidden;
-    background: #ef6c00;
-    
-	}
-	.levelTop{
-	width: 108px;
-	height: 54px;
-	overflow: hidden;
-	text-align: center;
-	color: #ffeb3b;
-    font-weight: 700;
-    font-size: 1pc;
-    line-height: 70px;
-	}
-	.levelBottom{
-	width: 108px;
-	height: 54px;
-	overflow: hidden;
-	font-size: 2pc;
-    color: #fff;
-    line-height: 40px;
-	}
-	/* 레벨 표기 박스 끝 */
-	
-	/* 타이틀 박스  */
-	.titleBox{
-		width: 780px;
-		height: 221px;
-		
-		
-	}
-	.titleLocation{
-		margin-top: 20px;
-		display: inline-block;
-	    width: 100%;
-	    text-align: center;
-	    font-weight: 700;
-	    color: #ef6c00;
-	}
-	.titleMain{
-	margin: 15px 0 0;
-    line-height: 1.5em;
-    text-align: center;
-    font-size: 28pt;
-    color: #3c3c3c;
-    font-weight: 900;
-	}
-	/* 타이틀 박스  끝*/
-	
-	/* 스터디 소개 시작 */
-	.introduceLabel{
-		margin-left: 15px;
-		margin-top: 30px;
-		position: absolute;
-		font-size: 14pt;
-    	font-weight: bolder;
-    	color: #333;
-		
-	}
-	.introduceContent{
-	
-	float:right;
-	margin-right: 20px;
-	padding: 60px 0;
-    width: 570px;
-	}
-	
-	.introduceLabel{
-		margin-left: 15px;
-		margin-top: 30px;
-		position: absolute;
-		font-size: 14pt;
-    	font-weight: bolder;
-    	color: #333;
-		
-	}
-	.introduceBottom{
-	margin-right: 20px;
-    float:right;
-    padding: 60px 0;
-    width: 570px;
-	font-weight: bolder;
-	}
-	/* 스터디 소개 끝 */
-	
-	/*튜터소개 시작  */
-	.tutorLabel{
-		margin-left: 15px;
-		margin-top: 30px;
-		position: absolute;
-		font-size: 14pt;
-    	font-weight: bolder;
-    	color: #333;
-		
-	}
-	.tutorImage{
-	display: block;
-    margin: 35px auto 0;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-	
-	}
-	
-	/*우측 결제창 부분  */
-	.sideBarFixed{
-	overflow: hidden;
-    width: 15pc;
-	height: 400px;
-    background-color: green;
-	position: fixed;
-	top:200px;
-	margin-left: 800px;
-	
-	}
-	.sideBarAbsolute{
-	overflow: hidden;
-	float:left;
-    width: 15pc;
-    background-color: green;
-	height: 400px;
-	position: absolute;
-	border: solid red 1px;
-	bottom: 0px;
-	margin-left: 800px;
-	}
 
-</style>
 </head>
 <body>
 <c:import url="../temp/header.jsp"></c:import>
@@ -184,59 +24,57 @@
 <div class="productIntroduce">
 	
 	<div class="sideBarFixed">
-
+		<div class="sideTop">
+		${dto.title }
+		</div>
+		
+		<hr class="sideHr">
+		<div class="sideMiddle">
+		<img class="radioImage" src="<c:url value="/resources/img/study/radioCircle.jpg"/>"> <span class="middleText"> <fmt:formatDate value="${dto.sDate }" pattern="MM/dd"/>  - <fmt:formatDate value="${dto.lDate }" pattern="MM/dd"/></span>
+		
+		</div>
+		<hr class="sideHr">
+		<div class="sideBottom">
+			<div class="bottomBoxes">
+			<span class="howPrice">참가비</span> <span class="attendPrice"><fmt:formatNumber type="currency" currencySymbol="">${dto.price }</fmt:formatNumber>원</span> 
+			</div>
+			<div class="bottomBoxes">
+			<input type="button" value="참여 신청하기" class="attendBtn btn">
+			</div>
+			<div class="bottomBoxes">
+			<a class="favoriteBtn btn">♡  찜하기</a> 
+			</div>
+			
+		
+		</div>
+		
+		
 	</div>
 	<div class="imageBox">
 	
 	</div>
 	<div class="levelBox">
 		<div class="levelTop">Level</div>
-		<div class="levelBottom">초급aa</div>
+		<div class="levelBottom">${dto.lv }</div>
 	</div>
 	<div class="titleBox">
-		<span class="titleLocation">천호동</span>
+		<span class="titleLocation">${dto.location }</span>
 		<div class="titleMain">
-			KH 정보교육원에서 함께하는 즐거운 코딩 교실 정말 즐거워요 ^^!
+			${dto.title }
 		</div>
 	
 	</div>
 	<hr>
 	<span class="introduceLabel">스터디 소개</span>
 	<div class="introduceContent">
-	영어 말하기를 잘하고 싶은데 단어장을 달달 외워야 할지 문법책을 닳도록 읽어야 할지 고민하셨나요? 영어회화는 처음에 어떤 방식으로 접근하느냐가 참 중요해요~ 단어 열심히 외우고 문법용어들 머릿속에 가득하지만, 막상 말을 하려 하면 머릿속에서 번역과정을 거치느라 정신없고 한마디 하는데 온종일 걸려 답답한 분들! 자주 사용되는 영어패턴들을 외우고 여러 가지 문장들로 변형시켜 입으로 뱉어봐야 진짜 자기가 사용할 수 있는 문장구조가 되고 이것이 영어로 생각하고 영어로 말하는 방법의 첫 번째 단계라고 말할 수 있습니다.
-
-말문을 열어주는 패턴들을 쉽고 재밌게 배운 후에 함께 배운 패턴들을 사용하여 롤플레잉/게임 등을 통하여 연습해 봄으로써 완전히 자기표현으로 만드는 게 공부의 목표입니다!
-
-[진행]
-
-Warm up
-재미있게 회화를 배워가려면 서로서로 친하고 편안한 분위기가 중요해요! 일주일 동안 어떤 일이 있었는지 그냥 친구처럼 나누는 시간입니다.
-
-Expressions & Vocabs
-패턴을 바탕으로 문장을 만들면서 자연스럽게 새로운 단어나 표현들을 알려 드릴 거에요,
-기록해두었다가 숙제로 문장을 만들 때 써보도록 해요!
-
-Practice makes perfect!
-문장 만들어보고 노트에 썼다고 해서 끝난 게 아니에요! 말하기를 배우려면 직접 소리 내 연습해야 합니다! 게임을 통해서 배운 표현들을 완벽히 내 걸로 만드는 시간입니다!
-
-Grammar Tip
-달달 외우는 문법은 오히려 회화에 독! 꼭 필요한 문법 팁들 매주 조금씩 배워볼 거에요.
-예를 들어 ‘hope’ 과 ‘wish’의 차이, ‘during’ 과 ‘while’ 의 차이점 등을 배우며 연습합니다.
-
-Pronunciation
-여러분이 힘들어하는 영어의 소리는 (L&R, F&V, th 등등) 한국어에는 없는 소리이기 때문에 입이나 혀를 어떻게 사용해야 하는지 모르시고 익숙하지 않을 거에요. 
-처음부터 분명한 발음을 배워야 앞으로 영어를 배워나가면서 점점 발음이 좋아지게 되고 원활하게 의사소통을 할 수 있답니다 
-
-Homework
-수업중 배웠던 패턴들을 기본 틀로 하여 최대한 많은 문장을 만드실 거에요! 영작 도중 모르는 부분 단톡방에 질문 남겨주시면 교정해 드려요!
-
+	${dto.contents }
 	</div>
 <hr>	
 	<span class="introduceLabel">상세 정보</span>
 	<div class="introduceBottom">
-		<p>지역: 신촌 시간</p>
-		<p>인원: 6명 </p>
-		<p>기간: 1/1 - 1/1</p> 
+		<p>장소: ${dto.location }</p>
+		<p>인원: ${dto.people } </p>
+		<p>기간: ${dto.sDate } - ${dto.lDate }</p> 
 	</div>
 	<hr>
 	<div class="tutorLabel">
@@ -267,21 +105,6 @@ Homework
 
 <c:import url="../temp/footer.jsp"></c:import>
 
-<script type="text/javascript">
-var height = $(".Space").css("height").replace('px','')*1 -400;
-
-	
-
-$(window).scroll(function(){
-		
-	   if ($(document).scrollTop()>height ) {
-	        $(".sideBarFixed").attr("class","sideBarAbsolute");
-	    }
-	   else{
-	        $(".sideBarAbsolute").attr("class","sideBarFixed");
-	    }
-	});
-
-</script>
+<script src="<%=application.getContextPath()%>/resources/js/study/studyView.js"></script>
 </body>
 </html>

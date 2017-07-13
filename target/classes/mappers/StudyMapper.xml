@@ -40,8 +40,7 @@
   </insert>
   
   <select id="studyView" parameterType="java.lang.Integer" resultType="com.kh.study.StudyDTO">
-  	select * from study where num = #{num};
-  
+  	select * from study where num = #{num}
   </select>
   
   

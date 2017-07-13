@@ -26,7 +26,7 @@ public class HomeController {
 	private StudyService studyService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model, ListInfo listInfo) {
+	public String home(Locale locale, Model model, ListInfo listInfo)throws Exception {
 		
 		
 		model.addAttribute("list", studyService.homeList(listInfo));

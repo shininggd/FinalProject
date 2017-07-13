@@ -12,18 +12,18 @@ public class StudyService {
 	@Autowired
 	private StudyDAO studyDAO;
 	
-	public List<StudyDTO> list(ListInfo listInfo){
+	public List<StudyDTO> list(ListInfo listInfo)throws Exception{
 		return studyDAO.list(listInfo);
 		
 	}
-	public List<StudyDTO> homeList(ListInfo listInfo){
+	public List<StudyDTO> homeList(ListInfo listInfo)throws Exception{
 		return studyDAO.homeList(listInfo);
 		
 	}
-	public int regist(StudyDTO studyDTO){
+	public int regist(StudyDTO studyDTO)throws Exception{
 		return studyDAO.regist(studyDTO);
 	}
-	public StudyDTO studyView(int num){
+	public StudyDTO studyView(Integer num)throws Exception{
 		return studyDAO.studyView(num);
 	}
 
