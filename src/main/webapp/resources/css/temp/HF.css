@@ -131,6 +131,7 @@ margin-top: 12px;
     text-align: center;
     color: #787878;
 	margin: 0 6px 0 6px;
+	cursor: pointer;
 }
 header > #header_content > #header_menu > article > a{
 	text-decoration: none;	
@@ -380,7 +381,77 @@ header > #header_content > #header_menu > article > a{
 }
 /*마이페이지 끝  */
 
-/* header 병훈 끝 */    
+/* header 병훈 끝 */   
+
+/* header login */
+
+#login_close {
+	float: right;
+	font-size: 20px;
+	cursor: pointer;
+}
+#loginForm {
+	display: none;
+	position: absolute;
+	top: 72px;
+	right: 200px;
+	border: 1px black solid;
+	width: 500px;
+	height: 250px;
+	z-index: 999;
+	background-color: white;
+}
+
+#loginFrm {
+	margin-top: 20px;
+}
+
+#loginForm #login {
+	border: 1px black solid;
+	background-color: white;
+	width: 80px;
+	height: 30px;
+	margin-top: 10px;
+}
+
+/* ----------------- */
+
+/* header join */
+#join_close {
+	float: right;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+#joinForm {
+	display: none;
+	position: absolute;
+	top: 72px;
+	right: 200px;
+	border: 1px black solid;
+	width: 500px;
+	height: 380px;
+	z-index: 999;
+	background-color: white;
+}
+
+#joinFrm {
+	margin-top: 20px;
+}
+
+#joinForm .input_phone {
+	width: 50px;
+}
+
+#joinForm #join {
+	border: 1px black solid;
+	background-color: white;
+	width: 80px;
+	height: 30px;
+	margin-top: 10px;
+}
+/* ---------------- */
+ 
 /* header 끝 */
 
 
