@@ -19,17 +19,27 @@ $(function(){
 	var answers = "${answer}"
 	
 	$(".ans_sel").click(function(){
-		var stepplus = (step*1)+(1*1);
+		
+		var stepplus = "";
+		
+		if(step<5) {
+		stepplus = (step*1)+(1*1);
+		}else {
+			stepplus = "end";
+		}
 		var sel_ans = $(this).val();
-		alert(sel_ans);
-		if(sel_ans == answers){
-			alert(score);
+		if(sel_ans == answers){	
 			score = (score*1) + (20*1);
 		}else{
 			score = (score*1);
 		}
-		location.href="LevelTestQuizPlay"+"?category="+select+"&step="+stepplus+"&score="+score;
 		
+		if(stepplus != "end") {
+		location.href="LevelTestQuizPlay"+"?category="+select+"&step="+stepplus+"&score="+score;
+		} else {
+			$("#test_quiz_intro").css("display","none");
+			$("#test_quiz_end").css("display","inline");
+		}
 		});
 });
 </script>
@@ -54,6 +64,10 @@ $(function(){
 					<li class="ans_sel" value="5">보기5</li>
 				</ul>
 			</div>
+			
+	</section>
+	<section id="test_quiz_end">
+		끝
 	</section>
 	</div>
 </body>
