@@ -1,23 +1,19 @@
 package com.kh.member;
 
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import javax.servlet.http.HttpSession;
 
-@Repository
-public class MemberDAO {
+public interface MemberDAO {
 	
-	@Autowired
-	private SqlSession sqlSession;
-	private final String NAMESPACE="MemberMapper.";
+	public int memberJoin(MemberDTO memberDTO) throws Exception;
+	
+	public int memberUpdate(MemberDTO memberDTO) throws Exception;
+	
+	public MemberDTO memberLogin(MemberDTO memberDTO, HttpSession session) throws Exception;
+	
+	public String IdFind(MemberDTO memberDTO) throws Exception;
+	
+	public String PwFind(MemberDTO memberDTO) throws Exception;
+	
+	public String memberIdCheck(String id) throws Exception;
 
-	public int memberUpdate(MemberDTO memberDTO) {
-		int result = sqlSession.update(NAMESPACE+"memberUpdate", memberDTO);
-		
-		System.out.println(memberDTO.getId());
-		System.out.println(memberDTO.getPw());
-		System.out.println(memberDTO.getEmail());
-		System.out.println(memberDTO.getPhone());
-		return result;
-	}
 }
