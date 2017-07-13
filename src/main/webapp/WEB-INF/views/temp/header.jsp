@@ -3,6 +3,54 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <!-- header 시작 -->
+<script type="text/javascript">
+$(function(){
+    
+
+	
+	$("#notification_link").click(function(){
+        if($("#notification_list_wrap").is(":visible")){
+            $("#notification_list_wrap").css("display", "none");
+        }else if($("#my_page_menus").is(":visible")){
+            $("#notification_list_wrap").css("display", "block");
+            $("#my_page_menus").css("display", "none");
+        }else if($("#theme_menus_popup").is(":visible")){
+            $("#notification_list_wrap").css("display", "block");
+            $("#theme_menus_popup").css("display", "none");
+        }else{
+        	$("#notification_list_wrap").css("display", "block");
+        }
+    });
+    
+    $("#my_page_list_toggle").click(function(){
+        if($("#my_page_menus").is(":visible")){
+            $("#my_page_menus").css("display", "none");
+        }else if($("#notification_list_wrap").is(":visible")){
+        	$("#my_page_menus").css("display", "block");
+        	$("#notification_list_wrap").css("display", "none");
+        }else if($("#theme_menus_popup").is(":visible")){
+        	$("#my_page_menus").css("display", "block");
+        	$("#theme_menus_popup").css("display", "none");
+        }else{
+            $("#my_page_menus").css("display", "block");
+        }
+    });
+    
+    $("#theme_menu_toggle").click(function(){
+        if($("#theme_menus_popup").is(":visible")){
+            $("#theme_menus_popup").css("display", "none");
+        }else if($("#my_page_menus").is(":visible")){
+            $("#theme_menus_popup").css("display", "block");
+            $("#my_page_menus").css("display", "none");
+        }else if($("#notification_list_wrap").is(":visible")){
+            $("#theme_menus_popup").css("display", "block");
+            $("#notification_list_wrap").css("display", "none");
+        }else{
+        	$("#theme_menus_popup").css("display", "block");
+        }
+    });
+});
+</script>
 <header>
 <div id="level_test_banner">
 <div id="level_test_banner_content">
@@ -17,7 +65,7 @@
 					<span class="header_bar"></span>
 					<a class="menu2" href="#">메뉴2</a>
 					<span class="header_bar"></span>
-					<a class="menu3" href="#">메뉴3</a>
+					<a class="menu3" href="./small_group/small_group">소모임</a>
 					<span class="header_bar"></span>
 					<ul id="theme_menus_popup">
 						<li><a class="theme_link" href="" style="text-decoration: none;">프로그래밍</a></li>

@@ -22,52 +22,7 @@
 
 <!-- 메인화면 css 끝 -->
 <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-    
-	$("#notification_link").click(function(){
-        if($("#notification_list_wrap").is(":visible")){
-            $("#notification_list_wrap").css("display", "none");
-        }else if($("#my_page_menus").is(":visible")){
-            $("#notification_list_wrap").css("display", "block");
-            $("#my_page_menus").css("display", "none");
-        }else if($("#theme_menus_popup").is(":visible")){
-            $("#notification_list_wrap").css("display", "block");
-            $("#theme_menus_popup").css("display", "none");
-        }else{
-        	$("#notification_list_wrap").css("display", "block");
-        }
-    });
-    
-    $("#my_page_list_toggle").click(function(){
-        if($("#my_page_menus").is(":visible")){
-            $("#my_page_menus").css("display", "none");
-        }else if($("#notification_list_wrap").is(":visible")){
-        	$("#my_page_menus").css("display", "block");
-        	$("#notification_list_wrap").css("display", "none");
-        }else if($("#theme_menus_popup").is(":visible")){
-        	$("#my_page_menus").css("display", "block");
-        	$("#theme_menus_popup").css("display", "none");
-        }else{
-            $("#my_page_menus").css("display", "block");
-        }
-    });
-    
-    $("#theme_menu_toggle").click(function(){
-        if($("#theme_menus_popup").is(":visible")){
-            $("#theme_menus_popup").css("display", "none");
-        }else if($("#my_page_menus").is(":visible")){
-            $("#theme_menus_popup").css("display", "block");
-            $("#my_page_menus").css("display", "none");
-        }else if($("#notification_list_wrap").is(":visible")){
-            $("#theme_menus_popup").css("display", "block");
-            $("#notification_list_wrap").css("display", "none");
-        }else{
-        	$("#theme_menus_popup").css("display", "block");
-        }
-    });
-});
-</script>
+
 
 </head>
 <body>
