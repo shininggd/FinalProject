@@ -3,6 +3,9 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <!-- header 시작 -->
+<script src="<%=application.getContextPath()%>/resources/js/LevelTest/levelTest.js"></script>
+<script src="<%=application.getContextPath()%>/resources/js/LevelTest/LevelTestQuiz.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/levelTest.css">
 <script type="text/javascript">
 $(function(){
     
@@ -205,6 +208,13 @@ $(function(){
 });
 </script>
 <header>
+	<div id="level_test_banner">
+		<div id="level_test_banner_content">
+			STEP 1. 런앤런이 처음이라면? 먼저 레벨테스트부터 시작해보세요!
+		</div>
+		<input type="button" id="close_banner">
+	</div>
+
 	<div id="header_content">
 		<div id="header_menu">
 			<div id="header_logo">logo</div>
