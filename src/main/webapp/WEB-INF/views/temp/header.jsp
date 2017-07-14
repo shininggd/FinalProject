@@ -223,7 +223,7 @@ $(function(){
 					<span class="header_bar"></span>
 					<a class="menu2" href="#">메뉴2</a>
 					<span class="header_bar"></span>
-					<a class="menu3" href="./small_group/small_group">소모임</a>
+					<a class="menu3" href="/learn_run/small_group/sgroup">소모임</a>
 					<span class="header_bar"></span>
 					<ul id="theme_menus_popup">
 						<li><a class="theme_link" href="" style="text-decoration: none;">프로그래밍</a></li>
