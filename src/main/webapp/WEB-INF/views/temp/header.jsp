@@ -98,8 +98,23 @@ $(function(){
          /* pw일치여부 끝 */
          
   		/* email 형식 */
-  		$().
-  		var 
+  		$("#email").change(function() {
+			ch_email = $("#email").prop("value")
+			$.post("",
+					{email:ch_email},
+					function(data) {
+						var reg_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+						var R_email = data.trim();
+						
+						if(R_email == true){
+							email_check = true;
+						}
+					
+					});
+  		
+  			
+		});
+  		
   		
   		/* email 형식 */
   		
