@@ -28,7 +28,6 @@
 </head>
 <body>
 
-<c:import url="temp/levelTest.jsp"></c:import>
 <c:import url="temp/header.jsp" />
 
 <!-- main 시작 -->
