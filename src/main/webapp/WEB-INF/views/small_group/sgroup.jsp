@@ -28,6 +28,23 @@
 			<div class="check_title">커뮤니티 이벤트<br>지금 바로 확인해보세요.</div>
 			<div class="check_weekend">이제 주말이 특별해집니다.</div>
 		</div>
+		<div class="sgroup_list_section">
+			<div class="member_only">
+				<span class="alert_icon"></span>
+				본 이벤트는<span class="orange">Learn&Run 멤버만 참여 가능</span>합니다.
+			</div>
+			<div class="sgroup_section_content">
+				<ul class="event_list">
+					<li class="coming_soon">
+						<div class="point"></div>
+						<div class="coming_soon_text">
+							Learn&Run 커뮤니티 이벤트는 계속됩니다!
+							<span class="bold">COMING SOON!</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</section>
 <c:import url="../temp/footer.jsp" />
 
