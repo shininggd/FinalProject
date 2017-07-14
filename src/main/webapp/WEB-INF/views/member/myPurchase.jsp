@@ -46,12 +46,7 @@
 <c:import url="../temp/footer.jsp"></c:import>
 <script type="text/javascript">
 	
-	profileChange('${member.fname}');
-	
-	function profileChange(fname) {
-		 $(".user_photo").css("background-image","url(/learn_run/resources/img/member/profilePhoto/"+fname+")");
-		 $(".my_photo").css("background-image","url(/learn_run/resources/img/member/profilePhoto/"+fname+")");
-	}
+
 	
 </script>
 </body>

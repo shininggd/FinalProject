@@ -75,7 +75,6 @@
 
 <script type="text/javascript">
 	
-	profileChange('${member.fname}');
 	
 	$("#edit_photo_button").on("change", function(){ 
 		alert("파일업로드");
@@ -114,12 +113,7 @@
 		
 	});
 	
-	function profileChange(fname) {
-		
-		 $(".user_photo").css("background-image","url(/learn_run/resources/img/member/profilePhoto/"+fname+")");
-		 $(".my_photo").css("background-image","url(/learn_run/resources/img/member/profilePhoto/"+fname+")");
-		 
-	}
+
 	
 </script>
 </body>

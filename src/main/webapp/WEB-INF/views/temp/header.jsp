@@ -154,7 +154,12 @@ $(function(){
 	
 	/* ---------------------login , join ------------------------------*/
 	
-	$(".my_photo").css("background-image","url(/learn_run/resources/img/member/profilePhoto/${member.fname})");
+	profileChange('${member.fname}');
+	
+	function profileChange(fname) {
+		 $(".user_photo").css("background-image","url(/learn_run/resources/img/member/profilePhoto/"+fname+")");
+		 $(".my_photo").css("background-image","url(/learn_run/resources/img/member/profilePhoto/"+fname+")");
+	}
 	
 	$("#notification_link").click(function(){
         if($("#notification_list_wrap").is(":visible")){
