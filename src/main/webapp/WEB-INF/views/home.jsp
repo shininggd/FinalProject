@@ -100,7 +100,7 @@
 
 
 				<c:forEach items="${list }" var="i"  varStatus="s" >
-				<a href="./study/studyView?num=${i.num }" class="aBlock">
+				<a href="./study/studyView?num=${i.num }&tid=${i.tid }" class="aBlock">
 
 					<div class="listBox">
 						<div class="boxTop">
