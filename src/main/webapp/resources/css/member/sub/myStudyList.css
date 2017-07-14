@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+
+.myStudy_wrap {
+	border: 1px black solid;
+	width: 200px;
+	height: 50px;
+}

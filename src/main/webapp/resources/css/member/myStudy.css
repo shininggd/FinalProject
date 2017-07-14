@@ -1,0 +1,88 @@
+@CHARSET "UTF-8";
+
+/* MyHeader -----------------------------------------------------------*/
+
+#my_page_header {
+	background-color: #5a5e64;
+	widows: 100%;
+	height: 171px;
+	
+}
+
+#header_contents {
+    padding-top: 24px;
+    width: 60pc;
+    margin: 0 auto;
+}
+
+.user_photo {
+	display: inline-block;
+    background-size: cover;
+    background-position: 50% 50%;
+    float: left;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+}
+
+
+#tabs {
+	margin-left: 81pt;
+    padding-top: 22px;
+}
+
+#user_name {
+	box-sizing: border-box;
+    height: 50px;
+    border-bottom: 1px solid #6a6e73;
+    font-size: 16pt;
+    color: #fff;
+    text-align: left;
+}
+
+#tab_box {
+	margin-left: -20px;
+}
+
+.tab {
+    width: 75pt;
+    height: 50px;
+    color: #aeb5be;
+    font-size: 14px;
+    text-decoration: none;
+    float: left;
+    padding-top: 25px;
+}
+
+.tab.selected {
+	color: #fff;
+    border-bottom: 3px solid #ef6c00;
+    font-weight: 700;
+}
+
+#main_section {
+	background-color: #ebebeb;
+	padding-bottom: 30px;
+}
+
+.main_container {
+	margin: 20px auto 0;
+    min-height: 500px;
+    height: auto;
+    background-color: white;
+    padding: 24px;
+}
+
+/* MyHeader -----------------------------------------------------------*/
+
+#mystudy_h1 {
+	padding: 16px 14px 40px;
+    font-size: 18pt;
+    color: #3c3c3c;
+}
+
+#mystudy_list {
+	border-top: 1px solid #ebebeb;
+    list-style: none;
+	
+}

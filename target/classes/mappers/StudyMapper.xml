@@ -3,9 +3,57 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="StudyMapper">
-  <select id="list" resultType="com.kh.study.StudyDTO">
-  	select * from study
+   <sql id="list">
+ 	<trim prefix="where" prefixOverrides="and || or">
+  		<if test="search1 != null and find1 == 'category'">category like '%' || #{search1} || '%'
+  			<if test="search2 != null and find2 == 'location'">and location like '%' || #{search2} || '%'</if>
+  			<if test="search3 != null and find3 == 'lv'">and lv like '%' || #{search3} || '%'</if>
+  	 </if>
+  	</trim>
+  </sql>
+   
+   <sql id="categoryHome">
+ 	<trim prefix="where" prefixOverrides="and || or">
+  		<if test="find == 'category'">
+  		category like '%' || #{search} || '%'
+  		</if>  
+  	</trim>
+  </sql>
+
+  <select id="searchList" resultType="com.kh.study.StudyDTO" parameterType="java.util.Map">
+  	select * from (select rownum R, S.* from (select * from study
+  	 <include refid="list"></include>
+  	 order by num desc) S) where R between #{startRow} and #{lastRow} 
   </select>
+  
+  
+  <select id="homeList" resultType="com.kh.study.StudyDTO" parameterType="com.kh.util.ListInfo">
+  	 select * from (select rownum R, S.* from (select * from study  
+  	 <include refid="categoryHome"/>
+  	 order by num desc) S) where R between 1 and 3 
+  </select>
+  
+  <insert id="studyRegist" parameterType="com.kh.study.StudyDTO">
+  	insert into study(num, tid, sdate, ldate, lv, category, price, people, location, title, contents, onoff)
+  	values(study_seq.nextval,#{tid},#{sdate},#{ldate},#{lv},#{category},#{price},#{people},#{location},#{title},#{contents},#{onoff})
+  
+  </insert>
+  
+  <select id="studyView" parameterType="java.lang.Integer" resultType="com.kh.study.StudyDTO">
+  	select * from study where num = #{num}
+  </select>
+  <select id="studyCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+  	select count(num) from study <include refid="list"></include>
+  </select>
+  
+  <select id="myStudyListNum" parameterType="java.lang.String" resultType="java.lang.String">
+  	select snum from memberstudy where id=#{id}
+  </select>
+  
+  <select id="myStudyList" parameterType="java.lang.Integer" resultType="com.kh.study.StudyDTO">
+  	select * from study where num=#{num}
+  </select>
+  
   
   
   </mapper>

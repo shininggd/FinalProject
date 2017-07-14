@@ -2,6 +2,9 @@ package com.kh.study;
 
 import java.sql.Date;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class StudyDTO {
 	private int num;
 	private String tid;
@@ -15,6 +18,7 @@ public class StudyDTO {
 	private String title;
 	private String contents;
 	private String onOff;
+	
 	public int getNum() {
 		return num;
 	}
