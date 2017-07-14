@@ -10,7 +10,7 @@
 	</select>
 	
 	<insert id="studentJoin" parameterType="com.kh.member.MemberDTO" >
-		insert into member values(#{id}, #{pw}, #{name}, #{birth}, #{grade}, #{point}, #{email}, #{telecom}, #{phone}, 'default.png', 'default.png')
+		insert into member values(#{id}, #{pw}, #{name}, #{birth}, #{grade}, #{point}, #{email}, #{telecom}, #{phone}, 'default.jpg', 'default.jpg')
 	</insert>
 	
 	<select id="studentLogin" parameterType="com.kh.member.MemberDTO" resultType="com.kh.member.student.StudentDTO">

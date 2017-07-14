@@ -1,4 +1,4 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -232,25 +232,13 @@ $(function(){
 	 					 <div class="modal fade" id="loginForm" role="dialog">
 	 					 		<span id="login_close">X</span>
 	          					<form action="/learn_run/member/tutorLogin" id="loginFrm" method="post">
-	          						
-	          						<p>튜터 &nbsp;<input type="radio" name="grade" class="g_login" value="tutor" checked="checked"> 
-	          						학생 &nbsp; <input type="radio" name="grade" class="g_login" value="student"></p>
-	          						
-	          						<table id="login_input">
-	          						<tr>
-									<td colspan="2"><input type="text" name="id" placeholder="ID를 입력하세요"></td>
-									</tr>
-									<tr>
-									<td colspan="2"><input type="password" name="pw" placeholder="PW를 입력하세요"></td>
-									</tr>
-	          						</table>
-	          						
+	          						<p>튜터 : <input type="radio" name="grade" class="g_login" value="tutor" checked="checked"> 
+	          						학생: <input type="radio" name="grade" class="g_login" value="student"></p>
+									<p><input type="text" name="id"  placeholder="ID를 입력하세요"></p>
+									<p><input type="password" name="pw"  placeholder="PW를 입력하세요"></p>
+									<p><a href="#"><h5>아이디나 비밀번호가 기억나지 않으신다면?</h5></a></p>
 									<input type="button" id="login" value="로그인">
 								</form>
-								
-									<div id="forgotIdPw">
-									<a href="#">ID 찾기</a> &nbsp; <a href="#">PW 찾기</a>
-									</div>
 	        				</div>
 	       				
 	  					<!-- loginForm end -->
@@ -261,42 +249,21 @@ $(function(){
 						<!-- joinForm start -->
 	 					 <div class="modal fade" id="joinForm" >
 	       					 <span id="join_close">X</span>
-	          					<form action="/learn_run/member/tutorJoin" id="joinFrm" method="post" >
-	          						<table>
-	          						<tr>
-	          						<td colspan="2" class="infoIndex">튜터: <input type="radio" class="g_check" name="grade" value="tutor" checked="checked"> 학생:<input type="radio" class="g_check" name="grade" value="student" id="member-frm"></td>
-	          						</tr>
-	          						<tr>
-	          						<td class="infoIndex">ID</td><td class="infoCon"><input type="text" name="id" id="id" placeholder="ID를 입력하세요"></td>
-	          						</tr>
-	          						<tr>
-	          						<td colspan="2"><span id="idmessage"></span></td>
-									</tr>
-									<tr>
-									<td class="infoIndex">PW</td><td class="infoCon"><input type="password" name="pw" id="pw" placeholder="PW를 입력하세요"></td>
-									</tr>
-									<tr>
-									<td class="infoIndex">PW 확인</td><td class="infoCon"><input type="password" id="pw2" name="pw2" placeholder="PW를  다시 입력하세요"></td>
-									</tr>
-									<tr>
-									<td colspan="2"><span id="pwmessage"></span></td>									
-									</tr>
-									<tr>
-									<td class="infoIndex">이름</td><td class="infoCon"><input type="text" name="name" placeholder="이름을 입력하세요"></td>
-									</tr>
-									<tr>
-									<td class="infoIndex">생일</td><td class="infoCon"><input type="date" name="birth"></td>
-									</tr>
-									<tr>
-									<td class="infoIndex">e-mail</td><td class="infoCon"><input type="text" name="email" placeholder="ex) learn-run@gmail.com"></td>
-									</tr>
-									<tr>
-									<td class="infoIndex">연락처</td><td><select name="telecom">
+	          					<form action="/learn_run/member/tutorJoin"  id="joinFrm" method="post" >
+	          						<p>튜터: <input type="radio" class="g_check" name="grade" value="tutor" checked="checked">  학생:<input type="radio" class="g_check" name="grade" value="student" id="member-frm"> </p>
+									<p>ID: <input type="text" name="id" id="id" placeholder="ID를 입력하세요"></p>
+									<span id="idmessage"></span>
+									<p>PW:<input type="password" name="pw" id="pw" placeholder="PW를 입력하세요"></p>
+									<p>PW 확인:<input type="password" id="pw2" name="pw2" placeholder="PW를  다시 입력하세요"></p>
+									<span id="pwmessage"></span>
+									<p>이름:<input type="text" name="name" placeholder="이름을 입력하세요"></p>
+									<p>생일: <input type="date" name="birth"></p>
+									<p>e-mail:<input type="text" name="email" placeholder="ex) learn-run@gmail.com"></p>
+									<p>연락처:<select name="telecom">
 											<option>SKT</option> <option>KT</option> <option>LGT</option> <option>알뜰폰</option>
 											</select>
-									<input class="input_phone" type="text" name="phone" id="phone" placeholder="ex) 010-1234-5678"></td>
-									</tr>
-	          						</table>
+									<input class="input_phone" type="text" name="phone" id="phone" placeholder="ex) 010-1234-5678">
+									</p>
 									
 									<input type="button" id="join" value="회원가입">
 									

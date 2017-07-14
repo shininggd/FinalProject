@@ -1,12 +1,5 @@
 @CHARSET "UTF-8";
 
-/* 모든 페이지 공통 */
-	.clear{
-	clear: both;
-	}
-
-/*  */
-
 /* header 시작 */
 header {
 margin-top: 72px;
@@ -394,8 +387,6 @@ header > #header_content > #header_menu > article > a{
 
 #login_close {
 	float: right;
-	margin-right : 5%;
-	margin-top : 5.5%;
 	font-size: 20px;
 	cursor: pointer;
 }
@@ -404,34 +395,22 @@ header > #header_content > #header_menu > article > a{
 	position: absolute;
 	top: 72px;
 	right: 200px;
+	border: 1px black solid;
 	width: 500px;
 	height: 250px;
 	z-index: 999;
 	background-color: white;
 }
 
-#loginFrm{
-	margin-top: 15%;
+#loginFrm {
+	margin-top: 20px;
+}
+
+#loginForm #login {
+	border: 1px black solid;
 	background-color: white;
-	width: 80%;
+	width: 80px;
 	height: 30px;
-	margin-left: 10%;
-}
-
-#login_input {
-	margin-top: 2.5%;
-	margin-left: 26%;
-}
-
-#forgotIdPw{
-	margin-top : 100px;
-	width: 100%;
-}
-
-#login{
-	background-color: orange;
-	color: white;
-	margin-right : 5%;
 	margin-top: 10px;
 }
 
@@ -440,8 +419,6 @@ header > #header_content > #header_menu > article > a{
 /* header join */
 #join_close {
 	float: right;
-	margin-right : 5%;
-	margin-top : 10%;
 	font-size: 20px;
 	cursor: pointer;
 }
@@ -451,6 +428,7 @@ header > #header_content > #header_menu > article > a{
 	position: absolute;
 	top: 72px;
 	right: 200px;
+	border: 1px black solid;
 	width: 500px;
 	height: 380px;
 	z-index: 999;
@@ -461,28 +439,13 @@ header > #header_content > #header_menu > article > a{
 	margin-top: 20px;
 }
 
-#joinFrm > table{
-	margin-top: 12.5%; 
-	margin-left: 15%;
-}
-
-.infoIndex{
-	height: 25px;
-	text-align: center;
-}
-
-.infoCon{
-	text-align: center;
-}
-
 #joinForm .input_phone {
-	width: 150px;
+	width: 50px;
 }
 
 #joinForm #join {
-	
-	background-color: orange;
-	color: white;
+	border: 1px black solid;
+	background-color: white;
 	width: 80px;
 	height: 30px;
 	margin-top: 10px;
