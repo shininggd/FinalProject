@@ -6,7 +6,7 @@
 	height: 171px;
 }
 
-#header_content {
+#header_contents {
     padding-top: 24px;
     width: 60pc;
     margin: 0 auto;
@@ -68,7 +68,6 @@
 
 #my_photo {
 	display: inline-block;
-    background-image: url(/learn_run/resources/img/member/defult_user.png);
     background-size: cover;
     background-position: 50% 50%;
     width: 75pt;
@@ -151,19 +150,7 @@
     margin-bottom: 10px;
 }
 
-.profile_phone {
-    margin-top: 6px;
-    width: 50px;
-    height: 36px;
-    background: transparent;
-    outline: 0;
-    border: none;
-    border-bottom: 1px solid #b4b4b4;
-    font-size: 14pt;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    text-align: center;
-}
+
 
 #profile_submit {
 	margin-top: 40px;

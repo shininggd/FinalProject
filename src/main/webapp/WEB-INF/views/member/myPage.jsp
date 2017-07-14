@@ -18,7 +18,7 @@
 <section id="main_section">
 	
 	<div id="my_page_header">
-		<div id="header_content">
+		<div id="header_contents">
 			<div id="user-photo"></div>
 			<div id="tabs">
 				<div id="user_name">장태주</div>
@@ -51,17 +51,15 @@
 		</form>
 		
 		<form id="edit_profile_form" method="post">
-			<input type="hidden" name="id" value="jtaeju">
+			<input type="hidden" name="id" value="${member.id }">
 			<label class="profile_label" for="pw">PW</label>
-		    <input type="password" class="profile_text" id="pw" name="pw" value="aaaabbb" >
+		    <input type="password" class="profile_text" id="pw" name="pw" value="${member.pw} }" >
 		    
 		    <label class="profile_label" for="email">Email</label>
-		    <input type="email" class="profile_text" id="email" name="email" value="jtaeju15@naver.com">
+		    <input type="email" class="profile_text" id="email" name="email" value="${member.email }">
 		    
 		    <label class="profile_label" for="email">Phone</label>
-		    <input type="text" class="profile_phone" id="phone1" name="phone1" value="010">-
-		    <input type="text" class="profile_phone" id="phone2" name="phone2" value="1234">-
-		    <input type="text" class="profile_phone" id="phone3" name="phone3" value="5678">
+		    <input type="text" class="profile_text" id="phone" name="phone" value="${member.phone}">
 		    
 		    <input id="profile_submit" type="button" value="변경 완료">
 		</form>
@@ -76,6 +74,8 @@
 <c:import url="../temp/footer.jsp"></c:import>
 
 <script type="text/javascript">
+	
+	$("#my_photo").css("background-image","/learn_run/resources/img/member/${member.fname}")
 	
 	$("#edit_photo_button").on("change", function(){ 
 		alert("파일업로드");

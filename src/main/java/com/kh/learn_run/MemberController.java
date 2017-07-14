@@ -33,43 +33,11 @@ import com.kh.member.tutor.TutorServiceImpl;
 @RequestMapping(value="/member/**")
 public class MemberController {
 	
+	
+
+
+	
 	@Autowired
-
-	private MemberService memberService;
-
-	@RequestMapping(value="/myPage")
-	public void goMyPage() {
-		
-	}
-	
-	@RequestMapping(value="/myStudy")
-	public void goMyStudy() {
-		
-	}
-	
-	@RequestMapping(value="/myPurchase")
-	public void goMyPurchase() {
-		
-	}
-	
-	@RequestMapping(value="/myPoint")
-	public void goMyPoint() {
-		
-	}
-	
-	@RequestMapping(value="/memberUpdate")
-	public String memberUpdate(Model model,MemberDTO memberDTO,String phone1,String phone2,String phone3) {
-		memberDTO.setPhone(phone1+"-"+phone2+"-"+phone3);
-		int result = memberService.memberUpdate(memberDTO);
-		String message = "��������� ���� ����";
-		if(result>0) {
-			message = "��������� ���� ����";
-		}
-		model.addAttribute("message", message);
-		
-		return "common/resultMessage";
-	}
-
 	private StudentServiceImpl studentServiceImpl;
 	@Autowired
 	private TutorServiceImpl tutorServiceImpl;
@@ -128,7 +96,7 @@ public class MemberController {
 			message = "로그인에 성공하였습니다.";
 			session.setAttribute("member", memberDTO);
 		}
-		String path = "../";
+		String path = "/learn_run/";
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("message", message);
 		mv.addObject("path", path);
@@ -145,7 +113,7 @@ public class MemberController {
 			message = "로그인에 성공하였습니다.";
 			session.setAttribute("member", memberDTO);
 		}
-		String path = "../";
+		String path = "/learn_run/";
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("path", path);
 		mv.addObject("message", message);
@@ -154,5 +122,37 @@ public class MemberController {
 		return mv;
 		}
 
+	@RequestMapping(value="/myPage")
+	public void goMyPage() {
+		
+	}
+	
+	@RequestMapping(value="/myStudy")
+	public void goMyStudy() {
+		
+	}
+	
+	@RequestMapping(value="/myPurchase")
+	public void goMyPurchase() {
+		
+	}
+	
+	@RequestMapping(value="/myPoint")
+	public void goMyPoint() {
+		
+	}
+	
+	@RequestMapping(value="/memberUpdate")
+	public String memberUpdate(HttpSession session,Model model,MemberDTO memberDTO) throws Exception {
+		int result = studentServiceImpl.memberUpdate(memberDTO);
+		String message = "정보수정 실패";
+		if(result>0) {
+			message = "정보수정 성공";
+			session.setAttribute("member", memberDTO);
+		}
+		model.addAttribute("message", message);
+		
+		return "common/resultMessage";
+	}
 
 }

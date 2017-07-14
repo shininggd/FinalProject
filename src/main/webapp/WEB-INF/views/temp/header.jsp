@@ -323,7 +323,7 @@ $(function(){
 								<div class="user_photo"></div>
 								<div class="user_name_wrap">
 									<div class="user_name">${member.id }</div>
-									<a class="link_to_edit_profile" href="" style="text-decoration: none;">프로필 보기</a>
+									<a class="link_to_edit_profile" href="member/myPage" style="text-decoration: none;">프로필 보기</a>
 								</div>							
 							</section>
 							<section class="my_page_list_section">
