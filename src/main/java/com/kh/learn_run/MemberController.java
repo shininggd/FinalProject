@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,7 +33,7 @@ public class MemberController {
 	@RequestMapping(value="/IdCheck", method=RequestMethod.POST)
 	public String memberIdCheck(String id, Model model) throws Exception{
 		
-		System.out.println("controller="+id);
+		//System.out.println("controller="+id);
 		String result = studentServiceImpl.memberIdCheck(id);
 		if(result == null) {
 			result = "true";
@@ -83,7 +84,7 @@ public class MemberController {
 			message = "로그인에 성공하였습니다.";
 			session.setAttribute("member", memberDTO);
 		}
-		String path = "../";
+		String path = "/learn_run/";
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("message", message);
 		mv.addObject("path", path);
@@ -100,7 +101,7 @@ public class MemberController {
 			message = "로그인에 성공하였습니다.";
 			session.setAttribute("member", memberDTO);
 		}
-		String path = "../";
+		String path = "/learn_run/";
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("path", path);
 		mv.addObject("message", message);
@@ -108,6 +109,11 @@ public class MemberController {
 		
 		return mv;
 		}
-
+	
+	@RequestMapping(value="/memberLogout")
+	public String memberLogout(HttpSession session){
+		session.invalidate();
+		return "home";
+	}
 
 }

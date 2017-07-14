@@ -15,6 +15,8 @@ public interface MemberService {
 	
 	public String PwFind(MemberDTO memberDTO) throws Exception;
 	
-	public String memberIdCheck(String id) throws Exception;	
+	public String memberIdCheck(String id) throws Exception;
+	
+
 
 }
