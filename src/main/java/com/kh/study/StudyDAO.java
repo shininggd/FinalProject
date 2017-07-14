@@ -51,7 +51,7 @@ public class StudyDAO {
 			listInfo.setFind("category");
 		}
 		if(listInfo.getSearch()==null||listInfo.getSearch()==""){
-			listInfo.setSearch("¿µ¾îÈ¸È­");
+			listInfo.setSearch("ì˜ì–´íšŒí™”");
 		}
 		List<StudyDTO> ar = new ArrayList<StudyDTO>();
 		ar = sqlSession.selectList(NAMESPACE+"homeList",listInfo);

@@ -27,7 +27,7 @@ public class StudyController {
 	public String regist(Model model,StudyDTO studyDTO)throws Exception {
 		int result = studyService.regist(studyDTO);
 		if(result>0){
-		model.addAttribute("message", "°­ÀÇµî·Ï ¼º°ø");
+		model.addAttribute("message", "ë“±ë¡ì™„ë£Œ");
 		}
 		return "../home";
 	}
