@@ -1,0 +1,44 @@
+@CHARSET "UTF-8";
+#level_test_box{
+	width: 890px;
+	height: 400px;
+	}
+#page_image{
+	width: 480px;
+	height: 420px;
+	float: left;
+	display: inline-block;
+}
+#test_quiz_intro{
+	width: 300px;
+	height: 350px;
+	padding: 20px;
+	float: left;
+	padding-left: 70px;
+}
+#intro_Lavel{
+	width: 90px;
+    line-height: 24px;
+    background: #ebebeb;
+    color: #a0a0a0;
+    font-weight: 700;
+    text-align: center;
+}
+#intro_title{
+	width:400px;
+	padding-bottom: 20px;
+    border-bottom: 2px solid #ebebeb;
+    font-size: 42px;
+    font-weight: 700;
+    color: #474747;
+    margin-top: 40px;
+}
+#intro_content{
+	margin-top: 65px;
+    font-weight: 400;
+    color: #505050;
+}
+#category_select{
+	padding-top: 10px;
+	text-align: center;
+}

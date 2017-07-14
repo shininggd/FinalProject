@@ -5,14 +5,15 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
-	<title>Home</title>
-	
+
 <!-- 메인화면 slide 소스 시작 -->
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/uikit/uikit.docs.min.css">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="<%=application.getContextPath()%>/resources/js/uikit.min.js"></script>
 <script src="<%=application.getContextPath()%>/resources/js/slider.js"></script>
+<script src="<%=application.getContextPath()%>/resources/js/levelTest.js"></script>
+<script src="<%=application.getContextPath()%>/resources/js/LevelTestQuiz.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/slide.css">
 <!-- 메인화면 slide 소스 끝 -->
 
@@ -26,7 +27,10 @@
 
 </head>
 <body>
+
+<c:import url="temp/levelTest.jsp"></c:import>
 <c:import url="temp/header.jsp" />
+
 <!-- main 시작 -->
 
 <section id="main_wrap">
@@ -134,7 +138,6 @@
 </div>
 <div id="exex3"></div>
 </section>
-
 
 <!-- main 끝 -->
 
