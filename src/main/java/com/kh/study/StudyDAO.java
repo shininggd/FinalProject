@@ -96,7 +96,24 @@ public class StudyDAO {
 		return ar;
 	}
 	
+	public List<String> myStudyListNum(String id) {
+		return sqlSession.selectList(NAMESPACE+"myStudyListNum", id);
+	}
 	
+	public List<StudyDTO> myStudyList(List<String> snums) {
+		
+		List<StudyDTO> list = new ArrayList<StudyDTO>();
+		StudyDTO studyDTO = null;
+		for(int i=0; i< snums.size(); i++) {
+			int num = Integer.parseInt(snums.get(i));
+			System.out.println(num);
+			studyDTO = sqlSession.selectOne(NAMESPACE+"myStudyList", num);
+			System.out.println(studyDTO.getOnOff());
+			list.add(studyDTO);
+		}
+		
+		return list;
+	}
 	
 	
 	

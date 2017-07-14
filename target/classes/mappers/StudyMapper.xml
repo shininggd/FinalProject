@@ -46,7 +46,13 @@
   	select count(num) from study <include refid="list"></include>
   </select>
   
+  <select id="myStudyListNum" parameterType="java.lang.String" resultType="java.lang.String">
+  	select snum from memberstudy where id=#{id}
+  </select>
   
+  <select id="myStudyList" parameterType="java.lang.Integer" resultType="com.kh.study.StudyDTO">
+  	select * from study where num=#{num}
+  </select>
   
   
   

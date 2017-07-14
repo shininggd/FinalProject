@@ -22,12 +22,12 @@
 			<div id="tabs">
 				<div id="user_name">장태주</div>
 				<div id="tab-box">
-					<a class="tab selected" href="/learn_run/member/myStudy">내 스터디</a>
+					<a class="tab" href="/learn_run/member/myStudy">내 스터디</a>
 					<a class="tab" href="/learn_run/member/myPurchase">내 구매 내역</a>
 					<a class="tab" href="/learn_run/member/myPoint">내 포인트</a>
 					<a class="tab" href="/learn_run/member/myPage">내 프로필</a>
 					<c:if test="${member.id eq 'admin' }">
-					<a class="tab" href="/learn_run/member/adminPage">관리자 페이지</a>
+					<a class="tab selected" href="/learn_run/member/adminPage">관리자 페이지</a>
 					</c:if>
 				</div>
 			</div>
@@ -36,7 +36,7 @@
 
 	<div class="main_container">
 		
-		<h1 id="mystudy_h1">내 스터디 목록</h1>
+		<h1 id="mystudy_h1">관리자 페이지</h1>
 		<div id="mystudy_list">
 			
 		</div>
@@ -47,14 +47,9 @@
 </section>
 
 <c:import url="../temp/footer.jsp"></c:import>
-
 <script type="text/javascript">
-	var id = '${member.id}';
 	
-	$.post("../study/myStudyList",{id:id},function(result) {
-		$("#mystudy_list").html(result);
-	});
-
+	
 	
 </script>
 </body>

@@ -26,6 +26,9 @@
 					<a class="tab" href="/learn_run/member/myPurchase">내 구매 내역</a>
 					<a class="tab selected" href="/learn_run/member/myPoint">내 포인트</a>
 					<a class="tab" href="/learn_run/member/myPage">내 프로필</a>
+					<c:if test="${member.id eq 'admin' }">
+					<a class="tab" href="/learn_run/member/adminPage">관리자 페이지</a>
+					</c:if>
 				</div>
 			</div>
 		</div>

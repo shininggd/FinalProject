@@ -36,7 +36,13 @@ public class StudyService {
 		
 	}
 	
-
+	public List<String> myStudyListNum(String id) {
+		return studyDAO.myStudyListNum(id);
+	}
+	
+	public List<StudyDTO> myStudyList(List<String> snums) {
+		return studyDAO.myStudyList(snums);
+	}
 	
 	
 }

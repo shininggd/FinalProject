@@ -1,6 +1,7 @@
 package com.kh.learn_run;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -50,6 +51,19 @@ public class StudyController {
 		
 		model.addAttribute("dto", dto);
 		model.addAttribute("tutor",tutor);
+	}
+	
+	@RequestMapping(value="myStudyList", method = RequestMethod.POST)
+	public String myStudy(Model model ,String id) {
+		System.out.println("studyList");
+		System.out.println(id);
+		List<String> snums = studyService.myStudyListNum(id);
+		
+		List<StudyDTO> list = studyService.myStudyList(snums);
+		
+		model.addAttribute("list", list);
+		
+		return "member/sub/myStudyList";
 	}
 	
 }

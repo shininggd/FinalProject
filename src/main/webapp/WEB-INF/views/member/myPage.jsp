@@ -27,6 +27,9 @@
 					<a class="tab" href="/learn_run/member/myPurchase">내 구매 내역</a>
 					<a class="tab" href=/learn_run/member/myPoint>내 포인트</a>
 					<a class="tab selected" href="/learn_run/member/myPage">내 프로필</a>
+					<c:if test="${member.id eq 'admin' }">
+					<a class="tab" href="/learn_run/member/adminPage">관리자 페이지</a>
+					</c:if>
 				</div>
 			</div>
 		</div>
@@ -53,10 +56,10 @@
 		<form id="edit_profile_form" method="post">
 			<input type="hidden" name="id" value="${member.id }">
 			<label class="profile_label" for="pw">PW</label>
-		    <input type="password" class="profile_text" id="pw" name="pw" value="${member.pw} }" >
+		    <input type="password" class="profile_text" id="pw" name="pw" value="${member.pw}" >
 		    
 		    <label class="profile_label" for="email">Email</label>
-		    <input type="email" class="profile_text" id="email" name="email" value="${member.email }">
+		    <input type="email" class="profile_text" id="email" name="email" value="${member.email}">
 		    
 		    <label class="profile_label" for="email">Phone</label>
 		    <input type="text" class="profile_text" id="phone" name="phone" value="${member.phone}">
@@ -107,7 +110,7 @@
              data: formData,
              type: 'POST',
              success: function(result){
-                alert(result.trim());
+                alert(result.trim()); 
              }
          });	
 		
