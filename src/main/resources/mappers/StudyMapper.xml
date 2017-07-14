@@ -35,7 +35,7 @@
   
   <insert id="studyRegist" parameterType="com.kh.study.StudyDTO">
   	insert into study(num, tid, sdate, ldate, lv, category, price, people, location, title, contents, onoff)
-  	values(study_seq.nextval,#{tid},#{sdate},#{ldate},#{lv},#{category},#{price},#{people},#{location},#{title},#{contents},#{onoff})
+  	values(study_seq.nextval,#{tid},#{sDate},#{lDate},#{lv},#{category},#{price},#{people},#{location},#{title},#{contents},'off')
   
   </insert>
   
