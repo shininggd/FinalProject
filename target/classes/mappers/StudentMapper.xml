@@ -10,11 +10,15 @@
 	</select>
 	
 	<insert id="studentJoin" parameterType="com.kh.member.MemberDTO" >
-		insert into member values(#{id}, #{pw}, #{name}, #{birth}, #{grade}, #{point}, #{email}, #{telecom}, #{phone}, 'default', 'default')
+		insert into member values(#{id}, #{pw}, #{name}, #{birth}, #{grade}, #{point}, #{email}, #{telecom}, #{phone}, 'default.png', 'default.png')
 	</insert>
 	
 	<select id="studentLogin" parameterType="com.kh.member.MemberDTO" resultType="com.kh.member.student.StudentDTO">
 		select * from member where id=#{id} and pw=#{pw}
 	</select>
+	
+	<update id="studentUpdate" parameterType="com.kh.member.MemberDTO">
+		update member set pw=#{pw}, email=#{email}, phone=#{phone} where id=#{id}
+	</update>
 
 </mapper>
