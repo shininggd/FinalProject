@@ -107,7 +107,7 @@
              data: formData,
              type: 'POST',
              success: function(result){
-                var Fname = result.trim();
+                alert(result.trim());
              }
          });	
 		
