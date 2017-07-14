@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/basic_table.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/member/myStudy.css">
@@ -16,7 +17,7 @@
 <section id="main_section">
 	
 	<div id="my_page_header">
-		<div id="header_content">
+		<div id="header_contents">
 			<div id="user-photo"></div>
 			<div id="tabs">
 				<div id="user_name">장태주</div>
@@ -43,5 +44,16 @@
 </section>
 
 <c:import url="../temp/footer.jsp"></c:import>
+
+<script type="text/javascript">
+	
+	profileChange('${member.fname}');
+	
+	function profileChange(fname) {
+		 $(".user_photo").css("background-image","url(/learn_run/resources/img/member/profilePhoto/"+fname+")");
+		 $(".my_photo").css("background-image","url(/learn_run/resources/img/member/profilePhoto/"+fname+")");
+	}
+	
+</script>
 </body>
 </html>

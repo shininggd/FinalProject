@@ -19,9 +19,9 @@
 	
 	<div id="my_page_header">
 		<div id="header_contents">
-			<div id="user-photo"></div>
+			<div class="user_photo"></div>
 			<div id="tabs">
-				<div id="user_name">장태주</div>
+				<div id="user_name">${member.name}</div>
 				<div id="tab-box">
 					<a class="tab" href="/learn_run/member/myStudy">내 스터디</a>
 					<a class="tab" href="/learn_run/member/myPurchase">내 구매 내역</a>
@@ -34,7 +34,7 @@
 
 	<div class="main_container">
 		<form id="edit_photo_form" method="post" enctype="multipart/form-data">
-			<div id="my_photo"></div>
+			<div class="my_photo my_photoB"></div>
 			<fieldset id="edit_photo_fieldset">
 				<legend id="edit_photo_legend">PROFILE PHOTO</legend>
 				<label id="edit_photo_button_label" for="edit_photo_button">
@@ -42,7 +42,7 @@
 					<input type="file" id="edit_photo_button" name="photo" accept="image/*">
 				</label>
 			</fieldset>
-			<div id="my_name">장태주</div>
+			<div id="my_name">${member.name}</div>
 			<span class="introduction">
 				스터디서치는 사람들과 얼굴을 마주하고 오프라인에서 만남을 가지는 모임입니다.
 				<br>
@@ -75,7 +75,7 @@
 
 <script type="text/javascript">
 	
-	$("#my_photo").css("background-image","/learn_run/resources/img/member/${member.fname}")
+	profileChange('${member.fname}');
 	
 	$("#edit_photo_button").on("change", function(){ 
 		alert("파일업로드");
@@ -86,11 +86,12 @@
 		 $.ajax({
              url: '../file/photoUpload',
              processData: false,
-                 contentType: false,
+             contentType: false,
              data: formData,
              type: 'POST',
              success: function(result){
-                 alert(result.trim());
+                var Fname = result.trim();
+                profileChange(Fname);
              }
          });	
 	});
@@ -107,11 +108,18 @@
              data: formData,
              type: 'POST',
              success: function(result){
-                 alert(result.trim());
+                var Fname = result.trim();
              }
          });	
 		
 	});
+	
+	function profileChange(fname) {
+		
+		 $(".user_photo").css("background-image","url(/learn_run/resources/img/member/profilePhoto/"+fname+")");
+		 $(".my_photo").css("background-image","url(/learn_run/resources/img/member/profilePhoto/"+fname+")");
+		 
+	}
 	
 </script>
 </body>

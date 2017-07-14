@@ -19,14 +19,10 @@ public class FileController {
 
 	@RequestMapping(value="photoUpload")
 	public String MemberProfileUpload(MultipartHttpServletRequest request,HttpSession session, Model model)throws Exception {
-		int result = fileService.memberProfileUpload(request,session);
+		String Fname = fileService.memberProfileUpload(request,session);
 		
-		String message = "프로필 사진 변경실패";
-		if(result>0) {
-			message = "프로필 사진 변경성공";
-		}
-		model.addAttribute("message", message);
+		model.addAttribute("Fname", Fname);
 		
-		return "common/resultMessage";
+		return "common/resultFname";
 	}
 }

@@ -12,9 +12,8 @@
     margin: 0 auto;
 }
 
-#user-photo {
+.user_photo {
 	display: inline-block;
-    background-image: url(/learn_run/resources/img/member/defult_user.png);
     background-size: cover;
     background-position: 50% 50%;
     float: left;
@@ -66,7 +65,7 @@
     width: 500px;
 }
 
-#my_photo {
+.my_photoB {
 	display: inline-block;
     background-size: cover;
     background-position: 50% 50%;
