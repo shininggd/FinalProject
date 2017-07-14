@@ -18,6 +18,7 @@ public class StudyDTO {
 	private String title;
 	private String contents;
 	private String onOff;
+	
 	public int getNum() {
 		return num;
 	}

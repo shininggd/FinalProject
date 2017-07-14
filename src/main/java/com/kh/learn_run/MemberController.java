@@ -108,6 +108,8 @@ public class MemberController {
 	
 	@RequestMapping(value="/tutorLogin", method = RequestMethod.POST)
 	public ModelAndView memberLogin(MemberDTO memberDTO, HttpSession session) throws Exception{
+		System.out.println(memberDTO.getId());
+		System.out.println(memberDTO.getPw());
 		memberDTO = tutorServiceImpl.memberLogin(memberDTO, session);
 		String message = "로그인에 실패하였습니다.";
 		if(memberDTO != null){
@@ -140,6 +142,11 @@ public class MemberController {
 	
 	@RequestMapping(value="/myPoint")
 	public void goMyPoint() {
+		
+	}
+	
+	@RequestMapping(value="/adminPage")
+	public void goAdminPage() {
 		
 	}
 	
