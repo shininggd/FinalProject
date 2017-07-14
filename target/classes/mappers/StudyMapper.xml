@@ -23,7 +23,7 @@
   <select id="searchList" resultType="com.kh.study.StudyDTO" parameterType="java.util.Map">
   	select * from (select rownum R, S.* from (select * from study
   	 <include refid="list"></include>
-  	 order by num desc) S) where R between 1 and 6 
+  	 order by num desc) S) where R between #{startRow} and #{lastRow} 
   </select>
   
   
@@ -42,6 +42,10 @@
   <select id="studyView" parameterType="java.lang.Integer" resultType="com.kh.study.StudyDTO">
   	select * from study where num = #{num}
   </select>
+  <select id="studyCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+  	select count(num) from study <include refid="list"></include>
+  </select>
+  
   
   
   
