@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="StudentMapper">
+	
+	<select id="IdCheck" parameterType="java.lang.String" resultType="java.lang.String">
+		select id from member where id=#{id} 
+	</select>
+	
+	<insert id="studentJoin" parameterType="com.kh.member.MemberDTO" >
+		insert into member values(#{id}, #{pw}, #{name}, #{birth}, #{grade}, #{point}, #{email}, #{telecom}, #{phone}, 'default', 'default')
+	</insert>
+	
+	<select id="studentLogin" parameterType="com.kh.member.MemberDTO" resultType="com.kh.member.student.StudentDTO">
+		select * from member where id=#{id} and pw=#{pw}
+	</select>
+
+</mapper>

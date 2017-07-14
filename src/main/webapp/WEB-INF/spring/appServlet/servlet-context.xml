@@ -25,6 +25,9 @@
 	<context:component-scan base-package="com.kh.learn_run" />
 	<context:component-scan base-package="com.kh.study" />
 	<context:component-scan base-package="com.kh.leveltest"/>
+	<context:component-scan base-package="com.kh.member" />
+	<context:component-scan base-package="com.kh.util" />
+
 	
 	
 </beans:beans>

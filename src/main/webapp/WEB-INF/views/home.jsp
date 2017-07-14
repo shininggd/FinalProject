@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page session="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
 
@@ -16,14 +17,20 @@
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/slide.css">
 <!-- 메인화면 slide 소스 끝 -->
 
-<!-- 메인화면 css -->
+<!-- 메인화면 css 시작 -->
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/home.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
 
+<!-- 메인화면 css 끝 -->
+<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+
 </head>
 <body>
+
 <c:import url="temp/levelTest.jsp"></c:import>
-<c:import url="temp/header.jsp"></c:import>
+<c:import url="temp/header.jsp" />
+
 <!-- main 시작 -->
 
 <section id="main_wrap">
@@ -34,27 +41,27 @@
 		        <ul class="uk-slider"> 
 		            <li><a href="#" draggable="false"><div class="img_size"><figure><img style="width: 48%; height: 100%; float: right;" src="<%=application.getContextPath()%>/resources/img/image.jpg" draggable="false"></figure>
 		            <div class="banner_content">
-							<div class="banner_top_text"><span class="area">강남</span><span class="bar"></span><span class="level">초급</span></div>
+							<div class="banner_top_text"><span class="area">강남</span><span class="banner_bar"></span><span class="level">초급</span></div>
 							<div class="banner_title">미국 4년 거주! Erin 과 함께 주제별 토론으로 논리있게 회화!</div>
 							<div class="banner_bottom_text"><span class="price_value">240,000원</span><span class="price_unit">/12주</span></div>
 						</div>	</div></a></li>
 		            <li><a href="#" draggable="false"><div class="img_size"><figure><img style="width: 48%; height: 100%; float: right;" src="<%=application.getContextPath()%>/resources/img/image2.jpg" draggable="false"></figure><div class="banner_content" draggable="false">
-							<div class="banner_top_text"><span class="area">강남</span><span class="bar"></span><span class="level">초급</span></div>
+							<div class="banner_top_text"><span class="area">강남</span><span class="banner_bar"></span><span class="level">초급</span></div>
 							<div class="banner_title">미국 4년 거주! Erin 과 함께 주제별 토론으로 논리있게 회화!</div>
 							<div class="banner_bottom_text"><span class="price_value">240,000원</span><span class="price_unit">/12주</span></div>
 						</div></div></a></li>
 		            <li><a href="#" draggable="false"><div class="img_size"><figure><img style="width: 48%; height: 100%; float: right;" src="<%=application.getContextPath()%>/resources/img/image3.jpg" draggable="false"></figure><div class="banner_content" draggable="false">
-							<div class="banner_top_text"><span class="area">강남</span><span class="bar"></span><span class="level">초급</span></div>
+							<div class="banner_top_text"><span class="area">강남</span><span class="banner_bar"></span><span class="level">초급</span></div>
 							<div class="banner_title">미국 4년 거주! Erin 과 함께 주제별 토론으로 논리있게 회화!</div>
 							<div class="banner_bottom_text"><span class="price_value">240,000원</span><span class="price_unit">/12주</span></div>
 						</div></div></a></li>
 		            <li><a href="#" draggable="false"><div class="img_size"><figure><img style="width: 48%; height: 100%; float: right;" src="<%=application.getContextPath()%>/resources/img/image4.jpg" draggable="false"></figure><div class="banner_content" draggable="false">
-							<div class="banner_top_text"><span class="area">강남</span><span class="bar"></span><span class="level">초급</span></div>
+							<div class="banner_top_text"><span class="area">강남</span><span class="banner_bar"></span><span class="level">초급</span></div>
 							<div class="banner_title">미국 4년 거주! Erin 과 함께 주제별 토론으로 논리있게 회화!</div>
 							<div class="banner_bottom_text"><span class="price_value">240,000원</span><span class="price_unit">/12주</span></div>
 						</div></div></a></li>
 		            <li><a href="#" draggable="false"><div class="img_size"><figure><img style="width: 48%; height: 100%; float: right;" src="<%=application.getContextPath()%>/resources/img/image5.jpg" draggable="false"></figure><div class="banner_content" draggable="false">
-							<div class="banner_top_text"><span class="area">강남</span><span class="bar"></span><span class="level">초급</span></div>
+							<div class="banner_top_text"><span class="area">강남</span><span class="banner_bar"></span><span class="level">초급</span></div>
 							<div class="banner_title">미국 4년 거주! Erin 과 함께 주제별 토론으로 논리있게 회화!</div>
 							<div class="banner_bottom_text"><span class="price_value">240,000원</span><span class="price_unit">/12주</span></div>
 						</div></div></a></li>
@@ -65,12 +72,76 @@
 		</div>
 </div>
 <!--메인화면 slide 끝  -->
-<div id="introduce"></div>
+
+
+
+<div id="introduce">
+<!-- 강의 리스트 3개 가져오는거  -->
+	<div class="studyWrap">
+		<div class="studyTop">
+		<br>
+		<p><span class="orange">Learn&Run</span>은</p>
+		<p>각양각색 <span class="orange">스터디 리더</span>들과 함께하는</p>
+		<p>온라인/오프라인 <span class="orange">스터디</span> 입니다.</p>
+		</div>	
+		<div class="studyMiddle">
+			<div class="middleLeft">
+				<p class="leftSelect">다양한 영어회화</p>
+				<p>다양한 영어회화 ＇ 대세는 중국어</p>
+		
+			</div>
+			<div class="middleCenter">
+				<div class="middleLine"></div>
+			</div>
+			<div class="middleRight">
+				<div class="viewBox">
+					<a class="viewAll" href="./study/studyList?find=category,location,lv&search=영어회화,all,all">전체보기 〉</a>
+				</div>
+			</div>
+		</div>
+		<div class="studyBottom">
+			<div class="main_container">
+
+
+				<c:forEach items="${list }" var="i"  varStatus="s" >
+				<a href="./study/studyView?num=${i.num }" class="aBlock">
+
+					<div class="listBox">
+						<div class="boxTop">
+						${i.location } | ${i.lv }
+						</div>
+						<div class="boxMiddle_1">
+							<span class="middleTitle">${i.title }</span>
+						</div>
+						<div class="boxMiddle_2">
+							<fmt:formatNumber type="currency" currencySymbol="">${i.price }</fmt:formatNumber>원 <span class="people">${i.people }명</span> 
+						</div>
+						<div class="boxBottom">
+						
+						</div>
+						
+						
+					</div>
+					</a>
+					<c:if test="${s.index%3 eq 2 }">
+						
+						<hr>
+					</c:if>
+						
+							
+				</c:forEach>
+		</div>
+		
+	</div>
+	<!-- 강의 리스트 3개 가져오는거  끝-->
+</div>
+</div>
 <div id="exex3"></div>
 </section>
+
 <!-- main 끝 -->
 
 
-<c:import url="temp/footer.jsp"></c:import>
+<c:import url="temp/footer.jsp" />
 </body>
 </html>
