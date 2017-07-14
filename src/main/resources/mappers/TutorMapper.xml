@@ -19,5 +19,10 @@
 		select M.*, T.* from member M, tutor T 
 		where M.id=#{id} and M.pw=#{pw} and M.id=T.id
 	</select>
-
+	
+	<select id="tutorStudyInfo" parameterType="java.lang.String" resultType="com.kh.member.tutor.TutorDTO">
+		select * from tutor where id = #{tid}
+	
+	</select>
+	
 </mapper>

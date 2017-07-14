@@ -13,15 +13,43 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
  $(function() {
+	 var find = "category,location,lv";
 	$("#btn").click(function() {
-		var find = "category,location,lv";
 		var search = "${category},"+document.frm.location.value+","+document.frm.lv.value;
 		document.frm.find.value = find;
 		document.frm.search.value = search;
 		document.frm.submit();
-	});	
+	});
 }) 
 </script>
+<style type="text/css">
+.pagingBox{
+	width: 240px;
+	height: 30px;
+	margin: 0 auto;
+	text-align: center;
+}
+.pagingText{
+	color: color: #3c3c3c;
+	font-size: 25px;
+	text-decoration: none;
+}
+.pagingArrowR{
+	width: 20px; 
+	height: 20px;
+	-webkit-transform: rotate(90deg) scale(1) skew(1deg) translate(0px);
+-moz-transform: rotate(90deg) scale(1) skew(1deg) translate(0px);
+-o-transform: rotate(90deg) scale(1) skew(1deg) translate(0px);
+}
+.pagingArrowL{
+width: 20px; 
+	height: 20px;
+-webkit-transform: rotate(270deg) scale(1) skew(1deg) translate(0px);
+-moz-transform: rotate(270deg) scale(1) skew(1deg) translate(0px);
+-o-transform: rotate(270deg) scale(1) skew(1deg) translate(0px);
+}
+
+</style>
 </head>
 <body>
 <c:import url="../temp/header.jsp"></c:import>
@@ -76,11 +104,11 @@
 
 <div class="bottom">
 	<div class="main_container">
-		<p class="bottomTitle">개의 스터디</p>
+		<p class="bottomTitle">${totalCount }개의 스터디</p>
 		
 			
 				<c:forEach items="${list }" var="i"  varStatus="s" >
-					<a href="studyView?num=${i.num }" class="aBlock">
+					<a href="studyView?num=${i.num }&tid=${i.tid }" class="aBlock">
 						<div class="listBox">
 							<div class="boxTop">
 							${i.location } | ${i.lv }
@@ -99,15 +127,26 @@
 						</div>
 					</a>
 					
-					<c:if test="${s.index%3 eq 2 }">
-						
+					<c:if test="${s.last or s.index%3 eq 2 }">
 						<hr>
 					</c:if>
 						
 							
 				</c:forEach>
-	
+				
+	<div class="pagingBox">
+		<c:if test="${listInfo.curBlock > 1}"> 
+			<span class="pageMove" id="${listInfo.startNum-1}"><img alt="" src="<c:url value="/resources/img/study/pagingArrow.png"/>" class="pagingArrowL" ></span>
+		</c:if> 
+			<c:forEach begin="${listInfo.startNum}" end="${listInfo.lastNum}" var="j">
+				<a href="./studyList?find=category,location,lv&search=${listInfo.search}&curPage=${j}" class="pagingText">${j}</a>
+			</c:forEach>
+		<c:if test="${listInfo.curBlock < listInfo.totalBlock }"> 
+			<span class="pageMove" id="${listInfo.lastNum+1}"><img alt="" src="<c:url value="/resources/img/study/pagingArrow.png"/>" class="pagingArrowR" ></span>
+	 	</c:if> 	
 	</div>
+	
+</div>
 </div>
 </section>
 <!-- ======================================== 섹션END==========================================  -->
