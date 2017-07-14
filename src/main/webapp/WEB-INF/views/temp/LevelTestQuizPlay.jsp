@@ -103,13 +103,13 @@ $(function(){
 	</c:if>
 	<section id="test_quiz_end">
 		<c:if test="${score ge 71 and score le 100}">
-			<p class="score_sentence">당신의 점수는 ${score}점 입니다. <br>고급 class!</p>
+			<p class="score_sentence">당신의 점수는 ${score}점 입니다. <br>고급 class! ㅇㅈ?ㅇㅇㅈ</p>
 		</c:if>
 			<c:if test="${score ge 41 and score le 70}">
-			<p class="score_sentence">당신의 점수는 ${score}점 입니다. <br>중급 class!</p>
+			<p class="score_sentence">당신의 점수는 ${score}점 입니다. <br>중급 class! 5지구욘 지리구욘</p>
 			</c:if>
 				<c:if test="${score ge 0 and score le 40}">
-					<p class="score_sentence">당신의 점수는 ${score}점 입니다. <br>하급 class!</p>
+					<p class="score_sentence">당신의 점수는 ${score}점 입니다. <br>하급 class! ...절레절레</p>
 				</c:if>
 	</section>
 	</div>
