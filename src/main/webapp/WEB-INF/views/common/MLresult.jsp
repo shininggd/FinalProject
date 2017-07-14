@@ -8,8 +8,8 @@
 </head>
 <body>
 <script type="text/javascript">
-alert("${message}");
-location.href="${path}";
+	alert("${message}");
+	location.href="${path}";
 </script>
 </body>
 </html>

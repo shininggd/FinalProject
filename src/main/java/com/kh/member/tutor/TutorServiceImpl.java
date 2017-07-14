@@ -18,8 +18,6 @@ public class TutorServiceImpl implements MemberService{
 
 	@Override
 	public int memberJoin(MemberDTO memberDTO, HttpServletRequest request) throws Exception {
-		String phone = request.getParameter("phone1")+"-"+request.getParameter("phone2")+"-"+request.getParameter("phone3");
-		memberDTO.setPhone(phone);
 		
 		return tutorDAOImpl.memberJoin(memberDTO);
 	}
@@ -53,10 +51,8 @@ public class TutorServiceImpl implements MemberService{
 		String result = tutorDAOImpl.memberIdCheck(id);
 		return result;
 	}
-
-	
-
-	
-	
-
 }
+	
+	
+
+

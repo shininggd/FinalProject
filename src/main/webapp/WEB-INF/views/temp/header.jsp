@@ -99,9 +99,7 @@ $(function(){
   				$("#birth").val != "" &&
   				$("#email").val != "" &&
   				$("#telecom").val != "" &&
-  				$("#phone1").val != "" &&
-  				$("#phone2").val != "" &&
-  				$("#phone3").val != "" &&
+  				$("#phone").val != "" &&
   				id_check == true &&
   				pw_check == true){
   					all_check = true;
@@ -117,9 +115,7 @@ $(function(){
   					$("#birth").val() == "" ||
   					$("#email").val() == "" ||
   					$("#telecom").val() == "" ||
-  					$("#phone1").val()  == "" ||
-  					$("#phone2").val()  == "" ||
-  					$("#phone3").val() == "" ) {
+  					$("#phone").val()  == "") {
   						alert("필수 항목을 모두 입력해주세요.");
   				}
   				
@@ -142,12 +138,12 @@ $(function(){
 		
 		$(".g_check").click(function() {
 			var path = $(this).prop("value");
-			$("#joinFrm").prop("action","member/"+path+"Join");
+			$("#joinFrm").prop("action","/learn_run/member/"+path+"Join");
 		});
 		
 		$(".g_login").click(function() {
 			var path = $(this).prop("value");
-			$("#loginFrm").prop("action", "member/"+path+"Login");
+			$("#loginFrm").prop("action", "/learn_run/member/"+path+"Login");
 		});
 		
 		$("#login").click(function() {
@@ -235,7 +231,7 @@ $(function(){
 						<!-- Modal (login) -->
 	 					 <div class="modal fade" id="loginForm" role="dialog">
 	 					 		<span id="login_close">X</span>
-	          					<form action="member/tutorLogin" id="loginFrm" method="post">
+	          					<form action="/learn_run/member/tutorLogin" id="loginFrm" method="post">
 	          						<p>튜터 : <input type="radio" name="grade" class="g_login" value="tutor" checked="checked"> 
 	          						학생: <input type="radio" name="grade" class="g_login" value="student"></p>
 									<p><input type="text" name="id"  placeholder="ID를 입력하세요"></p>
@@ -253,7 +249,7 @@ $(function(){
 						<!-- joinForm start -->
 	 					 <div class="modal fade" id="joinForm" >
 	       					 <span id="join_close">X</span>
-	          					<form action="member/tutorJoin"  id="joinFrm" method="post" >
+	          					<form action="/learn_run/member/tutorJoin"  id="joinFrm" method="post" >
 	          						<p>튜터: <input type="radio" class="g_check" name="grade" value="tutor" checked="checked">  학생:<input type="radio" class="g_check" name="grade" value="student" id="member-frm"> </p>
 									<p>ID: <input type="text" name="id" id="id" placeholder="ID를 입력하세요"></p>
 									<span id="idmessage"></span>
@@ -265,16 +261,8 @@ $(function(){
 									<p>e-mail:<input type="text" name="email" placeholder="ex) learn-run@gmail.com"></p>
 									<p>연락처:<select name="telecom">
 											<option>SKT</option> <option>KT</option> <option>LGT</option> <option>알뜰폰</option>
-										</select>
-									<select name="phone1" id=phone1>
-										<option value="010">010</option>
-										<option value="011">011</option>
-										<option value="016">016</option>
-										<option value="017">017</option>
-										<option value="018">018</option>
-										<option value="019">019</option>
-									</select>
-									-<input class="input_phone" type="text" name="phone2" id="phone2">-<input class="input_phone" type="text" name="phone3" id="phone3">
+											</select>
+									<input class="input_phone" type="text" name="phone" id="phone" placeholder="ex) 010-1234-5678">
 									</p>
 									
 									<input type="button" id="join" value="회원가입">
@@ -334,7 +322,7 @@ $(function(){
 							</section>
 							<section class="my_page_list_section">
 								<a class="my_page_menu" href="" style="text-decoration: none;">자주 묻는 질문</a>
-								<a class="my_page_menu_logout" href="" style="text-decoration: none; color: #a0a0a0;">로그아웃</a>
+								<a class="my_page_menu_logout" href="/learn_run/member/memberLogout" style="text-decoration: none; color: #a0a0a0;">로그아웃</a>
 							</section>
 						</section>
 						</c:if>

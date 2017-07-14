@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -45,7 +46,7 @@ public class MemberController {
 	@RequestMapping(value="/IdCheck", method=RequestMethod.POST)
 	public String memberIdCheck(String id, Model model) throws Exception{
 		
-		System.out.println("controller="+id);
+		//System.out.println("controller="+id);
 		String result = studentServiceImpl.memberIdCheck(id);
 		if(result == null) {
 			result = "true";
@@ -153,6 +154,13 @@ public class MemberController {
 		model.addAttribute("message", message);
 		
 		return "common/resultMessage";
+	}
+	
+	@RequestMapping(value="/memberLogout")
+	public String memberLogout(HttpSession session){
+		session.invalidate();
+		return "home";
+
 	}
 
 }
