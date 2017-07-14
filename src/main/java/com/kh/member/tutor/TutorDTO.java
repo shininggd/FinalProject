@@ -10,7 +10,14 @@ public class TutorDTO extends MemberDTO{
 	private String level;
 	private int gpoint;
 	private String introduce;
+	private String right;
 	
+	public String getRight() {
+		return right;
+	}
+	public void setRight(String right) {
+		this.right = right;
+	}
 	public String getLevel() {
 		return level;
 	}

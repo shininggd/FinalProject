@@ -6,6 +6,10 @@
 	margin: 0 auto;
 	text-align: center;
 }
+a{
+	color: #3c3c3c;
+}
+
 .pagingText{
 	color: color: #3c3c3c;
 	font-size: 25px;

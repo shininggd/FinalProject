@@ -146,6 +146,8 @@ width: 20px;
 	 	</c:if> 	
 	</div>
 	
+	<a href="./studyRegist"><button>등록하기</button></a>
+	
 </div>
 </div>
 </section>

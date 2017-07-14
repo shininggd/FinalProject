@@ -31,25 +31,24 @@ public class StudyController {
 		
 		
 	}
-	@RequestMapping(value = "studyRegist", method = RequestMethod.GET)
-	public String regist(Model model,StudyDTO studyDTO)throws Exception {
-		int result = studyService.regist(studyDTO);
-		if(result>0){
-		model.addAttribute("message", "등록완료");
-		}
-		return "../home";
-	}
 	@RequestMapping(value = "studyView", method = RequestMethod.GET)
 	public void studyView(Model model, Integer num,String tid)throws Exception{
 		
-		 HashMap<Object, Object> ar =studyService.studyView(num, tid);
-		 StudyDTO dto = (StudyDTO) ar.get("study");
-		 TutorDTO tutor = (TutorDTO)ar.get("tutor");
-		 
-		 		
-		
+		HashMap<Object, Object> ar =studyService.studyView(num, tid);
+		StudyDTO dto = (StudyDTO) ar.get("study");
+		TutorDTO tutor = (TutorDTO)ar.get("tutor");
 		model.addAttribute("dto", dto);
 		model.addAttribute("tutor",tutor);
 	}
+	@RequestMapping(value = "studyRegist", method = RequestMethod.GET)
+	public void regist(){
+
+	}
+	@RequestMapping(value = "studyRegistInsert", method = RequestMethod.POST)
+	public void regist(StudyDTO studyDTO)throws Exception{
+		studyService.regist(studyDTO);
+
+	}
+
 	
 }
