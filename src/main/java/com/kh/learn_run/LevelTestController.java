@@ -24,16 +24,14 @@ public class LevelTestController {
 		return "temp/LevelTestQuiz";
 	}
 
-	/*@RequestMapping(value ="LevelTestQuizPlay", method = RequestMethod.GET)
-	public String LtestQuizPlay(@RequestParam("category") String category,Model model) {
-		model.addAttribute("category", category);
-		return "temp/LevelTestQuizPlay";
-	}*/
 	@RequestMapping(value ="LevelTestQuizPlay", method = RequestMethod.GET)
 	public void  LtestQuizPlay(String category,Model model,int step,int score)throws Exception{
+		
+		if(step != 0) {
 		String ar[] = leveltestservice.TQlist(category,step);  		
 		model.addAttribute("question", ar[0]);
 		model.addAttribute("answer", ar[1]);
+		}
 		model.addAttribute("category", category);
 		model.addAttribute("step", step);
 		model.addAttribute("score", score);

@@ -1,29 +1,42 @@
 @CHARSET "UTF-8";
 @CHARSET "UTF-8";
 #level_test_box{
-	width: 890px;
-	height: 400px;
+	width: 960px;
+	height: 420px;
 	}
 	
 #page_image{
-	width: 460px;
-	height: 400px;
+	width: 450px;
+	height: 450px;
 	float: left;
 	display: inline-block;
 }
 
 #test_quiz_intro{
-	width: 300px;
-	height: 350px;
+	width: 420px;
+	height: 420px;
 	padding: 20px;
 	float: left;
 	padding-left: 70px;
 }
-
+#progress_bar{
+	margin-bottom: 3pc;
+    width: 100%;
+    height: 4px;
+    background: #dbdbdb;
+    line-height: 0;
+}
+.LTQ_pass{
+	display: inline-block;
+    width: 20%;
+    height: 100%;
+    background: #ef6c00;
+}
 #LTQ_quest{
-	width: 250px;
-	height: 100px;
-	padding: 10px;
+	height: 80px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 40px;
 }
 
 #LTQ_ans > ul{
@@ -34,7 +47,50 @@
 	padding-bottom: 2px;
 	border-bottom: 2px solid #ebebeb;
 }
+#LTQ_Q{
+	margin: 20px;
+	font-size: 18pt;
+    font-weight: 700;
+    color: #505050;
+    line-height: 1.16em;
+}
 
-#test_quiz_end {
+#LTQ_select_list{
+	list-style: none;
+}
+.ans_sel input[type=radio]{
 	display: none;
+}
+.mock-button{
+	display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #b4b4b4;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.15);
+    background: #fff;
+    text-align: center;
+}
+.LTQ_select_content{
+	margin-left: 9pt;
+    line-height: 26px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #787878;
+}
+#test_quiz_end {
+	width : 300px;
+	display: none;
+	margin-left: 100px;
+    margin-top: 100px;
 } 
+.score_sentence{
+	width: 300px;
+	height: 100px;
+	font-family: fantasy;
+	font-size: x-large;
+	font-weight: bold;
+	color : #f08b41;
+}

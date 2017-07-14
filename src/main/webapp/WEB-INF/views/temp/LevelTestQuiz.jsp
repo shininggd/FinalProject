@@ -26,9 +26,8 @@
 							<span><input type="radio" class ="cate" name="category" value="C">중국어</span>
 							<span><input type="radio" class ="cate" name="category" value="P">프로그래밍</span>
 						</div>
-				<div id="intro_content">10문제로 너의 Class를 평가해주마</div>
+				<div id="intro_content">5문제로 당신의 지적 능력을 알아보는 Test 입니다 오지구요 지리구요</div>
 						<!-- 카테고리 선택 -->
-					<input type="button" id="test_start_button" value="TEST START">
 					
 	</section>
 	</div>
