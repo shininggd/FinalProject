@@ -31,9 +31,11 @@ $(function(){
 	var id_check = false;
   	var pw_check = false;
   	var all_check = false;
+  	var email_check = false;
   	
   	var ch_id = "";
   	var ch_pw = $("#pw").val();
+  	var ch_email = $("#email").val();
 
 //id중복확인
   		$("#id").change(function(){
@@ -41,7 +43,7 @@ $(function(){
   			$.post("member/IdCheck",
   					{id:ch_id},
   					function(data) {
-						var reg_id = /^[a-z0-9]{6,20}$/;
+						var reg_id = /^[a-zA-Z]+[a-zA-Z0-9]{5,19}$/g;
 						var R_id = data.trim();
 						
 						//alert(R_id);
@@ -53,7 +55,7 @@ $(function(){
 						if(R_id=='true'){
 							
 							if(!reg_id.test(ch_id)){
-								$("#idmessage").html("<font color=red>영문, 숫자를 혼합하여 6~20자 이내로 입력해주세요.</font");
+								$("#idmessage").html("<font color=red>영문이나 숫자를 이용하여 6~20자 이내로 입력해주세요.</font");
 								id_check = false;
 							}
 							if(reg_id.test(ch_id)){
@@ -65,7 +67,7 @@ $(function(){
 					});
 		});
   		
-  		//pw일치여부
+  		/* pw일치여부 시작 */
           $("#pw").change(function(){
            
            if($("#pw").val()==$("#pw2").val()){
@@ -76,7 +78,8 @@ $(function(){
               pw_check = false;
            }
            
-        });       
+        }); 
+  		
   		
          $("#pw2").change(function(){
              
@@ -89,8 +92,14 @@ $(function(){
              }
              
           });       
-  		
+         /* pw일치여부 끝 */
          
+  		/* email 형식 */
+  		$().
+  		var 
+  		
+  		/* email 형식 */
+  		
         //회원가입버튼을 눌렀을 때
   		$("#join").click(function() {
 			
@@ -119,6 +128,10 @@ $(function(){
   					$("#telecom").val() == "" ||
   					$("#phone").val()  == "") {
   						alert("필수 항목을 모두 입력해주세요.");
+  				}
+  				
+  				if($("email").){
+  					
   				}
   				
   				if(id_check == false){
@@ -297,7 +310,7 @@ $(function(){
 									<td class="infoIndex">생일</td><td class="infoCon"><input type="date" name="birth"></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">e-mail</td><td class="infoCon"><input type="text" name="email" placeholder="ex) learn-run@gmail.com"></td>
+									<td class="infoIndex">e-mail</td><td class="infoCon"><input type="text" name="email" id="email" placeholder="ex) learn-run@gmail.com"></td>
 									</tr>
 									<tr>
 									<td class="infoIndex">연락처</td><td><select name="telecom">
