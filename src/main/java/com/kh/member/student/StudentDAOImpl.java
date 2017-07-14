@@ -23,8 +23,7 @@ public class StudentDAOImpl implements MemberDAO{
 	}
 	@Override
 	public int memberUpdate(MemberDTO memberDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(NAMESPACE+"studentUpdate", memberDTO);
 	}
 	@Override
 	public MemberDTO memberLogin(MemberDTO memberDTO, HttpSession session) throws Exception {

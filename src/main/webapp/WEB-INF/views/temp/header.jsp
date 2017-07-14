@@ -6,6 +6,8 @@
 <script type="text/javascript">
 $(function(){
     
+	
+	
 	/* ---------------------login , join ------------------------------*/
 	$("#login_modal_toggle").click(function () {
 		$("#loginForm").css("display","inline");
@@ -151,6 +153,13 @@ $(function(){
 		});
 	
 	/* ---------------------login , join ------------------------------*/
+	
+	profileChange('${member.fname}');
+	
+	function profileChange(fname) {
+		 $(".user_photo").css("background-image","url(/learn_run/resources/img/member/profilePhoto/"+fname+")");
+		 $(".my_photo").css("background-image","url(/learn_run/resources/img/member/profilePhoto/"+fname+")");
+	}
 	
 	$("#notification_link").click(function(){
         if($("#notification_list_wrap").is(":visible")){
@@ -311,14 +320,13 @@ $(function(){
 								<div class="user_photo"></div>
 								<div class="user_name_wrap">
 									<div class="user_name">${member.id }</div>
-									<a class="link_to_edit_profile" href="" style="text-decoration: none;">프로필 보기</a>
+									<a class="link_to_edit_profile" href="/learn_run/member/myPage" style="text-decoration: none;">프로필 보기</a>
 								</div>							
 							</section>
 							<section class="my_page_list_section">
-								<a class="my_page_menu" href="" style="text-decoration: none;">내 스터디</a>
-								<a class="my_page_menu" href="" style="text-decoration: none;">찜한 스터디</a>
-								<a class="my_page_menu" href="" style="text-decoration: none;">내 구매 내역</a>
-								<a class="my_page_menu" href="" style="text-decoration: none;">내 포인트</a>
+								<a class="my_page_menu" href="/learn_run/member/myStudy" style="text-decoration: none;">내 스터디</a>
+								<a class="my_page_menu" href="/learn_run/member/myPurchase" style="text-decoration: none;">내 구매 내역</a>
+								<a class="my_page_menu" href="/learn_run/member/myPoint" style="text-decoration: none;">내 포인트</a>
 							</section>
 							<section class="my_page_list_section">
 								<a class="my_page_menu" href="" style="text-decoration: none;">자주 묻는 질문</a>

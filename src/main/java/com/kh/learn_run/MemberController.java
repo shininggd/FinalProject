@@ -1,15 +1,23 @@
 package com.kh.learn_run;
 
+
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+
+import com.kh.member.MemberDTO;
+import com.kh.member.MemberService;
+
+
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,9 +29,14 @@ import com.kh.member.student.StudentServiceImpl;
 import com.kh.member.tutor.TutorDTO;
 import com.kh.member.tutor.TutorServiceImpl;
 
+
 @Controller
 @RequestMapping(value="/member/**")
 public class MemberController {
+	
+	
+
+
 	
 	@Autowired
 	private StudentServiceImpl studentServiceImpl;
@@ -109,11 +122,45 @@ public class MemberController {
 		
 		return mv;
 		}
+
+	@RequestMapping(value="/myPage")
+	public void goMyPage() {
+		
+	}
+	
+	@RequestMapping(value="/myStudy")
+	public void goMyStudy() {
+		
+	}
+	
+	@RequestMapping(value="/myPurchase")
+	public void goMyPurchase() {
+		
+	}
+	
+	@RequestMapping(value="/myPoint")
+	public void goMyPoint() {
+		
+	}
+	
+	@RequestMapping(value="/memberUpdate")
+	public String memberUpdate(HttpSession session,Model model,MemberDTO memberDTO) throws Exception {
+		int result = studentServiceImpl.memberUpdate(memberDTO);
+		String message = "정보수정 실패";
+		if(result>0) {
+			message = "정보수정 성공";
+			session.setAttribute("member", memberDTO);
+		}
+		model.addAttribute("message", message);
+		
+		return "common/resultMessage";
+	}
 	
 	@RequestMapping(value="/memberLogout")
 	public String memberLogout(HttpSession session){
 		session.invalidate();
 		return "home";
+
 	}
 
 }

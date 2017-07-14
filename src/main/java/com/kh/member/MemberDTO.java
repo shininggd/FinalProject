@@ -2,8 +2,12 @@ package com.kh.member;
 
 import java.sql.Date;
 
+
+import org.springframework.stereotype.Component;
+
+@Component
 public class MemberDTO {
-	
+
 	private String id;
 	private String pw;
 	private String name;
@@ -66,7 +70,6 @@ public class MemberDTO {
 	}
 	public String getPhone() {
 		return phone;
-		
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
@@ -85,7 +88,9 @@ public class MemberDTO {
 	}
 	
 	
-	
 
 }
+
+	
+
 

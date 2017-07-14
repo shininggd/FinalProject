@@ -1,5 +1,6 @@
 package com.kh.member;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -17,6 +18,7 @@ public interface MemberService {
 	
 	public String memberIdCheck(String id) throws Exception;
 	
+
 
 
 }
