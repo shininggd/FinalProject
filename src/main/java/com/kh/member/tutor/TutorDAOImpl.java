@@ -1,8 +1,9 @@
 package com.kh.member.tutor;
 
+
+import java.util.List;
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.jdbc.SQL;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -47,7 +48,10 @@ public class TutorDAOImpl implements MemberDAO{
 		
 		return sqlSession.selectOne(NAMESPACE+"IdCheck", id);
 	}
-
+	
+	public List<TutorDTO> tutorinfo(){
+		 return  sqlSession.selectList(NAMESPACE+"tutorInfo");
+	}
 
 
 	

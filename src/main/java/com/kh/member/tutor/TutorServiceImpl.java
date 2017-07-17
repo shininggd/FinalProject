@@ -1,6 +1,9 @@
 package com.kh.member.tutor;
 
 
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -50,6 +53,10 @@ public class TutorServiceImpl implements MemberService{
 	public String memberIdCheck(String id) throws Exception {
 		String result = tutorDAOImpl.memberIdCheck(id);
 		return result;
+	}
+	
+	public List<TutorDTO> tutorinfo(){
+		return tutorDAOImpl.tutorinfo();
 	}
 }
 	

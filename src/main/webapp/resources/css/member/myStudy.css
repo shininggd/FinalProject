@@ -86,3 +86,13 @@
     list-style: none;
 	
 }
+#mystudy_menubar{
+	width: 200px;
+	height: 400px;
+	float: left;
+}
+#mystudy_tutorinfoview{
+	width: 760px;
+	height: 400px;
+	float: left;
+}

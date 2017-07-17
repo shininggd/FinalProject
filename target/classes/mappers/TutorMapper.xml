@@ -22,7 +22,13 @@
 	
 	<select id="tutorStudyInfo" parameterType="java.lang.String" resultType="com.kh.member.tutor.TutorDTO">
 		select * from tutor where id = #{tid}
-	
 	</select>
-	
+	<!-- 관리자페이지에서 튜터데이터 가져오기 -->
+	<select id="tutorInfo" parameterType="java.lang.String" resultType="com.kh.member.tutor.TutorDTO">
+		select * from tutor
+	</select>
+	<!-- 관리자 페이지에서 레벨,권한 수정하기 -->
+	<update id="adminTupdate" parameterType="com.kh.member.tutor.TutorDTO">
+		update tutor set lv=#{lv}, right=#{right}; where id=#{id}
+	</update>
 </mapper>

@@ -2,10 +2,13 @@ package com.kh.learn_run;
 
 
 
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-
+import org.springframework.aop.ThrowsAdvice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,10 +21,8 @@ import com.kh.member.MemberService;
 
 
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.kh.member.MemberDTO;
-import com.kh.member.MemberService;
 import com.kh.member.student.StudentDAOImpl;
 import com.kh.member.student.StudentDTO;
 import com.kh.member.student.StudentServiceImpl;
@@ -33,8 +34,6 @@ import com.kh.member.tutor.TutorServiceImpl;
 @RequestMapping(value="/member/**")
 public class MemberController {
 	
-	
-
 
 	
 	@Autowired
@@ -168,5 +167,16 @@ public class MemberController {
 		return "redirect:/";
 
 	}
-
+	
+	@RequestMapping(value="/sub/tutorOversight")
+	public void gotutorOversight(){
+		
+	}
+	@RequestMapping(value="/sub/tutorOversight", method=RequestMethod.POST)
+	public String tutorOversightinfo(Model model){
+		List<TutorDTO> tutorinfo =tutorServiceImpl.tutorinfo();
+		model.addAttribute("data", tutorinfo);
+		return"member/sub/tutorOversight";
+	}
+	
 }

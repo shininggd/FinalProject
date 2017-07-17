@@ -10,6 +10,37 @@
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/basic_table.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/member/myStudy.css">
+<script type="text/javascript">
+$(function(){
+	$("#tutorinfo").click(function(){
+		$.post("./sub/tutorOversight",function(data){
+			data = data.trim();
+			$("#mystudy_tutorinfoview").html(data);
+		});
+	});	
+	
+	$("#mystudy_tutorinfoview").on('click',".change_Tinfo",function(){
+		var num = $(this).prop("id");
+
+		var lv_ch = $("#lv_select"+num+" option:selected").val();
+		var ri_ch = $("#rig_select"+num+" option:selected").val();
+		
+		if(lv_ch == 'unreceived' && ri_ch == 'T'){
+			alert("권한이 변경되면 레벨도 변경되어야 합니다");
+			return false;
+		}
+		if(lv_ch != 'unreceived' && ri_ch == 'F'){
+			alert("권한이 F면 레벨을 설정할 수 없습니다");
+			return false;
+		}
+		
+		
+	});
+	
+});
+
+
+</script>
 </head>
 <body>
 <c:import url="../temp/header.jsp"></c:import>
@@ -38,7 +69,13 @@
 		
 		<h1 id="mystudy_h1">관리자 페이지</h1>
 		<div id="mystudy_list">
-			
+			<div id="mystudy_menubar">
+			<input type="button" id="tutorinfo" value="tutorinfo">
+			</div>
+
+				<div id="mystudy_tutorinfoview">
+				
+				</div>
 		</div>
 	
 	</div>
