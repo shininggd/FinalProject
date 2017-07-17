@@ -45,9 +45,7 @@ public class StudentDAOImpl implements MemberDAO{
 		return sqlSession.selectOne(NAMESPACE+"IdCheck", id);
 		
 	}
-	
 
-	
 	
 
 }

@@ -51,6 +51,8 @@ public class TutorServiceImpl implements MemberService{
 		String result = tutorDAOImpl.memberIdCheck(id);
 		return result;
 	}
+	
+
 }
 	
 	
