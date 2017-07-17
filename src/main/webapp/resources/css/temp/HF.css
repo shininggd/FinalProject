@@ -29,7 +29,7 @@ margin: 0 auto;
 }
 
 #header-left-menus{
-width: 330px;
+width: 370px;
 float: left;
 padding-top: 20px;
 display: inline-block;
@@ -73,7 +73,7 @@ margin: 6px 9pt 0;
 margin-top: 15px;
 }
 #header-right-menus{
-width: 35%;
+width: 400px;
 float: right;
 margin-top: 15px;
 font-weight: 700;
