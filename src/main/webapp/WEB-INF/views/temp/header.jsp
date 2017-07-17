@@ -247,7 +247,7 @@ $(function(){
 				<article id="header-left-menus">
 					<a id="theme_menu_toggle" class="link" href="#"><span class="drawer_icon"></span>카테고리<img class="arrow_icon" src="<c:url value="/resources/img/arrow_icon.png"/>"></a>
 					<span class="header_bar"></span>
-					<a class="menu2" href="#">메뉴2</a>
+					<a class="menu2" href="/learn_run/chul/chulCheck">출석체크</a>
 					<span class="header_bar"></span>
 					<a class="menu3" href="./small_group/small_group">소모임</a>
 					<span class="header_bar"></span>
