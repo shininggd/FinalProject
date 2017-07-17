@@ -86,8 +86,9 @@
 		</div>	
 		<div class="studyMiddle">
 			<div class="middleLeft">
-				<p class="leftSelect">다양한 영어회화</p>
-				<p>다양한 영어회화 ＇ 대세는 중국어</p>
+				<p class="leftSelect">다양한 <span id="cat">영어회화</span></p>
+				<p><span class="homeCategory" title="영어회화">다양한 영어회화</span> ＇ 
+				<span class="homeCategory" title="중국어회화">다양한 중국어</span></p>
 		
 			</div>
 			<div class="middleCenter">
@@ -100,36 +101,9 @@
 			</div>
 		</div>
 		<div class="studyBottom">
-			<div class="main_container">
+			<div class="main_container" id="studyList">
 
-
-				<c:forEach items="${list }" var="i"  varStatus="s" >
-				<a href="./study/studyView?num=${i.num }&tid=${i.tid }" class="aBlock">
-
-					<div class="listBox">
-						<div class="boxTop">
-						${i.location } | ${i.lv }
-						</div>
-						<div class="boxMiddle_1">
-							<span class="middleTitle">${i.title }</span>
-						</div>
-						<div class="boxMiddle_2">
-							<fmt:formatNumber type="currency" currencySymbol="">${i.price }</fmt:formatNumber>원 <span class="people">${i.people }명</span> 
-						</div>
-						<div class="boxBottom">
-						
-						</div>
-						
-						
-					</div>
-					</a>
-					<c:if test="${s.index%3 eq 2 }">
-						
-						<hr>
-					</c:if>
-						
-							
-				</c:forEach>
+				
 		</div>
 		
 	</div>
@@ -143,5 +117,27 @@
 
 
 <c:import url="temp/footer.jsp" />
+
+<script type="text/javascript">
+homList('category','영어회화');
+$(".homeCategory").click(function() {
+	var find = 'category';
+	var search = $(this).attr("title");
+	homList(find,search);
+	
+
+})
+
+function homList(find, search) {
+	$.get("./study/studyHomeList",{find:find,search:search},function(data){
+		$("#studyList").html(data);
+})
+$(".viewAll").attr("href","./study/studyList?find=category,location,lv&search="+search+",all,all")
+$("#cat").html(search);
+	
+}
+
+</script>
+
 </body>
 </html>

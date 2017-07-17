@@ -145,8 +145,11 @@ width: 20px;
 			<span class="pageMove" id="${listInfo.lastNum+1}"><img alt="" src="<c:url value="/resources/img/study/pagingArrow.png"/>" class="pagingArrowR" ></span>
 	 	</c:if> 	
 	</div>
-	
+	<c:if test="${member != null }">
+	<c:if test="${member.grade eq 'tutor' }">
 	<a href="./studyRegist"><button>등록하기</button></a>
+	</c:if>
+	</c:if>
 	
 </div>
 </div>

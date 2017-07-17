@@ -64,5 +64,11 @@ public class StudyController {
 		
 		return "member/sub/myStudyList";
 	}
+	@RequestMapping(value="studyHomeList", method=RequestMethod.GET)
+	public void homeStudy(Model model, ListInfo listInfo) throws Exception{
+		System.out.println(listInfo.getFind());
+		System.out.println(listInfo.getSearch());
+		model.addAttribute("list", studyService.homeList(listInfo));
+	}
 	
 }

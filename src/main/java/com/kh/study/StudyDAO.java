@@ -41,6 +41,7 @@ public class StudyDAO {
 		map.put("search1", sar[0]);
 		map.put("search2", sar[1]);
 		map.put("search3", sar[2]);
+		
 		map.put("startRow",listInfo.getStartRow());
 		map.put("lastRow",listInfo.getLastRow());
 		ar = sqlSession.selectList(NAMESPACE+"searchList", map);
@@ -73,13 +74,18 @@ public class StudyDAO {
 	}
 	
 	public List<StudyDTO> homeList(ListInfo listInfo)throws Exception{
+		System.out.println(listInfo.getFind()+"222");
+		System.out.println(listInfo.getSearch()+"222");
 		
 		if(listInfo.getFind()==null||listInfo.getFind()==""){
 			listInfo.setFind("category");
 		}
+		
 		if(listInfo.getSearch()==null||listInfo.getSearch()==""){
 			listInfo.setSearch("영어회화");
 		}
+		System.out.println(listInfo.getFind()+"3");
+		System.out.println(listInfo.getSearch()+"3");
 		List<StudyDTO> ar = new ArrayList<StudyDTO>();
 		ar = sqlSession.selectList(NAMESPACE+"homeList",listInfo);
 		return ar;
