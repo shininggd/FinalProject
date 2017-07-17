@@ -34,8 +34,8 @@ public class TutorDAOImpl implements MemberDAO{
 	}
 	@Override
 	public String IdFind(MemberDTO memberDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return sqlSession.selectOne(NAMESPACE+"IdFind", memberDTO);
 	}
 	@Override
 	public String PwFind(MemberDTO memberDTO) throws Exception {
@@ -47,6 +47,7 @@ public class TutorDAOImpl implements MemberDAO{
 		
 		return sqlSession.selectOne(NAMESPACE+"IdCheck", id);
 	}
+
 
 
 }

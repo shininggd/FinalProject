@@ -46,7 +46,7 @@ public class MemberController {
 	@RequestMapping(value="/IdCheck", method=RequestMethod.POST)
 	public String memberIdCheck(String id, Model model) throws Exception{
 		
-		System.out.println("controller="+id);
+		//System.out.println("controller="+id);
 		String result = studentServiceImpl.memberIdCheck(id);
 		if(result == null) {
 			result = "true";
@@ -109,8 +109,8 @@ public class MemberController {
 	
 	@RequestMapping(value="/tutorLogin", method = RequestMethod.POST)
 	public ModelAndView memberLogin(MemberDTO memberDTO, HttpSession session) throws Exception{
-		System.out.println(memberDTO.getId());
-		System.out.println(memberDTO.getPw());
+		//System.out.println(memberDTO.getId());
+		//System.out.println(memberDTO.getPw());
 		memberDTO = tutorServiceImpl.memberLogin(memberDTO, session);
 		String message = "로그인에 실패하였습니다.";
 		if(memberDTO != null){
@@ -126,6 +126,22 @@ public class MemberController {
 		return mv;
 		}
 
+	@RequestMapping(value="/IdFind")
+	public String memberIdFind(MemberDTO memberDTO, Model model) throws Exception{
+		String result = studentServiceImpl.IdFind(memberDTO);
+		if(result ==null){
+			result="true";
+		}
+		model.addAttribute("result", result);
+		
+		return "";
+	}
+	
+	@RequestMapping(value="/find_id")
+	public String goFindId(){
+		return "member/sub/find_id";
+	}
+	
 	@RequestMapping(value="/myPage")
 	public void goMyPage() {
 		
@@ -170,5 +186,6 @@ public class MemberController {
 		return "home";
 
 	}
+	
 
 }

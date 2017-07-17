@@ -18,5 +18,4 @@ public interface MemberService {
 	
 	public String memberIdCheck(String id) throws Exception;
 
-
 }

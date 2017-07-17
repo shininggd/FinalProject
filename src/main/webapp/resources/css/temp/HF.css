@@ -410,6 +410,12 @@ header > #header_content > #header_menu > article > a{
 	width: 100%;
 }
 
+.findInfo{
+
+	display: inline;
+	
+}
+
 #login{
 	background-color: orange;
 	color: white;
@@ -473,6 +479,23 @@ header > #header_content > #header_menu > article > a{
  
 /* header 끝 */
 
+/* ==========find_id 시작========= */
+
+	#input_info{
+		width: 80%;
+		height: 70%;
+		background-color: blue;
+	}
+
+/* ==========find_id 끝========= */
+
+
+/* ========chulCheck 시작======== */
+
+
+
+
+/* ========chulCheck 끝======== */
 
 /* footer 시작 */
 #main_footer{

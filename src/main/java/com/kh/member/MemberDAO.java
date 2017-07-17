@@ -15,6 +15,6 @@ public interface MemberDAO {
 	public String PwFind(MemberDTO memberDTO) throws Exception;
 	
 	public String memberIdCheck(String id) throws Exception;
-
+	
 
 }

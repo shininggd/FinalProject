@@ -37,8 +37,8 @@ public class StudentServiceImpl implements MemberService{
 
 	@Override
 	public String IdFind(MemberDTO memberDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return studentDAOImpl.IdFind(memberDTO);
 	}
 
 	@Override
@@ -52,7 +52,6 @@ public class StudentServiceImpl implements MemberService{
 		String result = studentDAOImpl.memberIdCheck(id);
 		return result;
 	}
-
 
 	}
 		

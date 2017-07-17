@@ -9,7 +9,11 @@
 <script type="text/javascript">
 $(function(){
     
-	
+	/* --------findInfo---------- */
+	$("#find_id").click(function() {
+		window.open("/learn_run/member/find_id",  "ID 찾기", "width=500, height=300, left=200");
+		
+	});
 	
 	/* ---------------------login , join ------------------------------*/
 	$("#login_modal_toggle").click(function () {
@@ -142,11 +146,7 @@ $(function(){
   						alert("필수 항목을 모두 입력해주세요.");
   				}
   				
-
-  				
-  					
-
-  				if(email_check == false){
+ 				if(email_check == false){
   					alert("이메일 주소 형식을 확인해주세요.");
   					all_check = false;
 
@@ -289,7 +289,7 @@ $(function(){
 								</form>
 								
 									<div id="forgotIdPw">
-									<a href="#">ID 찾기</a> &nbsp; <a href="#">PW 찾기</a>
+									<p id="find_id" class="findInfo" onclick>ID 찾기</p> &nbsp; <p id="find_pw" class="findInfo">PW 찾기</p>
 									</div>
 	        				</div>
 	       				

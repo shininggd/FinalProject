@@ -21,4 +21,7 @@
 		update member set pw=#{pw}, email=#{email}, phone=#{phone} where id=#{id}
 	</update>
 	
+	<select id="IdFind" parameterType="com.kh.member.MemberDTO" resultType="com.kh.member.MemberDTO">
+		select id from member where name=#{name} and email=#{email} and phone=#{phone}
+	</select>
 </mapper>
