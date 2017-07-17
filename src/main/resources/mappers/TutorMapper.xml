@@ -8,7 +8,6 @@
 
 	<insert id="memberJoin" parameterType="com.kh.member.MemberDTO">
 		insert into member values(#{id}, #{pw}, #{name}, #{birth}, #{grade},#{point}, #{email}, #{telecom}, #{phone}, 'default.png', 'default.png')
-	
 	</insert>
 	
 	<insert id="tutorJoin" parameterType="com.kh.member.MemberDTO" >

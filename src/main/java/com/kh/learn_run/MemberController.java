@@ -46,7 +46,7 @@ public class MemberController {
 	@RequestMapping(value="/IdCheck", method=RequestMethod.POST)
 	public String memberIdCheck(String id, Model model) throws Exception{
 		
-		//System.out.println("controller="+id);
+		System.out.println("controller="+id);
 		String result = studentServiceImpl.memberIdCheck(id);
 		if(result == null) {
 			result = "true";
@@ -56,6 +56,7 @@ public class MemberController {
 		
 		return "common/Idcheck";
 	}
+	
 	
 	@RequestMapping(value="/studentJoin", method=RequestMethod.POST)
 	public String studentJoin(MemberDTO memberDTO, Model model, HttpSession session, HttpServletRequest request)throws Exception{

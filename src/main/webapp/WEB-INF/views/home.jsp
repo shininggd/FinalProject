@@ -13,8 +13,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="<%=application.getContextPath()%>/resources/js/uikit.min.js"></script>
 <script src="<%=application.getContextPath()%>/resources/js/slider.js"></script>
-<script src="<%=application.getContextPath()%>/resources/js/levelTest.js"></script>
-<script src="<%=application.getContextPath()%>/resources/js/LevelTestQuiz.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/slide.css">
 <!-- 메인화면 slide 소스 끝 -->
 
