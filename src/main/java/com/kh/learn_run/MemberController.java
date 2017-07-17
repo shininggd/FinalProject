@@ -1,7 +1,6 @@
 package com.kh.learn_run;
 
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -166,7 +165,7 @@ public class MemberController {
 	@RequestMapping(value="/memberLogout")
 	public String memberLogout(HttpSession session){
 		session.invalidate();
-		return "home";
+		return "redirect:/";
 
 	}
 
