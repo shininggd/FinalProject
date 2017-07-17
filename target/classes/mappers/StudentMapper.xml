@@ -20,5 +20,5 @@
 	<update id="studentUpdate" parameterType="com.kh.member.MemberDTO">
 		update member set pw=#{pw}, email=#{email}, phone=#{phone} where id=#{id}
 	</update>
-
+	
 </mapper>

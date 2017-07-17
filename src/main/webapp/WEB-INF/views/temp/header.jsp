@@ -38,7 +38,7 @@ $(function(){
   	
   	var ch_id = "";
   	var ch_pw = $("#pw").val();
-  	var ch_email = $("#email").val();
+  	var ch_email = "";
 
 //id중복확인
   		$("#id").change(function(){
@@ -46,7 +46,7 @@ $(function(){
   			$.post("member/IdCheck",
   					{id:ch_id},
   					function(data) {
-						var reg_id = /^[a-zA-Z]+[a-zA-Z0-9]{5,19}$/g;
+						var reg_id = /^[a-zA-Z]+[a-zA-Z0-9]{5,19}$/;
 						var R_id = data.trim();
 						
 						//alert(R_id);
@@ -56,9 +56,8 @@ $(function(){
 						}
 						
 						if(R_id=='true'){
-							
 							if(!reg_id.test(ch_id)){
-								$("#idmessage").html("<font color=red>영문이나 숫자를 이용하여 6~20자 이내로 입력해주세요.</font");
+								$("#idmessage").html("<font color=red>6~20자 이내로 입력해주세요.</font");
 								id_check = false;
 							}
 							if(reg_id.test(ch_id)){
@@ -67,7 +66,7 @@ $(function(){
 							}
 						}
 						
-					});
+				});
 		});
   		
   		/* pw일치여부 시작 */
@@ -99,24 +98,19 @@ $(function(){
          
   		/* email 형식 */
   		$("#email").change(function() {
-			ch_email = $("#email").prop("value")
-			$.post("",
-					{email:ch_email},
-					function(data) {
-						var reg_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
-						var R_email = data.trim();
-						
-						if(R_email == true){
-							email_check = true;
-						}
-					
-					});
-  		
-  			
+			ch_email = $(this).prop("value");
+			alert(ch_email);
+			var reg_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+			
+			if(!reg_email.test(ch_email)){
+				email_check = false;
+			}
+			
+			if(reg_email.test(ch_email)){
+				email_check = true;
+			}
 		});
   		
-  		
-  		/* email 형식 */
   		
         //회원가입버튼을 눌렀을 때
   		$("#join").click(function() {
@@ -130,12 +124,12 @@ $(function(){
   				$("#telecom").val != "" &&
   				$("#phone").val != "" &&
   				id_check == true &&
-  				pw_check == true){
+  				pw_check == true &&
+  				email_check == true){
   					all_check = true;
   				}else {
   					all_check = false;
   				}
-  			
 
   				if($("#id").val() == "" ||
   					$("#pw").val() == "" ||
@@ -148,8 +142,14 @@ $(function(){
   						alert("필수 항목을 모두 입력해주세요.");
   				}
   				
-  				if($("email")){
+
+  				
   					
+
+  				if(email_check == false){
+  					alert("이메일 주소 형식을 확인해주세요.");
+  					all_check = false;
+
   				}
   				
   				if(id_check == false){
@@ -166,9 +166,7 @@ $(function(){
   				}
   			
   			});
-  		
-
-		
+        
 		$(".g_check").click(function() {
 			var path = $(this).prop("value");
 			$("#joinFrm").prop("action","/learn_run/member/"+path+"Join");

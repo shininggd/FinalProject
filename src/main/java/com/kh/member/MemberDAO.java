@@ -16,4 +16,5 @@ public interface MemberDAO {
 	
 	public String memberIdCheck(String id) throws Exception;
 
+
 }
