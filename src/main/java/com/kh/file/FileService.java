@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.kh.member.MemberDTO;
 import com.kh.util.FileSaver;
+import com.kh.util.SeDTO;
 
 @Service
 public class FileService {
@@ -36,4 +37,26 @@ public class FileService {
 		}
 		return Fname;
 	}
+	//SeUpload
+		public String seUpload(SeDTO seDTO, HttpSession session) throws Exception{
+			String file_result = "";
+			
+			if(seDTO.getFiledata() != null && seDTO.getFiledata().getOriginalFilename() != null && !seDTO.getFiledata().getOriginalFilename().equals("")){
+				FileSaver fileSaver = new FileSaver();
+				String defaultPath = session.getServletContext().getRealPath("resources/upload");
+				String realName = fileSaver.fileSave(seDTO.getFiledata(),defaultPath);
+			
+				System.out.println(defaultPath);
+				
+				file_result = "&bNewLine=true&sFileName="+seDTO.getFiledata().getOriginalFilename()+"&sFileURL=/learn_run/resources/upload/"+realName;
+			
+			}else {
+				file_result = "&errstr=error";
+			}
+			
+			
+			return "redirect:"+seDTO.getCallback()+"?callback_func="+seDTO.getCallback_func()+file_result;
+			
+			
+		}
 }

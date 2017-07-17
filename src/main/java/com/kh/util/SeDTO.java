@@ -7,6 +7,7 @@ public class SeDTO {
 	private String callback;
 	private String callback_func;
 	private MultipartFile Filedata;
+	
 	public String getCallback() {
 		return callback;
 	}

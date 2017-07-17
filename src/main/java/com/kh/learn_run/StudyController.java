@@ -46,8 +46,11 @@ public class StudyController {
 
 	}
 	@RequestMapping(value = "studyRegistInsert", method = RequestMethod.POST)
-	public void regist(StudyDTO studyDTO)throws Exception{
+	public String regist(StudyDTO studyDTO)throws Exception{
+		System.out.println(studyDTO.getContents());
+		
 		studyService.regist(studyDTO);
+		return "redirect: /learn_run/";
 
 	}
 
