@@ -10,58 +10,60 @@
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/basic_table.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyList.css">
+<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyRegist.css">
 <script type="text/javascript" src="<%=application.getContextPath()%>/resources/SE2/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-
-<style type="text/css">
-.inputForm{
-	width: 800px;
-	min-height: 700px;
-	background-color: fuchsia;
-	margin: 0 auto;
-	overflow: hidden;
-}
-#contents{
-	width: 780px;
-	height: 500px;
-	
-}
-.textSE{
-	margin-left: 5px; 
-}
-</style>
 </head>
 <body>
 <c:import url="../temp/header.jsp"></c:import>
 <!-- ======================================== 섹션=============================================  -->
+<div class="main_back_color">
 <section id="main_section">
-	<div class="inputForm">
+	
+	
+	<div class="inputForm ">
+		<div class="regist_title">
+		각양각색 스터디<br>
+		 <span class="fcolor">Learn&Run</span>
+		</div>
 		<form action="studyRegistInsert" method="post" id="frm" name="frm" enctype="multipart/data-form">
-			<input type="hidden" name="tid" value="${member.id }">
-			<p>강의명:<input type="text" name="title"></p>
-			<p>강의레벨: <select name="lv">
-						<option value="초보">초보</option>
-						<option value="중수">중수</option>
-						<option value="고수">고수</option>
-					</select></p>
-			<p>가   격: <input type="number" name="price"></p>
-			<p>시작일: <input type="date" name="sDate"></p>
-			<p>종료일: <input type="date" name="lDate"></p>
-			<p>강의유형: <select name="category">
-						<option value="영어회화">영어회화</option>
-						<option value="중국어회화">중국어회화</option>
-					</select></p>
-			<p>모집인원: <input type="number" min="1" max="99" name="people"></p>
-			<p>강의장소: <select name="location">
-						<option value="온라인">온라인</option>
-						<option value="천호동">천호동</option>
-					</select></p>			
-			<p>설    명:</p>
-			<div class="textSE"><textarea id="contents" name="contents"></textarea></div>
-			<p><input type="submit" id="savebutton"> </p>
+			<input type="hidden"  name="tid" value="${member.id }">
+			<div class="form_main">
+				<div class="form_top">	
+					 제목 <select name="category" class="top_box" id="category">
+								<option value="영어회화">영어회화</option>
+								<option value="중국어회화">중국어회화</option>
+						   </select>
+						<select name="lv" class="top_box" id="lv" >
+								<option value="초보">초보</option>
+								<option value="중수">중수</option>
+								<option value="고수">고수</option>
+						   </select> 
+						<input type="text" name="title" class="title_box" id="title" placeholder="강의명을 입력하세요"><br>
+				 		   
+				</div>
+
+				<div class="form_other">
+					장소 <select name="location" class="other_box" id="location">
+							<option value="온라인">온라인</option>
+							<option value="천호동">천호동</option>
+						</select> 
+					인원 <input type="number" min="1" max="99" class="people_box" name="people" id="people">
+				</div> 			
+			
+			<div class="form_other">기   간 <input type="date" name="sDate" class="other_box" id="sDate"> - 
+			<input type="date" name="lDate" class="other_box" id="lDate"> 
+			가   격 <input type="number" name="price" min="0" class="number_box" id="price">원</div>
+			</div>
+			<div class="textSE">
+			<textarea id="contents" name="contents"></textarea></div>
+			<div class="submit_box">
+			<input type="submit" id="savebutton" value="등록하기" class="submit_btn" >
+			</div>
 		</form>
 	</div>
 </section>
+</div>
 <!-- ======================================== 섹션END==========================================  -->
 <c:import url="../temp/footer.jsp"></c:import>
 
@@ -87,12 +89,32 @@ nhn.husky.EZCreator.createInIFrame({
 });
     $("#savebutton").click(function(){
         //id가 smarteditor인 textarea에 에디터에서 대입
+        
+         
+        
+	   if(
+		$("#title").val()== "" ||
+		$("#sDate").val()== "" ||
+		$("#lDate").val()== "" ||
+		$("#price").val() =="" ||
+		$("#price").val()*1 <=0*1 ||
+		$("#people").val()*1 <0*1 ||
+		$("#people").val()*1>100*1 ||
+		$("#contents").val()!= ""){
+		alert("누락된 정보가 있거나 정보입력이 잘못되었습니다.");
+		return false;
+        }
+        	
+        if($("#sDate").val().replace('-','').replace('-','')*1 >$("#lDate").val().replace('-','').replace('-','')*1){
+    		alert("강의 시작일과 종료일을 확인해주세요");	
+    		return false;
+        }
+        	
         editor_object.getById["contents"].exec("UPDATE_CONTENTS_FIELD", []);
-         
-        // 이부분에 에디터 validation 검증
-         
+		$("#frm").submit();
+        
         //폼 submit
-        $("#frm").submit();
+        
     });
 
 </script>

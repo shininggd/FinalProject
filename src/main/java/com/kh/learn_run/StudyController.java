@@ -73,5 +73,6 @@ public class StudyController {
 		System.out.println(listInfo.getSearch());
 		model.addAttribute("list", studyService.homeList(listInfo));
 	}
+
 	
 }
