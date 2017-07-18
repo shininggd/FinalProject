@@ -49,11 +49,13 @@ public class TutorDAOImpl implements MemberDAO{
 		return sqlSession.selectOne(NAMESPACE+"IdCheck", id);
 	}
 	
-	public List<TutorDTO> tutorinfo(){
+	public List<TutorDTO> tutorinfo() throws Exception {
 		 return  sqlSession.selectList(NAMESPACE+"tutorInfo");
 	}
 
-
+	public int LRupdate(TutorDTO tutorDTO) throws Exception {
+		return sqlSession.update(NAMESPACE+"adminTupdate", tutorDTO);
+	}
 	
 
 }

@@ -2,6 +2,8 @@ package com.kh.learn_run;
 
 
 
+import static org.hamcrest.CoreMatchers.nullValue;
+
 import java.util.List;
 import java.util.Map;
 
@@ -172,11 +174,32 @@ public class MemberController {
 	public void gotutorOversight(){
 		
 	}
-	@RequestMapping(value="/sub/tutorOversight", method=RequestMethod.POST)
-	public String tutorOversightinfo(Model model){
+	@RequestMapping(value="/sub/tutorOversight", method=RequestMethod.GET)
+	public String tutorOversightinfo(Model model) throws Exception {
 		List<TutorDTO> tutorinfo =tutorServiceImpl.tutorinfo();
+		
 		model.addAttribute("data", tutorinfo);
+		model.addAttribute("length", tutorinfo.size());
+		
+	
 		return"member/sub/tutorOversight";
+	}
+	
+	@RequestMapping(value="/sub/tutorOversight", method=RequestMethod.POST)
+	public String tutorLRupdate(String id_ch, String lv_ch, String ri_ch,Model model)throws Exception{
+		TutorDTO tutorDTO = new TutorDTO();
+		tutorDTO.setId(id_ch);		
+		tutorDTO.setLv(lv_ch);		
+		tutorDTO.setRight(ri_ch);
+		int result = tutorServiceImpl.LRUpdate(tutorDTO);
+		String message ="Change fail";
+		if(result>0) {
+			message = "Change success";
+		}
+		
+		model.addAttribute("message", message);
+		
+		return "common/resultMessage";			
 	}
 	
 }

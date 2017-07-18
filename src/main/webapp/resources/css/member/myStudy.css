@@ -81,6 +81,8 @@
     color: #3c3c3c;
 }
 
+
+/* admin page */
 #mystudy_list {
 	border-top: 1px solid #ebebeb;
     list-style: none;
@@ -95,4 +97,14 @@
 	width: 760px;
 	height: 400px;
 	float: left;
+}
+
+#tutorinfo{
+	margin-top: 20%;
+    margin-left: 30%;
+    background-color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    color: #ef6c00;
 }

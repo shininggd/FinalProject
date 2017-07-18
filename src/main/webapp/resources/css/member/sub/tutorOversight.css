@@ -1,0 +1,35 @@
+@CHARSET "UTF-8";
+#tutorinfo_table{
+	width: 90%;
+	height: 400px;
+	margin: 0 auto;
+	text-align: center;
+	margin-right: 10%;
+	border: none;
+	border-collapse: collapse;
+	font-size: 20px;
+    font-weight: bold;
+    border: none;
+    color: #ef6c00;
+}
+#tutorinfo_table th, tr, td{
+	border: none;
+}
+
+#tutorinfo_table tr {
+	border-bottom: 3px solid #ef6c00;
+}
+
+.lv_select,.rig_select {
+	height: 30px;
+	font-size: 20px;
+	border: 2px solid #ebebeb;
+}
+
+.change_Tinfo {
+    background-color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid #ebebeb;
+    color: #ef6c00;
+}

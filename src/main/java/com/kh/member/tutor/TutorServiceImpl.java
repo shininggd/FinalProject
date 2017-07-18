@@ -55,9 +55,16 @@ public class TutorServiceImpl implements MemberService{
 		return result;
 	}
 	
-	public List<TutorDTO> tutorinfo(){
+	public List<TutorDTO> tutorinfo() throws Exception{
 		return tutorDAOImpl.tutorinfo();
 	}
+	
+	
+	public int LRUpdate(TutorDTO tutorDTO) throws Exception {
+		
+		return tutorDAOImpl.LRupdate(tutorDTO);
+	}
+	
 }
 	
 	
