@@ -14,12 +14,23 @@
 		var input_all = false;
 		
 		$("#find_pw").click(function() {
+			
+			alert("click");
+			
 			if(("#id").val() == "" ||
 				("#name").val() == "" ||
 				("#email").val() =="" ||
 				("#phone").val() == ""){
 				input_all = false;
 			}
+			
+			if(("#id").val() == "" ||
+				("#name").val() == "" ||
+				("#email").val() !="" ||
+				("#phone").val() != ""){
+					input_all = false;
+				}
+				
 			if($("#id").val() != "" &&
 				$("#name").val() != "" &&
 				$("#email").val() == "" &&
@@ -27,13 +38,13 @@
 				input_all = true;
 			}
 			if($("#id").val() != "" &&
-					$("#name").val() == "" &&
+					$("#name").val() != "" &&
 					$("#email").val() != "" &&
 					$("#phone").val() ==""){
 					input_all = true;
 				}
 			if($("#id").val() != "" &&
-					$("#name").val() == "" &&
+					$("#name").val() != "" &&
 					$("#email").val() == "" &&
 					$("#phone").val() !=""){
 					input_all = true;
@@ -55,15 +66,15 @@
 			<h3>PW 찾기</h3>
 			<hr>
 			<div id="info_msg">
-				<h5>*이름,이메일,연락처 중 하나만 입력하셔도 됩니다.*</h5>
+				<h5>*이메일이나 연락처 중 하나만 입력하셔도 됩니다.*</h5>
 			</div>
 			<table id="info_frm">
 				<tr>
-					<td>ID</td>
+					<td><span id="must">*</span>ID</td>
 					<td class="frm_input"><input type="text" name="id" id="id"> </td>
 				</tr>
 				<tr>
-					<td>이름</td>
+					<td><span id="must">*</span>이름</td>
 					<td class="frm_input"><input type="text" name="name" id="name"> </td>
 				</tr>
 				<tr>

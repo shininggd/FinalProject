@@ -401,7 +401,7 @@ header > #header_content > #header_menu > article > a{
 }
 
 #selectGrade{
-	margin-left: -5.25%;
+	margin-left: -5%;
 }
 
 #login_input {
@@ -450,32 +450,29 @@ header > #header_content > #header_menu > article > a{
 	top: 72px;
 	right: 200px;
 	width: 500px;
-	height: 380px;
+	height: 400px;
 	z-index: 999;
 	background-color: white;
 }
 
 #joinFrm {
 	margin-top: 10%;
+	margin-left: 20%;
+	width: 60%;
 }
 
 #joinFrm > table{
 	margin-top: 2.5%; 
-	margin-left: 5%;
+	margin-left: 2.5%;
 }
 
 .infoIndex{
-	height: 25px;
+
+	height: 30px;
 	text-align: center;
 }
 
-.infoCon{
-	text-align: center;
-}
 
-#telecom{
-	width: 50%;
-}
 
 #joinForm .input_phone {
 	width: 150px;
@@ -516,6 +513,10 @@ header > #header_content > #header_menu > article > a{
 #info_frm{
 	margin-left: 10%;
 	text-align: center;
+}
+
+#must{
+	color: red;
 }
 
 .frm_input{

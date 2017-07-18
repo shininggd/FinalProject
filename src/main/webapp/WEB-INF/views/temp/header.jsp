@@ -314,7 +314,7 @@ $(function(){
 								</form>
 								
 									<div id="forgotIdPw">
-										<p id="find_id" class="findInfo">ID 찾기</p> &nbsp;/&nbsp; <p id="find_pw" class="findInfo">PW 찾기</p>
+										<a id="find_id" class="findInfo">ID 찾기</a> &nbsp;/&nbsp; <a id="find_pw" class="findInfo">PW 찾기</a>
 									</div>
 	        				</div>
 	       				
@@ -332,31 +332,31 @@ $(function(){
 	          						
 	          						<table>
 	          						<tr>
-	          						<td class="infoIndex">ID</td><td class="infoCon"><input type="text" name="id" id="id" placeholder="ID를 입력하세요"></td>
+	          						<td class="infoIndex">ID</td><td><input type="text" name="id" id="id" placeholder="ID를 입력하세요"></td>
 	          						</tr>
 	          						<tr>
 	          						<td colspan="2"><span id="idmessage"></span></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">PW</td><td class="infoCon"><input type="password" name="pw" id="pw" placeholder="PW를 입력하세요"></td>
+									<td class="infoIndex">PW</td><td><input type="password" name="pw" id="pw" placeholder="PW를 입력하세요"></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">PW 확인</td><td class="infoCon"><input type="password" id="pw2" name="pw2" placeholder="PW를  다시 입력하세요"></td>
+									<td class="infoIndex">PW 확인</td><td><input type="password" id="pw2" name="pw2" placeholder="PW를  다시 입력하세요"></td>
 									</tr>
 									<tr>
 									<td colspan="2"><span id="pwmessage"></span></td>									
 									</tr>
 									<tr>
-									<td class="infoIndex">이름</td><td class="infoCon"><input type="text" name="name" placeholder="이름을 입력하세요"></td>
+									<td class="infoIndex">이름</td><td><input type="text" name="name" placeholder="이름을 입력하세요"></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">생일</td><td class="infoCon"><input type="date" name="birth"></td>
+									<td class="infoIndex">생일</td><td><input type="date" name="birth"></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">e-mail</td><td class="infoCon"><input type="text" name="email" id="email" placeholder="ex) learn-run@gmail.com"></td>
+									<td class="infoIndex">e-mail</td><td><input type="text" name="email" id="email" placeholder="ex) learn-run@gmail.com"></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">연락처</td><td id="telecom"><select name="telecom" >
+									<td class="infoIndex">연락처</td><td><select name="telecom" >
 											<option>SKT</option> <option>KT</option> <option>LGT</option> <option>알뜰폰</option>
 											</select>
 									<input class="input_phone" type="text" name="phone" id="phone" placeholder="ex) 010-1234-5678"></td>

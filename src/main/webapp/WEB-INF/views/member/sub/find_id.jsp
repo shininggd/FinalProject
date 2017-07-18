@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,10 +14,14 @@
 		var input_all = false;
 
 		$("#find_id").click(function(){
+			
+			//alert("click");
+			
 					if ($("#name").val() == "" || 
 						$("#email").val() == ""|| 
 						$("#phone").val() == "") {
 						input_all = false;
+						alert("정보를 다시 한 번 확인해주세요.")
 					} 
 					if($("#name").val() != "" &&
 						$("#email").val() != "" &&
@@ -37,6 +40,7 @@
 						$("#phone").val() != ""){
 						input_all = true;
 					}
+
 					
 					if(input_all == true){
 						$("#frm").submit();
@@ -53,11 +57,11 @@
 			<h3>ID 찾기</h3>
 			<hr>
 			<div id="info_msg">
-				<h5>*이메일과 연락처 둘 중 하나만 입력하셔도 됩니다.*</h5>
+				<h5>*이메일이나 연락처 중 하나만 입력하셔도 됩니다.*</h5>
 			</div>
 			<table id="info_frm">
 				<tr>
-					<td>이름</td>
+					<td><span id="must">*</span>이름</td>
 					<td class="frm_input"><input type="text" name="name" id="name" placeholder="이름을 입력해주세요."></td>
 				</tr>
 				<tr>
