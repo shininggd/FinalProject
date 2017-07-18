@@ -127,19 +127,56 @@ public class MemberController {
 		}
 
 	@RequestMapping(value="/IdFind")
-	public String memberIdFind(MemberDTO memberDTO, Model model) throws Exception{
-		String result = studentServiceImpl.IdFind(memberDTO);
-		if(result ==null){
-			result="true";
+	public ModelAndView memberIdFind(MemberDTO memberDTO) throws Exception{
+		memberDTO = studentServiceImpl.IdFind(memberDTO);
+		String message ="";
+		String path ="";
+		ModelAndView mv = new ModelAndView();
+		if(memberDTO != null){
+			message = "입력하신 정보가 확인되었습니다.";
+			mv.setViewName("member/sub/IdPwResult");
+			mv.addObject("dto", memberDTO);
+		}else{
+			message ="정보를 다시 한 번 확인해주세요.";
+			mv.setViewName("/common/MLresult");
+			path ="/learn_run/member/find_id";
 		}
-		model.addAttribute("result", result);
+		mv.addObject("path", path);
+		mv.addObject("message", message);
 		
-		return "";
+		return mv;
+	}
+	
+	@RequestMapping(value="/PwFind")
+	public ModelAndView memberPwFind(MemberDTO memberDTO) throws Exception{
+		memberDTO = studentServiceImpl.PwFind(memberDTO);
+		String message ="";
+		String path ="";
+	
+		ModelAndView mv = new ModelAndView();
+		if(memberDTO != null){
+			message = "입력하신 정보가 확인되었습니다.";
+			mv.setViewName("member/sub/IdPwResult");
+			mv.addObject("dto", memberDTO);
+	
+		}else{
+			message ="정보를 다시 한 번 확인해주세요.";
+			mv.setViewName("/common/MLresult");
+			path ="/learn_run/member/find_pw";
+		}
+		mv.addObject("path", path);
+		mv.addObject("message", message);
+		return mv;
 	}
 	
 	@RequestMapping(value="/find_id")
 	public String goFindId(){
 		return "member/sub/find_id";
+	}
+	
+	@RequestMapping(value="/find_pw")
+	public String goFindPw(){
+		return "member/sub/find_pw";
 	}
 	
 	@RequestMapping(value="/myPage")

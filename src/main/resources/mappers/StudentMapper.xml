@@ -24,4 +24,8 @@
 	<select id="IdFind" parameterType="com.kh.member.MemberDTO" resultType="com.kh.member.MemberDTO">
 		select id from member where name=#{name} and email=#{email} and phone=#{phone}
 	</select>
+	
+	<select id="PwFind" parameterType="com.kh.member.MemberDTO" resultType="com.kh.member.MemberDTO">
+		select pw from member where id=#{id} and name=#{name} and email=#{email} and phone=#{phone}
+	</select>
 </mapper>

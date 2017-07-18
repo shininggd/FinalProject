@@ -387,7 +387,7 @@ header > #header_content > #header_menu > article > a{
 	top: 72px;
 	right: 200px;
 	width: 500px;
-	height: 250px;
+	height: 270px;
 	z-index: 999;
 	background-color: white;
 }
@@ -400,27 +400,37 @@ header > #header_content > #header_menu > article > a{
 	margin-left: 10%;
 }
 
+#selectGrade{
+	margin-left: -5.25%;
+}
+
 #login_input {
 	margin-top: 2.5%;
 	margin-left: 26%;
 }
 
 #forgotIdPw{
-	margin-top : 100px;
+	margin-top : 120px;
+	margin-left : -1.5%;
 	width: 100%;
 }
 
 .findInfo{
-
 	display: inline;
 	
+}
+
+#con-btn{
+	margin-top: 5%;
 }
 
 #login{
 	background-color: orange;
 	color: white;
 	margin-right : 5%;
-	margin-top: 10px;
+	padding: 7.5px 15px;
+	text-decoration: none;
+	
 }
 
 /* ----------------- */
@@ -429,7 +439,7 @@ header > #header_content > #header_menu > article > a{
 #join_close {
 	float: right;
 	margin-right : 5%;
-	margin-top : 10%;
+	margin-top : 2.5%;
 	font-size: 20px;
 	cursor: pointer;
 }
@@ -446,12 +456,12 @@ header > #header_content > #header_menu > article > a{
 }
 
 #joinFrm {
-	margin-top: 20px;
+	margin-top: 10%;
 }
 
 #joinFrm > table{
-	margin-top: 12.5%; 
-	margin-left: 15%;
+	margin-top: 2.5%; 
+	margin-left: 5%;
 }
 
 .infoIndex{
@@ -461,6 +471,10 @@ header > #header_content > #header_menu > article > a{
 
 .infoCon{
 	text-align: center;
+}
+
+#telecom{
+	width: 50%;
 }
 
 #joinForm .input_phone {
@@ -474,18 +488,43 @@ header > #header_content > #header_menu > article > a{
 	width: 80px;
 	height: 30px;
 	margin-top: 10px;
+	margin-right : 5%;
+	padding: 7.5px 15px;
+	text-decoration: none;
 }
+	
+
 /* ---------------- */
  
 /* header 끝 */
 
 /* ==========find_id 시작========= */
 
-	#input_info{
-		width: 80%;
-		height: 70%;
-		background-color: blue;
-	}
+#input_info{
+	margin-top: 7%;
+	margin-left : 12.5%;
+	width : 75%;
+	height : 120%;
+
+}
+
+#info_msg{
+	margin-left: 7.5%;
+	color: orange;
+}
+
+#info_frm{
+	margin-left: 10%;
+	text-align: center;
+}
+
+.frm_input{
+	width: 65%;
+}
+
+.find_idpw{
+	margin-left: 40%;
+}
 
 /* ==========find_id 끝========= */
 

@@ -35,16 +35,14 @@ public class StudentServiceImpl implements MemberService{
 		return studentDAOImpl.memberLogin(memberDTO, session);
 	}
 
-	@Override
-	public String IdFind(MemberDTO memberDTO) throws Exception {
+	public MemberDTO IdFind(MemberDTO memberDTO) throws Exception {
 		
 		return studentDAOImpl.IdFind(memberDTO);
 	}
 
-	@Override
-	public String PwFind(MemberDTO memberDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public MemberDTO PwFind(MemberDTO memberDTO) throws Exception {
+		
+		return studentDAOImpl.PwFind(memberDTO);
 	}
 
 	@Override
