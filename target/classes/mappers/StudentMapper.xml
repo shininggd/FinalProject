@@ -21,4 +21,15 @@
 		update member set pw=#{pw}, email=#{email}, phone=#{phone} where id=#{id}
 	</update>
 	
+	<select id="IdFind" parameterType="com.kh.member.MemberDTO" resultType="com.kh.member.MemberDTO">
+		select id from member where name=#{name} and 
+		<if test="email != ''">email=#{email}</if>
+		<if test="phone != ''">phone=#{phone}</if>
+	</select>
+	
+	<select id="PwFind" parameterType="com.kh.member.MemberDTO" resultType="com.kh.member.MemberDTO">
+		select pw from member where id=#{id} and name=#{name} and 
+		<if test="email != ''">email=#{email}</if>
+		<if test="phone != ''">phone=#{phone}</if>
+	</select>
 </mapper>

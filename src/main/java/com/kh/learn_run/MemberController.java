@@ -46,7 +46,7 @@ public class MemberController {
 	@RequestMapping(value="/IdCheck", method=RequestMethod.POST)
 	public String memberIdCheck(String id, Model model) throws Exception{
 		
-		System.out.println("controller="+id);
+		//System.out.println("controller="+id);
 		String result = studentServiceImpl.memberIdCheck(id);
 		if(result == null) {
 			result = "true";
@@ -109,8 +109,8 @@ public class MemberController {
 	
 	@RequestMapping(value="/tutorLogin", method = RequestMethod.POST)
 	public ModelAndView memberLogin(MemberDTO memberDTO, HttpSession session) throws Exception{
-		System.out.println(memberDTO.getId());
-		System.out.println(memberDTO.getPw());
+		//System.out.println(memberDTO.getId());
+		//System.out.println(memberDTO.getPw());
 		memberDTO = tutorServiceImpl.memberLogin(memberDTO, session);
 		String message = "로그인에 실패하였습니다.";
 		if(memberDTO != null){
@@ -126,6 +126,65 @@ public class MemberController {
 		return mv;
 		}
 
+	@RequestMapping(value="/IdFind")
+	public ModelAndView memberIdFind(MemberDTO memberDTO) throws Exception{
+		memberDTO = studentServiceImpl.IdFind(memberDTO);
+		String message ="";
+		String path ="";
+		ModelAndView mv = new ModelAndView();
+		if(memberDTO != null){
+			message = "입력하신 정보가 확인되었습니다.";
+			mv.setViewName("member/sub/IdPwResult");
+			mv.addObject("dto", memberDTO);
+		}else{
+			message ="정보를 다시 한 번 확인해주세요.";
+			mv.setViewName("/common/MLresult");
+			path ="/learn_run/member/find_id";
+		}
+		mv.addObject("path", path);
+		mv.addObject("message", message);
+		
+		return mv;
+	}
+	
+	@RequestMapping(value="/PwFind")
+	public ModelAndView memberPwFind(MemberDTO memberDTO) throws Exception{
+		
+		//System.out.println("controller");
+		//System.out.println(memberDTO.getId());
+		//System.out.println(memberDTO.getName());
+		
+		memberDTO = studentServiceImpl.PwFind(memberDTO);
+		String message ="";
+		String path ="";
+		
+		//System.out.println(memberDTO.getId());
+		
+		ModelAndView mv = new ModelAndView();
+		if(memberDTO != null){
+			message = "입력하신 정보가 확인되었습니다.";
+			mv.setViewName("member/sub/IdPwResult");
+			mv.addObject("dto", memberDTO);
+		}else{
+			message ="정보를 다시 한 번 확인해주세요.";
+			mv.setViewName("/common/MLresult");
+			path ="/learn_run/member/find_pw";
+		}
+		mv.addObject("path", path);
+		mv.addObject("message", message);
+		return mv;
+	}
+	
+	@RequestMapping(value="/find_id")
+	public String goFindId(){
+		return "member/sub/find_id";
+	}
+	
+	@RequestMapping(value="/find_pw")
+	public String goFindPw(){
+		return "member/sub/find_pw";
+	}
+	
 	@RequestMapping(value="/myPage")
 	public void goMyPage() {
 		
@@ -170,5 +229,6 @@ public class MemberController {
 		return "home";
 
 	}
+	
 
 }
