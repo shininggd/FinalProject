@@ -67,9 +67,9 @@
 			<h3 id="gift_h3">포인트 -> 도서문화 상품권으로 교환</h3>
 			
 			<div id="giftCard_wrap">
-				<input class="gc_radio" type="radio" name="gc_radio"><img class="giftCard" src="/learn_run/resources/img/member/giftCard5000.jpg">
-				<input class="gc_radio" type="radio" name="gc_radio"><img class="giftCard" src="/learn_run/resources/img/member/giftCard10000.jpg">
-				<input type="button">
+				<input class="gc_radio" type="radio" name="gc_radio" value="5000"><img class="giftCard" src="/learn_run/resources/img/member/giftCard5000.jpg">
+				<input class="gc_radio" type="radio" name="gc_radio" value="10000"><img class="giftCard" src="/learn_run/resources/img/member/giftCard10000.jpg">
+				<input type="button" id="gc_btn" value="교환하기 >">
 			</div>
 		</div>
 	
@@ -81,7 +81,16 @@
 <c:import url="../temp/footer.jsp"></c:import>
 <script type="text/javascript">
 	
+	var gc = "";
+	$(".gc_radio").click(function () {
+		gc = $(this).prop("value");
+	});
 	
+	$("#gc_btn").click(function () {
+		$.post("pointGC",{point:gc,id:"${member.id}"},function(result) {
+			alert(result.trim());
+		});
+	});
 	
 </script>
 </body>

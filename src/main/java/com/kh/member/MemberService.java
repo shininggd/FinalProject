@@ -18,5 +18,6 @@ public interface MemberService {
 	
 	public String memberIdCheck(String id) throws Exception;
 
+	public int pointGC(MemberDTO memberDTO) throws Exception;
 
 }

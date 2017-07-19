@@ -169,5 +169,23 @@ public class MemberController {
 		return "home";
 
 	}
+	
+	@RequestMapping(value="/pointGC")
+	public String pointGC(MemberDTO memberDTO, Model model,HttpSession session ) throws Exception {
+		int result = studentServiceImpl.pointGC(memberDTO);
+		
+		MemberDTO memberDTO2 = (MemberDTO)session.getAttribute("member");
+		memberDTO2.setPoint(memberDTO.getPoint());
+		session.setAttribute("member", memberDTO);
+		
+		String message = "Trade Fail";
+		if(result>0) {
+			message = "Trade Success";
+		}
+		
+		model.addAttribute("message", message);
+		
+		return "common/resultMessage"; 
+	}
 
 }

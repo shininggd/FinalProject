@@ -21,4 +21,7 @@
 		update member set pw=#{pw}, email=#{email}, phone=#{phone} where id=#{id}
 	</update>
 	
+	<update id="pointGC" parameterType="com.kh.member.MemberDTO">
+		update member set point = point-#{point} where id=#{id}
+	</update>
 </mapper>

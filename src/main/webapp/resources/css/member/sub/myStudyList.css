@@ -11,6 +11,8 @@
 .myStudy_contents {
 	float: left;
 	padding-left: 20px;
+	font-size: 15px;
+	font-weight: bolder;
 }
 
 .myStudy_buttons {
@@ -20,16 +22,18 @@
 }
 
 .myStudy_buttons input{
-	border: 2px black solid;
-	background-color: white;
-	font-weight: bold;
+	border: none;
+	background : rgba(255, 133, 51, 0.5);
+	font-weight: bolder;
+	font-size: 15px;
+	height: 25px;
 }
 
 .on_off{
 	width: 40px;
 	height: 20px;
 	padding-top: 10px;
-	margin-left: 10px;
+	margin-left: 30px;
 }
 
 #myStudy_title {

@@ -13,7 +13,7 @@
 	<c:forEach items="${list}" var="dto">
 		<div class="myStudy_wrap">
 			<div class="myStudy_contents">
-			<p id="myStudy_title">${dto.title }</p><br>
+			<p id="myStudy_title">강의명 : ${dto.title }</p><br>
 			${dto.tid } &nbsp;
 			${dto.category } &nbsp;
 			${dto.location }
