@@ -8,10 +8,11 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import com.kh.member.tutor.TutorDTO;
 
 public class InsertInterceptor extends HandlerInterceptorAdapter {
+
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		if(((TutorDTO)(request.getSession().getAttribute("member"))).getRight().equals("f") ||(request.getSession().getAttribute("member") == null)){
+		if((request.getSession().getAttribute("member") == null) || ((TutorDTO)(request.getSession().getAttribute("member"))).getRight().equals("f")){
 			modelAndView.setViewName("/common/resultMessage");
 			modelAndView.addObject("message", "권한이 없거나 로그아웃 된 상태입니다.");
 			modelAndView.addObject("path", "/");

@@ -86,7 +86,12 @@
 </div>
 <div class="update_box">
 <c:if test="${member.id eq tutor.id }">
-<a href="./studyUpdate?num=${dto.num }"><input type="button" value="수정하기" class="update_btn"></a>
+<form action="studyUpdate" method="post">
+<input type="hidden" name="confirm" value="okthat">
+<input type="hidden" name="tid" value="${tutor.id}">
+<input type="hidden" name="num" value="${dto.num}">
+<input type="submit" value="수정하기" class="update_btn">
+</form>
 </c:if>
 </div>
 </div>

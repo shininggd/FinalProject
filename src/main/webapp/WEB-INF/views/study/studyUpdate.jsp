@@ -28,6 +28,7 @@
 		</div>
 		<form action="studyUpdateInsert" method="post" id="frm" name="frm" enctype="multipart/data-form">
 			<input type="hidden" name="num" value="${dto.num }">
+			<input type="hidden" name="num" value="${dto.tid }">
 			<div class="form_main">
 				<div class="form_top">	
 					 제목 <select name="category" class="top_box" id="category">

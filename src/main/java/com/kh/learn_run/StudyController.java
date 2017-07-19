@@ -54,11 +54,16 @@ public class StudyController {
 		return "redirect: /learn_run/";
 
 	}
-	@RequestMapping(value = "studyUpdate", method = RequestMethod.GET)
-	public void update(Model model, Integer num) throws Exception{
-		
+	
+	@RequestMapping(value = "studyUpdate", method=RequestMethod.POST )
+	public String update(Model model, Integer num, String confirm) throws Exception{
+		String path = "study/studyUpdate";
+		if(!confirm.equals("okthat")) {
+			path = "redirect:/";
+		}
 		model.addAttribute("dto", studyService.update(num)); 
 
+		return path;
 	}
 	@RequestMapping(value = "studyUpdateInsert", method = RequestMethod.POST)
 	public String update(StudyDTO studyDTO)throws Exception{
