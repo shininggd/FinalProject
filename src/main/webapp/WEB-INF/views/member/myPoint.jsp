@@ -57,7 +57,7 @@
 					현재 나의 <p id="point_G">G</p>포인트 
 					</div>
 					<div class="myPoint" id="myPoint_2">
-					<span id="point_span">${member.gpoint }</span>
+					<span id="Gpoint_span">${member.gpoint }</span>
 					<img id="point_img" src="/learn_run/resources/img/member/point.png">
 					</div>
 				</div>
@@ -89,9 +89,24 @@
 	$("#gc_btn").click(function () {
 		$.post("pointGC",{point:gc,id:"${member.id}"},function(result) {
 			alert(result.trim());
+			myPoint();
 		});
+		
+		
 	});
 	
+	function myPoint() {
+		$.post("myP",{id:"${member.id}"},function(result) {
+			var p = result.trim();
+			$("#point_span").html(numberWithCommas(p));
+		});
+	}
+	
+	function numberWithCommas(x) {
+	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+
+
 </script>
 </body>
 </html>

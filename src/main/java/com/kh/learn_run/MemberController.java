@@ -187,5 +187,13 @@ public class MemberController {
 		
 		return "common/resultMessage"; 
 	}
+	
+	@RequestMapping(value="/myP")
+	public String myPoint(MemberDTO memberDTO,Model model) throws Exception {
+		String result = studentServiceImpl.myPoint(memberDTO);
+		model.addAttribute("message", result);
+		
+		return "common/resultMessage";
+	}
 
 }
