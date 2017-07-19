@@ -1,7 +1,39 @@
 @CHARSET "UTF-8";
 
 .myStudy_wrap {
-	border: 1px black solid;
-	width: 200px;
+	border: 2px #ef6c00 solid;
+	width: 700px;
 	height: 50px;
+	margin-top: 10px;
+	padding: 10px 0 10px 0;
+}
+
+.myStudy_contents {
+	float: left;
+	padding-left: 20px;
+}
+
+.myStudy_buttons {
+	padding-top: 37px;
+	margin-left: 50px;
+	float: right;
+}
+
+.myStudy_buttons input{
+	border: 2px black solid;
+	background-color: white;
+	font-weight: bold;
+}
+
+.on_off{
+	width: 40px;
+	height: 20px;
+	padding-top: 10px;
+	margin-left: 10px;
+}
+
+#myStudy_title {
+	display: inline;
+	font-size: 18px;
+	font-weight: bold;
 }

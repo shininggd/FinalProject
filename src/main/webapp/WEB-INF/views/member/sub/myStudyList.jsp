@@ -12,10 +12,22 @@
 
 	<c:forEach items="${list}" var="dto">
 		<div class="myStudy_wrap">
-			강의명 : ${dto.title }
-			카테고리 : ${dto.category }
-			튜터명 : ${dto.tid }
-			ON/OFF : ${dto.onOff }
+			<div class="myStudy_contents">
+			<p id="myStudy_title">${dto.title }</p><br>
+			${dto.tid } &nbsp;
+			${dto.category } &nbsp;
+			${dto.location }
+			<c:if test="${dto.location eq '온라인' }">
+			<img class="on_off" src="/learn_run/resources/img/study/${dto.onOff}.png">
+			</c:if>
+			</div>
+			
+			<div class="myStudy_buttons">
+				<input type="button" id="" value="강의페이지">
+				<c:if test="${dto.location eq '온라인' }">
+				<input type="button" id="" value="강의 입장">
+				</c:if>
+			</div>
 		</div>
 	</c:forEach>
 	

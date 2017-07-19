@@ -142,8 +142,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/myPoint")
-	public void goMyPoint() {
-		
+	public void goMyPoint(HttpSession session) {
 	}
 	
 	@RequestMapping(value="/adminPage")

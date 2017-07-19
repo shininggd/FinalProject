@@ -76,15 +76,99 @@
 }
 
 /* MyHeader -----------------------------------------------------------*/
-
-#mystudy_h1 {
+#mypoint_h1 {
 	padding: 16px 14px 40px;
     font-size: 18pt;
     color: #3c3c3c;
 }
 
-#mystudy_list {
+#mypoint_list {
 	border-top: 1px solid #ebebeb;
     list-style: none;
+}
+
+#myPoint_wrap {
+	padding-left: 15px;
+	width: 320px;
+	height: 60px;
+	border: 2px #ef6c00 solid;
+	text-align: center;
+	margin-top: 30px;
+	float: left;
 	
 }
+
+#myGPoint_wrap {
+	margin-left: 50px;
+	padding-left: 15px;
+	width: 320px;
+	height: 60px;
+	border: 2px #ef6c00 solid;
+	text-align: center;
+	margin-top: 30px;
+	float: left;
+}
+
+.myPoint{
+	float: left;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#myPoint_1 {
+	
+}
+
+#myPoint_2 {
+	margin-left: 170px;
+}
+
+#point_span {
+	display: table-cell;
+	vertical-align:middle;
+	float: left;
+}
+
+#point_img {
+	width: 30px;
+	height: 30px;
+	float: left;
+}
+
+#point_G {
+	display: inline;
+	font-size: 22px;
+	font-weight: bold;
+	color: #ef6c00;
+}
+
+.giftCard {
+	width: 200px;
+	height: 70px;
+}
+#point_status {
+	display: block;
+}
+
+#gift_h3 {
+	display: inline-block;
+	margin-top: 50px;
+	border-top: 2px solid #ebebeb;
+	border-bottom: 2px solid #ebebeb;
+	padding: 10px 0 10px 0;
+}
+
+#giftCard_wrap {
+	margin-top: 20px;
+	width: 800px;
+	height: 70px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.gc_radio {
+	margin-bottom: 20px;
+	height: 70px;
+}
+
+
