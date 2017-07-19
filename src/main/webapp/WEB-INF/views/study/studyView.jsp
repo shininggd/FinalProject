@@ -12,8 +12,6 @@
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyList.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyView.css">
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-
-
 </head>
 <body>
 <c:import url="../temp/header.jsp"></c:import>
@@ -36,16 +34,15 @@
 		<hr class="sideHr">
 		<div class="sideBottom">
 			<div class="bottomBoxes">
-			<span class="howPrice">참가비</span> <span class="attendPrice"><fmt:formatNumber type="currency" currencySymbol="">${dto.price }</fmt:formatNumber>원</span> 
+			<span class="howPrice">참가비</span><span class="attendPrice"><fmt:formatNumber type="currency" currencySymbol="">${dto.price }</fmt:formatNumber>원</span> 
 			</div>
 			<div class="bottomBoxes">
-			<input type="button" value="참여 신청하기" class="attendBtn btn">
+			<a role="button" href="studyPurchase?num=${dto.num}" class="attendBtn btn"><h4>참여 신청하기</h4></a>
 			</div>
 			<div class="bottomBoxes">
 			<a class="favoriteBtn btn">♡  찜하기</a> 
 			</div>
 			
-		
 		</div>
 		
 		

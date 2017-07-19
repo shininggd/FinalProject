@@ -53,7 +53,5 @@
   <select id="myStudyList" parameterType="java.lang.Integer" resultType="com.kh.study.StudyDTO">
   	select * from study where num=#{num}
   </select>
-  
-  
-  
+
   </mapper>

@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kh.purchase.PurchaseDTO;
 import com.kh.util.ListInfo;
 
 @Service
@@ -33,7 +34,6 @@ public class StudyService {
 	}
 	public int count(ListInfo listInfo) throws Exception{
 		return studyDAO.count(listInfo);
-		
 	}
 	
 	public List<String> myStudyListNum(String id) {
@@ -43,6 +43,6 @@ public class StudyService {
 	public List<StudyDTO> myStudyList(List<String> snums) {
 		return studyDAO.myStudyList(snums);
 	}
-	
+
 	
 }
