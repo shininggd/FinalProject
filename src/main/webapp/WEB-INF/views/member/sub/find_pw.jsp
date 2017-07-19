@@ -14,43 +14,27 @@
 		var input_all = false;
 		
 		$("#find_pw").click(function() {
-			
-			alert("click");
-			
-			if(("#id").val() == "" ||
-				("#name").val() == "" ||
-				("#email").val() =="" ||
-				("#phone").val() == ""){
-				input_all = false;
-			}
-			
-			if(("#id").val() == "" ||
-				("#name").val() == "" ||
-				("#email").val() !="" ||
-				("#phone").val() != ""){
-					input_all = false;
-				}
 				
 			if($("#id").val() != "" &&
 				$("#name").val() != "" &&
-				$("#email").val() == "" &&
-				$("#phone").val() ==""){
+				$("#email").val() != "" &&
+				$("#phone").val() == ""){
 				input_all = true;
 			}
-			if($("#id").val() != "" &&
-					$("#name").val() != "" &&
-					$("#email").val() != "" &&
-					$("#phone").val() ==""){
-					input_all = true;
-				}
+			
 			if($("#id").val() != "" &&
 					$("#name").val() != "" &&
 					$("#email").val() == "" &&
-					$("#phone").val() !=""){
+					$("#phone").val() != ""){
 					input_all = true;
 				}
+			
+			if(input_all == false){
+				alert("정보를 다시 한 번 확인해주세요.");
+			}
+			
 			if(input_all == true){
-				$("#frm").submit;
+				$("#frm").submit();
 			}
 			
 		});
@@ -66,28 +50,28 @@
 			<h3>PW 찾기</h3>
 			<hr>
 			<div id="info_msg">
-				<h5>*이메일이나 연락처 중 하나만 입력하셔도 됩니다.*</h5>
+				<h5>*이메일이나 연락처 중 하나는 입력하셔야 합니다.*</h5>
 			</div>
 			<table id="info_frm">
 				<tr>
 					<td><span id="must">*</span>ID</td>
-					<td class="frm_input"><input type="text" name="id" id="id"> </td>
+					<td class="frm_input"><input type="text" name="id" id="id" placeholder="ID를 입력하세요"> </td>
 				</tr>
 				<tr>
 					<td><span id="must">*</span>이름</td>
-					<td class="frm_input"><input type="text" name="name" id="name"> </td>
+					<td class="frm_input"><input type="text" name="name" id="name" placeholder="이름을 입력하세요"> </td>
 				</tr>
 				<tr>
 					<td>이메일</td>
-					<td class="frm_input"><input type="text" name="email" id="email"></td>
+					<td class="frm_input"><input type="text" name="email" id="email" placeholder="ex)learn_run@learnrun.com"></td>
 				</tr>
 				<tr>
 					<td>연락처</td>
-					<td class="frm_input"><input type="text" name="phone" id="phone"> </td>
+					<td class="frm_input"><input type="text" name="phone" id="phone" placeholder="ex)010-1234-5678"> </td>
 				</tr>
 			</table>
 			<br>
-			<input type="button" id="find_pw" class="find_idpw" value="PW 찾기">
+			<a role="button" id="find_pw" class="find_idpw">확인</a>
 		</form>
 	</div>
 

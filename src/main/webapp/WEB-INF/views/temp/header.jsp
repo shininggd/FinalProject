@@ -30,7 +30,7 @@ $(function(){
 		 ch=screen.availHeight;    //화면 높이
 
 		 sw=500;    //띄울 창의 넓이
-		 sh=340;    //띄울 창의 높이
+		 sh=360;    //띄울 창의 높이
 
 		 ml=(cw-sw)/2;        //가운데 띄우기위한 창의 x위치
 		 mt=(ch-sh)/2;         //가운데 띄우기위한 창의 y위치
@@ -295,8 +295,10 @@ $(function(){
 						<!-- Modal (login) -->
 	 					 <div class="modal fade" id="loginForm" role="dialog">
 	 					 		<span id="login_close">X</span>
+	 					 		
+	          						<h2 class="log-join">Login</h2>
+	          						<hr id="hr">
 	          					<form action="/learn_run/member/tutorLogin" id="loginFrm" method="post">
-	          						
 	          						<p id="selectGrade">튜터<input type="radio" name="grade" class="g_login" value="tutor" checked="checked">&nbsp; 
 	          						학생 <input type="radio" name="grade" class="g_login" value="student"></p>
 	          						
@@ -326,6 +328,9 @@ $(function(){
 						<!-- joinForm start -->
 	 					 <div class="modal fade" id="joinForm" >
 	       					 <span id="join_close">X</span>
+	          						<h2 class="log-join">Join</h2>
+	          						<hr id="hr">
+	          						<span class="join_msg">*전체 필수 항목입니다. 모두 입력해주세요.*</span>
 	          					<form action="/learn_run/member/tutorJoin" id="joinFrm" method="post" >
 	          						
 	          						<p class="selectGrade">튜터<input type="radio" class="g_check" name="grade" value="tutor" checked="checked"> &nbsp; 학생<input type="radio" class="g_check" name="grade" value="student" id="member-frm"></p>

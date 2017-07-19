@@ -128,9 +128,6 @@ public class MemberController {
 
 	@RequestMapping(value="/IdFind")
 	public ModelAndView memberIdFind(MemberDTO memberDTO) throws Exception{
-		
-		
-		
 		memberDTO = studentServiceImpl.IdFind(memberDTO);
 		String message ="";
 		String path ="";
@@ -153,15 +150,21 @@ public class MemberController {
 	@RequestMapping(value="/PwFind")
 	public ModelAndView memberPwFind(MemberDTO memberDTO) throws Exception{
 		
+		//System.out.println("controller");
+		//System.out.println(memberDTO.getId());
+		//System.out.println(memberDTO.getName());
+		
 		memberDTO = studentServiceImpl.PwFind(memberDTO);
 		String message ="";
 		String path ="";
+		
+		//System.out.println(memberDTO.getId());
+		
 		ModelAndView mv = new ModelAndView();
 		if(memberDTO != null){
 			message = "입력하신 정보가 확인되었습니다.";
 			mv.setViewName("member/sub/IdPwResult");
 			mv.addObject("dto", memberDTO);
-	
 		}else{
 			message ="정보를 다시 한 번 확인해주세요.";
 			mv.setViewName("/common/MLresult");

@@ -18,29 +18,20 @@
 			//alert("click");
 			
 					if ($("#name").val() == "" || 
-						$("#email").val() == ""|| 
-						$("#phone").val() == "") {
-						input_all = false;
-						alert("정보를 다시 한 번 확인해주세요.")
-					} 
-					if($("#name").val() != "" &&
-						$("#email").val() != "" &&
-						$("#phone").val() != ""){
-						input_all = true;	
-						}
-					
-					if($("#name").val() !="" &&
-						$("#email").val() != "" &&
+						$("#email").val() == "" && 
 						$("#phone").val() == ""){
-						input_all = true;
-					}
+						input_all = false;
+					} 
 					
 					if($("#name").val() !="" &&
-						$("#email").val() == "" &&
+						$("#email").val() != "" ||
 						$("#phone").val() != ""){
 						input_all = true;
 					}
 
+					if(input_all == false){
+						alert("정보를 다시 한 번 확인해주세요.");
+					}
 					
 					if(input_all == true){
 						$("#frm").submit();
@@ -57,7 +48,7 @@
 			<h3>ID 찾기</h3>
 			<hr>
 			<div id="info_msg">
-				<h5>*이메일이나 연락처 중 하나만 입력하셔도 됩니다.*</h5>
+				<h5>*이메일이나 연락처 중 하나는 입력하셔야 됩니다.*</h5>
 			</div>
 			<table id="info_frm">
 				<tr>
@@ -75,7 +66,7 @@
 				</tr>
 			</table>
 			<br>
-			<input type="button" id="find_id" class="find_idpw" value="ID 찾기">
+			<a role="button" id="find_id" class="find_idpw">확인</a>
 		</form>
 
 	</div>
