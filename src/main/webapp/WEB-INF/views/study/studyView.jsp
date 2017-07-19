@@ -12,8 +12,6 @@
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyList.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyView.css">
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-
-
 </head>
 <body>
 <c:import url="../temp/header.jsp"></c:import>
@@ -79,15 +77,19 @@
 	<hr>
 	<div class="tutorLabel">
 	리더소개
-	<p><img class="tutorImage" src="<c:url value="/resources/img/tutor/얼굴.jpg"/>"><p>
+	<p><img class="tutorImage" src="<c:url value="/resources/img/member/profilePhoto/${profile }"/>"><p>
 	</div>
 	<div class="introduceContent">
 	${tutor.introduce }
 		</div>
-</div>
 
 </div>
-
+<div class="update_box">
+<c:if test="${member.id eq tutor.id }">
+<a href="./studyUpdate?num=${dto.num }"><input type="button" value="수정하기" class="update_btn"></a>
+</c:if>
+</div>
+</div>
 </section>
 <!-- ======================================== 섹션END==========================================  -->
 

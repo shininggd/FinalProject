@@ -26,39 +26,39 @@
 		각양각색 스터디<br>
 		 <span class="fcolor">Learn&Run</span>
 		</div>
-		<form action="studyRegistInsert" method="post" id="frm" name="frm" enctype="multipart/data-form">
-			<input type="hidden"  name="tid" value="${member.id }">
+		<form action="studyUpdateInsert" method="post" id="frm" name="frm" enctype="multipart/data-form">
+			<input type="hidden" name="num" value="${dto.num }">
 			<div class="form_main">
 				<div class="form_top">	
 					 제목 <select name="category" class="top_box" id="category">
-								<option value="영어회화">영어회화</option>
-								<option value="중국어회화">중국어회화</option>
+								<option value="영어회화" <c:if test="${dto.category eq '영어회화'}">selected="selected"</c:if>>영어회화</option>
+								<option value="중국어회화"<c:if test="${dto.category eq '중국어회화'}">selected="selected"</c:if>>중국어회화</option>
 						   </select>
 						<select name="lv" class="top_box" id="lv" >
-								<option value="초보">초보</option>
-								<option value="중수">중수</option>
-								<option value="고수">고수</option>
+								<option value="초보" <c:if test="${dto.lv eq '초보'}">selected="selected"</c:if>>초보</option>
+								<option value="중수" <c:if test="${dto.lv eq '중수'}">selected="selected"</c:if>>중수</option>
+								<option value="고수" <c:if test="${dto.lv eq '고수'}">selected="selected"</c:if>>고수</option>
 						   </select> 
-						<input type="text" name="title" class="title_box" id="title" placeholder="강의명을 입력하세요"><br>
+						<input type="text" name="title" class="title_box" id="title" value="${dto.title }" placeholder="강의명을 입력하세요"><br>
 				 		   
 				</div>
 
 				<div class="form_other">
 					장소 <select name="location" class="other_box" id="location">
-							<option value="온라인">온라인</option>
-							<option value="천호동">천호동</option>
+							<option value="온라인" <c:if test="${dto.location eq '온라인'}">selected="selected"</c:if>>온라인</option>
+							<option value="천호동" <c:if test="${dto.location eq '천호동'}">selected="selected"</c:if>>천호동</option>
 						</select> 
-					인원 <input type="number" min="1" max="99" class="people_box" name="people" id="people">
+					인원 <input type="number" min="1" max="99" class="people_box" name="people" id="people" value="${dto.people }">
 				</div> 			
 			
-			<div class="form_other">기   간 <input type="date" name="sDate" class="other_box" id="sDate"> - 
-			<input type="date" name="lDate" class="other_box" id="lDate"> 
-			가   격 <input type="number" name="price" min="0" class="number_box" id="price">원</div>
+			<div class="form_other">기   간 <input type="date" name="sDate" class="other_box" id="sDate" value="${dto.sDate }"> - 
+			<input type="date" name="lDate" class="other_box" id="lDate" value="${dto.lDate }"> 
+			가   격 <input type="number" name="price" min="0" class="number_box" id="price" value="${dto.price }">원</div>
 			</div>
 			<div class="textSE">
-			<textarea id="contents" name="contents"></textarea></div>
+			<textarea id="contents" name="contents">${dto.contents }</textarea></div>
 			<div class="submit_box">
-			<input type="submit" id="savebutton" value="등록하기" class="submit_btn" >
+			<input type="submit" id="savebutton" value="수정하기" class="submit_btn" >
 			</div>
 		</form>
 	</div>
@@ -91,7 +91,7 @@ nhn.husky.EZCreator.createInIFrame({
         //id가 smarteditor인 textarea에 에디터에서 대입
         
          
-        
+     
 	   if(
 		$("#title").val()== "" ||
 		$("#sDate").val()== "" ||
@@ -101,7 +101,7 @@ nhn.husky.EZCreator.createInIFrame({
 		$("#people").val()*1 <0*1 ||
 		$("#people").val()*1>100*1
 		){
-		
+		   
 		alert("누락된 정보가 있거나 정보입력이 잘못되었습니다.");
 		return false;
         }

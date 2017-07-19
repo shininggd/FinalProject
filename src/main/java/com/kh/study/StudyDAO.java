@@ -94,12 +94,18 @@ public class StudyDAO {
 	public int regist(StudyDTO studyDTO)throws Exception{
 		return sqlSession.insert(NAMESPACE+"studyRegist",studyDTO);
 	}
+	public int update(StudyDTO studyDTO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"studyUpdate",studyDTO);
+	}
 	public HashMap<Object, Object> studyView(Integer num, String tid)throws Exception{
 		HashMap<Object, Object> ar = new HashMap<Object, Object>();
-		ar.put("study", sqlSession.selectOne(NAMESPACE+"studyView", num));
+		ar.put("study", this.updateView(num));
 		ar.put("tutor",sqlSession.selectOne(TUTORSPACE+"tutorStudyInfo",tid));
-		
+		ar.put("profile",sqlSession.selectOne(TUTORSPACE+"tutorImage",tid));
 		return ar;
+	}
+	public StudyDTO updateView(Integer num) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"studyView", num);
 	}
 	
 	public List<String> myStudyListNum(String id) {

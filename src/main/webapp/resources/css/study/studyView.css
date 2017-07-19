@@ -99,6 +99,7 @@
 	margin-right: 30px;
 	padding: 60px 0;
     width: 570px;
+    min-height: 200px;
 	}
 	
 	.introduceLabel{
@@ -251,3 +252,18 @@
 		right: 20px;
 		line-height: 60px;
 	}
+	.update_box{
+	
+	width: 780px;
+	height: 60px;
+	margin: 0 auto;
+	
+	overflow: hidden;
+}
+.update_btn{
+	margin-top: 10px;
+	width: 100px;
+	background: none;
+	height: 50px;
+	
+}

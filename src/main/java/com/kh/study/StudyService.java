@@ -28,6 +28,12 @@ public class StudyService {
 	public int regist(StudyDTO studyDTO)throws Exception{
 		return studyDAO.regist(studyDTO);
 	}
+	public int update(StudyDTO studyDTO)throws Exception{
+		return studyDAO.update(studyDTO);
+	}
+	public StudyDTO update(int num)throws Exception{
+		return studyDAO.updateView(num);
+	}
 	public  HashMap<Object, Object> studyView(Integer num, String tid)throws Exception{
 		return studyDAO.studyView(num, tid);
 	}

@@ -40,6 +40,8 @@ public class StudyController {
 		TutorDTO tutor = (TutorDTO)ar.get("tutor");
 		model.addAttribute("dto", dto);
 		model.addAttribute("tutor",tutor);
+		model.addAttribute("profile",ar.get("profile"));
+		
 	}
 	@RequestMapping(value = "studyRegist", method = RequestMethod.GET)
 	public void regist(){
@@ -48,11 +50,25 @@ public class StudyController {
 	@RequestMapping(value = "studyRegistInsert", method = RequestMethod.POST)
 	public String regist(StudyDTO studyDTO)throws Exception{
 		System.out.println(studyDTO.getContents());
-		
 		studyService.regist(studyDTO);
 		return "redirect: /learn_run/";
 
 	}
+	@RequestMapping(value = "studyUpdate", method = RequestMethod.GET)
+	public void update(Model model, Integer num) throws Exception{
+		
+		model.addAttribute("dto", studyService.update(num)); 
+
+	}
+	@RequestMapping(value = "studyUpdateInsert", method = RequestMethod.POST)
+	public String update(StudyDTO studyDTO)throws Exception{
+		System.out.println(studyDTO.getContents());
+		
+		studyService.update(studyDTO);
+		return "redirect: /learn_run/";
+
+	}
+
 
 	
 	@RequestMapping(value="myStudyList", method = RequestMethod.POST)

@@ -24,4 +24,10 @@
 	
 	</select>
 	
+	<!-- 프로필 사진 가져오기 용도입니다.  -->
+	<select id="tutorImage" parameterType="java.lang.String" resultType="java.lang.String">
+		select fname from member where id = #{tid}
+	
+	</select>
+	
 </mapper>
