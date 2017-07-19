@@ -14,6 +14,7 @@
 $(function(){
 	$("#tutorinfo").click(function(){
 		tutorTable();
+		$('#hyungsun').css('visibility','visible');
 	});	
 
 	$("#mystudy_tutorinfoview").on('click',".change_Tinfo",function(){
@@ -32,23 +33,41 @@ $(function(){
 			return false;
 		}
 		
+	
+		
 		$.post("./sub/tutorOversight",{lv_ch:lv_ch,ri_ch:ri_ch,id_ch:id_ch},function(data){
 			alert(data.trim());
 			tutorTable();
-		});
+		});		
 	});
 		
+	$("#btn").click(function(){
+		tutorTable();
+	});
+	
+
+	
+	
 		function tutorTable() {
-			$.get("./sub/tutorOversight",function(data){
+			var find = $('#find').val();
+			var search = $('#search').val();	
+			$.get("./sub/tutorOversight",{find:find,search:search},function(data){
 				data = data.trim();
 				$("#mystudy_tutorinfoview").html(data);
 			});
 		}
 		
+		
+ 		/* $(function(){ 
+			$('.gooh').click(function() {
+				document.frm.curPage.value=$(this).attr("title");
+				document.frm.search.value= '${listInfo.search}';
+				document.frm.find.value= '${listInfo.find}';
+				document.frm.submit();
+				
+			});
+		}); */
 });
-
-
-
 </script>
 </head>
 <body>
@@ -81,13 +100,36 @@ $(function(){
 			<div id="mystudy_menubar">
 			<input type="button" id="tutorinfo" value="TutorInfo">
 			</div>
-
-				<div id="mystudy_tutorinfoview">
-				
+			
+				<div id="hyungsun">
+					<form name="frm" id="frm" method="post">
+						<input type="hidden" name="curPage">
+							<select name="find" id="find">
+								<option value="id">ID</option>
+								<option value="lv">LV</option>
+								<option value="right">RIGHT</option>
+							</select>
+						<input type="text" name="search" value="" id="search">
+						<input type="button" id="btn" value="SEARCH">
+					</form>
 				</div>
+				
+				<div id="mystudy_tutorinfoview">
+
 					<div id="admin_Tpagelist">
+						<!-- 페이징목록  -->
+						<c:if test="${listInfo.curBlock > 1 }">
+						<span class="gooh" title="${listInfo.startNum-1}">[이전]</span>
+						</c:if>
+						<c:forEach begin="${listInfo.startNum}" end="${listInfo.lastNum }" var="i">
+						<span class="gooh" title="${i}">${i}</span>
+						</c:forEach>
+						<c:if test="${listInfo.curBlock < listInfo.totalBlock}">
+						<span class="gooh" title="${listInfo.lastNum+1}">[다음]</span>
+						</c:if>
 						
 						</div>
+				</div>
 		</div>
 	
 	</div>

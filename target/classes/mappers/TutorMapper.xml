@@ -7,14 +7,14 @@
 
 	<sql id="search">
  		<trim prefix="where" prefixOverrides="and || or">
- 		<if test="search == 'id'">
- 			id like '%' || #{find} || '%'
+ 		<if test="find == 'id'">
+ 			id like '%' || #{search} || '%'
  		</if>
- 		<if test="search == 'lv'">
- 			lv like '%' || #{find} || '%'
+ 		<if test="find == 'lv'">
+ 			lv like '%' || #{search} || '%'
  		</if>
- 		<if test="search == 'right'">
- 			right like '%' || #{find} || '%'
+ 		<if test="find == 'right'">
+ 			right like '%' || #{search} || '%'
  		</if>
  		</trim>
  	</sql>

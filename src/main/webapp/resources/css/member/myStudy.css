@@ -108,3 +108,14 @@
     border: none;
     color: #ef6c00;
 }
+#admin_Tpagelist{
+	width: 200px;
+	height: 50px;
+	both:clear;
+}
+
+#hyungsun{
+	
+	visibility: hidden;
+	
+}

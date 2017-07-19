@@ -1,9 +1,5 @@
 package com.kh.learn_run;
 
-
-
-
-
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -160,14 +156,24 @@ public class MemberController {
 	
 	@RequestMapping(value="/sub/tutorOversight", method=RequestMethod.GET)
 	public String tutorOversightinfo(Model model, ListInfo listInfo) throws Exception {
+		listInfo.setCurPage(1);
+		if(listInfo.getFind() == null){
+			listInfo.setFind("id");
+		}
+		if(listInfo.getSearch() == null){
+			listInfo.setSearch("");
+		}
 		List<TutorDTO> tutorinfo =tutorServiceImpl.tutorinfo(listInfo);	
-		model.addAttribute("totalCount", tutorServiceImpl.Tcount(listInfo)).addAttribute("data", tutorinfo);
+		System.out.println(listInfo.getFind());
+		model.addAttribute("totalCount", tutorServiceImpl.Tcount(listInfo));
+		model.addAttribute("data", tutorinfo);
 		model.addAttribute("listInfo", listInfo);
 		return"member/sub/tutorOversight";
 	}
 	
 	@RequestMapping(value="/sub/tutorOversight", method=RequestMethod.POST)
 	public String tutorLRupdate(String id_ch, String lv_ch, String ri_ch,Model model)throws Exception{
+		System.out.println("acc");
 		TutorDTO tutorDTO = new TutorDTO();
 		tutorDTO.setId(id_ch);		
 		tutorDTO.setLv(lv_ch);		
