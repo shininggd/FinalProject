@@ -17,7 +17,8 @@
 	
 		<div class="main_container">
 			
-			<h1>출석체크</h1>
+			<div>
+			</div>
 			
 		</div>
 		

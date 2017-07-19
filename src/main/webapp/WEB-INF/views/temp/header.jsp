@@ -9,8 +9,36 @@
 <script type="text/javascript">
 $(function(){
     
+	/* --------findInfo---------- */
+	$("#find_id").click(function() {
+		//window.open("/learn_run/member/find_id",  "ID 찾기", "width=500, height=300, left=400, top=250");
+		 cw=screen.availWidth;     //화면 넓이
+		 ch=screen.availHeight;    //화면 높이
+
+		 sw=500;    //띄울 창의 넓이
+		 sh=300;    //띄울 창의 높이
+
+		 ml=(cw-sw)/2;        //가운데 띄우기위한 창의 x위치
+		 mt=(ch-sh)/2;         //가운데 띄우기위한 창의 y위치
+
+		 test=window.open('/learn_run/member/find_id','tst','width='+sw+',height='+sh+',top='+mt+',left='+ml+',resizable=no');
+	});
 	
+	$("#find_pw").click(function() {
+		//window.open("/learn_run/member/find_pw",  "PW 찾기", "width=500, height=300, left=200");
+		 cw=screen.availWidth;     //화면 넓이
+		 ch=screen.availHeight;    //화면 높이
+
+		 sw=500;    //띄울 창의 넓이
+		 sh=360;    //띄울 창의 높이
+
+		 ml=(cw-sw)/2;        //가운데 띄우기위한 창의 x위치
+		 mt=(ch-sh)/2;         //가운데 띄우기위한 창의 y위치
+
+		 test=window.open('/learn_run/member/find_pw','tst','width='+sw+',height='+sh+',top='+mt+',left='+ml+',resizable=no');
+	}); 
 	
+		
 	/* ---------------------login , join ------------------------------*/
 	$("#login_modal_toggle").click(function () {
 		$("#loginForm").css("display","inline");
@@ -114,7 +142,7 @@ $(function(){
   		
         //회원가입버튼을 눌렀을 때
   		$("#join").click(function() {
-			
+  			
   			if(	$("#id").val != "" &&
   				$("#pw").val != "" &&
   				$("#pw2").val != "" &&
@@ -142,11 +170,7 @@ $(function(){
   						alert("필수 항목을 모두 입력해주세요.");
   				}
   				
-
-  				
-  					
-
-  				if(email_check == false){
+ 				if(email_check == false){
   					alert("이메일 주소 형식을 확인해주세요.");
   					all_check = false;
 
@@ -271,10 +295,12 @@ $(function(){
 						<!-- Modal (login) -->
 	 					 <div class="modal fade" id="loginForm" role="dialog">
 	 					 		<span id="login_close">X</span>
+	 					 		
+	          						<h2 class="log-join">Login</h2>
+	          						<hr id="hr">
 	          					<form action="/learn_run/member/tutorLogin" id="loginFrm" method="post">
-	          						
-	          						<p>튜터 &nbsp;<input type="radio" name="grade" class="g_login" value="tutor" checked="checked"> 
-	          						학생 &nbsp; <input type="radio" name="grade" class="g_login" value="student"></p>
+	          						<p id="selectGrade">튜터<input type="radio" name="grade" class="g_login" value="tutor" checked="checked">&nbsp; 
+	          						학생 <input type="radio" name="grade" class="g_login" value="student"></p>
 	          						
 	          						<table id="login_input">
 	          						<tr>
@@ -284,12 +310,13 @@ $(function(){
 									<td colspan="2"><input type="password" name="pw" placeholder="PW를 입력하세요"></td>
 									</tr>
 	          						</table>
-	          						
-									<input type="button" id="login" value="로그인">
+	          						<div id="con-btn">
+									<a role="button" id="login">로그인</a>
+	          						</div>
 								</form>
 								
 									<div id="forgotIdPw">
-									<a href="#">ID 찾기</a> &nbsp; <a href="#">PW 찾기</a>
+										<a id="find_id" class="findInfo">ID 찾기</a> &nbsp;/&nbsp; <a id="find_pw" class="findInfo">PW 찾기</a>
 									</div>
 	        				</div>
 	       				
@@ -301,44 +328,49 @@ $(function(){
 						<!-- joinForm start -->
 	 					 <div class="modal fade" id="joinForm" >
 	       					 <span id="join_close">X</span>
+	          						<h2 class="log-join">Join</h2>
+	          						<hr id="hr">
+	          						<span class="join_msg">*전체 필수 항목입니다. 모두 입력해주세요.*</span>
 	          					<form action="/learn_run/member/tutorJoin" id="joinFrm" method="post" >
+	          						
+	          						<p class="selectGrade">튜터<input type="radio" class="g_check" name="grade" value="tutor" checked="checked"> &nbsp; 학생<input type="radio" class="g_check" name="grade" value="student" id="member-frm"></p>
+	          						
 	          						<table>
 	          						<tr>
-	          						<td colspan="2" class="infoIndex">튜터: <input type="radio" class="g_check" name="grade" value="tutor" checked="checked"> 학생:<input type="radio" class="g_check" name="grade" value="student" id="member-frm"></td>
-	          						</tr>
-	          						<tr>
-	          						<td class="infoIndex">ID</td><td class="infoCon"><input type="text" name="id" id="id" placeholder="ID를 입력하세요"></td>
+	          						<td class="infoIndex">ID</td><td><input type="text" name="id" id="id" placeholder="ID를 입력하세요"></td>
 	          						</tr>
 	          						<tr>
 	          						<td colspan="2"><span id="idmessage"></span></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">PW</td><td class="infoCon"><input type="password" name="pw" id="pw" placeholder="PW를 입력하세요"></td>
+									<td class="infoIndex">PW</td><td><input type="password" name="pw" id="pw" placeholder="PW를 입력하세요"></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">PW 확인</td><td class="infoCon"><input type="password" id="pw2" name="pw2" placeholder="PW를  다시 입력하세요"></td>
+									<td class="infoIndex">PW 확인</td><td><input type="password" id="pw2" name="pw2" placeholder="PW를  다시 입력하세요"></td>
 									</tr>
 									<tr>
 									<td colspan="2"><span id="pwmessage"></span></td>									
 									</tr>
 									<tr>
-									<td class="infoIndex">이름</td><td class="infoCon"><input type="text" name="name" placeholder="이름을 입력하세요"></td>
+									<td class="infoIndex">이름</td><td><input type="text" name="name" placeholder="이름을 입력하세요"></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">생일</td><td class="infoCon"><input type="date" name="birth"></td>
+									<td class="infoIndex">생일</td><td><input type="date" name="birth"></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">e-mail</td><td class="infoCon"><input type="text" name="email" id="email" placeholder="ex) learn-run@gmail.com"></td>
+									<td class="infoIndex">e-mail</td><td><input type="text" name="email" id="email" placeholder="ex) learn-run@gmail.com"></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">연락처</td><td><select name="telecom">
+									<td class="infoIndex">연락처</td><td><select name="telecom" >
 											<option>SKT</option> <option>KT</option> <option>LGT</option> <option>알뜰폰</option>
 											</select>
 									<input class="input_phone" type="text" name="phone" id="phone" placeholder="ex) 010-1234-5678"></td>
 									</tr>
 	          						</table>
 									
-									<input type="button" id="join" value="회원가입">
+									<div id="con-btn">
+									<a role="button" id="join">회원가입</a>
+									</div>
 									
 								</form>
 	        				</div>
