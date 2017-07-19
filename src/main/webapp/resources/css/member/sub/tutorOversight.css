@@ -10,14 +10,14 @@
 	font-size: 20px;
     font-weight: bold;
     border: none;
-    color: #ef6c00;
+    color: black;
 }
 #tutorinfo_table th, tr, td{
 	border: none;
 }
 
 #tutorinfo_table tr {
-	border-bottom: 3px solid #ef6c00;
+	border-bottom: 3px solid black;
 }
 
 .lv_select,.rig_select {
@@ -32,4 +32,7 @@
     font-weight: bold;
     border: 1px solid #ebebeb;
     color: #ef6c00;
+}
+#opt1, #opt2, #opt3, #opt4{
+	background-color: white;
 }

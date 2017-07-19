@@ -2,34 +2,22 @@ package com.kh.learn_run;
 
 
 
-import static org.hamcrest.CoreMatchers.nullValue;
+
 
 import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
-import org.springframework.aop.ThrowsAdvice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-
 import com.kh.member.MemberDTO;
-import com.kh.member.MemberService;
-
-
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import com.kh.member.student.StudentDAOImpl;
-import com.kh.member.student.StudentDTO;
 import com.kh.member.student.StudentServiceImpl;
 import com.kh.member.tutor.TutorDTO;
 import com.kh.member.tutor.TutorServiceImpl;
+import com.kh.util.ListInfo;
 
 
 @Controller
@@ -170,18 +158,11 @@ public class MemberController {
 
 	}
 	
-	@RequestMapping(value="/sub/tutorOversight")
-	public void gotutorOversight(){
-		
-	}
 	@RequestMapping(value="/sub/tutorOversight", method=RequestMethod.GET)
-	public String tutorOversightinfo(Model model) throws Exception {
-		List<TutorDTO> tutorinfo =tutorServiceImpl.tutorinfo();
-		
-		model.addAttribute("data", tutorinfo);
-		model.addAttribute("length", tutorinfo.size());
-		
-	
+	public String tutorOversightinfo(Model model, ListInfo listInfo) throws Exception {
+		List<TutorDTO> tutorinfo =tutorServiceImpl.tutorinfo(listInfo);	
+		model.addAttribute("totalCount", tutorServiceImpl.Tcount(listInfo)).addAttribute("data", tutorinfo);
+		model.addAttribute("listInfo", listInfo);
 		return"member/sub/tutorOversight";
 	}
 	
@@ -201,5 +182,4 @@ public class MemberController {
 		
 		return "common/resultMessage";			
 	}
-	
 }

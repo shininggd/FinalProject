@@ -12,11 +12,10 @@
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/member/myStudy.css">
 <script type="text/javascript">
 $(function(){
-
 	$("#tutorinfo").click(function(){
 		tutorTable();
 	});	
-	
+
 	$("#mystudy_tutorinfoview").on('click',".change_Tinfo",function(){
 		var num = $(this).prop("id");
 		var id_ch = $("#tutoids"+num).prop("title");
@@ -86,6 +85,9 @@ $(function(){
 				<div id="mystudy_tutorinfoview">
 				
 				</div>
+					<div id="admin_Tpagelist">
+						
+						</div>
 		</div>
 	
 	</div>

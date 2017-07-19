@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.member.MemberDAO;
 import com.kh.member.MemberDTO;
+import com.kh.util.ListInfo;
 
 @Repository
 public class TutorDAOImpl implements MemberDAO{
@@ -49,13 +50,16 @@ public class TutorDAOImpl implements MemberDAO{
 		return sqlSession.selectOne(NAMESPACE+"IdCheck", id);
 	}
 	
-	public List<TutorDTO> tutorinfo() throws Exception {
-		 return  sqlSession.selectList(NAMESPACE+"tutorInfo");
+	public List<TutorDTO> tutorinfo(ListInfo listInfo) throws Exception {
+		 return  sqlSession.selectList(NAMESPACE+"tutorInfo", listInfo);
 	}
 
 	public int LRupdate(TutorDTO tutorDTO) throws Exception {
 		return sqlSession.update(NAMESPACE+"adminTupdate", tutorDTO);
 	}
 	
-
+	public int Tcount(ListInfo listInfo){
+		int count = sqlSession.selectOne(NAMESPACE+"tcount");
+		return count;
+	}
 }
