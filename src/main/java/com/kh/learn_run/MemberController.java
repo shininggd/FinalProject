@@ -201,8 +201,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/myPoint")
-	public void goMyPoint() {
-		
+	public void goMyPoint(HttpSession session) {
 	}
 	
 	@RequestMapping(value="/adminPage")
@@ -230,5 +229,32 @@ public class MemberController {
 
 	}
 	
+
+	@RequestMapping(value="/pointGC")
+	public String pointGC(MemberDTO memberDTO, Model model,HttpSession session ) throws Exception {
+		int result = studentServiceImpl.pointGC(memberDTO);
+		
+		MemberDTO memberDTO2 = (MemberDTO)session.getAttribute("member");
+		memberDTO2.setPoint(memberDTO.getPoint());
+		session.setAttribute("member", memberDTO);
+		
+		String message = "Trade Fail";
+		if(result>0) {
+			message = "Trade Success";
+		}
+		
+		model.addAttribute("message", message);
+		
+		return "common/resultMessage"; 
+	}
+	
+	@RequestMapping(value="/myP")
+	public String myPoint(MemberDTO memberDTO,Model model) throws Exception {
+		String result = studentServiceImpl.myPoint(memberDTO);
+		model.addAttribute("message", result);
+		
+		return "common/resultMessage";
+	}
+
 
 }

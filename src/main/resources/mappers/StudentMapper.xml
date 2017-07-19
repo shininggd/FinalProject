@@ -21,6 +21,7 @@
 		update member set pw=#{pw}, email=#{email}, phone=#{phone} where id=#{id}
 	</update>
 	
+
 	<select id="IdFind" parameterType="com.kh.member.MemberDTO" resultType="com.kh.member.MemberDTO">
 		select id from member where name=#{name} and 
 		<if test="email != ''">email=#{email}</if>
@@ -31,5 +32,12 @@
 		select pw from member where id=#{id} and name=#{name} and 
 		<if test="email != ''">email=#{email}</if>
 		<if test="phone != ''">phone=#{phone}</if>
+
+	<update id="pointGC" parameterType="com.kh.member.MemberDTO">
+		update member set point = point-#{point} where id=#{id}
+	</update>
+	
+	<select id="myPoint" parameterType="com.kh.member.MemberDTO" resultType="java.lang.String">
+		select point from member where id=#{id}
 	</select>
 </mapper>

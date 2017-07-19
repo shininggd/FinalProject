@@ -47,6 +47,13 @@ public class StudentDAOImpl implements MemberDAO{
 		
 	}
 
+	public int pointGC(MemberDTO memberDTO) throws Exception {
+		return sqlSession.update(NAMESPACE+"pointGC",memberDTO);
+	}
+	
+	public String myPoint(MemberDTO memberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"myPoint", memberDTO);
+	}
 	
 
 }
