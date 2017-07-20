@@ -25,12 +25,12 @@ public class MessageController {
 	}
 	
 	@RequestMapping(value="messageList")
-	public List<MemberDTO> messageList(String id, Model model) throws Exception {
+	public String messageList(String id, Model model) throws Exception {
 		
 		List<MessageDTO> list = messageService.messageList(id);
 		model.addAttribute("list", list);
 		
 		
-		return null;
+		return "message/messageList";
 	}
 }

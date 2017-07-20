@@ -10,6 +10,7 @@ public class MessageDTO {
 	private Date reg_date;
 	private String read;
 	private String sender;
+	
 	public String getId() {
 		return id;
 	}
