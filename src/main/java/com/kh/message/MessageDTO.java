@@ -2,7 +2,7 @@ package com.kh.message;
 
 import java.sql.Date;
 
-public class messageDTO {
+public class MessageDTO {
 
 	private String id;
 	private String title;

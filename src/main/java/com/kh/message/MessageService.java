@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class messageService {
+public class MessageService {
 
 	@Autowired
-	private messageDAO messageDAO;
+	private MessageDAO messageDAO;
 	
-	public List<String> messageList(String id) {
-		messageDAO.
+	public List<MessageDTO> messageList(String id) throws Exception {
+		return messageDAO.messageList(id);
 	}
 	
 }

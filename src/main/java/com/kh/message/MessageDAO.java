@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class messageDAO {
+public class MessageDAO {
 
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "messageMapper.";
 	
-	public List<String> messageList(String id) {
+	public List<MessageDTO> messageList(String id) {
 		return sqlSession.selectList(NAMESPACE+"messageList", id);
 	}
 }

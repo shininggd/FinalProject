@@ -40,7 +40,7 @@
 	<context:component-scan base-package="com.kh.leveltest"/>
 	<context:component-scan base-package="com.kh.member" />
 	<context:component-scan base-package="com.kh.util" />
-
+	<context:component-scan base-package="com.kh.message" />
 	
 	
 </beans:beans>

@@ -12,43 +12,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:import url="../temp/header.jsp"></c:import>
-
-<section id="main_section">
-
-	<div class="main_container">
-		
-		<div id="section_left">
-			<div id="left_header">
-				메시지(0)
-			</div>
-			<div id="left_contents">
-				
-			</div>
-		</div>
-		<div id="section_right">
-			<div id="right_contents">
-				
-				<div id="no_message">
-					<img src="/learn_run/resources/img/temp/noMessage.png">
-					<span id="message_span">아직 메세지가 없습니다.</span>
-				</div>
-				
-			</div>
-		</div>
-
-	</div>
-
-</section>
-
-<c:import url="../temp/footer.jsp"></c:import>
-
-<script type="text/javascript">
-	
-	$.post("messageList",{id:'${member.id}'},function(result) {
-		alert(result).trim();
-	});
-	
-</script>
+	<table>
+		<thead>
+			<tr>
+				<th>제목</th>
+				<th>날짜</th>
+			</tr>
+		</thead>
+		<tbody>
+		<c:forEach items="${list}" var="dto">
+		<tr>
+			<td>${dto.title }</td>
+			<td>${dto.reg_date }</td>
+		</tr>	
+		</c:forEach>
+		</tbody>
+	</table>
 </body>
 </html>

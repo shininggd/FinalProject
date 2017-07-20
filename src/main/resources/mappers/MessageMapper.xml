@@ -5,6 +5,9 @@
   
 <mapper namespace="MessageMapper">
 
+	<select id="messageList" parameterType="java.lang.String" resultType="com.kh.message.MessageDTO">
+		select * from message where id=#{id}
+	</select>
 	
 
 </mapper>
