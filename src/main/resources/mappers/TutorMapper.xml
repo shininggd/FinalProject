@@ -51,7 +51,7 @@
 		update tutor set lv=#{lv}, right=#{right} where id=#{id}
 	</update>
 	<!-- 페이징 카운트 -->
-	<select id="tcount" resultType="java.lang.Integer">
+	<select id="tcount" parameterType="com.kh.util.ListInfo" resultType="java.lang.Integer">
 		select count(id) from tutor
 		<include refid="search"></include>
 	</select>

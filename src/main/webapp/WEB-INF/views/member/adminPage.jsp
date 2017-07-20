@@ -9,14 +9,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/basic_table.css">
-<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/member/myStudy.css">
+<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/member/adminPage.css">
 <script type="text/javascript">
 $(function(){
+	
+	/* tutorinfo 클릭하면 list 가져오기 */
 	$("#tutorinfo").click(function(){
 		tutorTable();
-		$('#hyungsun').css('visibility','visible');
 	});	
-
+	/* change 버튼 누르면 변경된 값 가지고 db가서 업데이트하고 다시 리스트 가져옴 */
 	$("#mystudy_tutorinfoview").on('click',".change_Tinfo",function(){
 		var num = $(this).prop("id");
 		var id_ch = $("#tutoids"+num).prop("title");
@@ -32,41 +33,41 @@ $(function(){
 			alert("권한이 F면 레벨을 설정할 수 없습니다");
 			return false;
 		}
-		
-	
-		
-		$.post("./sub/tutorOversight",{lv_ch:lv_ch,ri_ch:ri_ch,id_ch:id_ch},function(data){
+			
+		$.post("./sub/tutorOversight",{lv_ch:lv_ch,ri_ch:ri_ch,id_ch:id_ch},function(data){//ajax로 셀렉트 값이랑 id 컨트롤러로 보냄
 			alert(data.trim());
 			tutorTable();
 		});		
 	});
-		
-	$("#btn").click(function(){
+
+	//search 버튼 클릭하면 리스트 가져옴
+	$("#mystudy_tutorinfoview").on("click","#tfsbtn",function() {
+		tutorTable();
+	});
+	//페이징 누르면 find, search, curPage 가지고 가서 리스트 다시 가져옴
+	$("#mystudy_tutorinfoview").on("click",".gooh",function() {
+		var num = $(this).prop("id");
+		$("#curPage").prop("value",num);
 		tutorTable();
 	});
 	
-
-	
-	
-		function tutorTable() {
-			var find = $('#find').val();
-			var search = $('#search').val();	
-			$.get("./sub/tutorOversight",{find:find,search:search},function(data){
-				data = data.trim();
-				$("#mystudy_tutorinfoview").html(data);
-			});
-		}
-		
-		
- 		/* $(function(){ 
-			$('.gooh').click(function() {
-				document.frm.curPage.value=$(this).attr("title");
-				document.frm.search.value= '${listInfo.search}';
-				document.frm.find.value= '${listInfo.find}';
-				document.frm.submit();
-				
-			});
-		}); */
+	function tutorTable() {
+		var form = $("#frm_search")[0];//ajax로 가져오는 페이지 안의 폼 데이터 변수 지정
+		var formData = new FormData(form);//formData라는 이름으로 폼 데이터 넣음.
+		 $.ajax({
+             url: 'tutorOversight',
+             processData: false,
+             contentType: false,
+             data: formData, // 폼 데이터 보냄
+             type: 'POST',
+             success: function(data){
+            	 data = data.trim();
+ 				$("#mystudy_tutorinfoview").html(data);
+ 				$("#find").prop("value",$("#find_value").prop("value"));//다음페이지 넘어갈 때 처음 검색한 find 값 계속 유지 
+             }
+         });	
+	}
+ 	
 });
 </script>
 </head>
@@ -101,47 +102,15 @@ $(function(){
 			<input type="button" id="tutorinfo" value="TutorInfo">
 			</div>
 			
-				<div id="hyungsun">
-					<form name="frm" id="frm" method="post">
-						<input type="hidden" name="curPage">
-							<select name="find" id="find">
-								<option value="id">ID</option>
-								<option value="lv">LV</option>
-								<option value="right">RIGHT</option>
-							</select>
-						<input type="text" name="search" value="" id="search">
-						<input type="button" id="btn" value="SEARCH">
-					</form>
-				</div>
-				
 				<div id="mystudy_tutorinfoview">
 
-					<div id="admin_Tpagelist">
-						<!-- 페이징목록  -->
-						<c:if test="${listInfo.curBlock > 1 }">
-						<span class="gooh" title="${listInfo.startNum-1}">[이전]</span>
-						</c:if>
-						<c:forEach begin="${listInfo.startNum}" end="${listInfo.lastNum }" var="i">
-						<span class="gooh" title="${i}">${i}</span>
-						</c:forEach>
-						<c:if test="${listInfo.curBlock < listInfo.totalBlock}">
-						<span class="gooh" title="${listInfo.lastNum+1}">[다음]</span>
-						</c:if>
-						
-						</div>
+				
 				</div>
 		</div>
 	
 	</div>
 
-
 </section>
-
 <c:import url="../temp/footer.jsp"></c:import>
-<script type="text/javascript">
-	
-	
-	
-</script>
 </body>
 </html>

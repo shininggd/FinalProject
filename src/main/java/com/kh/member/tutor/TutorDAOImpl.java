@@ -59,7 +59,7 @@ public class TutorDAOImpl implements MemberDAO{
 	}
 	
 	public int Tcount(ListInfo listInfo){
-		int count = sqlSession.selectOne(NAMESPACE+"tcount");
+		int count = sqlSession.selectOne(NAMESPACE+"tcount", listInfo);
 		return count;
 	}
 }
