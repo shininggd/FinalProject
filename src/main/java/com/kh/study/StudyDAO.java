@@ -118,9 +118,12 @@ public class StudyDAO {
 			System.out.println(studyDTO.getOnOff());
 			list.add(studyDTO);
 		}
-		
 		return list;
 	}
 	
+	public StudyDTO studydto(int num){
+		return sqlSession.selectOne(NAMESPACE+"studydto", num);
+	}
+
 
 }

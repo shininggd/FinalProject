@@ -11,19 +11,12 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	$(function(){
-		var input_all = false;		
 	
-		$("#p-frm").click(function() {
-			
-			if(){
-				alert("모든 항목을 정확히 기입해주시기 바랍니다");
-				input_all == false;
-			};
-			
-			if(input_all == true){
-				$("#p-frm").submit();
-			};
-			
+		$("#doBtn").click(function() {
+		
+			$("#p-frm").attr("action","purchaseDo");
+		
+			$("#p-frm").submit();	
 		});
 		
 	});
@@ -35,24 +28,56 @@
 
 <div class="main_container">
 
-	<div>
-		<h3>구매 강의 정보</h3>
-			<form action="" id="p-frm" method="post">
-			<table>
+	<div class="titleContainer">
+		<div id="p-step1">
+			<div class="p-stepTitle">
+			<h3>step 1. 참여 정보 확인</h3>
+			</div>
+		</div>
+		<div id="p-step2">
+			<div class="p-stepTitle">
+			<h3>step 2. 강의 결제하기</h3>
+			</div>
+		</div>
+		<div id="p-step3">
+			<div class="p-stepTitle">
+			<h3>step 3. 강의 신청 완료</h3>
+			</div>
+		</div>
+	</div>
+		<div class="clear"></div>
+		<div id="containerContents">
+			<form id="p-frm" method="post">
+			<table class="p-table">
 			<thead>
-				<tr>강의명</tr>
-				<tr>금액</tr>
-				<tr>구매일</tr>
+				<tr>
+				<td class="p-table p-index" id="p-lecture" colspan="2">강의명</td>
+				<td class="p-table p-index" id="p-leader">리더</td>
+				<td class="p-table p-index" id="p-price">금액</td>
+				<td class="p-table p-index" id="p-pay">결제수단</td>
+				</tr>
 			</thead>
 			<tbody>
-				<td></td>
-				<td></td>
-				<td></td>
+				
+				<tr>
+				<td id="leader-img"><img alt="" src="/learn_run/resources/img/study-8.jpg" style="width: 60px; height: 60px;"></td>
+				<td>${dto.title}</td>
+				<td>${dto.tid}</td>
+				<td>${dto.price}</td>
+				<td>
+					<select id="selectPay" name="selectPay">
+						<option value="card">카드</option>
+						<option value="smart">휴대폰</option>
+						<option value="account">계좌이체</option>
+					</select>
+				</td>
+				</tr>
+			
 			</tbody>
 			</table>
 			</form>
-		
-	</div>
+			<a role="button" href="purchaseDo?num=${dto.num}&" id="doBtn">다음 단계로</a>
+		</div>
 </div>
 
 </section>

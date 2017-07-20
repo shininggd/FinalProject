@@ -13,8 +13,9 @@ public class PurchaseDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "PurchaseMapper."; 
 	
-	public String studyPurchase(StudyDTO studyDTO) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"studyPurchase", studyDTO);
+	public int purchaseDo(PurchaseDTO purchaseDTO) throws Exception{
+		
+		return sqlSession.insert(NAMESPACE+"purchaseDo", purchaseDTO);
 	}
 	
 }

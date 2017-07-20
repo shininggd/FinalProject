@@ -37,7 +37,7 @@
 			<span class="howPrice">참가비</span><span class="attendPrice"><fmt:formatNumber type="currency" currencySymbol="">${dto.price }</fmt:formatNumber>원</span> 
 			</div>
 			<div class="bottomBoxes">
-			<a role="button" href="studyPurchase?num=${dto.num}" class="attendBtn btn"><h4>참여 신청하기</h4></a>
+			<a role="button" href="studyPurchase?num=${dto.num}&tid=${dto.tid}" class="attendBtn btn"><h4>참여신청하기</h4></a>
 			</div>
 			<div class="bottomBoxes">
 			<a class="favoriteBtn btn">♡  찜하기</a> 

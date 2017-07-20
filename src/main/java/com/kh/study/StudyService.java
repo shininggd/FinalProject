@@ -43,6 +43,9 @@ public class StudyService {
 	public List<StudyDTO> myStudyList(List<String> snums) {
 		return studyDAO.myStudyList(snums);
 	}
-
+	
+	public StudyDTO studydto(int num){
+		return studyDAO.studydto(num);
+	}
 	
 }

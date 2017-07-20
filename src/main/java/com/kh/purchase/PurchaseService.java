@@ -11,9 +11,9 @@ public class PurchaseService {
 	@Autowired
 	private PurchaseDAO purchaseDAO;
 	
-	public String studyPurchase(StudyDTO studyDTO) throws Exception{
+/*	public String studyPurchase(StudyDTO studyDTO) throws Exception{
 		return purchaseDAO.studyPurchase(studyDTO);
 	}
-	
+	*/
 	
 }
