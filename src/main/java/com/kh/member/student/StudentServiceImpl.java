@@ -51,6 +51,16 @@ public class StudentServiceImpl implements MemberService{
 		return result;
 	}
 
+	@Override
+	public int pointGC(MemberDTO memberDTO) throws Exception {
+		return studentDAOImpl.pointGC(memberDTO);
+	}
+	
+	public String myPoint(MemberDTO memberDTO) throws Exception {
+		return studentDAOImpl.myPoint(memberDTO);
+	}
+
+
 	}
 		
 

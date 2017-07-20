@@ -45,6 +45,7 @@ public class TutorServiceImpl implements MemberService{
 		return result;
 	}
 	
+
 	public List<TutorDTO> tutorinfo(ListInfo listInfo) throws Exception{
 		listInfo.makePage(tutorDAOImpl.Tcount(listInfo));
 		listInfo.makeRow();
@@ -56,6 +57,13 @@ public class TutorServiceImpl implements MemberService{
 	}
 	public int Tcount(ListInfo listInfo) throws Exception{
 		return tutorDAOImpl.Tcount(listInfo);
+
+	}
+	@Override
+	public int pointGC(MemberDTO memberDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+
 	}
 	
 }

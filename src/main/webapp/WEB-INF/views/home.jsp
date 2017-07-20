@@ -101,8 +101,7 @@
 		<div class="studyBottom">
 			<div class="main_container" id="studyList">
 
-				
-		</div>
+		    </div>
 		
 	</div>
 	<!-- 강의 리스트 3개 가져오는거  끝-->

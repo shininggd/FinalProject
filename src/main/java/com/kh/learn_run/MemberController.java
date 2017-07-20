@@ -1,6 +1,8 @@
 package com.kh.learn_run;
 
+
 import java.util.List;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import com.kh.member.student.StudentServiceImpl;
 import com.kh.member.tutor.TutorDTO;
 import com.kh.member.tutor.TutorServiceImpl;
 import com.kh.util.ListInfo;
+import com.kh.util.Cupon;
 
 
 @Controller
@@ -185,8 +188,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/myPoint")
-	public void goMyPoint() {
-		
+	public void goMyPoint(HttpSession session) {
 	}
 	
 	@RequestMapping(value="/adminPage")
@@ -255,5 +257,37 @@ public class MemberController {
 		
 		return "common/resultMessage";			
 	}
+
+	@RequestMapping(value="/pointGC")
+	public String pointGC(MemberDTO memberDTO, Model model,HttpSession session ) throws Exception {
+		int result = studentServiceImpl.pointGC(memberDTO);
+		
+		Cupon Cupon = new Cupon();
+		String cupon = Cupon.cuponCreate();
+		
+		
+		
+		String message = "Trade Fail";
+		if(result>0) {
+			message = "Trade Success = "+cupon;
+		}
+		
+		model.addAttribute("message", message);
+		
+		return "common/resultMessage"; 
+	}
+	
+	@RequestMapping(value="/myP")
+	public String myPoint(MemberDTO memberDTO,Model model,HttpSession session) throws Exception {
+		String result = studentServiceImpl.myPoint(memberDTO);
+		MemberDTO dto = (MemberDTO)session.getAttribute("member");
+		dto.setPoint(Integer.parseInt(result));
+		session.setAttribute("member", dto);
+		
+		model.addAttribute("message", result);
+		
+		return "common/resultMessage";
+	}
+
 
 }
