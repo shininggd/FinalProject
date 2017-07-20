@@ -62,9 +62,9 @@ float:left;
 	margin-left:20px;
 	margin-top: 160px;
 	width: 200px;
-	height: 800px;
+	height: 1000px;
 	overflow: hidden;
-	background-color: white;
+	
 }
 .studyViewBox{
 	margin-top:15px;
@@ -119,6 +119,38 @@ float:left;
 	margin-top: 10px;
 	margin-left: 15px;
 }
+.categoryList{
+	width: 180px;
+	height: 120px;
+	margin-top:5px;
+	margin-left: 10px;
+	background-color: white;
+	border: 2px solid #b7b7b7;;
+}
+.categoryUl{
+ 
+list-style-image: url("/learn_run/resources/img/study/listIcon.png");
+}
+.categoryTBox{
+	width: 180px;
+	height: 50px;
+	margin-top:10px;
+	margin-left: 10px;
+	background-color: white;
+	border: 2px solid #b7b7b7;;
+	text-align:center;
+	font-size: 30px;
+	color: gray;;
+}
+.tempBox{
+	width: 180px;
+	height: 400px;
+	margin-top:5px;
+	margin-left: 10px;
+	background-color: white;
+	border: 2px solid #b7b7b7;;
+}
+
 </style>
 </head>
 <body>
@@ -149,7 +181,21 @@ float:left;
 			<input type="button" value="『참여하기』" class="enterButton">
 
 		</div>
-			<img class="feed_write" src="<c:url value="/resources/img/study/feed_write.jpg"/>">
+		<img class="feed_write" src="<c:url value="/resources/img/study/feed_write.jpg"/>">
+
+		<div class="categoryTBox">		
+			<span class="categoryTitle">게시판</span>
+		</div>
+		<div class="categoryList"> 
+			<ul class="categoryUl">
+				<li><p>튜터와 함께</p> </li>
+				<li><p>우리들의 이야기</p> </li>
+				<li><p>자유게시판</p> </li>
+			</ul>
+		</div>
+		<div class="tempBox"> 
+			
+		</div>
 	
 	
 	
