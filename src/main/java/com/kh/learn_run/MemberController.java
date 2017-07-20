@@ -3,6 +3,8 @@ package com.kh.learn_run;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 
+import java.util.Random;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -28,6 +30,7 @@ import com.kh.member.student.StudentDTO;
 import com.kh.member.student.StudentServiceImpl;
 import com.kh.member.tutor.TutorDTO;
 import com.kh.member.tutor.TutorServiceImpl;
+import com.kh.util.Cupon;
 
 
 @Controller
@@ -234,13 +237,14 @@ public class MemberController {
 	public String pointGC(MemberDTO memberDTO, Model model,HttpSession session ) throws Exception {
 		int result = studentServiceImpl.pointGC(memberDTO);
 		
-		MemberDTO memberDTO2 = (MemberDTO)session.getAttribute("member");
-		memberDTO2.setPoint(memberDTO.getPoint());
-		session.setAttribute("member", memberDTO);
+		Cupon Cupon = new Cupon();
+		String cupon = Cupon.cuponCreate();
+		
+		
 		
 		String message = "Trade Fail";
 		if(result>0) {
-			message = "Trade Success";
+			message = "Trade Success = "+cupon;
 		}
 		
 		model.addAttribute("message", message);
@@ -249,8 +253,12 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/myP")
-	public String myPoint(MemberDTO memberDTO,Model model) throws Exception {
+	public String myPoint(MemberDTO memberDTO,Model model,HttpSession session) throws Exception {
 		String result = studentServiceImpl.myPoint(memberDTO);
+		MemberDTO dto = (MemberDTO)session.getAttribute("member");
+		dto.setPoint(Integer.parseInt(result));
+		session.setAttribute("member", dto);
+		
 		model.addAttribute("message", result);
 		
 		return "common/resultMessage";

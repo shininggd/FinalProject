@@ -46,7 +46,7 @@
 					현재 나의 포인트 
 					</div>
 					<div class="myPoint" id="myPoint_2">
-					<span id="point_span"><fmt:formatNumber type="currency" currencySymbol="">${member.point }</fmt:formatNumber></span>
+					<span id="point_span"><fmt:formatNumber type="currency" currencySymbol="">${member.point}</fmt:formatNumber></span>
 					<img id="point_img" src="/learn_run/resources/img/member/point.png">
 					</div>
 				</div>

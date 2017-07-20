@@ -32,6 +32,7 @@
 		select pw from member where id=#{id} and name=#{name} and 
 		<if test="email != ''">email=#{email}</if>
 		<if test="phone != ''">phone=#{phone}</if>
+	</select>
 
 	<update id="pointGC" parameterType="com.kh.member.MemberDTO">
 		update member set point = point-#{point} where id=#{id}

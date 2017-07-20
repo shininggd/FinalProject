@@ -384,7 +384,7 @@ $(function(){
 					<!-- 로그인 전 -->
 					<!-- 로그인 후 -->
 					<c:if test="${not empty member}">
-						<a id="chat_link" class="icon_link" href="">"Messages"</a>
+						<a id="chat_link" class="icon_link" href="/learn_run/message/messagePage">"Messages"</a>
 						<a id="notification_link" class="icon_link" href="javascript:void(0)"></a>
 						<div id="notification_list_wrap" class="show">
 							<span class="triangle1"></span>

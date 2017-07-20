@@ -42,6 +42,11 @@ public class TutorServiceImpl implements MemberService{
 		return result;
 	}
 	
+	@Override
+	public int pointGC(MemberDTO memberDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }
 	
