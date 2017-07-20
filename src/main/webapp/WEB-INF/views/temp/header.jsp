@@ -170,11 +170,13 @@ $(function(){
   						alert("필수 항목을 모두 입력해주세요.");
   				}
   				
+
  				if(email_check == false){
   					alert("이메일 주소 형식을 확인해주세요.");
   					all_check = false;
 
   				}
+
   				
   				if(id_check == false){
   					alert("아이디를 확인해주세요.");

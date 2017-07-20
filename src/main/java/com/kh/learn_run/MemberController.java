@@ -1,41 +1,25 @@
 package com.kh.learn_run;
 
-
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
-
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-
 import com.kh.member.MemberDTO;
-import com.kh.member.MemberService;
-
-
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.kh.member.MemberDTO;
-import com.kh.member.MemberService;
-import com.kh.member.student.StudentDAOImpl;
-import com.kh.member.student.StudentDTO;
 import com.kh.member.student.StudentServiceImpl;
 import com.kh.member.tutor.TutorDTO;
 import com.kh.member.tutor.TutorServiceImpl;
+import com.kh.util.ListInfo;
 
 
 @Controller
 @RequestMapping(value="/member/**")
 public class MemberController {
 	
-	
-
 
 	
 	@Autowired
@@ -226,9 +210,50 @@ public class MemberController {
 	@RequestMapping(value="/memberLogout")
 	public String memberLogout(HttpSession session){
 		session.invalidate();
-		return "home";
+		return "redirect:/";
 
 	}
 	
+	@RequestMapping(value="tutorOversight", method=RequestMethod.POST)
+	public String tutorOversightinfo(Model model, ListInfo listInfo) throws Exception {
+		System.out.println("controller");
+		
+		System.out.println(listInfo.getFind());
+		System.out.println(listInfo.getSearch());
+		
+		if(listInfo.getCurPage() == null){
+			listInfo.setCurPage(1);
+		}
+		if(listInfo.getFind() == null){
+			listInfo.setFind("id");
+		}
+		if(listInfo.getSearch() == null){
+			listInfo.setSearch("");
+		}
+		
+		List<TutorDTO> tutorinfo =tutorServiceImpl.tutorinfo(listInfo);	
+		model.addAttribute("totalCount", tutorServiceImpl.Tcount(listInfo));
+		model.addAttribute("data", tutorinfo);
+		model.addAttribute("listInfo", listInfo);
+		return"member/sub/tutorOversight";
+	}
+	
+	@RequestMapping(value="/sub/tutorOversight", method=RequestMethod.POST)
+	public String tutorLRupdate(String id_ch, String lv_ch, String ri_ch,Model model)throws Exception{
+		System.out.println("acc");
+		TutorDTO tutorDTO = new TutorDTO();
+		tutorDTO.setId(id_ch);		
+		tutorDTO.setLv(lv_ch);		
+		tutorDTO.setRight(ri_ch);
+		int result = tutorServiceImpl.LRUpdate(tutorDTO);
+		String message ="Change fail";
+		if(result>0) {
+			message = "Change success";
+		}
+		
+		model.addAttribute("message", message);
+		
+		return "common/resultMessage";			
+	}
 
 }

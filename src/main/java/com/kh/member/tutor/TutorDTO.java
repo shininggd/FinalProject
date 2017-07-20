@@ -7,22 +7,15 @@ import com.kh.member.MemberDTO;
 @Component
 public class TutorDTO extends MemberDTO{
 	
-	private String level;
+	private String lv;
 	private int gpoint;
 	private String introduce;
 	private String right;
-	
-	public String getRight() {
-		return right;
+	public String getLv() {
+		return lv;
 	}
-	public void setRight(String right) {
-		this.right = right;
-	}
-	public String getLevel() {
-		return level;
-	}
-	public void setLevel(String level) {
-		this.level = level;
+	public void setLv(String lv) {
+		this.lv = lv;
 	}
 	public int getGpoint() {
 		return gpoint;
@@ -36,8 +29,13 @@ public class TutorDTO extends MemberDTO{
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
 	}
+	public String getRight() {
+		return right;
+	}
+	public void setRight(String right) {
+		this.right = right;
+	}
 	
-	
-	
+
 
 }

@@ -1,6 +1,8 @@
 package com.kh.member.tutor;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,6 +12,7 @@ import org.springframework.ui.Model;
 
 import com.kh.member.MemberDTO;
 import com.kh.member.MemberService;
+import com.kh.util.ListInfo;
 
 @Service
 public class TutorServiceImpl implements MemberService{
@@ -42,6 +45,18 @@ public class TutorServiceImpl implements MemberService{
 		return result;
 	}
 	
+	public List<TutorDTO> tutorinfo(ListInfo listInfo) throws Exception{
+		listInfo.makePage(tutorDAOImpl.Tcount(listInfo));
+		listInfo.makeRow();
+		return tutorDAOImpl.tutorinfo(listInfo);
+	}
+	
+	public int LRUpdate(TutorDTO tutorDTO) throws Exception {
+		return tutorDAOImpl.LRupdate(tutorDTO);
+	}
+	public int Tcount(ListInfo listInfo) throws Exception{
+		return tutorDAOImpl.Tcount(listInfo);
+	}
 	
 }
 	
