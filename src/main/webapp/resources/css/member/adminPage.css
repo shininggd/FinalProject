@@ -75,8 +75,42 @@
 
 /* MyHeader -----------------------------------------------------------*/
 
-#mystudy_h1 {
-	padding: 16px 14px 40px;
-    font-size: 18pt;
-    color: #3c3c3c;
+
+/* admin page */
+#mystudy_list {
+	border-top: 1px solid #ebebeb;
+    list-style: none;
+	
+}
+#mystudy_menubar{
+	width: 200px;
+	height: 400px;
+	float: left;
+}
+#mystudy_tutorinfoview{
+	width: 760px;
+	height: 400px;
+	float: left;
+}
+
+#tutorinfo{
+	margin-top: 20%;
+    margin-left: 30%;
+    background-color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    color: #ef6c00;
+}
+#admin_Tpagelist{
+	width: 80px;
+	height: 30px;
+	cursor: pointer;
+	margin: 0 auto;
+    margin-left: 300px;
+    margin-top: 15px;
+    font-size: 1.3em;
+}
+.gooh{
+	font-weight: bold;
 }

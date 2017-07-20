@@ -4,7 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="TutorMapper">
-	
+
+	<sql id="search">
+ 		<trim prefix="where" prefixOverrides="and || or">
+ 		<if test="find == 'id'">
+ 			id like '%' || #{search} || '%'
+ 		</if>
+ 		<if test="find == 'lv'">
+ 			lv like '%' || #{search} || '%'
+ 		</if>
+ 		<if test="find == 'right'">
+ 			right like '%' || #{search} || '%'
+ 		</if>
+ 		</trim>
+ 	</sql>
 
 	<insert id="memberJoin" parameterType="com.kh.member.MemberDTO">
 		insert into member values(#{id}, #{pw}, #{name}, #{birth}, #{grade},#{point}, #{email}, #{telecom}, #{phone}, 'default.png', 'default.png')
@@ -21,13 +34,32 @@
 	
 	<select id="tutorStudyInfo" parameterType="java.lang.String" resultType="com.kh.member.tutor.TutorDTO">
 		select * from tutor where id = #{tid}
-	
 	</select>
 	
+	<!-- 관리자페이지에서 튜터데이터 가져오기 -->
+	<select id="tutorInfo" parameterType="com.kh.util.ListInfo" resultType="com.kh.member.tutor.TutorDTO">
+		select * from (select rownum R, N.* from 
+  (select * from tutor 
+  <include refid="search" />
+  ) N)
+   where R between #{startRow} and #{lastRow}
+	</select>
+	
+
 	<!-- 프로필 사진 가져오기 용도입니다.  -->
 	<select id="tutorImage" parameterType="java.lang.String" resultType="java.lang.String">
 		select fname from member where id = #{tid}
 	
 	</select>
 	
+	<!-- 관리자 페이지에서 레벨,권한 수정하기 -->
+	<update id="adminTupdate" parameterType="com.kh.member.tutor.TutorDTO">
+		update tutor set lv=#{lv}, right=#{right} where id=#{id}
+	</update>
+	<!-- 페이징 카운트 -->
+	<select id="tcount" parameterType="com.kh.util.ListInfo" resultType="java.lang.Integer">
+		select count(id) from tutor
+		<include refid="search"></include>
+	</select>
+
 </mapper>
