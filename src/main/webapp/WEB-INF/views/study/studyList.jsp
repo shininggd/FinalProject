@@ -108,16 +108,20 @@ width: 20px;
 		
 			
 				<c:forEach items="${list }" var="i"  varStatus="s" >
-					<a href="studyView?num=${i.num }&tid=${i.tid }" class="aBlock">
-						<div class="listBox">
+					
+						<div class="listBox aBlock" >
+							
 							<div class="boxTop">
 							${i.location } | ${i.lv }
 							</div>
 							<div class="boxMiddle_1">
-								<span class="middleTitle">${i.title }</span>  
+								<a href="studyView?num=${i.num }&tid=${i.tid }" class="titleA"><span class="middleTitle">${i.title }</span></a>  
 							</div>
+							
 							<div class="boxMiddle_2">
-								<fmt:formatNumber type="currency" currencySymbol="">${i.price }</fmt:formatNumber>원 <span class="people">${i.people }명</span> 
+								<fmt:formatNumber type="currency" currencySymbol="">${i.price }</fmt:formatNumber>원 <span class="people">${i.people }명</span>
+								<img class="houseImage" src="<c:url value="/resources/img/study/houseIcon.jpg"/>">
+								 
 							</div>
 							<div class="boxBottom">
 							
@@ -125,7 +129,7 @@ width: 20px;
 							
 							
 						</div>
-					</a>
+					
 					
 					<c:if test="${s.last or s.index%3 eq 2 }">
 						<hr>

@@ -1,6 +1,15 @@
 @CHARSET "UTF-8";
+.houseImage{
+	
+	float: right;
+	display:block;
+	position: static;
+}
 
-
+a:HOVER{
+	text-decoration: none;
+	
+}
 /* main 시작 */
 body {
 	margin: 0;

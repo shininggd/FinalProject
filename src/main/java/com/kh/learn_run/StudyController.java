@@ -47,6 +47,11 @@ public class StudyController {
 	public void regist(){
 
 	}
+	@RequestMapping(value = "studyPage", method = RequestMethod.GET)
+	public void page(){
+
+	}
+
 	@RequestMapping(value = "studyRegistInsert", method = RequestMethod.POST)
 	public String regist(StudyDTO studyDTO)throws Exception{
 		System.out.println(studyDTO.getContents());

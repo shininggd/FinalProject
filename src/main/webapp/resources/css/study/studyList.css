@@ -1,5 +1,11 @@
 @CHARSET "UTF-8";
 /* ======================================== 섹션=============================================  */
+.houseImage{
+	
+	float: right;
+	display:block;
+	position: static;
+}
 .pagingBox{
 	width: 240px;
 	height: 30px;
@@ -8,6 +14,7 @@
 }
 a{
 	color: #3c3c3c;
+	text-decoration: none;
 }
 
 .pagingText{
