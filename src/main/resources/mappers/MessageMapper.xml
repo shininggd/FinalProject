@@ -9,5 +9,15 @@
 		select * from message where id=#{id}
 	</select>
 	
+	<select id="messageView" parameterType="java.lang.Integer" resultType="com.kh.message.MessageDTO">
+		select * from message where num=#{num}
+	</select>
 
+	<update id="messageRead" parameterType="java.lang.Integer">
+		update message set read='t' where num=#{num}
+	</update>
+	
+	<insert id="messageWrite" parameterType="com.kh.message.MessageDTO">
+		insert into message values(message_seq.nextval,#{id},#{sender},#{title},#{contents},sysdate,'f')
+	</insert>
 </mapper>

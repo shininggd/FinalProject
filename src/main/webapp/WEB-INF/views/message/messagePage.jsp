@@ -21,6 +21,7 @@
 		<div id="section_left">
 			<div id="left_header">
 				메시지(0)
+				<img id="write_img" src="/learn_run/resources/img/temp/message_write.png">
 			</div>
 			<div id="left_contents">
 				
@@ -29,10 +30,10 @@
 		<div id="section_right">
 			<div id="right_contents">
 				
-				<div id="no_message">
+				<!-- <div id="no_message">
 					<img src="/learn_run/resources/img/temp/noMessage.png">
 					<span id="message_span">아직 메세지가 없습니다.</span>
-				</div>
+				</div> -->
 				
 			</div>
 		</div>
@@ -45,9 +46,33 @@
 
 <script type="text/javascript">
 	
-	$.post("messageList",{id:'${member.id}'},function(result) {
-		alert(result).trim();
+	ListLoad();
+	
+	$("#left_contents").on("click",".ML_title",function() {
+		var num = $(this).prop("title");
+		$.post("messageView",{num:num},function(result) {
+			$("#right_contents").html(result.trim());
+			ListLoad();
+		});
 	});
+	
+	$("#write_img").click(function () {
+		
+		 cw=screen.availWidth;    
+		 ch=screen.availHeight;  
+		 sw=500; 
+		 sh=520;  
+		 ml=(cw-sw)/2;        
+		 mt=(ch-sh)/2;       
+		
+		 window.open('messageWrite', '_blank', 'top='+mt+'px, left='+ml+'px, height='+sh+'px, width='+sw+'px, menubar=no , toolbar=no, location=no, status=no, scrollbars=no, resizable=no');
+	});
+	
+	function ListLoad() {
+		$.post("messageList",{id:'${member.id}'},function(result) {
+			$("#left_contents").html(result.trim());
+		});
+	}
 	
 </script>
 </body>
