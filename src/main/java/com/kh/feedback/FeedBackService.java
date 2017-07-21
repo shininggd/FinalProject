@@ -44,7 +44,9 @@ public class FeedBackService {
 
 	
 	public List<BoardDTO> list(ListInfo listInfo) throws Exception {
-		listInfo.makePage(this.count(listInfo));
+		listInfo.makePage(feedBackDAOImpl.count(listInfo));
+		listInfo.makeRow();
+		System.out.println(listInfo.getStartRow());
 		return feedBackDAOImpl.list(listInfo);
 	}
 	public int reply(BoardDTO boardDTO) throws Exception{
