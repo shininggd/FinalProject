@@ -63,4 +63,25 @@ public class MessageController {
 		
 		return "common/resultMessage";
 	}
+	
+	@RequestMapping(value="messageDelete")
+	public String messageDelete(int num,Model model) {
+		System.out.println("num="+num);
+		int result = messageService.messageDelete(num);
+		String message="Delete Fail!";
+		
+		if(result>0) {
+			message = "Delete Success!";
+		}
+		
+		model.addAttribute("message", message);
+		return "common/resultMessage";
+	}
+	
+	@RequestMapping(value="messageCount")
+	public String messageCount(String id,Model model) {
+		int result = messageService.messageCount(id);
+		model.addAttribute("message", result);
+		return "common/resultMessage";
+	}
 }

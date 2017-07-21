@@ -20,4 +20,12 @@
 	<insert id="messageWrite" parameterType="com.kh.message.MessageDTO">
 		insert into message values(message_seq.nextval,#{id},#{sender},#{title},#{contents},sysdate,'f')
 	</insert>
+	
+	<delete id="messageDelete" parameterType="java.lang.Integer">
+		delete message where num=#{num}
+	</delete>
+	
+	<select id="messageCount" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select count(num) from message where id=#{id} and read='f'
+	</select>
 </mapper>

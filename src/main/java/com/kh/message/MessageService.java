@@ -27,4 +27,12 @@ public class MessageService {
 	public int messageWrite(MessageDTO messageDTO) {
 		return messageDAO.messageWrite(messageDTO);
 	}
+	
+	public int messageDelete(int num) {
+		return messageDAO.messageDelete(num);
+	}
+	
+	public int messageCount(String id) {
+		return messageDAO.messageCount(id);
+	}
 }

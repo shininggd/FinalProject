@@ -28,4 +28,12 @@ public class MessageDAO {
 	public int messageWrite(MessageDTO messageDTO) {
 		return sqlSession.insert(NAMESPACE+"messageWrite",messageDTO);
 	}
+	
+	public int messageDelete(int num) {
+		return sqlSession.delete(NAMESPACE+"messageDelete", num);
+	}
+	
+	public int messageCount(String id) {
+		return sqlSession.selectOne(NAMESPACE+"messageCount", id);
+	}
 }

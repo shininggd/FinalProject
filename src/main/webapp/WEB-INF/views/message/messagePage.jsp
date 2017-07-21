@@ -20,7 +20,7 @@
 		
 		<div id="section_left">
 			<div id="left_header">
-				메시지(0)
+				메시지(<span id="messageCount"></span>)
 				<img id="write_img" src="/learn_run/resources/img/temp/message_write.png">
 			</div>
 			<div id="left_contents">
@@ -68,9 +68,26 @@
 		 window.open('messageWrite', '_blank', 'top='+mt+'px, left='+ml+'px, height='+sh+'px, width='+sw+'px, menubar=no , toolbar=no, location=no, status=no, scrollbars=no, resizable=no');
 	});
 	
+	$("#right_contents").on("click","#messageDel_btn",function() {
+		var num = $("#messageNum").val();
+		$.post("messageDelete",{num:num},function(result) {
+			alert(result.trim());
+			ListLoad();
+			$("#right_contents").html("");
+			
+		});
+	});
+	
 	function ListLoad() {
 		$.post("messageList",{id:'${member.id}'},function(result) {
 			$("#left_contents").html(result.trim());
+			MessageCount();
+		});
+	}
+	
+	function MessageCount() {
+		$.post("messageCount",{id:'${member.id}'},function(result) {
+			$("#messageCount").html(result.trim());
 		});
 	}
 	
