@@ -14,8 +14,10 @@ public class PurchaseDAO {
 	private final String NAMESPACE = "PurchaseMapper."; 
 	
 	public int purchaseDo(PurchaseDTO purchaseDTO) throws Exception{
-		
+		StudyDTO studyDTO = new StudyDTO();
+		sqlSession.selectOne(NAMESPACE+"matchInfo", studyDTO);
 		return sqlSession.insert(NAMESPACE+"purchaseDo", purchaseDTO);
 	}
+	
 	
 }

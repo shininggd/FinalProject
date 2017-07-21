@@ -11,8 +11,9 @@
 		(purchase_seq.nextval, #{price}, #{product}, #{id}, #{name}, #{type}, sysdate)
 	</insert>
 	
-<!-- 	<select id="matchInfo" parameterType="com.kh.">
+	<select id="matchInfo" parameterType="com.kh.study.StudyDTO">
+		select * from study where #{num}
+	</select>
 	
-	</select> -->
-	
+
 </mapper>

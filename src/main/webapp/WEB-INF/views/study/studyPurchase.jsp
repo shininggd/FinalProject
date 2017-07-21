@@ -8,15 +8,32 @@
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/basic_table.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyPurchase.css">
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js" ></script>
 <title>Insert title here</title>
 <script type="text/javascript">
 	$(function(){
 	
-		$("#doBtn").click(function() {
+		$("#doBtn").click(function(){
+				
+				//alert("click");
+				//window.open("/learn_run/member/find_id",  "ID 찾기", "width=500, height=300, left=400, top=250");
+				 cw=screen.availWidth;     //화면 넓이
+				 ch=screen.availHeight;    //화면 높이
+
+				 sw=600;    //띄울 창의 넓이
+				 sh=700;    //띄울 창의 높이
+
+				 ml=(cw-sw)/2;       
+				 mt=(ch-sh)/2;      
+				 
+				 var type = $("#type").val();
+				 
+				window.open('/learn_run/study/purchaseDo?title=${dto.title}&tid=${dto.tid}&price=${dto.price}&type='+type,'purchase_frm','width='+sw+',height='+sh+',top='+mt+',left='+ml+',resizable=no');
+				
+				 
+			//$("#p-frm").attr("action","purchaseDo");
 		
-			$("#p-frm").attr("action","purchaseDo");
 		
-			$("#p-frm").submit();	
 		});
 		
 	});
@@ -24,7 +41,7 @@
 </head>
 <body>
 <c:import url="../temp/header.jsp" />
-<section id="main_section">
+
 
 <div class="main_container">
 
@@ -47,7 +64,7 @@
 	</div>
 		<div class="clear"></div>
 		<div id="containerContents">
-			<form id="p-frm" method="post">
+			<form id="p-frm" method="post" >
 			<table class="p-table">
 			<thead>
 				<tr>
@@ -65,7 +82,7 @@
 				<td>${dto.tid}</td>
 				<td>${dto.price}</td>
 				<td>
-					<select id="selectPay" name="selectPay">
+					<select id="type" name="type">
 						<option value="card">카드</option>
 						<option value="smart">휴대폰</option>
 						<option value="account">계좌이체</option>
@@ -76,11 +93,11 @@
 			</tbody>
 			</table>
 			</form>
-			<a role="button" href="purchaseDo?num=${dto.num}&" id="doBtn">다음 단계로</a>
+			<input type="button" id="doBtn" value="다음 단계로">
 		</div>
 </div>
 
-</section>
+
 <c:import url="../temp/footer.jsp" />
 </body>
 </html>
