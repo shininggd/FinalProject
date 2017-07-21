@@ -15,7 +15,7 @@ import com.kh.study.StudyService;
 import com.kh.util.ListInfo;
 
 @Controller
-@RequestMapping(value = "/study", method = RequestMethod.GET)
+@RequestMapping(value = "/study")
 public class StudyController {
 	
 	@Autowired
@@ -61,11 +61,8 @@ public class StudyController {
 	}
 	
 	@RequestMapping(value = "studyUpdate", method=RequestMethod.POST )
-	public String update(Model model, Integer num, String confirm) throws Exception{
+	public String update(Model model, Integer num) throws Exception{
 		String path = "study/studyUpdate";
-		if(!confirm.equals("okthat")) {
-			path = "redirect:/";
-		}
 		model.addAttribute("dto", studyService.update(num)); 
 
 		return path;

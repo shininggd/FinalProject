@@ -11,8 +11,6 @@ public class messageService {
 	@Autowired
 	private messageDAO messageDAO;
 	
-	public List<String> messageList(String id) {
-		messageDAO.
-	}
+	
 	
 }
