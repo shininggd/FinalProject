@@ -6,6 +6,7 @@
 <script src="<%=application.getContextPath()%>/resources/js/LevelTest/levelTest.js"></script>
 <script src="<%=application.getContextPath()%>/resources/js/LevelTest/LevelTestQuiz.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/levelTest.css">
+
 <script type="text/javascript">
 $(function(){
     
@@ -25,6 +26,7 @@ $(function(){
 		 ml=(cw-sw)/2;        
 		 mt=(ch-sh)/2;         
 
+
 		 test=window.open('/learn_run/member/find_id','tst','width='+sw+',height='+sh+',top='+mt+',left='+ml+',resizable=no');
 	});
 	
@@ -38,6 +40,7 @@ $(function(){
 
 		 ml=(cw-sw)/2;        
 		 mt=(ch-sh)/2;       
+
 
 		 test=window.open('/learn_run/member/find_pw','tst','width='+sw+',height='+sh+',top='+mt+',left='+ml+',resizable=no');
 	}); 
@@ -75,7 +78,7 @@ $(function(){
 //id중복확인
   		$("#id").change(function(){
   			ch_id = $(this).prop("value")
-  			$.post("member/IdCheck",
+  			$.post("/learn_run/member/IdCheck",
   					{id:ch_id},
   					function(data) {
 						var reg_id = /^[a-zA-Z]+[a-zA-Z0-9]{5,19}$/;
@@ -305,7 +308,7 @@ $(function(){
 	          						<h2 class="log-join">Login</h2>
 	          						<hr id="hr">
 	          					<form action="/learn_run/member/tutorLogin" id="loginFrm" method="post">
-	          						<p id="selectGrade">튜터<input type="radio" name="grade" class="g_login" value="tutor" checked="checked">&nbsp; 
+	          						<p class="selectGrade_login">튜터<input type="radio" name="grade" class="g_login" value="tutor" checked="checked">&nbsp; 
 	          						학생 <input type="radio" name="grade" class="g_login" value="student"></p>
 	          						
 	          						<table id="login_input">
@@ -339,32 +342,32 @@ $(function(){
 	          						<span class="join_msg">*전체 필수 항목입니다. 모두 입력해주세요.*</span>
 	          					<form action="/learn_run/member/tutorJoin" id="joinFrm" method="post" >
 	          						
-	          						<p class="selectGrade">튜터<input type="radio" class="g_check" name="grade" value="tutor" checked="checked"> &nbsp; 학생<input type="radio" class="g_check" name="grade" value="student" id="member-frm"></p>
+	          						<p class="selectGrade_join">튜터<input type="radio" class="g_check" name="grade" value="tutor" checked="checked"> &nbsp; 학생<input type="radio" class="g_check" name="grade" value="student" id="member-frm"></p>
 	          						
 	          						<table>
 	          						<tr>
-	          						<td class="infoIndex">ID</td><td><input type="text" name="id" id="id" placeholder="ID를 입력하세요"></td>
+	          						<td class="infoIndex">ID</td><td><input type="text" name="id" class="infoCon" id="id" placeholder="ID를 입력하세요"></td>
 	          						</tr>
 	          						<tr>
 	          						<td colspan="2"><span id="idmessage"></span></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">PW</td><td><input type="password" name="pw" id="pw" placeholder="PW를 입력하세요"></td>
+									<td class="infoIndex">PW</td><td><input type="password" name="pw" class="infoCon" id="pw" placeholder="PW를 입력하세요"></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">PW 확인</td><td><input type="password" id="pw2" name="pw2" placeholder="PW를  다시 입력하세요"></td>
+									<td class="infoIndex">PW 확인</td><td><input type="password" id="pw2" class="infoCon" name="pw2" placeholder="PW를  다시 입력하세요"></td>
 									</tr>
 									<tr>
 									<td colspan="2"><span id="pwmessage"></span></td>									
 									</tr>
 									<tr>
-									<td class="infoIndex">이름</td><td><input type="text" name="name" placeholder="이름을 입력하세요"></td>
+									<td class="infoIndex">이름</td><td><input type="text" name="name" class="infoCon" placeholder="이름을 입력하세요"></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">생일</td><td><input type="date" name="birth"></td>
+									<td class="infoIndex">생일</td><td><input type="date" class="infoCon" name="birth"></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">e-mail</td><td><input type="text" name="email" id="email" placeholder="ex) learn-run@gmail.com"></td>
+									<td class="infoIndex">e-mail</td><td><input type="text" name="email" class="infoCon" id="email" placeholder="ex) learn-run@gmail.com"></td>
 									</tr>
 									<tr>
 									<td class="infoIndex">연락처</td><td><select name="telecom" >

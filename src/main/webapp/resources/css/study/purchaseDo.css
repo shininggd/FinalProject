@@ -1,0 +1,85 @@
+@CHARSET "UTF-8";
+
+.clear{
+	clear: both;
+}
+.titleContainer{
+	width : 450px; 
+	height : 60px;
+	display: -webkit-box;
+	margin-top : 50px;
+	margin-left: 70px;
+}
+.p-stepTitle {
+	float : left;
+	margin-left : 7px; 
+	
+}
+#p-step1{
+	width: 150px;
+	height: 60px;
+	border: 2px solid orange;
+	color: #999999;  	
+}
+#p-step2{
+	width: 150px;
+	height: 60px;
+	border : 2px dotted white; 
+	background-color: orange;
+	color: white;
+}
+
+#p-step3{
+	width:	150px;
+	height: 60px;
+	border: 2px solid orange;
+	color: #999999;
+}
+.containerContents{
+	margin-top:50px;
+	margin-left: 100px;
+	width: 350px;
+}
+
+.p-table{
+	margin-top : 20px;
+	width : 400px;
+	height : 150px;
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+.p-index{
+	height: 45px;
+}
+
+#p-lecture{
+	width: 500px;
+}
+#p-leader{
+	min-width: 100px;
+	width: auto;
+}
+
+#p-price{
+	width: 125px;
+}
+
+#p-pay{
+	width: 100px;
+}
+
+#leader-img{
+	width: 70px;
+}
+
+#doBtn{
+	float: right;
+	margin-right: 110px;
+	margin-top: 65px;
+	padding: 15px;
+	text-decoration: none;
+	background-color: navy;
+	color: white;
+}

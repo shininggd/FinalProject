@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.kh.purchase.PurchaseDTO;
 import com.kh.util.ListInfo;
 
 @Repository
@@ -123,10 +124,12 @@ public class StudyDAO {
 			System.out.println(studyDTO.getOnOff());
 			list.add(studyDTO);
 		}
-		
 		return list;
 	}
 	
-	
-	
+	public StudyDTO studydto(int num){
+		return sqlSession.selectOne(NAMESPACE+"studydto", num);
+	}
+
+
 }

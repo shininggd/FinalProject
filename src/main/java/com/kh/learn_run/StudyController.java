@@ -3,11 +3,14 @@ package com.kh.learn_run;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.member.tutor.TutorDTO;
 import com.kh.study.StudyDTO;
@@ -96,6 +99,15 @@ public class StudyController {
 		System.out.println(listInfo.getSearch());
 		model.addAttribute("list", studyService.homeList(listInfo));
 	}
-
 	
+	@RequestMapping(value="/studyPurchase", method=RequestMethod.GET)
+	public ModelAndView studyPurchase(HttpServletRequest request, int num) throws Exception{
+		//System.out.println(num);
+		StudyDTO studyDTO = studyService.studydto(num);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("dto", studyDTO);
+		return mv;
+	} 
+
 }
