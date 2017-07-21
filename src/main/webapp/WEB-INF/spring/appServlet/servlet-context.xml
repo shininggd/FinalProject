@@ -41,6 +41,8 @@
 	<context:component-scan base-package="com.kh.member" />
 	<context:component-scan base-package="com.kh.util" />
 	<context:component-scan base-package="com.kh.message" />
+	<context:component-scan base-package="com.kh.feedback" />
+
 	
 	
 </beans:beans>

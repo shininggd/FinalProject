@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="FeedBackMapper">
+    <sql id="whereList">
+ 	<trim prefix="where" prefixOverrides="and || or">
+  		<if test="search0 != null and find0 =='snum'">snum = #{search0}
+  			<if test="search1 != null and find1 == 'category'">and category like '%' || #{search1} || '%'</if>
+  			<if test="search2 != null and find2 == 'title'">and title like '%' || #{search2} || '%'</if>
+  			<if test="search2 != null and find2 == 'writer'">and writer like '%' || #{search2} || '%'</if>
+  	 </if>
+  	</trim>
+  </sql>
+ <select id="list" resultType="com.kh.feedback.FeedBackDTO" parameterType="java.util.Map">
+  	select * from (select rownum R, S.* from (select * from feedback
+  	 <include refid="whereList"></include>
+  	 order by num desc) S) where R between 1 and 10 
+  </select>
+  <select id="view" resultType="com.kh.feedback.FeedBackDTO" parameterType="java.lang.Integer">
+  	select * from feedback where num = #{num}
+  
+  </select>
+  <select id="count" parameterType="java.util.Map" resultType="java.lang.Integer">
+  	select count(num) from feedback <include refid="whereList"></include>
+  </select>
+  <insert id="write" parameterType="com.kh.feedback.FeedBackDTO">
+	insert into feedback(num, snum, title, writer, contents, category, reg_date, ref, step, depth)
+	values(feedback_seq.nextval,#{snum},#{title},#{writer},#{contents},#{category},sysdate,feedback_seq.currval,0,0)  
+  </insert>
+  <update id="update" parameterType="com.kh.feedback.FeedBackDTO">
+  update feedback set title = #{title}, contents=#{contents} where num = #{num}
+  </update>
+  
+ 
+ 
+ 
+ </mapper> 
+  

@@ -11,8 +11,11 @@ public class MessageService {
 	@Autowired
 	private MessageDAO messageDAO;
 	
+
 	public List<MessageDTO> messageList(String id) throws Exception {
 		return messageDAO.messageList(id);
 	}
+
+
 	
 }
