@@ -1,6 +1,6 @@
 package com.kh.feedback;
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.board.BoardDAO;
 import com.kh.board.BoardDTO;
-import com.kh.study.StudyDTO;
+
 import com.kh.util.ListInfo;
 
 @Repository
@@ -40,8 +40,8 @@ public class FeedBackDAOImpl implements BoardDAO {
 
 	@Override
 	public int delete(int num) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return sqlSession.delete(NAMESPACE+"delete", num);
 	}
 
 	@Override
@@ -79,6 +79,13 @@ public class FeedBackDAOImpl implements BoardDAO {
 		List<BoardDTO> ar = sqlSession.selectList(NAMESPACE+"list", map); 
 			
 		return ar;
+	}
+	public int reply(BoardDTO boardDTO) throws Exception{
+		
+		return sqlSession.insert(NAMESPACE+"reply", (FeedBackDTO)boardDTO);
+	}
+	public int replyUpdate(BoardDTO boardDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"replyUpdate", (FeedBackDTO)boardDTO);
 	}
 
 }

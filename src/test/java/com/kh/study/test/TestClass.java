@@ -7,12 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.kh.feedback.FeedBackDAOImpl;
 import com.kh.feedback.FeedBackDTO;
+import com.kh.feedback.FeedBackService;
+
 
 
 public class TestClass extends MyAbstarctTestUnit{
 
 	@Autowired
-	private FeedBackDAOImpl feedBackDAO; 
+	private FeedBackService feedBackDAO; 
 	@Test
 	public void test()throws Exception {
 	/*	ListInfo listInfo = new ListInfo();
@@ -29,11 +31,17 @@ public class TestClass extends MyAbstarctTestUnit{
 	
 		FeedBackDTO backDTO = new FeedBackDTO();
 		
-		backDTO.setContents("다시한다2");
-		backDTO.setNum(4);
-		backDTO.setTitle("엿같다..2");
+		backDTO.setContents("2답글2");
+		backDTO.setWriter("user22");
+		backDTO.setCategory("자유게시판");
+		backDTO.setTitle("2답글2");
+		backDTO.setSnum(62);
+		backDTO.setRef(2);
+		backDTO.setDepth(0);
+		backDTO.setStep(0);
 		
-		feedBackDAO.update(backDTO);
+		feedBackDAO.reply(backDTO);
+		
 	}
 
 }

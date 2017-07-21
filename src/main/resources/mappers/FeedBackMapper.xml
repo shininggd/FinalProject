@@ -15,7 +15,7 @@
  <select id="list" resultType="com.kh.feedback.FeedBackDTO" parameterType="java.util.Map">
   	select * from (select rownum R, S.* from (select * from feedback
   	 <include refid="whereList"></include>
-  	 order by num desc) S) where R between 1 and 10 
+  	 order by num desc) S) where R between #{startRow} and #{lastRow} 
   </select>
   <select id="view" resultType="com.kh.feedback.FeedBackDTO" parameterType="java.lang.Integer">
   	select * from feedback where num = #{num}
@@ -31,6 +31,17 @@
   <update id="update" parameterType="com.kh.feedback.FeedBackDTO">
   update feedback set title = #{title}, contents=#{contents} where num = #{num}
   </update>
+  <delete id="delete" parameterType="java.lang.Integer">
+  	delete from feedback where num = #{num}
+  </delete>
+  <insert id="reply"  parameterType="com.kh.feedback.FeedBackDTO">
+  insert into feedback(num, snum, title, writer, contents, category, reg_date, ref, step, depth)
+	values(feedback_seq.nextval,#{snum},#{title},#{writer},#{contents},#{category},sysdate,#{ref},#{step}+1,#{depth}+1)
+  </insert>
+  <update id="replyUpdate" parameterType="com.kh.feedback.FeedBackDTO">
+  update feedback set step = step + 1 where ref = #{ref} and step > #{step}
+  </update>
+  
   
  
  
