@@ -9,31 +9,35 @@
 <script type="text/javascript">
 $(function(){
     
+	$("#header_logo").click(function () {
+		location.href = "/learn_run/"
+	});
+	
 	/* --------findInfo---------- */
 	$("#find_id").click(function() {
 		//window.open("/learn_run/member/find_id",  "ID 찾기", "width=500, height=300, left=400, top=250");
-		 cw=screen.availWidth;     //화면 넓이
-		 ch=screen.availHeight;    //화면 높이
+		 cw=screen.availWidth;    
+		 ch=screen.availHeight;   
 
-		 sw=500;    //띄울 창의 넓이
-		 sh=300;    //띄울 창의 높이
+		 sw=500;   
+		 sh=300;   
 
-		 ml=(cw-sw)/2;        //가운데 띄우기위한 창의 x위치
-		 mt=(ch-sh)/2;         //가운데 띄우기위한 창의 y위치
+		 ml=(cw-sw)/2;        
+		 mt=(ch-sh)/2;         
 
 		 test=window.open('/learn_run/member/find_id','tst','width='+sw+',height='+sh+',top='+mt+',left='+ml+',resizable=no');
 	});
 	
 	$("#find_pw").click(function() {
 		//window.open("/learn_run/member/find_pw",  "PW 찾기", "width=500, height=300, left=200");
-		 cw=screen.availWidth;     //화면 넓이
-		 ch=screen.availHeight;    //화면 높이
+		 cw=screen.availWidth;    
+		 ch=screen.availHeight;    
+		 
+		 sw=500;    
+		 sh=360;   
 
-		 sw=500;    //띄울 창의 넓이
-		 sh=360;    //띄울 창의 높이
-
-		 ml=(cw-sw)/2;        //가운데 띄우기위한 창의 x위치
-		 mt=(ch-sh)/2;         //가운데 띄우기위한 창의 y위치
+		 ml=(cw-sw)/2;        
+		 mt=(ch-sh)/2;       
 
 		 test=window.open('/learn_run/member/find_pw','tst','width='+sw+',height='+sh+',top='+mt+',left='+ml+',resizable=no');
 	}); 
@@ -269,7 +273,7 @@ $(function(){
 
 	<div id="header_content">
 		<div id="header_menu">
-			<div id="header_logo">logo</div>
+			<div id="header_logo"></div>
 				<article id="header-left-menus">
 					<a id="theme_menu_toggle" class="link" href="#"><span class="drawer_icon"></span>카테고리<img class="arrow_icon" src="<c:url value="/resources/img/arrow_icon.png"/>"></a>
 					<span class="header_bar"></span>

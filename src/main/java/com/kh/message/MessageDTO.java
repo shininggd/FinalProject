@@ -2,14 +2,16 @@ package com.kh.message;
 
 import java.sql.Date;
 
-public class messageDTO {
+public class MessageDTO {
 
+	private int num;
 	private String id;
 	private String title;
 	private String contents;
 	private Date reg_date;
 	private String read;
 	private String sender;
+	
 	public String getId() {
 		return id;
 	}
@@ -45,6 +47,12 @@ public class messageDTO {
 	}
 	public void setSender(String sender) {
 		this.sender = sender;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
 	}
 	
 	
