@@ -15,6 +15,8 @@ $(function(){
 	var score ="${score}";
 	var questions = "${question}";
 	var answers = "${answer}";
+	var answersopt = "${answersopt}";
+
 	if(step==0) {
 		$("#test_quiz_intro").css("display","none");
 		$("#test_quiz_end").css("display","inline-block");
@@ -25,17 +27,17 @@ $(function(){
 		
 
 	$(".ans_sel").mouseenter(function(){
-		$(this).children("#LTQcon1").css("color","red");
-		$(this).children("#LTQcon2").css("color","red");
-		$(this).children("#LTQcon3").css("color","red");
-		$(this).children("#LTQcon4").css("color","red");
+		$(this).children("#1").css("color","red");
+		$(this).children("#2").css("color","red");
+		$(this).children("#3").css("color","red");
+		$(this).children("#4").css("color","red");
 	});
 	
 	$(".ans_sel").mouseleave(function(){
-			$(this).children("#LTQcon1").css("color","#787878");
-			$(this).children("#LTQcon2").css("color","#787878");
-			$(this).children("#LTQcon3").css("color","#787878");
-			$(this).children("#LTQcon4").css("color","#787878");
+			$(this).children("#1").css("color","#787878");
+			$(this).children("#2").css("color","#787878");
+			$(this).children("#3").css("color","#787878");
+			$(this).children("#4").css("color","#787878");
 	}); 
 	
 	//보기 클릭했을 때 answer랑 비교해서 정답 확인하고 맞으면 스코어+20하고 다음 문제로 넘어간다
@@ -45,18 +47,16 @@ $(function(){
 		}else {
 			stepplus = 0;
 		}
-		var sel_ans = $(this).val();
+		var sel_ans = $(this).children(".LTQ_select_content").prop("id");
 		if(sel_ans == answers){	
 			score = (score*1) + (20*1);
 		}else{
 			score = (score*1);
 		}
-		
+		alert(sel_ans);
 		location.href="LevelTestQuizPlay"+"?category="+select+"&step="+stepplus+"&score="+score;
 			
 		});
-			
-	
 });
 </script>
 </head>
@@ -77,39 +77,26 @@ $(function(){
 				<!-- 선택지 -->
 					<div id="LTQ_ans">
 					<ul id="LTQ_select_list">
-						<li class="ans_sel" value="1">
-								<input type="radio" value="on">
-								<span class="mock-button"></span>
-								<span class="LTQ_select_content" id="LTQcon1">보기 1</span>
-							</li>
-						<li class="ans_sel" value="2" >
-								<input type="radio" value="on">
-								<span class="mock-button"></span>
-								<span class="LTQ_select_content" id="LTQcon2">보기 2</span>
-							</li>
-						<li class="ans_sel" value="3" >
-								<input type="radio" value="on">
-								<span class="mock-button"></span>
-								<span class="LTQ_select_content" id="LTQcon3">보기 3</span>
-							</li>
-						<li class="ans_sel" value="4" >
-							<input type="radio" value="on">
-								<span class="mock-button"></span>
-								<span class="LTQ_select_content" id="LTQcon4">보기 4</span>
-							</li>
+						<c:forTokens items="${answersopt}" delims="/" var="opt" varStatus="i">
+								<li class="ans_sel">
+									<input type="radio" value="on">
+									<span class="mock-button"></span>		
+									<span class="LTQ_select_content" id="${i.count}">${opt}</span>
+								</li>
+						</c:forTokens>
 					</ul>
 					</div>
 	</section>
 	</c:if>
 	<section id="test_quiz_end">
 		<c:if test="${score ge 71 and score le 100}">
-			<p class="score_sentence">당신의 점수는 ${score}점 입니다. <br>고급 class! ㅇㅈ?ㅇㅇㅈ</p>
+			<p class="score_sentence">당신의 점수는 ${score}점 입니다. <br>고급 class!</p>
 		</c:if>
 			<c:if test="${score ge 41 and score le 70}">
-			<p class="score_sentence">당신의 점수는 ${score}점 입니다. <br>중급 class! 5지구욘 지리구욘</p>
+			<p class="score_sentence">당신의 점수는 ${score}점 입니다. <br>중급 class! </p>
 			</c:if>
 				<c:if test="${score ge 0 and score le 40}">
-					<p class="score_sentence">당신의 점수는 ${score}점 입니다. <br>하급 class! ...절레절레</p>
+					<p class="score_sentence">당신의 점수는 ${score}점 입니다. <br>하급 class! </p>
 				</c:if>
 	</section>
 	</div>
