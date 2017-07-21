@@ -17,6 +17,7 @@ $(function(){
 	$("#tutorinfo").click(function(){
 		tutorTable();
 	});	
+	
 	/* change 버튼 누르면 변경된 값 가지고 db가서 업데이트하고 다시 리스트 가져옴 */
 	$("#mystudy_tutorinfoview").on('click',".change_Tinfo",function(){
 		var num = $(this).prop("id");
@@ -44,11 +45,39 @@ $(function(){
 	$("#mystudy_tutorinfoview").on("click","#tfsbtn",function() {
 		tutorTable();
 	});
+
+	
 	//페이징 누르면 find, search, curPage 가지고 가서 리스트 다시 가져옴
 	$("#mystudy_tutorinfoview").on("click",".gooh",function() {
 		var num = $(this).prop("id");
 		$("#curPage").prop("value",num);
 		tutorTable();
+	});
+	
+	
+ 	
+	/* memberinfo 클릭하면 list 가져오기 */
+	$("#memberinfo").click(function(){
+		memberTable();
+	});	
+	
+	$("#mystudy_tutorinfoview").on("click",".Mgooh",function() {
+		var num = $(this).prop("id");
+		$("#curPage").prop("value",num);
+		memberTable();
+	});
+	
+
+	$("#mystudy_tutorinfoview").on("click","#membtn",function() {
+		memberTable();
+	});
+	
+	$("#mystudy_tutorinfoview").on('click',".member_Delete",function(){
+		var num = $(this).prop("id");
+		$.post("memberOversight",{num:num},function(data){
+			alert(data.trim());
+			memberTable();
+		});	
 	});
 	
 	function tutorTable() {
@@ -67,7 +96,24 @@ $(function(){
              }
          });	
 	}
- 	
+	
+	function memberTable(){
+		var Mform = $("#mem_search")[0];
+		var MformData = new FormData(Mform);
+		$.ajax({
+			url : 'memberOversight',
+			processData: false,
+	        contentType: false,
+	        data: MformData,
+	        type: 'POST',
+	        success: function(data){
+           	 data = data.trim();
+				$("#mystudy_tutorinfoview").html(data);
+				$("#Mfind").prop("value",$("#Mfind_value").prop("value"));//다음페이지 넘어갈 때 처음 검색한 find 값 계속 유지 
+            }
+		});
+	}
+	
 });
 </script>
 </head>
@@ -100,6 +146,7 @@ $(function(){
 		<div id="mystudy_list">
 			<div id="mystudy_menubar">
 			<input type="button" id="tutorinfo" value="TutorInfo">
+			<input type="button" id="memberinfo" value="MemberInfo">
 			</div>
 			
 				<div id="mystudy_tutorinfoview">

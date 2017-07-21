@@ -1,5 +1,7 @@
 package com.kh.member.student;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
@@ -10,6 +12,8 @@ import org.springframework.ui.Model;
 
 import com.kh.member.MemberDAO;
 import com.kh.member.MemberDTO;
+import com.kh.member.tutor.TutorDTO;
+import com.kh.util.ListInfo;
 
 @Repository
 public class StudentDAOImpl implements MemberDAO{
@@ -55,5 +59,12 @@ public class StudentDAOImpl implements MemberDAO{
 		return sqlSession.selectOne(NAMESPACE+"myPoint", memberDTO);
 	}
 	
-
+	public List<MemberDTO> memberinfo(ListInfo listInfo) throws Exception {
+		 return  sqlSession.selectList(NAMESPACE+"memberinfo", listInfo);
+	}
+	
+	public int Scount(ListInfo listInfo){
+		int count = sqlSession.selectOne(NAMESPACE+"Scount", listInfo);
+		return count;
+	}
 }

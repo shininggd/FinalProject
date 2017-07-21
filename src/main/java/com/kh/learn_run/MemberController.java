@@ -288,6 +288,27 @@ public class MemberController {
 		
 		return "common/resultMessage";
 	}
-
+	
+	@RequestMapping(value="memberOversight", method=RequestMethod.POST)
+	public String memberOversightinfo(Model model, ListInfo listInfo) throws Exception {
+		System.out.println(listInfo.getFind());
+		System.out.println(listInfo.getSearch());
+		//맨 처음 버튼 눌렀을 때 리스트
+		if(listInfo.getCurPage() == null){
+			listInfo.setCurPage(1);
+		}
+		if(listInfo.getFind() == null){
+			listInfo.setFind("id");
+		}
+		if(listInfo.getSearch() == null){
+			listInfo.setSearch("");
+		}
+		
+		List<MemberDTO> memberinfo =studentServiceImpl.memberinfo(listInfo);	
+		model.addAttribute("totalCount", studentServiceImpl.Scount(listInfo));
+		model.addAttribute("data", memberinfo);
+		model.addAttribute("listInfo", listInfo);
+		return"member/sub/memberOversight";
+	}
 
 }

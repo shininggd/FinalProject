@@ -111,6 +111,24 @@
     margin-top: 15px;
     font-size: 1.3em;
 }
-.gooh{
+.gooh, .Mgooh{
 	font-weight: bold;
+}
+#memberinfo{
+	margin-top: 20%;
+    margin-left: 24%;
+    background-color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    color: #ef6c00;
+}
+#admin_Spagelist{
+	width: 80px;
+	height: 30px;
+	cursor: pointer;
+	margin: 0 auto;
+    margin-left: 300px;
+    margin-top: 5px;
+    font-size: 1.1em;
 }

@@ -53,9 +53,7 @@ $(function(){
 		}else{
 			score = (score*1);
 		}
-		alert(sel_ans);
-		location.href="LevelTestQuizPlay"+"?category="+select+"&step="+stepplus+"&score="+score;
-			
+		location.href="LevelTestQuizPlay"+"?category="+select+"&step="+stepplus+"&score="+score;	
 		});
 });
 </script>
