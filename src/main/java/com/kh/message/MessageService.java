@@ -16,6 +16,15 @@ public class MessageService {
 		return messageDAO.messageList(id);
 	}
 
+	public MessageDTO messageView(int num) {
+		return messageDAO.messageView(num);
+	}
 
+	public int messageRead(int num) {
+		return messageDAO.messageRead(num);
+	}
 	
+	public int messageWrite(MessageDTO messageDTO) {
+		return messageDAO.messageWrite(messageDTO);
+	}
 }

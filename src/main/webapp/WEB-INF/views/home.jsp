@@ -38,7 +38,7 @@
 		    <div class="uk-slider-container">
 		        <ul class="uk-slider"> 
 		            <li><a href="#" draggable="false"><div class="img_size"><figure><img style="width: 48%; height: 100%; float: right;" src="<%=application.getContextPath()%>/resources/img/image.jpg" draggable="false"></figure>
-		            <div class="banner_content">
+		            <div class="banner_content">	
 							<div class="banner_top_text"><span class="area">강남</span><span class="banner_bar"></span><span class="level">초급</span></div>
 							<div class="banner_title">미국 4년 거주! Erin 과 함께 주제별 토론으로 논리있게 회화!</div>
 							<div class="banner_bottom_text"><span class="price_value">240,000원</span><span class="price_unit">/12주</span></div>

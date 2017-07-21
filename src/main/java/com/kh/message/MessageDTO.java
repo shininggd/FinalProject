@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class MessageDTO {
 
+	private int num;
 	private String id;
 	private String title;
 	private String contents;
@@ -46,6 +47,12 @@ public class MessageDTO {
 	}
 	public void setSender(String sender) {
 		this.sender = sender;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
 	}
 	
 	
