@@ -2,7 +2,6 @@ package com.kh.learn_run;
 
 
 import java.util.List;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.kh.member.MemberDTO;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.kh.member.student.StudentDTO;
 import com.kh.member.student.StudentServiceImpl;
 import com.kh.member.tutor.TutorDTO;
 import com.kh.member.tutor.TutorServiceImpl;
-import com.kh.study.StudyDTO;
 import com.kh.util.ListInfo;
 import com.kh.util.Cupon;
 
