@@ -3,7 +3,7 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/member/sub/tutorOversight.css">
 
-	<div id="Tfsform">
+	<div>
 					<form name="frm_search" id="frm_search" method="post">
 						<input type="hidden" name="curPage" id="curPage">
 						<!-- 페이징 넘어갈 때 처음 검색한 find값 ${listInfo.find }가져오기 -->
@@ -25,6 +25,7 @@
 		<th>lv</th>
 		<th>right</th>
 		<th>change</th>
+		<th>delete</th>
 	</tr>
 	<c:forEach items="${data}" var="i" varStatus="s">
 	<tr>
@@ -48,6 +49,9 @@
 		<td>
 			<input type="button" class="change_Tinfo" id="${s.index}" value="change">
 		</td>
+			<td>
+				<input type="button" class="tutor_Delete" id="${i.id}" value="removal">
+			</td>
 	</tr>
 	</c:forEach>
 </table>

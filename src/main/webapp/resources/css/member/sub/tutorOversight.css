@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 #tutorinfo_table{
-	width: 90%;
+	width: 760px;
 	height: auto;
 	margin: 0 auto;
 	text-align: center;
@@ -18,7 +18,7 @@
 }
 
 #tutorinfo_table tr {
-	border-bottom: 3px solid black;
+	border-bottom: 1px solid black;
 }
 
 .lv_select,.rig_select {
@@ -27,13 +27,10 @@
 	border: 2px solid #ebebeb;
 }
 
-.change_Tinfo {
+.change_Tinfo, .tutor_Delete {
     background-color: white;
     font-size: 20px;
     font-weight: bold;
-    border: 1px solid #ebebeb;
+    border: none;
     color: #ef6c00;
-}
-#opt1, #opt2, #opt3, #opt4{
-	background-color: white;
 }

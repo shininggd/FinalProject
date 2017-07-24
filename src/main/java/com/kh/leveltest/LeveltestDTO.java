@@ -5,6 +5,7 @@ private int num;
 private String category;
 private String question;
 private String answer;
+private String answers;
 
 public int getNum() {
 	return num;
@@ -29,6 +30,12 @@ public String getAnswer() {
 }
 public void setAnswer(String answer) {
 	this.answer = answer;
+}
+public String getAnswers() {
+	return answers;
+}
+public void setAnswers(String answers) {
+	this.answers = answers;
 }
 
 

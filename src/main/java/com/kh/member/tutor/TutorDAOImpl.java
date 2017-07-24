@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.member.MemberDAO;
 import com.kh.member.MemberDTO;
+import com.kh.member.student.StudentDTO;
 import com.kh.util.ListInfo;
 
 @Repository
@@ -54,5 +55,7 @@ public class TutorDAOImpl implements MemberDAO{
 		int count = sqlSession.selectOne(NAMESPACE+"tcount", listInfo);
 		return count;
 	}
-
+	public int tutorDelete(TutorDTO tutorDTO){
+		return sqlSession.delete(NAMESPACE+"tutorDelete", tutorDTO);
+	}
 }
