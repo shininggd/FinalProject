@@ -8,16 +8,13 @@
 	<sql id="search">
  		<trim prefix="where" prefixOverrides="and || or">
  		<if test="find == 'id'">
- 			id like '%' || #{search} || '%'
+ 			id like '%' || #{search} || '%' and grade='student'
  		</if>
  		<if test="find == 'name'">
- 			name like '%' || #{search} || '%'
- 		</if>
- 		<if test="find == 'grade'">
- 			grade like '%' || #{search} || '%'
+ 			name like '%' || #{search} || '%' and grade='student'
  		</if>
  		<if test="find == 'email'">
- 			email like '%' || #{search} || '%'
+ 			email like '%' || #{search} || '%' and grade='student'
  		</if>
  		</trim>
  		
@@ -59,14 +56,18 @@
 		select point from member where id=#{id}
 	</select>
 	
-	<select id="memberinfo" parameterType="com.kh.util.ListInfo" resultType="com.kh.member.student.StudentDTO">
+	<select id="studentinfo" parameterType="com.kh.util.ListInfo" resultType="com.kh.member.student.StudentDTO">
 		select * from (select rownum R, N.* from 
   (select * from member
-  <include refid="search" />) N) where R between #{startRow} and #{lastRow} and grade='student'
+  <include refid="search" />) N) where R between #{startRow} and #{lastRow}
 	</select>
 	
 	<select id="Scount" parameterType="com.kh.util.ListInfo" resultType="java.lang.Integer">
 		select count(id) from member
 		<include refid="search"></include>
 	</select>
+	
+	<delete id="memberDelete" parameterType="com.kh.member.student.StudentDTO">
+		delete from member where id=#{id}
+	</delete>
 </mapper>

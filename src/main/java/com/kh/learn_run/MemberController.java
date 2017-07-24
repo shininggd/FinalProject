@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.kh.member.MemberDTO;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.kh.member.student.StudentDTO;
 import com.kh.member.student.StudentServiceImpl;
 import com.kh.member.tutor.TutorDTO;
 import com.kh.member.tutor.TutorServiceImpl;
+import com.kh.study.StudyDTO;
 import com.kh.util.ListInfo;
 import com.kh.util.Cupon;
 
@@ -217,12 +220,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="tutorOversight", method=RequestMethod.POST)
-	public String tutorOversightinfo(Model model, ListInfo listInfo) throws Exception {
-		System.out.println("controller");
-		
-		System.out.println(listInfo.getFind());
-		System.out.println(listInfo.getSearch());
-		
+	public String tutorOversightinfo(Model model, ListInfo listInfo) throws Exception {	
 		if(listInfo.getCurPage() == null){
 			listInfo.setCurPage(1);
 		}
@@ -242,7 +240,6 @@ public class MemberController {
 	
 	@RequestMapping(value="/sub/tutorOversight", method=RequestMethod.POST)
 	public String tutorLRupdate(String id_ch, String lv_ch, String ri_ch,Model model)throws Exception{
-		System.out.println("acc");
 		TutorDTO tutorDTO = new TutorDTO();
 		tutorDTO.setId(id_ch);		
 		tutorDTO.setLv(lv_ch);		
@@ -291,8 +288,6 @@ public class MemberController {
 	
 	@RequestMapping(value="memberOversight", method=RequestMethod.POST)
 	public String memberOversightinfo(Model model, ListInfo listInfo) throws Exception {
-		System.out.println(listInfo.getFind());
-		System.out.println(listInfo.getSearch());
 		//맨 처음 버튼 눌렀을 때 리스트
 		if(listInfo.getCurPage() == null){
 			listInfo.setCurPage(1);
@@ -304,11 +299,37 @@ public class MemberController {
 			listInfo.setSearch("");
 		}
 		
-		List<MemberDTO> memberinfo =studentServiceImpl.memberinfo(listInfo);	
+		List<StudentDTO> stuinfo =studentServiceImpl.stuinfo(listInfo);	
 		model.addAttribute("totalCount", studentServiceImpl.Scount(listInfo));
-		model.addAttribute("data", memberinfo);
+		model.addAttribute("data", stuinfo);
 		model.addAttribute("listInfo", listInfo);
+		System.out.println(listInfo.getPerPage());
 		return"member/sub/memberOversight";
 	}
-
+	
+	//delete
+		@RequestMapping(value="student_Delete", method=RequestMethod.POST)
+	public String studentDelete(String id, Model model){
+		StudentDTO studentDTO = new StudentDTO();
+		studentDTO.setId(id);
+		int del = studentServiceImpl.memberDelete(studentDTO);
+		String message="삭제 실패";
+		if(del>0){
+			message="Delete Success";
+				}
+			model.addAttribute("message", message);	
+			return "common/resultMessage";	
+	}
+		@RequestMapping(value="tutor_Delete", method=RequestMethod.POST)
+		public String tutorDelete(String id, Model model){
+			TutorDTO tutorDTO = new TutorDTO();
+			tutorDTO.setId(id);
+			int del = tutorServiceImpl.tutorDelete(tutorDTO);
+			String message="삭제 실패";
+			if(del>0){
+				message="Delete Success";
+					}
+				model.addAttribute("message", message);	
+				return "common/resultMessage";	
+		}
 }

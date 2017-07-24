@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 #tutorinfo_table{
-	width: 90%;
+	width: 760px;
 	height: auto;
 	margin: 0 auto;
 	text-align: center;
@@ -27,7 +27,7 @@
 	border: 2px solid #ebebeb;
 }
 
-.change_Tinfo {
+.change_Tinfo, .tutor_Delete {
     background-color: white;
     font-size: 20px;
     font-weight: bold;

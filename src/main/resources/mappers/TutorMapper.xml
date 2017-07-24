@@ -61,5 +61,8 @@
 		select count(id) from tutor
 		<include refid="search"></include>
 	</select>
+	<delete id="tutorDelete" parameterType="com.kh.member.tutor.TutorDTO">
+		delete from tutor where id=#{id}
+	</delete>
 
 </mapper>

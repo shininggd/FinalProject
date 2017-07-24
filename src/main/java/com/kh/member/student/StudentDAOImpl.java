@@ -59,12 +59,15 @@ public class StudentDAOImpl implements MemberDAO{
 		return sqlSession.selectOne(NAMESPACE+"myPoint", memberDTO);
 	}
 	
-	public List<MemberDTO> memberinfo(ListInfo listInfo) throws Exception {
-		 return  sqlSession.selectList(NAMESPACE+"memberinfo", listInfo);
+	public List<StudentDTO> stuinfo(ListInfo listInfo) throws Exception {
+		 return  sqlSession.selectList(NAMESPACE+"studentinfo", listInfo);
 	}
 	
 	public int Scount(ListInfo listInfo){
 		int count = sqlSession.selectOne(NAMESPACE+"Scount", listInfo);
 		return count;
+	}
+	public int memberDelete(StudentDTO studentDTO){
+		return sqlSession.delete(NAMESPACE+"memberDelete", studentDTO);
 	}
 }

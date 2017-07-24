@@ -54,6 +54,14 @@ $(function(){
 		tutorTable();
 	});
 	
+	$("#mystudy_tutorinfoview").on("click",".tutor_Delete",function() {
+		var delt = $(this).prop("id");
+		$.post("tutor_Delete",{id:delt},function(data){
+			alert(data.trim());
+			tutorTable();
+		});	
+	});
+	
 	
  	
 	/* memberinfo 클릭하면 list 가져오기 */
@@ -72,13 +80,15 @@ $(function(){
 		memberTable();
 	});
 	
-	$("#mystudy_tutorinfoview").on('click',".member_Delete",function(){
-		var num = $(this).prop("id");
-		$.post("memberOversight",{num:num},function(data){
+	//removal 버튼 누르면 멤버 삭제
+	$("#mystudy_tutorinfoview").on("click",".member_Delete",function() {
+		var delm = $(this).prop("id");
+		$.post("student_Delete",{id:delm},function(data){
 			alert(data.trim());
 			memberTable();
 		});	
 	});
+
 	
 	function tutorTable() {
 		var form = $("#frm_search")[0];//ajax로 가져오는 페이지 안의 폼 데이터 변수 지정
@@ -113,7 +123,6 @@ $(function(){
             }
 		});
 	}
-	
 });
 </script>
 </head>
@@ -146,7 +155,7 @@ $(function(){
 		<div id="mystudy_list">
 			<div id="mystudy_menubar">
 			<input type="button" id="tutorinfo" value="TutorInfo">
-			<input type="button" id="memberinfo" value="MemberInfo">
+			<input type="button" id="memberinfo" value="StudentInfo">
 			</div>
 			
 				<div id="mystudy_tutorinfoview">

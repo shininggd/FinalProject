@@ -63,17 +63,20 @@ public class StudentServiceImpl implements MemberService{
 	public String myPoint(MemberDTO memberDTO) throws Exception {
 		return studentDAOImpl.myPoint(memberDTO);
 	}
-	public List<MemberDTO> memberinfo(ListInfo listInfo) throws Exception{
+	public List<StudentDTO> stuinfo(ListInfo listInfo) throws Exception{
 		listInfo.makePage(studentDAOImpl.Scount(listInfo));
 		listInfo.makeRow();
-		return studentDAOImpl.memberinfo(listInfo);
+		return studentDAOImpl.stuinfo(listInfo);
 	}
 	
 	public int Scount(ListInfo listInfo) throws Exception{
 		return studentDAOImpl.Scount(listInfo);
 	}
 
+	public int memberDelete(StudentDTO studentDTO){
+		return studentDAOImpl.memberDelete(studentDTO);
 	}
+}
 		
 
 	
