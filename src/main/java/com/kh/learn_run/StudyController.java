@@ -67,12 +67,18 @@ public class StudyController {
 
 		return path;
 	}
-	@RequestMapping(value = "studyUpdateInsert", method = RequestMethod.POST)
-	public String update(StudyDTO studyDTO)throws Exception{
-		System.out.println(studyDTO.getContents());
+	@RequestMapping(value = "studyView", method = RequestMethod.POST)
+	public void update(StudyDTO studyDTO,Model model)throws Exception{
+		
 		
 		studyService.update(studyDTO);
-		return "redirect: /learn_run/";
+		HashMap<Object, Object> ar =studyService.studyView(studyDTO.getNum(), studyDTO.getTid());
+		StudyDTO dto = (StudyDTO) ar.get("study");
+		TutorDTO tutor = (TutorDTO)ar.get("tutor");
+		model.addAttribute("dto", dto);
+		model.addAttribute("tutor",tutor);
+		model.addAttribute("profile",ar.get("profile"));
+	
 
 	}
 

@@ -120,7 +120,7 @@ width: 20px;
 							
 							<div class="boxMiddle_2">
 								<fmt:formatNumber type="currency" currencySymbol="">${i.price }</fmt:formatNumber>원 <span class="people">${i.people }명</span>
-								<img class="houseImage" src="<c:url value="/resources/img/study/houseIcon.jpg"/>">
+								<a href="../feedback/studyPage?snum=${dto.num }"><img class="houseImage" src="<c:url value="/resources/img/study/houseIcon.jpg"/>"></a>
 								 
 							</div>
 							<div class="boxBottom">
@@ -140,13 +140,13 @@ width: 20px;
 				
 	<div class="pagingBox">
 		<c:if test="${listInfo.curBlock > 1}"> 
-			<span class="pageMove" id="${listInfo.startNum-1}"><img alt="" src="<c:url value="/resources/img/study/pagingArrow.png"/>" class="pagingArrowL" ></span>
+			<a href="./studyList?find=category,location,lv&search=${listInfo.search}&curPage=${listInfo.startNum-1}" class="pagingText"><span class="pageMove" id="${listInfo.startNum-1}"><img alt="" src="<c:url value="/resources/img/study/pagingArrow.png"/>" class="pagingArrowL" ></span></a>
 		</c:if> 
 			<c:forEach begin="${listInfo.startNum}" end="${listInfo.lastNum}" var="j">
 				<a href="./studyList?find=category,location,lv&search=${listInfo.search}&curPage=${j}" class="pagingText">${j}</a>
 			</c:forEach>
 		<c:if test="${listInfo.curBlock < listInfo.totalBlock }"> 
-			<span class="pageMove" id="${listInfo.lastNum+1}"><img alt="" src="<c:url value="/resources/img/study/pagingArrow.png"/>" class="pagingArrowR" ></span>
+			<a href="./studyList?find=category,location,lv&search=${listInfo.search}&curPage=${listInfo.lastNum+1}" class="pagingText"><span class="pageMove" id="${listInfo.lastNum+1}"><img alt="" src="<c:url value="/resources/img/study/pagingArrow.png"/>" class="pagingArrowR" ></span></a>
 	 	</c:if> 	
 	</div>
 	<c:if test="${member != null }">
