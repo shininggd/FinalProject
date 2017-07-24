@@ -39,7 +39,7 @@ font-weight: 600;
 
 #header_logo{
 width: 100px;
-height: 70px;
+height: 50px;
 float: left;
 display: inline-block;
 margin-top : 10px;
@@ -619,7 +619,8 @@ header > #header_content > #header_menu > article > a{
 	float: left;
     width: 72px;
     height: 54px;
-    background: transparent url(/learn_run/resources/img/temp/footer_img.png);
+    margin-top: 40px;
+    background: transparent url(/learn_run/resources/img/temp/footer_logo.png);
     text-indent: -9999em;
 }
 
