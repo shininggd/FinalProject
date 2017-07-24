@@ -29,7 +29,7 @@ margin: 0 auto;
 }
 
 #header-left-menus{
-width: 370px;
+width: 450px;
 float: left;
 padding-top: 20px;
 display: inline-block;
@@ -110,7 +110,7 @@ margin-top: 12px;
     height: 10px;
     background: transparent url(https://cdn.studysearch.co.kr/static/images/desktop-assets.3254c7dd548f.png)no-repeat 0 -62px;
 }
-.menu2, .menu3{
+.menu2, .menu3, .menu4{
 	font-size: 14px;
 	color: #505050;
 }
