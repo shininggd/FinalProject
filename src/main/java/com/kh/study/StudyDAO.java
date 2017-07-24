@@ -75,8 +75,8 @@ public class StudyDAO {
 	}
 	
 	public List<StudyDTO> homeList(ListInfo listInfo)throws Exception{
-		System.out.println(listInfo.getFind()+"222");
-		System.out.println(listInfo.getSearch()+"222");
+		//System.out.println(listInfo.getFind()+"222");
+		//System.out.println(listInfo.getSearch()+"222");
 		
 		if(listInfo.getFind()==null||listInfo.getFind()==""){
 			listInfo.setFind("category");
@@ -85,8 +85,8 @@ public class StudyDAO {
 		if(listInfo.getSearch()==null||listInfo.getSearch()==""){
 			listInfo.setSearch("영어회화");
 		}
-		System.out.println(listInfo.getFind()+"3");
-		System.out.println(listInfo.getSearch()+"3");
+		//System.out.println(listInfo.getFind()+"3");
+		//System.out.println(listInfo.getSearch()+"3");
 		List<StudyDTO> ar = new ArrayList<StudyDTO>();
 		ar = sqlSession.selectList(NAMESPACE+"homeList",listInfo);
 		return ar;

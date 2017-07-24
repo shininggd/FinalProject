@@ -6,13 +6,12 @@ public class PurchaseDTO {
 	
 	private int num;
 	private int price;
-	private String tid;
 	private String product;
 	private String id;
 	private String name;
-	private String title;
 	private String type;
 	private Date p_date;
+	
 	public int getNum() {
 		return num;
 	}
@@ -55,18 +54,6 @@ public class PurchaseDTO {
 	public void setP_date(Date p_date) {
 		this.p_date = p_date;
 	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getTid() {
-		return tid;
-	}
-	public void setTid(String tid) {
-		this.tid = tid;
-	}
-	
+
 
 }

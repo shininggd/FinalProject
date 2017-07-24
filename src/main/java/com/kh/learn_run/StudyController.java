@@ -76,11 +76,8 @@ public class StudyController {
 		
 		studyService.update(studyDTO);
 		return "redirect: /learn_run/";
-
 	}
 
-
-	
 	@RequestMapping(value="myStudyList", method = RequestMethod.POST)
 	public String myStudy(Model model ,String id) {
 		System.out.println("studyList");
@@ -109,5 +106,6 @@ public class StudyController {
 		mv.addObject("dto", studyDTO);
 		return mv;
 	} 
+	
 
 }

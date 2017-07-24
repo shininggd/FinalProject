@@ -38,7 +38,7 @@
 .containerContents{
 	margin-top:50px;
 	margin-left: 100px;
-	width: 350px;
+	width: 400px;
 }
 
 .p-table{
@@ -48,6 +48,14 @@
 	border: 1px solid black;
 	border-collapse: collapse;
 	text-align: center;
+}
+
+.memberInfo{
+	width: 100%;
+}
+
+.account{
+	width: 80px;
 }
 
 .p-index{
@@ -70,13 +78,25 @@
 	width: 100px;
 }
 
+.cardNum{
+	width: 50px;
+}
+
 #leader-img{
 	width: 70px;
 }
 
-#doBtn{
-	float: right;
-	margin-right: 110px;
+#phone_all{
+	text-align: center;
+}
+#phone{
+	color: orange;
+}
+
+.payDo{
+	float : left;
+	cursor: pointer;
+	margin-left : 150px;
 	margin-top: 65px;
 	padding: 15px;
 	text-decoration: none;

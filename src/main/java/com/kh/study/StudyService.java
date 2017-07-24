@@ -54,4 +54,5 @@ public class StudyService {
 		return studyDAO.studydto(num);
 	}
 	
+	
 }

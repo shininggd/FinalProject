@@ -28,7 +28,7 @@
 				 
 				 var type = $("#type").val();
 				 
-				window.open('/learn_run/study/purchaseDo?title=${dto.title}&tid=${dto.tid}&price=${dto.price}&type='+type,'purchase_frm','width='+sw+',height='+sh+',top='+mt+',left='+ml+',resizable=no');
+				window.open('/learn_run/study/purchaseDo?product=${dto.title}&id=${member.id}&name=${member.name}&price=${dto.price}&type='+type,'purchase_frm','width='+sw+',height='+sh+',top='+mt+',left='+ml+',resizable=no');
 				
 				 
 			//$("#p-frm").attr("action","purchaseDo");
