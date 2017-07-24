@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+#memberinfo_table{
+	font-size: 18px;
+	width: 760px;
+    height: auto;
+	margin: 0 auto;
+	text-align: center;
+	margin-right: 10%;
+	border-collapse: collapse;
+	font-weight: bolder;
+    border: none;
+    color: black;
+}
+
+#memberinfo_table th, tr, td{
+	border: none;
+}
+
+#memberinfo_table tr {
+	border-bottom: 1px solid black;
+	height: 20px;
+}
+
+.member_Delete{
+   	background-color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    color: #ef6c00;
+}
+

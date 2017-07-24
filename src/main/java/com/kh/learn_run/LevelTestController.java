@@ -28,6 +28,7 @@ public class LevelTestController {
 		String ar[] = leveltestservice.TQlist(category,step);  		
 		model.addAttribute("question", ar[0]);
 		model.addAttribute("answer", ar[1]);
+		model.addAttribute("answersopt", ar[2]);
 		}
 		model.addAttribute("category", category);
 		model.addAttribute("step", step);
