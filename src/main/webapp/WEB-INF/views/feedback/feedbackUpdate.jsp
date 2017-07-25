@@ -32,26 +32,24 @@
 		각양각색 스터디<br>
 		 <span class="fcolor">Learn&Run</span>
 		</div>
-		<form action="studyPage" method="post" id="frm" name="frm" enctype="multipart/data-form">
-			<input type="hidden"  name="snum" value="${snum }">
-			<input type="hidden"  name="writer" value="${member.id }">
-			<input type="hidden" name="kind" value="write">
+		<form action="feedbackView" method="post" id="frm" name="frm" enctype="multipart/data-form">
+			<input type="hidden"  name="num" value="${dto.num }">
+			<input type="hidden"  name="snum" value="${dto.snum }">
+			
 			<div class="form_main">
 				<div class="form_top">	
-					 제목 <select name="category" class="top_box" id="category">
-								<option value="자유게시판">자유게시판</option>
-								<option value="튜터와 함께">튜터와 함께</option>
-								<option value="우리들의 이야기">우리들의 이야기</option>
-						   </select>
+					
 						
-						<input type="text" name="title" class="title_box" id="title" placeholder="제목을 입력하세요"><br>
+						<input type="text" name="title" class="title_box" id="title" placeholder="제목을 입력하세요" value="${dto.title }"><br>
 				 		   
 				</div>
 			</div>
 			<div class="textSE">
-			<textarea id="contents" name="contents"></textarea></div>
+			<textarea id="contents" name="contents">
+			${dto.contents }
+			</textarea></div>
 			<div class="submit_box">
-			<input type="submit" id="savebutton" value="등록하기" class="submit_btn" >
+			<input type="submit" id="savebutton" value="수정하기" class="submit_btn" >
 			</div>
 		</form>
 	</div>

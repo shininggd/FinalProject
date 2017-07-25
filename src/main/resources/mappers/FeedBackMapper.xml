@@ -41,6 +41,11 @@
   <update id="replyUpdate" parameterType="com.kh.feedback.FeedBackDTO">
   update feedback set step = step + 1 where ref = #{ref} and step > #{step}
   </update>
+  <select id="homeList" resultType="com.kh.feedback.FeedBackDTO" parameterType="java.util.Map">
+  	select * from (select rownum R, S.* from (select * from feedback
+  	 <include refid="whereList"></include>
+  	 order by num desc) S) where R between 1 and 7 
+  </select>
   
   
  

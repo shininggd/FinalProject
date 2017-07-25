@@ -46,10 +46,14 @@ public class FeedBackService {
 
 	
 	public List<BoardDTO> list(ListInfo listInfo) throws Exception {
+
+		return feedBackDAOImpl.list(listInfo);
+	}
+	public List<BoardDTO> homeList(ListInfo listInfo) throws Exception {
 		listInfo.setPerPage(9);
 		listInfo.makePage(feedBackDAOImpl.count(listInfo));
 		listInfo.makeRow();
-		System.out.println(listInfo.getPerPage());
+		
 		
 		
 		return feedBackDAOImpl.list(listInfo);

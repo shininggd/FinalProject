@@ -33,16 +33,16 @@
 		 <span class="fcolor">Learn&Run</span>
 		</div>
 		<form action="studyPage" method="post" id="frm" name="frm" enctype="multipart/data-form">
-			<input type="hidden"  name="snum" value="${snum }">
+			<input type="hidden"  name="snum" value="${dto.snum }">
 			<input type="hidden"  name="writer" value="${member.id }">
-			<input type="hidden" name="kind" value="write">
+			<input type="hidden" name="category" value="${dto.category }">
+			<input type="hidden" name="ref" value="${dto.ref }">
+			<input type="hidden" name="step" value="${dto.step }">
+			<input type="hidden" name="depth" value="${dto.depth }">
+			<input type="hidden" name="kind" value="reply">
 			<div class="form_main">
 				<div class="form_top">	
-					 제목 <select name="category" class="top_box" id="category">
-								<option value="자유게시판">자유게시판</option>
-								<option value="튜터와 함께">튜터와 함께</option>
-								<option value="우리들의 이야기">우리들의 이야기</option>
-						   </select>
+					 제목 
 						
 						<input type="text" name="title" class="title_box" id="title" placeholder="제목을 입력하세요"><br>
 				 		   
