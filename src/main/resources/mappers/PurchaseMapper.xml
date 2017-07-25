@@ -5,18 +5,18 @@
   
 <mapper namespace="PurchaseMapper">
 	
+	<select id="purchaseDo" parameterType="com.kh.study.StudyDTO">
+		select * from study where num=#{num}
+	</select>
 	
-	<insert id="payDo" parameterType="com.kh.purchase.PurchaseDTO">
+	<select id="paySmart" parameterType="com.kh.member.MemberDTO">
+		select birth, phone from member where birth=#{birth}, phone=#{phone}
+	</select>
+	
+	<insert id="payComplete" parameterType="com.kh.purchase.PurchaseDTO">
 		insert into purchase values 
-		(purchase_seq.nextval, '', '', #{id}, #{name}, #{type}, sysdate)
+		(purchase_seq.nextval, #{price}, #{product}, #{id}, #{name}, #{type}, sysdate)
 	</insert>
 	
-	<update id="addValue" parameterType="com.kh.purchase.PurchaseDTO">
-		
-	</update>
-	
-	
-	
-
 
 </mapper>

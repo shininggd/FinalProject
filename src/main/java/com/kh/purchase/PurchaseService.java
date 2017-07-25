@@ -14,16 +14,11 @@ public class PurchaseService {
 	
 	@Autowired
 	private PurchaseDAO purchaseDAO;
-	
-
-	
-	
 
 	public int payDo(PurchaseDTO purchaseDTO) throws Exception{
 		return purchaseDAO.payDo(purchaseDTO);
 	}
 	
-
 	public String cardNumCheck(HttpServletRequest request){
 	
 		String str = request.getParameter("str");
@@ -55,7 +50,6 @@ public class PurchaseService {
 			message = "true";
 		}else{
 			message = "false";
-			
 		}
 		
 		return message;

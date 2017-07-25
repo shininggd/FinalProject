@@ -28,14 +28,11 @@
 				 
 				 var type = $("#type").val();
 				 
-				window.open('/learn_run/study/purchaseDo?product=${dto.title}&id=${member.id}&name=${member.name}&price=${dto.price}&type='+type,'purchase_frm','width='+sw+',height='+sh+',top='+mt+',left='+ml+',resizable=no');
+				window.open('/learn_run/study/purchaseDo?num=${dto.num}&title=${dto.title}&tid=${dto.tid}&name=${member.name}&price=${dto.price}&type='+type,'purchase_frm','width='+sw+',height='+sh+',top='+mt+',left='+ml+',resizable=no');
 				
 				 
 			//$("#p-frm").attr("action","purchaseDo");
-		
-		
 		});
-		
 	});
 </script>
 </head>
@@ -94,6 +91,13 @@
 			</table>
 			</form>
 			<input type="button" id="doBtn" value="다음 단계로">
+			
+			<form action="">
+				<input type="hidden" name="tid">
+				<input type="hidden" name="title">
+				<input type="hidden" name="price">
+				
+			</form>
 		</div>
 </div>
 

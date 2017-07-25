@@ -24,36 +24,60 @@
 		
 		var str = cardNum1+cardNum2+cardNum3+cardNum4;
 		
-		$.post("cardNumCheck",{str:str}, function(data) {
-			
-			alert(data.trim());
-		});
 		
+		$.post("cardNumCheck",{str:str}, function(data) {
+		
+			if(data.trim()=='true'){
+				payCheck = true;
+				alert("카드정보가 확인되었습니다.");
+			}else if(str.length<16){
+				alert("카드번호 16자리를 확인해주세요");
+			}else{
+				alert("카드 번호를 정확하게 입력해주시기 바랍니다.");
+				payCheck = false;
+				
+			}
+		});
 		
 	});
 	
-	$("#payDo").click(function () {
+	$("#payCard").click(function() {
 		
+
+			if(payCheck==false){
+				alert("올바르지 않은 정보입니다.");
+				return false;
+			}else{
+				alert("결제가 완료되었습니다. 내역은 마이페이지에서 확인가능합니다.");
+		 		$("#p_frm").submit();
+		 		window.close();
+		 		window.opener.top.location.href="/learn_run/study/payComplete?id=${member.id}&product=${dto.title}&price=${dto.price}&name=${member.name}&type=${type}";
+			}
+		
+	});
+	
+	$("#paySmart").click(function() {
 		if(payCheck==false){
-			alert("올바르지 않은 카드번호입니다.");
+			alert("올바르지 않은 정보입니다.");
 			return false;
-		}
-		
-		if($(".account").val() != null){
-			href.location="";
 		}else{
-			alert("계좌번호를 정확히 입력해주시기 바랍니다.")
+			alert("결제가 완료되었습니다. 내역은 마이페이지에서 확인가능합니다.");
+	 		$("#p_frm").submit();
+	 		window.close();
+	 		window.opener.top.location.href="/learn_run/study/payComplete?id=${member.id}&product=${dto.title}&price=${dto.price}&name=${member.name}&type=${type}";
 		}
-			
+	});
+	
+	$("#payAccount").click(function() {
+		
+			if($(".account").val() != null){
+				href.location="";
+			}else{
+				alert("계좌번호를 정확히 입력해주시기 바랍니다.")
+			}
+	});
 		
 		
-		if(payCheck ==true){
-			
-		 $("#p_frm").submit();
-		 href.location ="/learn_run/study/payDo";
-		}
-		
-		});
 	 
 	});
 
@@ -81,9 +105,15 @@
 			</div>
 				<div class="clear"></div>
 				<div class="containerContents">
-					<c:if test="${dto.type eq 'card'}">
+					<c:if test="${type eq 'card'}">
 						<h3>카드 결제</h3>
 						<form action="payDo" id="p_frm">
+							<input type="hidden" name="product" value="${dto.title}">
+							<input type="hidden" name="price" value="${dto.price}">
+							<input type="hidden" name="name" value="${member.name}">
+							<input type="hidden" name="id" value="${member.id}">
+							<input type="hidden" name="type" value="${type}">
+							</form>
 							<table class="p-table">
 								<thead>
 									<tr>
@@ -125,7 +155,7 @@
 									<tr>
 									<td>카드번호</td>
 									<td>
-									<input type="number" class="cardNum" id="cardNum1">-<input type="number" class="cardNum" id="cardNum2">-<input type="number" class="cardNum" id="cardNum3">-<input type="number" class="cardNum" id="cardNum4">
+									<input type="number" class="cardNum" id="cardNum1" maxlength="4">-<input type="number" class="cardNum" id="cardNum2" maxlength="4">-<input type="number" class="cardNum" id="cardNum3" maxlength="4">-<input type="number" class="cardNum" id="cardNum4" maxlength="4">
 									</td>
 									</tr>
 									<tr>
@@ -136,11 +166,11 @@
 									
 							</table>
 							
-							<a role="button" class="payDo">결제하기</a>
+							<a role="button" class="payDo" id="payCard">결제하기</a>
 							
-						</form>
+						
 					</c:if>
-					<c:if test="${dto.type eq 'smart'}">
+					<c:if test="${type eq 'smart'}">
 					<h3>스마트 결제</h3>
 						<form action="payDo" id="p-frm">
 							<table class="p-table">
@@ -171,17 +201,17 @@
 								<td>
 								<select>
 									<c:forEach begin="1910" end="2017" var="i">
-									<option value="${i}">${i}</option>년
+									<option value="${i}" name="birth1">${i}</option>년
 									</c:forEach>	
 								</select>
 								<select>
 									<c:forEach begin="1" end="12" var="i">
-									<option value="${i}">${i}</option>월
+									<option value="${i}" name="birth2">${i}</option>월
 									</c:forEach>
 								</select>
 								<select>
 									<c:forEach begin="1" end="31" var="i">
-									<option value="${i}">${i}</option>일
+									<option value="${i}" name="birth3">${i}</option>일
 									</c:forEach>
 								</select>
 								</td>
@@ -191,14 +221,14 @@
 								<td id="phone_all">
 								<span id="phone">*가입 시 입력한 연락처를 입력해주세요*</span>
 								<br>
-								<input type="text" placeholder="예) 010-0000-0000">
+								<input type="text" name="phone" placeholder="예) 010-0000-0000">
 								</td>
 								</tr>
 							</table>
-							<a role="button" class="payDo">결제하기</a>
+							<a role="button" class="payDo" id="paySmart">결제하기</a>
 						</form>
 					</c:if>
-					<c:if test="${dto.type eq 'account'}">
+					<c:if test="${type eq 'account'}">
 					<h3>무통장입금</h3>
 						<form action="payDo">
 							<table class="p-table">
@@ -246,7 +276,7 @@
 									<td><input type="text" id="account1" class="account">-<input type="text" id="account2" class="account">-<input type="text" id="account3" class="account"></td>
 								</tr>
 							</table>
-							<a role="button" class="payDo">결제하기</a>
+							<a role="button" class="payDo" id="payAccount">결제하기</a>
 							
 				
 						</form>

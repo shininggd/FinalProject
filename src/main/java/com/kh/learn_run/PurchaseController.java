@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.kh.purchase.PurchaseDAO;
 import com.kh.purchase.PurchaseDTO;
 import com.kh.purchase.PurchaseService;
 import com.kh.study.StudyDTO;
@@ -20,18 +17,21 @@ public class PurchaseController {
 
 	@Autowired
 	private PurchaseService purchaseService;
-	
+		
 	@RequestMapping(value="/purchaseDo")
-	public void purchaseDo(PurchaseDTO purchaseDTO,Model model) throws Exception{
-		
-		
-		model.addAttribute("dto", purchaseDTO);
-
+	public void purchaseDo(StudyDTO studyDTO, Model model, String type) throws Exception{
+		System.out.println(studyDTO.getTid());
+		System.out.println(studyDTO.getTitle());
+		System.out.println(type);
+		model.addAttribute("dto", studyDTO);
+		model.addAttribute("type", type);
+	
 	}
 	
 	@RequestMapping(value="/payDo")
 	public void payDo(PurchaseDTO purchaseDTO, Model model) throws Exception{
 		model.addAttribute("dto", purchaseDTO);
+		
 	}
 	
 	@RequestMapping(value="/cardNumCheck")
@@ -40,8 +40,12 @@ public class PurchaseController {
 		 String result= purchaseService.cardNumCheck(request);
 		 model.addAttribute("message", result);
 		
-		 return "common/resultMessage";
-		 		
+		 return "common/resultMessage"; 		
+	}
+	
+	@RequestMapping(value="/payComplete")
+	public void payComplete(){
+		
 	}
 	
 	

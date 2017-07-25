@@ -15,14 +15,15 @@ public class PurchaseDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "PurchaseMapper."; 
 	
-	
-	
-	
 	public int payDo(PurchaseDTO purchaseDTO) throws Exception{
 	
 		int result = sqlSession.insert(NAMESPACE+"payDo", purchaseDTO);
-		int result2 = sqlSession.update(NAMESPACE+"addValue",purchaseDTO);
-		return result+result2;
+		
+		return result;
+	}
+	
+	public int payComplete(PurchaseDTO purchaseDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"payComplete", purchaseDTO);
 	}
 	
 }
