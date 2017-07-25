@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="BoardMapper" >
+
+	<sql id="search">
+ 		<trim prefix="where" prefixOverrides="and || or">
+ 		<if test="find == 'writer'">
+ 			writer like '%' || #{search} || '%' order by num desc 
+ 		</if>
+ 		<if test="find == 'title'">
+ 			title like '%' || #{search} || '%' order by num desc 
+ 		</if>
+ 		<if test="find == 'contents'">
+ 			contents like '%' || #{search} || '%' order by num desc 
+ 		</if>
+ 		</trim>
+ 	</sql>
+
+	<select id="noticeList" parameterType="com.kh.util.ListInfo" resultType="com.kh.board.notice.NoticeDTO">
+		select * from 
+		(select N.*, rownum R from  
+		(select * from notice <include refid="search" />) N)
+		where R between #{startRow} and #{lastRow}
+	</select>
+	
+	<select id="noticeCount" parameterType="com.kh.util.ListInfo" resultType="java.lang.Integer">
+		select count(num) from notice <include refid="search" />
+	</select>
+	
+	<insert id="noticeWrite" parameterType="com.kh.board.notice.NoticeDTO">
+		insert into notice values(notice_seq.nextval,#{writer},#{title},#{contents},0,sysdate)
+	</insert>
+	
+	<select id="noticeView" parameterType="java.lang.Integer" resultType="com.kh.board.notice.NoticeDTO">
+		select * from notice where num=#{num}
+	</select>
+
+</mapper>

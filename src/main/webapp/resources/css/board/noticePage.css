@@ -12,6 +12,14 @@
 	border-collapse: collapse;
 }
 
+.table_list .title {
+	width: 500px;
+}
+
+.table_list .title_click {
+	cursor: pointer;
+}
+
 .table_list thead tr th {
 	height: 35px;
 	background: #494949;
@@ -25,17 +33,17 @@
 	text-align: center;
 }
 
-.table_list tbody tr td .num {
+.table_list tbody tr td.num {
 	font-family: Tahoma;
 	font-size: 11px;
 	color: #737373;
 }
 
-.table_list tbody tr td .title {
+.table_list tbody tr td.title {
 	text-align: left;
 }
 
-.table_list tbody tr td .title a {
+.table_list tbody tr td.title a {
 	display: block;
 	float: left;
 	text-decoration: none;
@@ -48,4 +56,8 @@
 
 .table_list tbody tr td.title a:hover {
 	text-decoration: underline;
+}
+
+.listPage {
+	cursor: pointer;
 }

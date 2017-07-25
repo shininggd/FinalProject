@@ -89,7 +89,7 @@ public class ListInfo {
 	}
 	public Integer getPerPage() {
 		if(perPage==null){
-			perPage=6;
+			perPage=10;
 		}
 		return perPage;
 	}

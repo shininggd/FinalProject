@@ -1,46 +1,65 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<!DOCTYPE>
+<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-
-<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/basic_table.css">
-<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/board/notice.css">
-<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
 <title>Insert title here</title>
 </head>
 <body>
-<c:import url="../temp/header.jsp"></c:import>
-<section id="main_section">
 
-	<div class="main_container">
-	
-
-	<table class="table_list">
+<table class="table_list">
 		<thead>
 			<tr>
 				<th>번호</th>
-				<th>제목</th>
+				<th class="title">제목</th>
 				<th>작성자</th>
 				<th>작성일</th>
 				<th>조회수</th>
 			</tr>
 		</thead>
 		<tbody>
+			<c:forEach items="${list }" var="dto">
 			<tr>
-				<td class="num">1</td>
-				<td class="title">title</td>
-				<td>admin</td>
-				<td>17/07/27</td>
-				<td>11</td>
+				<td class="num">${dto.num }</td>
+				<td class="title"><span class="title_click" id="${dto.num }">${dto.title }</span></td>
+				<td>${dto.writer }</td>
+				<td>${dto.reg_date }</td>
+				<td>${dto.hit }</td>
 			</tr>
+			</c:forEach>
+			
 		</tbody>
 	</table>
-	</div>
-</section>
-<c:import url="../temp/footer.jsp"></c:import>
+
+<div id="notice_search">
+	<form action="" id="notice_frm">
+		<select name="find" id="find">
+			<option value="writer">writer</option>
+			<option value="title">title</option>
+			<option value="contents">contents</option>
+		</select>
+		<input type="hidden" id="find_value" value="${listInfo.find }">
+		<input type="text" id="search" name="search" value="${listInfo.search }">
+		<input type="hidden" id="curPage" name="curPage">
+		<input type="button" id="search_btn" value="search">
+	</form>
+</div>
+
+<div id="notice_page">
+	<c:if test="${listInfo.curBlock > 1}">
+		<span class="listPage" id="${listInfo.startNum -1}">[이전페이지]</span>
+	</c:if>
+	
+	<c:forEach begin="${listInfo.startNum}" end="${listInfo.lastNum }" var="i">
+		<span class="listPage" id="${i}">${i}</span>
+	</c:forEach>
+	
+	<c:if test="${listInfo.curBlock < listInfo.totalBlock }">
+		<span class="listPage" id="${listInfo.lastNum +1}">[다음페이지]</span>
+	</c:if>
+</div>
+
 </body>
 </html>

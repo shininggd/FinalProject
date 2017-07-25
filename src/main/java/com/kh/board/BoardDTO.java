@@ -8,6 +8,7 @@ public class BoardDTO {
 	private String title;
 	private String contents;
 	private Date reg_date;
+	
 	public int getNum() {
 		return num;
 	}
