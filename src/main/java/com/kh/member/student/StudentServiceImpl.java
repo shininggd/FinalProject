@@ -1,5 +1,7 @@
 package com.kh.member.student;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,7 +37,6 @@ public class StudentServiceImpl implements MemberService{
 
 	@Override
 	public MemberDTO memberLogin(MemberDTO memberDTO, HttpSession session) throws Exception {
-		
 		return studentDAOImpl.memberLogin(memberDTO, session);
 	}
 
@@ -43,11 +44,13 @@ public class StudentServiceImpl implements MemberService{
 		
 		return studentDAOImpl.IdFind(memberDTO);
 	}
-
+	
 	public MemberDTO PwFind(MemberDTO memberDTO) throws Exception {
 		
 		return studentDAOImpl.PwFind(memberDTO);
 	}
+	
+
 
 	@Override
 	public String memberIdCheck(String id) throws Exception {

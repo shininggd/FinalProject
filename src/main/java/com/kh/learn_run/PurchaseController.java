@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.kh.member.MemberDTO;
 import com.kh.purchase.PurchaseDTO;
 import com.kh.purchase.PurchaseService;
 import com.kh.study.StudyDTO;
@@ -18,18 +20,18 @@ public class PurchaseController {
 	@Autowired
 	private PurchaseService purchaseService;
 		
-	@RequestMapping(value="/purchaseDo")
-	public void purchaseDo(StudyDTO studyDTO, Model model, String type) throws Exception{
-		System.out.println(studyDTO.getTid());
-		System.out.println(studyDTO.getTitle());
-		System.out.println(type);
-		model.addAttribute("dto", studyDTO);
-		model.addAttribute("type", type);
-	
+	@RequestMapping(value="/purchaseDo",method=RequestMethod.POST)
+	public void purchaseDo(PurchaseDTO purchaseDTO, Model model) throws Exception{
+		System.out.println(purchaseDTO.getProduct());
+	 model.addAttribute("dto", purchaseDTO);
+		
 	}
 	
-	@RequestMapping(value="/payDo")
+	@RequestMapping(value="/payDo", method=RequestMethod.POST)
 	public void payDo(PurchaseDTO purchaseDTO, Model model) throws Exception{
+		System.out.println("controller");
+		purchaseService.payComplete(purchaseDTO);
+		purchaseService.addMemberStudy(purchaseDTO);
 		model.addAttribute("dto", purchaseDTO);
 		
 	}
@@ -43,9 +45,23 @@ public class PurchaseController {
 		 return "common/resultMessage"; 		
 	}
 	
-	@RequestMapping(value="/payComplete")
-	public void payComplete(){
+/*	@RequestMapping(value="/payComplete")
+	public void payComplete() throws Exception{
 		
+	}
+	*/
+	
+	
+	@RequestMapping(value="/smartCheck")
+	public String smartCheck(HttpServletRequest request, Model model) throws Exception{
+		String message = "false";
+		
+		if(purchaseService.paySmart(request) != null){
+			message = "true";			
+		}
+		
+		model.addAttribute("message", message);
+		return "common/resultMessage";
 	}
 	
 	

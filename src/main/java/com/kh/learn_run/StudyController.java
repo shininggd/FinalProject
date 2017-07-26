@@ -108,7 +108,7 @@ public class StudyController {
 	
 	@RequestMapping(value="/studyPurchase", method=RequestMethod.GET)
 	public ModelAndView studyPurchase(HttpServletRequest request, int num, String type) throws Exception{
-		//System.out.println(num);
+	
 		StudyDTO studyDTO = studyService.studydto(num);
 		
 		ModelAndView mv = new ModelAndView();

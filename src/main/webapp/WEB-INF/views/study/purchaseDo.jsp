@@ -14,6 +14,7 @@
  $(function () {
 	 
 		var payCheck = false;
+		var smartCheck = false;
 		
 	$("#ch_cardNum").click(function() {
 		
@@ -42,29 +43,49 @@
 	});
 	
 	$("#payCard").click(function() {
-		
-
+	
 			if(payCheck==false){
 				alert("올바르지 않은 정보입니다.");
 				return false;
 			}else{
 				alert("결제가 완료되었습니다. 내역은 마이페이지에서 확인가능합니다.");
-		 		$("#p_frm").submit();
-		 		window.close();
-		 		window.opener.top.location.href="/learn_run/study/payComplete?id=${member.id}&product=${dto.title}&price=${dto.price}&name=${member.name}&type=${type}";
+		 		$("#p_frm_card").submit();
+		 		 				 		
+		 		window.opener.top.location.href="/learn_run/study/payComplete";
 			}
 		
 	});
 	
 	$("#paySmart").click(function() {
-		if(payCheck==false){
+		
+		var year = $("#year").val();
+		var month = $("#month").val();
+		var day = $("#day").val();
+		var phone = $("#phone").val();
+		alert(year+"-"+month+"-"+day);
+		
+		$.post("smartCheck", {year:year,month:month,day:day,phone:phone}, function(data) {
+			if(data.trim() =='true'){
+				smartCheck = true;
+			}else{
+				smartCheck = false;
+			}		
+			
+		});
+		
+		if(smartCheck == true){
+			//생일을 올바르게 입력한 경우
+				
+			alert("결제가 완료되었습니다. 내역은 마이페이지에서 확인가능합니다.");
+	 		$("#p_frm_smart").submit();
+	 		window.close();
+	 		window.opener.top.location.href="/learn_run/study/payComplete";
+			
+		}else{
+			// id에 해당하는 생년월일이 일치하지 않는 경우
 			alert("올바르지 않은 정보입니다.");
 			return false;
-		}else{
-			alert("결제가 완료되었습니다. 내역은 마이페이지에서 확인가능합니다.");
-	 		$("#p_frm").submit();
-	 		window.close();
-	 		window.opener.top.location.href="/learn_run/study/payComplete?id=${member.id}&product=${dto.title}&price=${dto.price}&name=${member.name}&type=${type}";
+			
 		}
 	});
 	
@@ -76,9 +97,6 @@
 				alert("계좌번호를 정확히 입력해주시기 바랍니다.")
 			}
 	});
-		
-		
-	 
 	});
 
 </script>	
@@ -105,15 +123,17 @@
 			</div>
 				<div class="clear"></div>
 				<div class="containerContents">
-					<c:if test="${type eq 'card'}">
+					<c:if test="${dto.type eq 'card'}">
 						<h3>카드 결제</h3>
-						<form action="payDo" id="p_frm">
-							<input type="hidden" name="product" value="${dto.title}">
+						<form action="payDo" id="p_frm_card" method="POST">
+							<input type="hidden" name="product" value="${dto.product}">
 							<input type="hidden" name="price" value="${dto.price}">
-							<input type="hidden" name="name" value="${member.name}">
-							<input type="hidden" name="id" value="${member.id}">
-							<input type="hidden" name="type" value="${type}">
-							</form>
+							<input type="hidden" name="name" value="${dto.name}">
+							<input type="hidden" name="id" value="${dto.id}">
+							<input type="hidden" name="type" value="${dto.type}">
+							<input type="hidden" name="snum" value="${dto.snum }">
+							<input type="hidden" name="tid" value="${dto.tid }">
+						</form>
 							<table class="p-table">
 								<thead>
 									<tr>
@@ -124,7 +144,7 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>${dto.title }</td>
+										<td>${dto.product }</td>
 										<td>${dto.tid }</td>
 										<td>${dto.price }</td>
 									</tr>
@@ -170,9 +190,18 @@
 							
 						
 					</c:if>
-					<c:if test="${type eq 'smart'}">
+					<c:if test="${dto.type eq 'smart'}">
 					<h3>스마트 결제</h3>
-						<form action="payDo" id="p-frm">
+						<form action="payDo" id="p_frm_smart" method="POST">
+						
+							<input type="hidden" name="product" value="${dto.product}">
+							<input type="hidden" name="price" value="${dto.price}">
+							<input type="hidden" name="name" value="${dto.name}">
+							<input type="hidden" name="id" value="${dto.id}">
+							<input type="hidden" name="type" value="${dto.type}">
+							<input type="hidden" name="snum" value="${dto.snum }">
+							<input type="hidden" name="tid" value="${dto.tid }">
+					
 							<table class="p-table">
 								<thead>
 									<tr>
@@ -183,7 +212,7 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>${dto.title }</td>
+										<td>${dto.product }</td>
 										<td>${dto.tid }</td>
 										<td>${dto.price }</td>
 									</tr>
@@ -199,21 +228,22 @@
 								<tr>
 								<td>생년월일</td>
 								<td>
-								<select>
+								<select name="year">
 									<c:forEach begin="1910" end="2017" var="i">
-									<option value="${i}" name="birth1">${i}</option>년
+									<option value="${i}">${i}</option>
 									</c:forEach>	
-								</select>
-								<select>
+								</select>년
+								<select name="month">
 									<c:forEach begin="1" end="12" var="i">
-									<option value="${i}" name="birth2">${i}</option>월
+									<option value="${i}" >${i}</option>
 									</c:forEach>
-								</select>
-								<select>
+								</select>월
+								<select name="day">								
 									<c:forEach begin="1" end="31" var="i">
-									<option value="${i}" name="birth3">${i}</option>일
+									<option value="${i}">${i}</option>
 									</c:forEach>
-								</select>
+								</select>일
+									
 								</td>
 								</tr>
 								<tr>
@@ -228,9 +258,9 @@
 							<a role="button" class="payDo" id="paySmart">결제하기</a>
 						</form>
 					</c:if>
-					<c:if test="${type eq 'account'}">
+					<c:if test="${dto.type eq 'account'}">
 					<h3>무통장입금</h3>
-						<form action="payDo">
+						<form action="payDo" id="p_frm_account">
 							<table class="p-table">
 								<thead>
 									<tr>
@@ -241,7 +271,7 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>${dto.title }</td>
+										<td>${dto.product }</td>
 										<td>${dto.tid }</td>
 										<td>${dto.price }</td>
 									</tr>

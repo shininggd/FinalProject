@@ -26,11 +26,13 @@
 				 ml=(cw-sw)/2;       
 				 mt=(ch-sh)/2;      
 				 
-				 var type = $("#type").val();
+				 var type = $("#type").prop("value");
+				 alert(type);
+				 $("#type_value").prop("value",type);
 				 
-				window.open('/learn_run/study/purchaseDo?num=${dto.num}&title=${dto.title}&tid=${dto.tid}&name=${member.name}&price=${dto.price}&type='+type,'purchase_frm','width='+sw+',height='+sh+',top='+mt+',left='+ml+',resizable=no');
-				
-				 
+				/* window.open('/learn_run/study/purchaseDo?num=${dto.num}&title=${dto.title}&tid=${dto.tid}&name=${member.name}&price=${dto.price}&type='+type,'purchase_frm','width='+sw+',height='+sh+',top='+mt+',left='+ml+',resizable=no'); */
+				window.open('','purchase_frm','width='+sw+',height='+sh+',top='+mt+',left='+ml+',resizable=no');
+				$("#purchase_frm").submit();
 			//$("#p-frm").attr("action","purchaseDo");
 		});
 	});
@@ -92,11 +94,14 @@
 			</form>
 			<input type="button" id="doBtn" value="다음 단계로">
 			
-			<form action="">
-				<input type="hidden" name="tid">
-				<input type="hidden" name="title">
-				<input type="hidden" name="price">
-				
+			<form action="/learn_run/study/purchaseDo" id="purchase_frm" name="purchase_frm" method="POST" target='purchase_frm'>
+				<input type="hidden" name="snum" value="${dto.num}">
+				<input type="hidden" name="product" value="${dto.title}">
+				<input type="hidden" name="price" value="${dto.price }">
+				<input type="hidden" id="type_value" name="type">
+				<input type="hidden" name="id" value="${member.id}">
+				<input type="hidden" name="name" value="${member.name}">
+				<input type="hidden" name="tid" value="${dto.tid}">
 			</form>
 		</div>
 </div>

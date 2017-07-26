@@ -5,12 +5,14 @@ import java.util.Date;
 public class PurchaseDTO {
 	
 	private int num;
+	private int snum;
 	private int price;
 	private String product;
 	private String id;
 	private String name;
 	private String type;
 	private Date p_date;
+	private String tid;
 	
 	public int getNum() {
 		return num;
@@ -54,6 +56,19 @@ public class PurchaseDTO {
 	public void setP_date(Date p_date) {
 		this.p_date = p_date;
 	}
-
+	public int getSnum() {
+		return snum;
+	}
+	public void setSnum(int snum) {
+		this.snum = snum;
+	}
+	public String getTid() {
+		return tid;
+	}
+	public void setTid(String tid) {
+		this.tid = tid;
+	}
+	
+	
 
 }

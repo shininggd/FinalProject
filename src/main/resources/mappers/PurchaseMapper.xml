@@ -9,14 +9,17 @@
 		select * from study where num=#{num}
 	</select>
 	
-	<select id="paySmart" parameterType="com.kh.member.MemberDTO">
-		select birth, phone from member where birth=#{birth}, phone=#{phone}
+	<select id="paySmart" parameterType="com.kh.member.MemberDTO" resultType="com.kh.member.MemberDTO">
+		select * from member where birth=#{birth}, phone=#{phone}
 	</select>
 	
 	<insert id="payComplete" parameterType="com.kh.purchase.PurchaseDTO">
 		insert into purchase values 
-		(purchase_seq.nextval, #{price}, #{product}, #{id}, #{name}, #{type}, sysdate)
+		(purchase_seq.nextval, #{price}, #{product}, #{id}, #{name}, #{type}, sysdate, #{snum}, #{tid})
 	</insert>
 	
-
+	<insert id="addMemberStudy">
+		insert into memberstudy (snum, id, reg_date) 
+		select snum, id, p_date from purchase where snum=#{snum}
+	</insert>
 </mapper>

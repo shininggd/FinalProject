@@ -70,6 +70,7 @@ $(function(){
   	var pw_check = false;
   	var all_check = false;
   	var email_check = false;
+
   	
   	var ch_id = "";
   	var ch_pw = $("#pw").val();
@@ -184,7 +185,6 @@ $(function(){
 
   				}
 
-  				
   				if(id_check == false){
   					alert("아이디를 확인해주세요.");
   					all_check = false;
@@ -211,6 +211,7 @@ $(function(){
 		});
 		
 		$("#login").click(function() {
+			
 			$("#loginFrm").submit();
 		});
 	
@@ -342,7 +343,11 @@ $(function(){
 	          						<span class="join_msg">*전체 필수 항목입니다. 모두 입력해주세요.*</span>
 	          					<form action="/learn_run/member/tutorJoin" id="joinFrm" method="post" >
 	          						
-	          						<p class="selectGrade_join">튜터<input type="radio" class="g_check" name="grade" value="tutor" checked="checked"> &nbsp; 학생<input type="radio" class="g_check" name="grade" value="student" id="member-frm"></p>
+	          						<p class="selectGrade_join">
+	          						튜터<input type="radio" class="g_check" name="grade" value="tutor" checked="checked"> 
+	          						&nbsp; 
+	          						학생<input type="radio" class="g_check" name="grade" value="student" id="member-frm">
+	          						</p>
 	          						
 	          						<table>
 	          						<tr>

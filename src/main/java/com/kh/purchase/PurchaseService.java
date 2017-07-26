@@ -1,13 +1,13 @@
 package com.kh.purchase;
 
+import java.sql.Date;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.kh.member.MemberDTO;
 
-import com.kh.study.StudyDTO;
 
 @Service
 public class PurchaseService {
@@ -54,5 +54,24 @@ public class PurchaseService {
 		
 		return message;
 	}
+	
+	public int payComplete(PurchaseDTO purchaseDTO) throws Exception{
+		return purchaseDAO.payComplete(purchaseDTO);
+	}
+	
+	public MemberDTO paySmart(HttpServletRequest request)throws Exception{
+		
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setPhone(request.getParameter("phone"));
+		Date birth = Date.valueOf(request.getParameter("year")+"-"+request.getParameter("month")+"-"+request.getParameter("day"));
+		memberDTO.setBirth(birth);
+
+		return purchaseDAO.paySmart(memberDTO);
+	}
+	
+	public int addMemberStudy(PurchaseDTO purchaseDTO) throws Exception{
+		return purchaseDAO.addMemberStudy(purchaseDTO);
+	}
+	
 	
 }
