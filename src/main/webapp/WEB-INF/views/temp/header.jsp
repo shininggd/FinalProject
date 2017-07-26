@@ -281,6 +281,7 @@ $(function(){
 					<span class="header_bar"></span>
 					<a class="menu3" href="./small_group/small_group">소모임</a>
 					<span class="header_bar"></span>
+					<a class="menu4" href="/learn_run/board/noticePage">NOTICE</a>
 					<ul id="theme_menus_popup">
 						<li><a class="theme_link" href="" style="text-decoration: none;">프로그래밍</a></li>
 						<li><a class="theme_link" href="" style="text-decoration: none;">영어 회화</a></li>
@@ -290,7 +291,7 @@ $(function(){
 				</article>
 					<a class="sear_form"></a>
 				<article id="header-right-menus">
-					<a href="#"><img id="header_search" src="<c:url value="/resources/img/SearchIcon.png"/>"></a>
+			
 					
 					<!--로그인 전  -->
 						<c:if test="${empty member}">
@@ -310,10 +311,10 @@ $(function(){
 	          						
 	          						<table id="login_input">
 	          						<tr>
-									<td colspan="2"><input type="text" name="id" placeholder="ID를 입력하세요"></td>
+									<td colspan="2"><input type="text" name="id" id="id" placeholder="ID를 입력하세요"></td>
 									</tr>
 									<tr>
-									<td colspan="2"><input type="password" name="pw" placeholder="PW를 입력하세요"></td>
+									<td colspan="2"><input type="password" name="pw" id="pw" placeholder="PW를 입력하세요"></td>
 									</tr>
 	          						</table>
 	          						<div id="con-btn">
