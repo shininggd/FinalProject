@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kh.board.BoardDTO;
 import com.kh.board.notice.NoticeDTO;
@@ -39,9 +40,6 @@ public class boardController {
 			listInfo.setSearch("");
 		}
 		
-		System.out.println(listInfo.getFind());
-		System.out.println(listInfo.getSearch());
-		System.out.println(listInfo.getCurPage());
 		
 		List<BoardDTO> list = noticeService.noticeList(listInfo);
 		
@@ -73,8 +71,42 @@ public class boardController {
 	@RequestMapping(value="noticeView")
 	public void noticeView(String num, Model model) throws Exception {
 		BoardDTO boardDTO = noticeService.noticeView(Integer.parseInt(num));
-		
+		noticeService.noticeHit(Integer.parseInt(num));
 		model.addAttribute("dto", boardDTO);
 		
+	}
+	
+	@RequestMapping(value="noticeUpdateForm")
+	public void noticeUpdateForm(String num,Model model) throws Exception {
+		BoardDTO boardDTO = noticeService.noticeView(Integer.parseInt(num));
+		model.addAttribute("dto", boardDTO);
+	}
+	
+	@RequestMapping(value="noticeUpdate")
+	public String noticeUpdate(BoardDTO boardDTO,Model model) throws Exception {
+		
+		int result = noticeService.noticeUpdate(boardDTO);
+		String message = "수정 실패";
+		if(result>0) {
+			message = "수정 성공";
+		}
+		
+		model.addAttribute("message", message);
+		model.addAttribute("path", "/learn_run/board/noticePage");
+				
+		return "common/MLresult";
+	}
+	
+	@RequestMapping(value="noticeDelete")
+	public String noticeDelete(int num,Model model) throws Exception {
+		int result = noticeService.noticeDelete(num);
+		String message = "삭제 싥패";
+		if(result>0) {
+			message = "삭제 성공";
+		}
+		
+		model.addAttribute("message", message);
+		model.addAttribute("path", "/learn_run/board/noticePage");
+		return "common/MLresult";
 	}
 }

@@ -37,5 +37,17 @@
 	<select id="noticeView" parameterType="java.lang.Integer" resultType="com.kh.board.notice.NoticeDTO">
 		select * from notice where num=#{num}
 	</select>
+	
+	<update id="noticeUpdate" parameterType="com.kh.board.notice.NoticeDTO">
+		update notice set title=#{title}, contents=#{contents} where num=#{num}
+	</update>
+	
+	<delete id="noticeDelete" parameterType="java.lang.Integer">
+		delete notice where num=#{num}
+	</delete>
+	
+	<update id="noticeHit" parameterType="java.lang.Integer">
+		update notice set hit = hit+1 where num=#{num} 
+	</update>
 
 </mapper>

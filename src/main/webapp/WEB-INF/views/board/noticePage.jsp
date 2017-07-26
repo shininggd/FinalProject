@@ -17,16 +17,12 @@
 <section id="main_section">
 
 	<div class="main_container">
-	
+		<h1>NOTICE</h1>
 		<div id="list_wrap">
 		
 		</div>
 		
-		<c:if test="${member.id eq 'admin' }">
-		<div id="btns">
-			<input type="button" id="nWrite_btn" value="글쓰기">
-		</div>
-		</c:if>
+		
 	
 	</div>
 </section>
@@ -40,7 +36,7 @@
 		List();
 	});
 	
-	$("#nWrite_btn").click(function () {
+	$("#list_wrap").on("click","#nWrite_btn",function() {
 		location.href="noticeWriteForm";
 	});
 	

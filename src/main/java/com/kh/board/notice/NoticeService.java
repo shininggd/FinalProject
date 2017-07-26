@@ -17,7 +17,6 @@ public class NoticeService {
 	public List<BoardDTO> noticeList(ListInfo listInfo) throws Exception {
 		listInfo.makeRow();
 		int totalCount = noticeDAOImpl.count(listInfo);
-		System.out.println("totalcount="+totalCount);
 		listInfo.makePage(totalCount);
 		
 		return noticeDAOImpl.list(listInfo);
@@ -29,5 +28,17 @@ public class NoticeService {
 	
 	public BoardDTO noticeView(int num) throws Exception {
 		return noticeDAOImpl.view(num);
+	}
+	
+	public int noticeUpdate(BoardDTO boardDTO) throws Exception {
+		return noticeDAOImpl.update(boardDTO);
+	}
+	
+	public int noticeDelete(int num) throws Exception {
+		return noticeDAOImpl.delete(num);
+	}
+	
+	public int noticeHit(int num) throws Exception {
+		return noticeDAOImpl.hit(num);
 	}
 }

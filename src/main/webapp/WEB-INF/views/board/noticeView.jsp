@@ -31,34 +31,30 @@
 		
 		<div id="contents">${dto.contents }</div>
 		
-		<input type="button" id="nWrite_btn" value="글쓰기">
+		<input type="button" class="viewPage_btn" id="nList_btn" value="목록">
+		<c:if test="${member.id eq 'admin' }">
+		<input type="button" class="viewPage_btn" id="nDelete_btn" value="삭제">
+		<input type="button" class="viewPage_btn" id="nUpdate_btn" value="수정">
+		</c:if>
 	</form>
 	
 	</div>
 </section>
 <c:import url="../temp/footer.jsp"></c:import>
 <script type="text/javascript">
-	<%-- var title = document.getElementById("title");
-	var contents = document.getElementById("contents");
-	var editor_object = [];
 
-	nhn.husky.EZCreator.createInIFrame({
- 	   oAppRef: editor_object,
- 	   elPlaceHolder: "contents",
- 	   sSkinURI: "<%=application.getContextPath()%>/resources/SE2/SmartEditor2Skin.html", 
- 	   htParams : {
- 	       // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
- 	       bUseToolbar : true,             
- 	       // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
- 	       bUseVerticalResizer : true,     
- 	       // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
- 	       bUseModeChanger : true, 
- 	   }
-	}); --%>
-
-	$("#nWrite_btn").click(function () {
-		editor_object.getById["contents"].exec("UPDATE_CONTENTS_FIELD", []);
-		$("#nWrite_frm").submit();
+	$("#nUpdate_btn").click(function () {
+		var num = '${dto.num}';
+		location.href = "noticeUpdateForm?num="+num;
+	});
+	
+	$("#nDelete_btn").click(function () {
+		var num = '${dto.num}';
+		location.href = "noticeDelete?num="+num;
+	});
+	
+	$("#nList_btn").click(function () {
+		location.href = "/learn_run/board/noticePage";
 	});
 	
 	

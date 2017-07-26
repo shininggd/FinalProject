@@ -47,6 +47,12 @@
 	</form>
 </div>
 
+<c:if test="${member.id eq 'admin' }">
+	<div id="btns">
+		<input type="button" id="nWrite_btn" value="글쓰기">
+	</div>
+</c:if>
+
 <div id="notice_page">
 	<c:if test="${listInfo.curBlock > 1}">
 		<span class="listPage" id="${listInfo.startNum -1}">[이전페이지]</span>

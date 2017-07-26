@@ -29,14 +29,12 @@ public class NoticeDAOImpl implements BoardDAO {
 
 	@Override
 	public int update(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(NAMESPACE+"noticeUpdate", boardDTO);
 	}
 
 	@Override
 	public int delete(int num) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.delete(NAMESPACE+"noticeDelete", num);
 	}
 
 	@Override
@@ -47,6 +45,10 @@ public class NoticeDAOImpl implements BoardDAO {
 	@Override
 	public List<BoardDTO> list(ListInfo listInfo) throws Exception {
 		return sqlSession.selectList(NAMESPACE+"noticeList", listInfo);
+	}
+	
+	public int hit(int num) throws Exception {
+		return sqlSession.update(NAMESPACE+"noticeHit", num);
 	}
 
 	

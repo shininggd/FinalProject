@@ -10,11 +10,11 @@
 	height: auto;
 }
 
-#nWrite_frm {
+#nUpdate_frm {
 	margin-left: 100px;
 }
 
-#nWrite_frm #title {
+#nUpdate_frm #title {
 	display: block;
    
     width: 725px;
@@ -26,7 +26,7 @@
     font-size: 15pt;
 }
 
-#nWrite_frm #writer {
+#nUpdate_frm #writer {
 	display: block;
    
     width: 725px;
