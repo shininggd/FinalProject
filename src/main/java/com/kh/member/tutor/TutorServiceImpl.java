@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 
 import com.kh.member.MemberDTO;
 import com.kh.member.MemberService;
+import com.kh.member.student.StudentDTO;
 import com.kh.util.ListInfo;
 
 @Service
@@ -64,6 +65,9 @@ public class TutorServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return 0;
 
+	}
+	public int tutorDelete(TutorDTO tutorDTO){
+		return tutorDAOImpl.tutorDelete(tutorDTO);
 	}
 	
 }

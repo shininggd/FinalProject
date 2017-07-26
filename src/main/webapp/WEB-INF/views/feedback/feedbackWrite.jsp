@@ -13,6 +13,12 @@
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyRegist.css">
 <script type="text/javascript" src="<%=application.getContextPath()%>/resources/SE2/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+<style type="text/css">
+.form_main {
+ 
+    height: 60px;
+ 
+}</style>
 </head>
 <body>
 <c:import url="../temp/header.jsp"></c:import>
@@ -26,40 +32,25 @@
 		각양각색 스터디<br>
 		 <span class="fcolor">Learn&Run</span>
 		</div>
-		<form action="studyView" method="post" id="frm" name="frm" enctype="multipart/data-form">
-			<input type="hidden" name="num" value="${dto.num }">
-			<input type="hidden" name="tid" value="${dto.tid }">
+		<form action="studyPage" method="post" id="frm" name="frm" enctype="multipart/data-form">
+			<input type="hidden"  name="snum" value="${snum }">
+			<input type="hidden"  name="writer" value="${member.id }">
 			<div class="form_main">
 				<div class="form_top">	
 					 제목 <select name="category" class="top_box" id="category">
-								<option value="영어회화" <c:if test="${dto.category eq '영어회화'}">selected="selected"</c:if>>영어회화</option>
-								<option value="중국어회화"<c:if test="${dto.category eq '중국어회화'}">selected="selected"</c:if>>중국어회화</option>
+								<option value="자유게시판">자유게시판</option>
+								<option value="튜터와 함께">튜터와 함께</option>
+								<option value="우리들의 이야기">우리들의 이야기</option>
 						   </select>
-						<select name="lv" class="top_box" id="lv" >
-								<option value="초보" <c:if test="${dto.lv eq '초보'}">selected="selected"</c:if>>초보</option>
-								<option value="중수" <c:if test="${dto.lv eq '중수'}">selected="selected"</c:if>>중수</option>
-								<option value="고수" <c:if test="${dto.lv eq '고수'}">selected="selected"</c:if>>고수</option>
-						   </select> 
-						<input type="text" name="title" class="title_box" id="title" value="${dto.title }" placeholder="강의명을 입력하세요"><br>
+						
+						<input type="text" name="title" class="title_box" id="title" placeholder="제목을 입력하세요"><br>
 				 		   
 				</div>
-
-				<div class="form_other">
-					장소 <select name="location" class="other_box" id="location">
-							<option value="온라인" <c:if test="${dto.location eq '온라인'}">selected="selected"</c:if>>온라인</option>
-							<option value="천호동" <c:if test="${dto.location eq '천호동'}">selected="selected"</c:if>>천호동</option>
-						</select> 
-					인원 <input type="number" min="1" max="99" class="people_box" name="people" id="people" value="${dto.people }">
-				</div> 			
-			
-			<div class="form_other">기   간 <input type="date" name="sDate" class="other_box" id="sDate" value="${dto.sDate }"> - 
-			<input type="date" name="lDate" class="other_box" id="lDate" value="${dto.lDate }"> 
-			가   격 <input type="number" name="price" min="0" class="number_box" id="price" value="${dto.price }">원</div>
 			</div>
 			<div class="textSE">
-			<textarea id="contents" name="contents">${dto.contents }</textarea></div>
+			<textarea id="contents" name="contents"></textarea></div>
 			<div class="submit_box">
-			<input type="submit" id="savebutton" value="수정하기" class="submit_btn" >
+			<input type="submit" id="savebutton" value="등록하기" class="submit_btn" >
 			</div>
 		</form>
 	</div>
@@ -92,24 +83,13 @@ nhn.husky.EZCreator.createInIFrame({
         //id가 smarteditor인 textarea에 에디터에서 대입
         
          
-     
+        
 	   if(
-		$("#title").val()== "" ||
-		$("#sDate").val()== "" ||
-		$("#lDate").val()== "" ||
-		$("#price").val() =="" ||
-		$("#price").val()*1 <=0*1 ||
-		$("#people").val()*1 <0*1 ||
-		$("#people").val()*1>100*1
+		$("#title").val()== "" 
 		){
-		   
-		alert("누락된 정보가 있거나 정보입력이 잘못되었습니다.");
+		
+		alert("제목은 필수 입력항목입니다.");
 		return false;
-        }
-        	
-        if($("#sDate").val().replace('-','').replace('-','')*1 >$("#lDate").val().replace('-','').replace('-','')*1){
-    		alert("강의 시작일과 종료일을 확인해주세요");	
-    		return false;
         }
         	
         editor_object.getById["contents"].exec("UPDATE_CONTENTS_FIELD", []);

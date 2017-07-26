@@ -96,8 +96,10 @@
 	<div class="introduceContent">
 	${tutor.introduce }
 		</div>
+		
 
 </div>
+
 <div class="update_box">
 <c:if test="${member.id eq tutor.id }">
 <form action="studyUpdate" method="post">

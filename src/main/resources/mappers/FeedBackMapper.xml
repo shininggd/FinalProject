@@ -15,7 +15,7 @@
  <select id="list" resultType="com.kh.feedback.FeedBackDTO" parameterType="java.util.Map">
   	select * from (select rownum R, S.* from (select * from feedback
   	 <include refid="whereList"></include>
-  	 order by num desc, ref desc, step asc) S) where R between #{startRow} and #{lastRow} 
+  	 order by ref desc, step asc) S) where R between #{startRow} and #{lastRow} 
   </select>
   <select id="view" resultType="com.kh.feedback.FeedBackDTO" parameterType="java.lang.Integer">
   	select * from feedback where num = #{num}

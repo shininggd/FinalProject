@@ -14,7 +14,7 @@
 						</div>
 						<div class="boxMiddle_2">
 							<fmt:formatNumber type="currency" currencySymbol="">${i.price }</fmt:formatNumber>원 <span class="people">${i.people }명</span>
-							<img class="houseImage" src="<c:url value="/resources/img/study/houseIcon.jpg"/>"> 
+							<a href="./feedback/studyPage?snum=${i.num }"><img class="houseImage" src="<c:url value="/resources/img/study/houseIcon.jpg"/>"></a> 
 						</div>
 						<div class="boxBottom">
 						

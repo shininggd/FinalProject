@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.board.BoardDAO;
 import com.kh.board.BoardDTO;
-
+import com.kh.study.StudyDTO;
 import com.kh.util.ListInfo;
 
 @Repository
@@ -18,6 +18,7 @@ public class FeedBackDAOImpl implements BoardDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "FeedBackMapper.";
+	
 	
 	
 	@Override
@@ -58,6 +59,7 @@ public class FeedBackDAOImpl implements BoardDAO {
 			map.put("find"+i, far[i]);
 			;
 		}
+		
 		int num = sqlSession.selectOne(NAMESPACE+"count", map);
 		return num;
 	}
@@ -76,6 +78,8 @@ public class FeedBackDAOImpl implements BoardDAO {
 			map.put("find"+i, far[i]);
 			;
 		}
+		map.put("startRow",listInfo.getStartRow());
+		map.put("lastRow",listInfo.getLastRow());
 		List<BoardDTO> ar = sqlSession.selectList(NAMESPACE+"list", map); 
 			
 		return ar;
@@ -86,6 +90,14 @@ public class FeedBackDAOImpl implements BoardDAO {
 	}
 	public int replyUpdate(BoardDTO boardDTO) throws Exception{
 		return sqlSession.insert(NAMESPACE+"replyUpdate", (FeedBackDTO)boardDTO);
+	}
+	public HashMap<Object, Object> studyPage(int num){
+		HashMap<Object, Object> map = new HashMap<Object, Object>();
+		StudyDTO studyDTO = sqlSession.selectOne("StudyMapper.studyView", num);
+		map.put("dto", studyDTO);
+		map.put("fname", sqlSession.selectOne("TutorMapper.tutorImage",studyDTO.getTid()));
+		return  map;
+		
 	}
 
 }
