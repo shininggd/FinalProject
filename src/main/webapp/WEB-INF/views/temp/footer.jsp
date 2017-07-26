@@ -9,7 +9,7 @@
 		<div class="customer-center-bg"></div>
 		<div class="footer-content">
 			<div class="sitemap-wrap">
-				<div class="logo">스터디서치</div>
+				<div class="logo">Learn&Run</div>
 				<ul class="links">
 					<li class="footer_li"><h1 class="title company">COMPANY</h1>
 						<ul class="footer_ul">
@@ -36,7 +36,7 @@
 						</ul></li>
 					<li class="customer-center-wrap footer_li"><h1
 							class="title customer-center">CUSTOMER CENTER</h1>
-						<div class="description">스터디서치 고객센터</div>
+						<div class="description">Learn&Run 고객센터</div>
 						<div class="operation-hours">평일 13:00-22:00</div>
 						<div class="operation-days">(월-금 운영)</div>
 						<ul class="customer-center-links">
@@ -48,17 +48,17 @@
 				</ul>
 			</div>
 			<div class="company-info">
-				<div class="column">㈜ 발란스커리어</div>
+				<div class="column">Final Project</div>
 				<span class="slash">/</span>
-				<div class="column">대표 최진원</div>
+				<div class="column">Learn&Run</div>
 				<span class="slash">/</span>
-				<div class="column">통신판매업 2015-서울마포-1130</div>
+				<div class="column">조장 : 장태주</div>
 				<span class="slash">/</span>
-				<div class="column">사업자등록 105-88-04987</div>
+				<div class="column">조원 : 김태린, 이상일, 한병훈, 한 진</div>
 				<span class="slash">/</span>
-				<div class="column">대표번호 1899-4074</div>
+				<div class="column">KH정보교육원</div>
 				<span class="slash">/</span>
-				<div class="column">서울시 마포구 새창로 11 공덕빌딩 18층</div>			
+				<div class="column">서울특별시 강남구 테헤란로 14길 6 남도빌딩 2F, 3F, 4F</div>		
 			</div>
 		</div>
 

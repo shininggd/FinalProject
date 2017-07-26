@@ -12,14 +12,12 @@
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyList.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyView.css">
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-
-
 </head>
 <body>
 <c:import url="../temp/header.jsp"></c:import>
 <!-- ======================================== 섹션=============================================  -->
 <section id="main_section">
-
+ 
 <div class="Space">
 <div class="productIntroduce">
 	
@@ -79,15 +77,25 @@
 	<hr>
 	<div class="tutorLabel">
 	리더소개
-	<p><img class="tutorImage" src="<c:url value="/resources/img/tutor/얼굴.jpg"/>"><p>
+	<p><img class="tutorImage" src="<c:url value="/resources/img/member/profilePhoto/${profile }"/>"><p>
 	</div>
 	<div class="introduceContent">
 	${tutor.introduce }
 		</div>
-</div>
+		
 
 </div>
 
+<div class="update_box">
+<c:if test="${member.id eq tutor.id }">
+<form action="studyUpdate" method="post">
+<input type="hidden" name="tid" value="${tutor.id}">
+<input type="hidden" name="num" value="${dto.num}">
+<input type="submit" value="수정하기" class="update_btn">
+</form>
+</c:if>
+</div>
+</div>
 </section>
 <!-- ======================================== 섹션END==========================================  -->
 

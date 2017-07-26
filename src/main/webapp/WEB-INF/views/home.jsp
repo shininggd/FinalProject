@@ -13,8 +13,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="<%=application.getContextPath()%>/resources/js/uikit.min.js"></script>
 <script src="<%=application.getContextPath()%>/resources/js/slider.js"></script>
-<script src="<%=application.getContextPath()%>/resources/js/levelTest.js"></script>
-<script src="<%=application.getContextPath()%>/resources/js/LevelTestQuiz.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/slide.css">
 <!-- 메인화면 slide 소스 끝 -->
 
@@ -40,7 +38,7 @@
 		    <div class="uk-slider-container">
 		        <ul class="uk-slider"> 
 		            <li><a href="#" draggable="false"><div class="img_size"><figure><img style="width: 48%; height: 100%; float: right;" src="<%=application.getContextPath()%>/resources/img/image.jpg" draggable="false"></figure>
-		            <div class="banner_content">
+		            <div class="banner_content">	
 							<div class="banner_top_text"><span class="area">강남</span><span class="banner_bar"></span><span class="level">초급</span></div>
 							<div class="banner_title">미국 4년 거주! Erin 과 함께 주제별 토론으로 논리있게 회화!</div>
 							<div class="banner_bottom_text"><span class="price_value">240,000원</span><span class="price_unit">/12주</span></div>
@@ -86,8 +84,9 @@
 		</div>	
 		<div class="studyMiddle">
 			<div class="middleLeft">
-				<p class="leftSelect">다양한 영어회화</p>
-				<p>다양한 영어회화 ＇ 대세는 중국어</p>
+				<p class="leftSelect">다양한 <span id="cat">영어회화</span></p>
+				<p><span class="homeCategory" title="영어회화">다양한 영어회화</span> ＇ 
+				<span class="homeCategory" title="중국어회화">다양한 중국어</span></p>
 		
 			</div>
 			<div class="middleCenter">
@@ -100,37 +99,9 @@
 			</div>
 		</div>
 		<div class="studyBottom">
-			<div class="main_container">
+			<div class="main_container" id="studyList">
 
-
-				<c:forEach items="${list }" var="i"  varStatus="s" >
-				<a href="./study/studyView?num=${i.num }&tid=${i.tid }" class="aBlock">
-
-					<div class="listBox">
-						<div class="boxTop">
-						${i.location } | ${i.lv }
-						</div>
-						<div class="boxMiddle_1">
-							<span class="middleTitle">${i.title }</span>
-						</div>
-						<div class="boxMiddle_2">
-							<fmt:formatNumber type="currency" currencySymbol="">${i.price }</fmt:formatNumber>원 <span class="people">${i.people }명</span> 
-						</div>
-						<div class="boxBottom">
-						
-						</div>
-						
-						
-					</div>
-					</a>
-					<c:if test="${s.index%3 eq 2 }">
-						
-						<hr>
-					</c:if>
-						
-							
-				</c:forEach>
-		</div>
+		    </div>
 		
 	</div>
 	<!-- 강의 리스트 3개 가져오는거  끝-->
@@ -143,5 +114,27 @@
 
 
 <c:import url="temp/footer.jsp" />
+
+<script type="text/javascript">
+homList('category','영어회화');
+$(".homeCategory").click(function() {
+	var find = 'category';
+	var search = $(this).attr("title");
+	homList(find,search);
+	
+
+})
+
+function homList(find, search) {
+	$.get("./study/studyHomeList",{find:find,search:search},function(data){
+		$("#studyList").html(data);
+})
+$(".viewAll").attr("href","./study/studyList?find=category,location,lv&search="+search+",all,all")
+$("#cat").html(search);
+	
+}
+
+</script>
+
 </body>
 </html>

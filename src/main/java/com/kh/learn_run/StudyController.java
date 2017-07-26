@@ -15,7 +15,7 @@ import com.kh.study.StudyService;
 import com.kh.util.ListInfo;
 
 @Controller
-@RequestMapping(value = "/study", method = RequestMethod.GET)
+@RequestMapping(value = "/study")
 public class StudyController {
 	
 	@Autowired
@@ -40,16 +40,48 @@ public class StudyController {
 		TutorDTO tutor = (TutorDTO)ar.get("tutor");
 		model.addAttribute("dto", dto);
 		model.addAttribute("tutor",tutor);
+		model.addAttribute("profile",ar.get("profile"));
+		
 	}
 	@RequestMapping(value = "studyRegist", method = RequestMethod.GET)
 	public void regist(){
 
 	}
-	@RequestMapping(value = "studyRegistInsert", method = RequestMethod.POST)
-	public void regist(StudyDTO studyDTO)throws Exception{
-		studyService.regist(studyDTO);
+	@RequestMapping(value = "studyPage", method = RequestMethod.GET)
+	public void page(){
 
 	}
+
+	@RequestMapping(value = "studyRegistInsert", method = RequestMethod.POST)
+	public String regist(StudyDTO studyDTO)throws Exception{
+		System.out.println(studyDTO.getContents());
+		studyService.regist(studyDTO);
+		return "redirect: /learn_run/";
+
+	}
+	
+	@RequestMapping(value = "studyUpdate", method=RequestMethod.POST )
+	public String update(Model model, Integer num) throws Exception{
+		String path = "study/studyUpdate";
+		model.addAttribute("dto", studyService.update(num)); 
+
+		return path;
+	}
+	@RequestMapping(value = "studyView", method = RequestMethod.POST)
+	public void update(StudyDTO studyDTO,Model model)throws Exception{
+		
+		
+		studyService.update(studyDTO);
+		HashMap<Object, Object> ar =studyService.studyView(studyDTO.getNum(), studyDTO.getTid());
+		StudyDTO dto = (StudyDTO) ar.get("study");
+		TutorDTO tutor = (TutorDTO)ar.get("tutor");
+		model.addAttribute("dto", dto);
+		model.addAttribute("tutor",tutor);
+		model.addAttribute("profile",ar.get("profile"));
+	
+
+	}
+
 
 	
 	@RequestMapping(value="myStudyList", method = RequestMethod.POST)
@@ -64,5 +96,12 @@ public class StudyController {
 		
 		return "member/sub/myStudyList";
 	}
+	@RequestMapping(value="studyHomeList", method=RequestMethod.GET)
+	public void homeStudy(Model model, ListInfo listInfo) throws Exception{
+		System.out.println(listInfo.getFind());
+		System.out.println(listInfo.getSearch());
+		model.addAttribute("list", studyService.homeList(listInfo));
+	}
+
 	
 }

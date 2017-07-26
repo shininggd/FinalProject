@@ -52,12 +52,14 @@
     text-decoration: none;
     float: left;
     padding-top: 25px;
+    text-align: center;
 }
 
 .tab.selected {
 	color: #fff;
     border-bottom: 3px solid #ef6c00;
     font-weight: 700;
+    text-align: center;
 }
 
 #main_section {
@@ -79,10 +81,4 @@
 	padding: 16px 14px 40px;
     font-size: 18pt;
     color: #3c3c3c;
-}
-
-#mystudy_list {
-	border-top: 1px solid #ebebeb;
-    list-style: none;
-	
 }

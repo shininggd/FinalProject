@@ -1,5 +1,7 @@
 package com.kh.member.student;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,6 +12,8 @@ import org.springframework.ui.Model;
 import com.kh.member.MemberDAO;
 import com.kh.member.MemberDTO;
 import com.kh.member.MemberService;
+import com.kh.member.tutor.TutorDTO;
+import com.kh.util.ListInfo;
 @Service
 public class StudentServiceImpl implements MemberService{
 	
@@ -35,16 +39,14 @@ public class StudentServiceImpl implements MemberService{
 		return studentDAOImpl.memberLogin(memberDTO, session);
 	}
 
-	@Override
-	public String IdFind(MemberDTO memberDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public MemberDTO IdFind(MemberDTO memberDTO) throws Exception {
+		
+		return studentDAOImpl.IdFind(memberDTO);
 	}
 
-	@Override
-	public String PwFind(MemberDTO memberDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public MemberDTO PwFind(MemberDTO memberDTO) throws Exception {
+		
+		return studentDAOImpl.PwFind(memberDTO);
 	}
 
 	@Override
@@ -53,9 +55,28 @@ public class StudentServiceImpl implements MemberService{
 		return result;
 	}
 
-
-		
+	@Override
+	public int pointGC(MemberDTO memberDTO) throws Exception {
+		return studentDAOImpl.pointGC(memberDTO);
 	}
+	
+	public String myPoint(MemberDTO memberDTO) throws Exception {
+		return studentDAOImpl.myPoint(memberDTO);
+	}
+	public List<StudentDTO> stuinfo(ListInfo listInfo) throws Exception{
+		listInfo.makePage(studentDAOImpl.Scount(listInfo));
+		listInfo.makeRow();
+		return studentDAOImpl.stuinfo(listInfo);
+	}
+	
+	public int Scount(ListInfo listInfo) throws Exception{
+		return studentDAOImpl.Scount(listInfo);
+	}
+
+	public int memberDelete(StudentDTO studentDTO){
+		return studentDAOImpl.memberDelete(studentDTO);
+	}
+}
 		
 
 	

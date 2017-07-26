@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="MessageMapper">
+
+	<select id="messageList" parameterType="java.lang.String" resultType="com.kh.message.MessageDTO">
+		select * from message where id=#{id}
+	</select>
+	
+	<select id="messageView" parameterType="java.lang.Integer" resultType="com.kh.message.MessageDTO">
+		select * from message where num=#{num}
+	</select>
+
+	<update id="messageRead" parameterType="java.lang.Integer">
+		update message set read='t' where num=#{num}
+	</update>
+	
+	<insert id="messageWrite" parameterType="com.kh.message.MessageDTO">
+		insert into message values(message_seq.nextval,#{id},#{sender},#{title},#{contents},sysdate,'f')
+	</insert>
+	
+	<delete id="messageDelete" parameterType="java.lang.Integer">
+		delete message where num=#{num}
+	</delete>
+	
+	<select id="messageCount" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select count(num) from message where id=#{id} and read='f'
+	</select>
+</mapper>

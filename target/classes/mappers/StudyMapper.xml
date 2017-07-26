@@ -36,8 +36,12 @@
   <insert id="studyRegist" parameterType="com.kh.study.StudyDTO">
   	insert into study(num, tid, sdate, ldate, lv, category, price, people, location, title, contents, onoff)
   	values(study_seq.nextval,#{tid},#{sDate},#{lDate},#{lv},#{category},#{price},#{people},#{location},#{title},#{contents},'off')
-  
   </insert>
+  <update id="studyUpdate" parameterType="com.kh.study.StudyDTO">
+  	update study set sdate =#{sDate}, ldate = #{lDate}, lv =#{lv}, category =#{category} , 
+  	price =#{price}, people =#{people} , location =#{location}, title =#{title}, contents =#{contents}
+  	where num = #{num}
+  </update>
   
   <select id="studyView" parameterType="java.lang.Integer" resultType="com.kh.study.StudyDTO">
   	select * from study where num = #{num}

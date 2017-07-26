@@ -1,6 +1,15 @@
 @CHARSET "UTF-8";
+.houseImage{
+	
+	float: right;
+	display:block;
+	position: static;
+}
 
-
+a:HOVER{
+	text-decoration: none;
+	
+}
 /* main 시작 */
 body {
 	margin: 0;
@@ -101,14 +110,14 @@ body {
 	
 }
 .middleLeft{
-min-width: 230px;
+width: 242px;
 height: 100%;
 display: inline-block;
 overflow: hidden;
 }
 .leftSelect{
 margin-top:50px;
-font-size: 30px;
+font-size: 29px;
 }
 .middleCenter{
 width: 550px;

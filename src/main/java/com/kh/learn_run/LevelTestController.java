@@ -6,9 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import com.kh.leveltest.LeveltestDTO;
 import com.kh.leveltest.LeveltestService;
 
 
@@ -31,6 +28,7 @@ public class LevelTestController {
 		String ar[] = leveltestservice.TQlist(category,step);  		
 		model.addAttribute("question", ar[0]);
 		model.addAttribute("answer", ar[1]);
+		model.addAttribute("answersopt", ar[2]);
 		}
 		model.addAttribute("category", category);
 		model.addAttribute("step", step);

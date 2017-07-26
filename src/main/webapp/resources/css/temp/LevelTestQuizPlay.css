@@ -42,16 +42,18 @@
 #LTQ_ans > ul{
 	 list-style: none;
 	 cursor: pointer;
+	 margin-top: 70px;
 }
 .ans_sel{
 	padding-bottom: 2px;
 	border-bottom: 2px solid #ebebeb;
 }
 #LTQ_Q{
-	margin: 20px;
-	font-size: 18pt;
+    margin: 10px;
+    font-size: 16pt;
     font-weight: 700;
     color: #505050;
+    text-align: inherit;
     line-height: 1.16em;
 }
 

@@ -24,13 +24,13 @@
 	</beans:bean>
 	<!-- 강의 등록시 사용하는 인터셉터  -->
 	<beans:bean class="com.kh.interceptor.InsertInterceptor" id="insertInterceptor">
-	
 	</beans:bean>
 	<interceptors>
 	 <interceptor>
 	 <mapping path="/study/studyRegist*"/>
 	 <beans:ref bean="insertInterceptor"/>
 	 </interceptor>
+	 
 	</interceptors>
 	
 	
@@ -40,7 +40,10 @@
 	<context:component-scan base-package="com.kh.leveltest"/>
 	<context:component-scan base-package="com.kh.member" />
 	<context:component-scan base-package="com.kh.util" />
-
+	<context:component-scan base-package="com.kh.message" />
+	<context:component-scan base-package="com.kh.feedback" />
+	<context:component-scan base-package="com.kh.board" />
+	<context:component-scan base-package="com.kh.board.notice" />
 	
 	
 </beans:beans>

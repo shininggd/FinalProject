@@ -9,8 +9,40 @@
 <script type="text/javascript">
 $(function(){
     
+	$("#header_logo").click(function () {
+		location.href = "/learn_run/"
+	});
 	
+	/* --------findInfo---------- */
+	$("#find_id").click(function() {
+		//window.open("/learn_run/member/find_id",  "ID 찾기", "width=500, height=300, left=400, top=250");
+		 cw=screen.availWidth;    
+		 ch=screen.availHeight;   
+
+		 sw=500;   
+		 sh=300;   
+
+		 ml=(cw-sw)/2;        
+		 mt=(ch-sh)/2;         
+
+		 test=window.open('/learn_run/member/find_id','tst','width='+sw+',height='+sh+',top='+mt+',left='+ml+',resizable=no');
+	});
 	
+	$("#find_pw").click(function() {
+		//window.open("/learn_run/member/find_pw",  "PW 찾기", "width=500, height=300, left=200");
+		 cw=screen.availWidth;    
+		 ch=screen.availHeight;    
+		 
+		 sw=500;    
+		 sh=360;   
+
+		 ml=(cw-sw)/2;        
+		 mt=(ch-sh)/2;       
+
+		 test=window.open('/learn_run/member/find_pw','tst','width='+sw+',height='+sh+',top='+mt+',left='+ml+',resizable=no');
+	}); 
+	
+		
 	/* ---------------------login , join ------------------------------*/
 	$("#login_modal_toggle").click(function () {
 		$("#loginForm").css("display","inline");
@@ -34,9 +66,11 @@ $(function(){
 	var id_check = false;
   	var pw_check = false;
   	var all_check = false;
+  	var email_check = false;
   	
   	var ch_id = "";
   	var ch_pw = $("#pw").val();
+  	var ch_email = "";
 
 //id중복확인
   		$("#id").change(function(){
@@ -44,7 +78,7 @@ $(function(){
   			$.post("member/IdCheck",
   					{id:ch_id},
   					function(data) {
-						var reg_id = /^[a-z0-9]{6,20}$/;
+						var reg_id = /^[a-zA-Z]+[a-zA-Z0-9]{5,19}$/;
 						var R_id = data.trim();
 						
 						//alert(R_id);
@@ -54,9 +88,8 @@ $(function(){
 						}
 						
 						if(R_id=='true'){
-							
 							if(!reg_id.test(ch_id)){
-								$("#idmessage").html("<font color=red>영문, 숫자를 혼합하여 6~20자 이내로 입력해주세요.</font");
+								$("#idmessage").html("<font color=red>6~20자 이내로 입력해주세요.</font");
 								id_check = false;
 							}
 							if(reg_id.test(ch_id)){
@@ -65,10 +98,10 @@ $(function(){
 							}
 						}
 						
-					});
+				});
 		});
   		
-  		//pw일치여부
+  		/* pw일치여부 시작 */
           $("#pw").change(function(){
            
            if($("#pw").val()==$("#pw2").val()){
@@ -79,7 +112,8 @@ $(function(){
               pw_check = false;
            }
            
-        });       
+        }); 
+  		
   		
          $("#pw2").change(function(){
              
@@ -92,11 +126,27 @@ $(function(){
              }
              
           });       
-  		
+         /* pw일치여부 끝 */
          
+  		/* email 형식 */
+  		$("#email").change(function() {
+			ch_email = $(this).prop("value");
+			alert(ch_email);
+			var reg_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+			
+			if(!reg_email.test(ch_email)){
+				email_check = false;
+			}
+			
+			if(reg_email.test(ch_email)){
+				email_check = true;
+			}
+		});
+  		
+  		
         //회원가입버튼을 눌렀을 때
   		$("#join").click(function() {
-			
+  			
   			if(	$("#id").val != "" &&
   				$("#pw").val != "" &&
   				$("#pw2").val != "" &&
@@ -106,12 +156,12 @@ $(function(){
   				$("#telecom").val != "" &&
   				$("#phone").val != "" &&
   				id_check == true &&
-  				pw_check == true){
+  				pw_check == true &&
+  				email_check == true){
   					all_check = true;
   				}else {
   					all_check = false;
   				}
-  			
 
   				if($("#id").val() == "" ||
   					$("#pw").val() == "" ||
@@ -123,6 +173,14 @@ $(function(){
   					$("#phone").val()  == "") {
   						alert("필수 항목을 모두 입력해주세요.");
   				}
+  				
+
+ 				if(email_check == false){
+  					alert("이메일 주소 형식을 확인해주세요.");
+  					all_check = false;
+
+  				}
+
   				
   				if(id_check == false){
   					alert("아이디를 확인해주세요.");
@@ -138,9 +196,7 @@ $(function(){
   				}
   			
   			});
-  		
-
-		
+        
 		$(".g_check").click(function() {
 			var path = $(this).prop("value");
 			$("#joinFrm").prop("action","/learn_run/member/"+path+"Join");
@@ -217,14 +273,15 @@ $(function(){
 
 	<div id="header_content">
 		<div id="header_menu">
-			<div id="header_logo">logo</div>
+			<div id="header_logo"></div>
 				<article id="header-left-menus">
 					<a id="theme_menu_toggle" class="link" href="#"><span class="drawer_icon"></span>카테고리<img class="arrow_icon" src="<c:url value="/resources/img/arrow_icon.png"/>"></a>
 					<span class="header_bar"></span>
-					<a class="menu2" href="#">메뉴2</a>
+					<a class="menu2" href="/learn_run/chul/chulCheck">출석체크</a>
 					<span class="header_bar"></span>
 					<a class="menu3" href="/learn_run/small_group/sgroup">소모임</a>
 					<span class="header_bar"></span>
+					<a class="menu4" href="/learn_run/board/noticePage">NOTICE</a>
 					<ul id="theme_menus_popup">
 						<li><a class="theme_link" href="" style="text-decoration: none;">프로그래밍</a></li>
 						<li><a class="theme_link" href="" style="text-decoration: none;">영어 회화</a></li>
@@ -234,7 +291,7 @@ $(function(){
 				</article>
 					<a class="sear_form"></a>
 				<article id="header-right-menus">
-					<a href="#"><img id="header_search" src="<c:url value="/resources/img/SearchIcon.png"/>"></a>
+			
 					
 					<!--로그인 전  -->
 						<c:if test="${empty member}">
@@ -245,25 +302,28 @@ $(function(){
 						<!-- Modal (login) -->
 	 					 <div class="modal fade" id="loginForm" role="dialog">
 	 					 		<span id="login_close">X</span>
+	 					 		
+	          						<h2 class="log-join">Login</h2>
+	          						<hr id="hr">
 	          					<form action="/learn_run/member/tutorLogin" id="loginFrm" method="post">
-	          						
-	          						<p>튜터 &nbsp;<input type="radio" name="grade" class="g_login" value="tutor" checked="checked"> 
-	          						학생 &nbsp; <input type="radio" name="grade" class="g_login" value="student"></p>
+	          						<p id="selectGrade">튜터<input type="radio" name="grade" class="g_login" value="tutor" checked="checked">&nbsp; 
+	          						학생 <input type="radio" name="grade" class="g_login" value="student"></p>
 	          						
 	          						<table id="login_input">
 	          						<tr>
-									<td colspan="2"><input type="text" name="id" placeholder="ID를 입력하세요"></td>
+									<td colspan="2"><input type="text" name="id" id="id" placeholder="ID를 입력하세요"></td>
 									</tr>
 									<tr>
-									<td colspan="2"><input type="password" name="pw" placeholder="PW를 입력하세요"></td>
+									<td colspan="2"><input type="password" name="pw" id="pw" placeholder="PW를 입력하세요"></td>
 									</tr>
 	          						</table>
-	          						
-									<input type="button" id="login" value="로그인">
+	          						<div id="con-btn">
+									<a role="button" id="login">로그인</a>
+	          						</div>
 								</form>
 								
 									<div id="forgotIdPw">
-									<a href="#">ID 찾기</a> &nbsp; <a href="#">PW 찾기</a>
+										<a id="find_id" class="findInfo">ID 찾기</a> &nbsp;/&nbsp; <a id="find_pw" class="findInfo">PW 찾기</a>
 									</div>
 	        				</div>
 	       				
@@ -275,44 +335,49 @@ $(function(){
 						<!-- joinForm start -->
 	 					 <div class="modal fade" id="joinForm" >
 	       					 <span id="join_close">X</span>
+	          						<h2 class="log-join">Join</h2>
+	          						<hr id="hr">
+	          						<span class="join_msg">*전체 필수 항목입니다. 모두 입력해주세요.*</span>
 	          					<form action="/learn_run/member/tutorJoin" id="joinFrm" method="post" >
+	          						
+	          						<p class="selectGrade">튜터<input type="radio" class="g_check" name="grade" value="tutor" checked="checked"> &nbsp; 학생<input type="radio" class="g_check" name="grade" value="student" id="member-frm"></p>
+	          						
 	          						<table>
 	          						<tr>
-	          						<td colspan="2" class="infoIndex">튜터: <input type="radio" class="g_check" name="grade" value="tutor" checked="checked"> 학생:<input type="radio" class="g_check" name="grade" value="student" id="member-frm"></td>
-	          						</tr>
-	          						<tr>
-	          						<td class="infoIndex">ID</td><td class="infoCon"><input type="text" name="id" id="id" placeholder="ID를 입력하세요"></td>
+	          						<td class="infoIndex">ID</td><td><input type="text" name="id" id="id" placeholder="ID를 입력하세요"></td>
 	          						</tr>
 	          						<tr>
 	          						<td colspan="2"><span id="idmessage"></span></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">PW</td><td class="infoCon"><input type="password" name="pw" id="pw" placeholder="PW를 입력하세요"></td>
+									<td class="infoIndex">PW</td><td><input type="password" name="pw" id="pw" placeholder="PW를 입력하세요"></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">PW 확인</td><td class="infoCon"><input type="password" id="pw2" name="pw2" placeholder="PW를  다시 입력하세요"></td>
+									<td class="infoIndex">PW 확인</td><td><input type="password" id="pw2" name="pw2" placeholder="PW를  다시 입력하세요"></td>
 									</tr>
 									<tr>
 									<td colspan="2"><span id="pwmessage"></span></td>									
 									</tr>
 									<tr>
-									<td class="infoIndex">이름</td><td class="infoCon"><input type="text" name="name" placeholder="이름을 입력하세요"></td>
+									<td class="infoIndex">이름</td><td><input type="text" name="name" placeholder="이름을 입력하세요"></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">생일</td><td class="infoCon"><input type="date" name="birth"></td>
+									<td class="infoIndex">생일</td><td><input type="date" name="birth"></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">e-mail</td><td class="infoCon"><input type="text" name="email" placeholder="ex) learn-run@gmail.com"></td>
+									<td class="infoIndex">e-mail</td><td><input type="text" name="email" id="email" placeholder="ex) learn-run@gmail.com"></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">연락처</td><td><select name="telecom">
+									<td class="infoIndex">연락처</td><td><select name="telecom" >
 											<option>SKT</option> <option>KT</option> <option>LGT</option> <option>알뜰폰</option>
 											</select>
 									<input class="input_phone" type="text" name="phone" id="phone" placeholder="ex) 010-1234-5678"></td>
 									</tr>
 	          						</table>
 									
-									<input type="button" id="join" value="회원가입">
+									<div id="con-btn">
+									<a role="button" id="join">회원가입</a>
+									</div>
 									
 								</form>
 	        				</div>
@@ -326,7 +391,7 @@ $(function(){
 					<!-- 로그인 전 -->
 					<!-- 로그인 후 -->
 					<c:if test="${not empty member}">
-						<a id="chat_link" class="icon_link" href="">"Messages"</a>
+						<a id="chat_link" class="icon_link" href="/learn_run/message/messagePage">"Messages"</a>
 						<a id="notification_link" class="icon_link" href="javascript:void(0)"></a>
 						<div id="notification_list_wrap" class="show">
 							<span class="triangle1"></span>

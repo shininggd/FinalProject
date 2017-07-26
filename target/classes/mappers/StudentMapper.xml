@@ -4,7 +4,21 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="StudentMapper">
-	
+
+	<sql id="search">
+ 		<trim prefix="where" prefixOverrides="and || or">
+ 		<if test="find == 'id'">
+ 			id like '%' || #{search} || '%' and grade='student'
+ 		</if>
+ 		<if test="find == 'name'">
+ 			name like '%' || #{search} || '%' and grade='student'
+ 		</if>
+ 		<if test="find == 'email'">
+ 			email like '%' || #{search} || '%' and grade='student'
+ 		</if>
+ 		</trim>
+ 		
+ 	</sql>
 	<select id="IdCheck" parameterType="java.lang.String" resultType="java.lang.String">
 		select id from member where id=#{id} 
 	</select>
@@ -20,5 +34,40 @@
 	<update id="studentUpdate" parameterType="com.kh.member.MemberDTO">
 		update member set pw=#{pw}, email=#{email}, phone=#{phone} where id=#{id}
 	</update>
+	
 
+	<select id="IdFind" parameterType="com.kh.member.MemberDTO" resultType="com.kh.member.MemberDTO">
+		select id from member where name=#{name} and 
+		<if test="email != ''">email=#{email}</if>
+		<if test="phone != ''">phone=#{phone}</if>
+	</select>
+	
+	<select id="PwFind" parameterType="com.kh.member.MemberDTO" resultType="com.kh.member.MemberDTO">
+		select pw from member where id=#{id} and name=#{name} and 
+		<if test="email != ''">email=#{email}</if>
+		<if test="phone != ''">phone=#{phone}</if>
+	</select>
+
+	<update id="pointGC" parameterType="com.kh.member.MemberDTO">
+		update member set point = point-#{point} where id=#{id}
+	</update>
+	
+	<select id="myPoint" parameterType="com.kh.member.MemberDTO" resultType="java.lang.String">
+		select point from member where id=#{id}
+	</select>
+	
+	<select id="studentinfo" parameterType="com.kh.util.ListInfo" resultType="com.kh.member.student.StudentDTO">
+		select * from (select rownum R, N.* from 
+  (select * from member
+  <include refid="search" />) N) where R between #{startRow} and #{lastRow}
+	</select>
+	
+	<select id="Scount" parameterType="com.kh.util.ListInfo" resultType="java.lang.Integer">
+		select count(id) from member
+		<include refid="search"></include>
+	</select>
+	
+	<delete id="memberDelete" parameterType="com.kh.member.student.StudentDTO">
+		delete from member where id=#{id}
+	</delete>
 </mapper>
