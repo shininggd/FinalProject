@@ -4,8 +4,11 @@
 
 
 <c:forEach items="${list }" var="s">
-	<div class="whatList"> 
-	${s.contents } ${s.reg_date }
+<div class="goView" title="${s.num }">
+	<div class="whatList"  > 
+	<div class="tibox">&ensp; ${s.title }</div> 
+	<div class="regbox">${s.reg_date }</div>
+	</div>
 	</div>
 
 </c:forEach>

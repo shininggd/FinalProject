@@ -11,54 +11,8 @@
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/basic_table.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyList.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/feedback/feedback_basic.css">
+<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/feedback/feedback_homeList.css">
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-<style type="text/css">
-.bothSixbox{
-width: 750px;
-height: 575px;
-
-margin-top: 12px;
-float: right;
-margin-right:15px;
-position: static;
-}
-.bothLeftBox{
-width: 49%;
-height: 100%;
-display: inline-block;
-margin-left: 4px;
-overflow: hidden;
-}
-.bothRightBox{
-width: 49%;
-height: 100%;
-display: inline-block;
-margin-left: 2px;
-overflow: hidden;
-}
-.whatBox{
-	width: 100%;
-	height: 30px;
-	border-bottom: 2px solid #d5dce5;;
-	font-size: 20px;
-	
-}
-.more{
-	float: right;
-	font-size: 14px;
-	line-height: 30px;
-}
-.whatList{
-	margin-top: 10px;
-	width: 99.7%;
-	height: 60px;
-	border-radius: 5px;
-	background-color: white;
-	overflow: hidden;
-}
-
-</style>
-
 </head>
 <body>
 <c:import url="../temp/header.jsp"></c:import>
@@ -73,35 +27,23 @@ overflow: hidden;
 	<img class="learnImage" src="<c:url value="/resources/img/study/learnRun.jpg"/>">
 	<div class="bothSixbox">
 		<div class="bothLeftBox">
-			<div class="whatBox">［우리들의 이야기］<span class="more"><a href="feedbackList?find=snum,category&search=${dto.num },우리들의 이야기">더 보기</a></span> </div>
+			<div class="whatBox">［우리들의 이야기］<span class="more"><a href="feedbackList?find=snum,category&search=${dto.num },우리들의 이야기">더 보기</a></span> 
 			<div class="ourBox">
-			<!-- <div class="whatList"> </div>
-			<div class="whatList"> </div>
-			<div class="whatList"> </div>
-			<div class="whatList"> </div>
-			<div class="whatList"> </div>
-			<div class="whatList"> </div>
-			<div class="whatList"> </div> -->
-			</div>
-		
-		
-		
+
 		</div>
+		</div>
+		</div>	
 		<div class="bothRightBox">
-			<div class="whatBox">［자유게시판］ <span class="more"><a href="feedbackList?find=snum,category&search=${dto.num },자유게시판">더 보기</a></span></div>
+			<div class="whatBox">［자유게시판］ <span class="more"><a href="feedbackList?find=snum,category&search=${dto.num },자유게시판">더 보기</a></span>
+			
 			<div class="freeBox">
-			<!-- <div class="whatList"> </div>
-			<div class="whatList"> </div>
-			<div class="whatList"> </div>
-			<div class="whatList"> </div>
-			<div class="whatList"> </div>
-			<div class="whatList"> </div>
-			<div class="whatList"> </div> -->
 			</div>
+		</div>
 			
 		</div>
-	</div>
 	
+	
+	</div>
 	<!--===================좌측====================================  -->
 	<c:import url="feedbackSide.jsp"></c:import>
 	<!--===============================================================  -->
@@ -111,7 +53,7 @@ overflow: hidden;
 
 <c:import url="../temp/footer.jsp"></c:import>
 <script type="text/javascript">
-ourList('snum,category','${dto.num },우리들의 이야기');
+ ourList('snum,category','${dto.num },우리들의 이야기');
 freeList('snum,category','${dto.num },자유게시판');
 function ourList(find, search) {
 	$.get("./feedbackOurList",{find:find,search:search},function(data){
@@ -122,7 +64,11 @@ function freeList(find, search) {
 	$.get("./feedbackFreeList",{find:find,search:search},function(data){
 		$(".freeBox").html(data);
 })	
-}
+} 
+$(".whatBox").on("click",".goView", function() {
+	  var num = $(this).prop("title");
+	  window.location ="feedbackView?snum=${dto.num}&num="+num;   
+})
 
 </script>
 

@@ -33,8 +33,12 @@ public class FeedBackController {
 	//처음 화면 보기용끝
 	//리스트 보기용
 	@RequestMapping(value="feedbackList")
-	public void list(ListInfo listInfo,Model model,String kind, String searchText)throws Exception{
+	public void list(ListInfo listInfo,Model model,String kind, String searchText,String find)throws Exception{
 		String getSnum []  = listInfo.getSearch().split(",");
+		System.out.println("그냥find"+find);
+		System.out.println("리스트인포find"+listInfo.getFind());
+		System.out.println("그냥kind"+kind);
+		System.out.println("리스트인포Search"+listInfo.getSearch());
 		HashMap<Object, Object> map =  feedBackService.studyPage(Integer.valueOf(getSnum[0]));
 		model.addAttribute("category",getSnum[1]);
 		model.addAttribute("dto", map.get("dto"));

@@ -20,10 +20,10 @@ $(function () {
 	var find = "snum,category,";
 	$("#btn").click(function() {
 		 var search = document.frm.snum.value+","+document.frm.category.value+","+document.frm.searchText.value;
-		
-  document.frm.find.value = find+document.frm.kind.value;
+		var temp = find+$(".kind").val();
+   		document.frm.find.value = temp;
 		document.frm.search.value = search;
-		document.frm.submit();  
+		document.frm.submit();   
 
 	});	
 })
@@ -76,14 +76,14 @@ $(function () {
 		</div>
 		<div class="searchBox">
 		<form action="feedbackList" method="get" name="frm">
+				<input type="hidden" name="find" >
+				<input type="hidden" name="search">
+				<input type="hidden" name="category" value="${category }">
+				<input type="hidden" name="snum" value="${dto.num }" >
 				<select class="kind" name="kind">
 					<option value="title">제목</option>
 					<option value="writer">작성자</option>
 				</select>
-				<input type="hidden" name="find">
-				<input type="hidden" name="search">
-				<input type="hidden" name="category" value="${category }">
-				<input type="hidden" name="snum" value="${dto.num }">
 				<input type="text" name="searchText" value="${searchText }">
 				 
 				<input type="button" value="검색" id="btn">
