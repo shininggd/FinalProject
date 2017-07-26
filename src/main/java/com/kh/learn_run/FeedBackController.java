@@ -39,6 +39,7 @@ public class FeedBackController {
 		model.addAttribute("category",getSnum[1]);
 		model.addAttribute("dto", map.get("dto"));
 		model.addAttribute("fname", map.get("fname"));
+		System.out.println(feedBackService.list(listInfo).size());
 		model.addAttribute("list", feedBackService.list(listInfo));
 		model.addAttribute("kind",kind);
 		model.addAttribute("searchText",searchText);

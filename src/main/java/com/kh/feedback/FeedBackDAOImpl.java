@@ -78,9 +78,11 @@ public class FeedBackDAOImpl implements BoardDAO {
 			map.put("find"+i, far[i]);
 			;
 		}
+
 		map.put("startRow",listInfo.getStartRow());
 		map.put("lastRow",listInfo.getLastRow());
-		List<BoardDTO> ar = sqlSession.selectList(NAMESPACE+"list", map); 
+		List<BoardDTO> ar = sqlSession.selectList(NAMESPACE+"list", map);
+		
 			
 		return ar;
 	}

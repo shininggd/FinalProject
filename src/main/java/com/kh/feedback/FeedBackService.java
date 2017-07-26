@@ -46,7 +46,6 @@ public class FeedBackService {
 
 	
 	public List<BoardDTO> list(ListInfo listInfo) throws Exception {
-
 		return feedBackDAOImpl.list(listInfo);
 	}
 	public List<BoardDTO> homeList(ListInfo listInfo) throws Exception {
