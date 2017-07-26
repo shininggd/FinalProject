@@ -53,9 +53,7 @@ public class FeedBackService {
 		listInfo.setPerPage(9);
 		listInfo.makePage(feedBackDAOImpl.count(listInfo));
 		listInfo.makeRow();
-		
-		
-		
+
 		return feedBackDAOImpl.list(listInfo);
 	}
 	public int reply(BoardDTO boardDTO) throws Exception{

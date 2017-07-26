@@ -26,15 +26,15 @@ position: static;
 width: 49%;
 height: 100%;
 display: inline-block;
-
 margin-left: 4px;
+overflow: hidden;
 }
 .bothRightBox{
 width: 49%;
 height: 100%;
 display: inline-block;
-
 margin-left: 2px;
+overflow: hidden;
 }
 .whatBox{
 	width: 100%;
@@ -54,6 +54,7 @@ margin-left: 2px;
 	height: 60px;
 	border-radius: 5px;
 	background-color: white;
+	overflow: hidden;
 }
 
 </style>
@@ -73,28 +74,30 @@ margin-left: 2px;
 	<div class="bothSixbox">
 		<div class="bothLeftBox">
 			<div class="whatBox">［우리들의 이야기］<span class="more"><a href="feedbackList?find=snum,category&search=${dto.num },우리들의 이야기">더 보기</a></span> </div>
-		
+			<div class="ourBox">
+			<!-- <div class="whatList"> </div>
 			<div class="whatList"> </div>
 			<div class="whatList"> </div>
 			<div class="whatList"> </div>
 			<div class="whatList"> </div>
 			<div class="whatList"> </div>
-			<div class="whatList"> </div>
-			<div class="whatList"> </div>
-			
+			<div class="whatList"> </div> -->
+			</div>
 		
 		
 		
 		</div>
 		<div class="bothRightBox">
 			<div class="whatBox">［자유게시판］ <span class="more"><a href="feedbackList?find=snum,category&search=${dto.num },자유게시판">더 보기</a></span></div>
+			<div class="freeBox">
+			<!-- <div class="whatList"> </div>
 			<div class="whatList"> </div>
 			<div class="whatList"> </div>
 			<div class="whatList"> </div>
 			<div class="whatList"> </div>
 			<div class="whatList"> </div>
-			<div class="whatList"> </div>
-			<div class="whatList"> </div>
+			<div class="whatList"> </div> -->
+			</div>
 			
 		</div>
 	</div>
@@ -109,9 +112,15 @@ margin-left: 2px;
 <c:import url="../temp/footer.jsp"></c:import>
 <script type="text/javascript">
 ourList('snum,category','${dto.num },우리들의 이야기');
+freeList('snum,category','${dto.num },자유게시판');
 function ourList(find, search) {
-	$.get("/feedbackOurList",{find:find,search:search},function(data){
-		$(".bothLeftBox").html(data);
+	$.get("./feedbackOurList",{find:find,search:search},function(data){
+		$(".ourBox").html(data);
+})	
+}
+function freeList(find, search) {
+	$.get("./feedbackFreeList",{find:find,search:search},function(data){
+		$(".freeBox").html(data);
 })	
 }
 

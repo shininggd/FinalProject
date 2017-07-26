@@ -41,7 +41,6 @@ $(function () {
 	
 	
 	<div class="listBlock">
-	
 	<div class="listBox">
 		<c:forEach items="${list }" var="i"  varStatus="s" >
 			<div class="oneBox"> 

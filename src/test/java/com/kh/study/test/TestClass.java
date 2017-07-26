@@ -22,6 +22,11 @@ public class TestClass extends MyAbstarctTestUnit{
 	private FeedBackService feedBackDAO; 
 	@Test
 	public void test()throws Exception {
+		ListInfo listInfo = new ListInfo();
+		listInfo.setFind("snum,category");
+		listInfo.setSearch("62,자유게시판");
+		System.out.println(feedBackDAO.list(listInfo).size());
+
 		
 
 		

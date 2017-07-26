@@ -35,7 +35,6 @@ public class FeedBackController {
 	@RequestMapping(value="feedbackList")
 	public void list(ListInfo listInfo,Model model,String kind, String searchText)throws Exception{
 		String getSnum []  = listInfo.getSearch().split(",");
-		String getKind []  = listInfo.getFind().split(",");
 		HashMap<Object, Object> map =  feedBackService.studyPage(Integer.valueOf(getSnum[0]));
 		model.addAttribute("category",getSnum[1]);
 		model.addAttribute("dto", map.get("dto"));
