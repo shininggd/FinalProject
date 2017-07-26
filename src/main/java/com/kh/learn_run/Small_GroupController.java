@@ -11,4 +11,12 @@ public class Small_GroupController {
 	public void sgroup() throws Exception{
 		
 	}
+	@RequestMapping(value = "sgroupView", method = RequestMethod.GET)
+	public void sgroupView() throws Exception{
+		
+	}
+	@RequestMapping(value = "sgroupWrite", method = RequestMethod.GET)
+	public void sgroupWrite() throws Exception{
+		
+	}
 }

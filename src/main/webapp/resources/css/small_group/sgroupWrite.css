@@ -1,0 +1,124 @@
+@CHARSET "UTF-8";
+body{
+	margin: 0;
+}
+a{
+   text-decoration: none;
+}
+#sgroup_eventWrite_page{
+	box-sizing: border-box;
+	min-height: 100%;
+    padding: 54px 0 418px;
+    margin-top: -72px;
+    margin-bottom: -418px;
+}
+.write_wrap_1{
+	background: #fbfbfa;
+	height: 742px;
+}
+.write_1_picture{
+	width: 500px;
+	height: 500px;
+	border: 1px solid black;
+	float: left;
+	margin-top: 100px;
+	margin-left: 450px;
+	font-size: 15pt;
+	font-weight: 600;
+	
+}
+.write_1_content_detail{
+	width: 500px;
+	height: 500px;
+	border: 1px solid black;
+	float: left;
+	margin-top: 100px;
+	margin-left: 70px;
+	text-align: left;
+}
+.write_1_tag{
+	margin-top: 30px;
+	font-size: 15pt;
+	font-weight: 600;
+}
+.write_1_tag_input{
+	border: 1px #a0a0a0 solid;
+	font-size: 11pt;
+	color: #ef6c00;
+}
+.write_1_title{
+	margin-top: 15px;
+	font-size: 15pt;
+	font-weight: 600;
+}
+.write_1_title_input{
+	font-size: 27pt;
+	font-weight: 600;
+}
+.write_1_date{
+	margin-top: 50px;
+	font-size: 15pt;
+	font-weight: 600;
+}
+.write_1_date_input{
+	font-size: 18pt;
+	font-weight: 600;
+	color: #ef6c00;
+	border: 1px #a0a0a0 solid;
+}
+.write_1_time{
+	font-size: 15pt;
+	font-weight: 600;
+	margin-top: 5px;
+}
+.write_1_time_input{
+	font-size: 18pt;
+	font-weight: 500;
+	border: 1px #a0a0a0 solid;
+}
+.write_1_location{
+	margin-top: 70px;
+	font-size: 11pt;
+	font-weight: 900;
+	color: #a0a0a0;
+}
+.write_1_location_input{
+	font-size: 11pt;
+	color: #a0a0a0;
+	border: 1px #a0a0a0 solid;
+}
+.write_1_price{
+	font-size: 11pt;
+	color: #a0a0a0;
+	margin-top: 5px;
+}
+.write_1_price_per{
+	font-weight: 900;
+	float: left;
+}
+.write_1_price_per_input{
+	border: 1px #a0a0a0 solid;
+	color: #a0a0a0;
+	width: 80px;
+}
+.write_1_price_detail{
+	font-weight: 400;
+	margin-left: 180px;
+}
+.write_1_price_detail_input{
+	border: 1px #a0a0a0 solid;
+	color: #a0a0a0;
+	width: 210px;
+}
+.write_1_people{
+	font-size: 11pt;
+	font-weight: 900;
+	color: #a0a0a0;
+	margin-top: 5px;
+}
+.write_1_people_input{
+	font-size: 11pt;
+	color: #a0a0a0;
+	border: 1px #a0a0a0 solid;
+	width: 50px;
+}

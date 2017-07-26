@@ -45,8 +45,138 @@
 				</ul>
 			</div>
 		</div>
+		<div class="sgroup_event_section">
+			<div class="section_content">
+				<div class="section_title">소그룹 이벤트</div>
+				<div class="swiper_box">
+					<a href="javascript:void(0);" onclick="scroll_left()" id="button_previous" class="css_arrow_left"></a>
+					<a href="javascript:void(0);" onclick="scroll_right()" id="button_next" class="css_arrow_right"></a>
+					<div id="sgroup_event_title_wrap" style="width: 1024px; height: 284px;">
+						<table class="" width="1024" align="center" cellpadding="0" cellspacing="0">
+						<tr class="swiper_wrapper">
+							<td class="sgrouop_event_swiper_slide" style="width: 192px; margin-right: 16px;">
+								<a href="/learn_run/small_group/sgroupView">
+									<div class="thumnail"><img class="thumnail_picture" src="<%=application.getContextPath()%>/resources/img/image.jpg"></div>
+									<div class="event_detail">
+										<div class="tag_title"><span class="tag">#여행</span>6대륙 정복한 프로여행러 Hayley의 사람과 여행사이</div>
+										<div class="meeting_date">7월 1일 토</div>
+									</div></a>
+							</td>
+							<td class="sgrouop_event_swiper_slide" style="width: 192px; margin-right: 16px;">
+								<a href="/learn_run/small_group/sgroupView">
+									<div class="thumnail"><img class="thumnail_picture" src="<%=application.getContextPath()%>/resources/img/image.jpg"></div>
+									<div class="event_detail">
+										<div class="tag_title"><span class="tag">#여행</span>6대륙 정복한 프로여행러 Hayley의 사람과 여행사이</div>
+										<div class="meeting_date">7월 1일 토</div>
+									</div></a>
+							</td>
+							<td class="sgrouop_event_swiper_slide" style="width: 192px; margin-right: 16px;">
+								<a href="/learn_run/small_group/sgroupView">
+									<div class="thumnail"><img class="thumnail_picture" src="<%=application.getContextPath()%>/resources/img/image.jpg"></div>
+									<div class="event_detail">
+										<div class="tag_title"><span class="tag">#여행</span>6대륙 정복한 프로여행러 Hayley의 사람과 여행사이</div>
+										<div class="meeting_date">7월 1일 토</div>
+									</div></a>
+							</td>
+							<td class="sgrouop_event_swiper_slide" style="width: 192px; margin-right: 16px;">
+								<a href="/learn_run/small_group/sgroupView">
+									<div class="thumnail"><img class="thumnail_picture" src="<%=application.getContextPath()%>/resources/img/image.jpg"></div>
+									<div class="event_detail">
+										<div class="tag_title"><span class="tag">#여행</span>6대륙 정복한 프로여행러 Hayley의 사람과 여행사이</div>
+										<div class="meeting_date">7월 1일 토</div>
+									</div></a>
+							</td>
+							<td class="sgrouop_event_swiper_slide" style="width: 192px; margin-right: 16px;">
+								<a href="/learn_run/small_group/sgroupView">
+									<div class="thumnail"><img class="thumnail_picture" src="<%=application.getContextPath()%>/resources/img/image.jpg"></div>
+									<div class="event_detail">
+										<div class="tag_title"><span class="tag">#여행</span>6대륙 정복한 프로여행러 Hayley의 사람과 여행사이</div>
+										<div class="meeting_date">7월 1일 토</div>
+									</div></a>
+							</td>
+							<td class="sgrouop_event_swiper_slide" style="width: 192px; margin-right: 16px;">
+								<a href="/learn_run/small_group/sgroupView">
+									<div class="thumnail"><img class="thumnail_picture" src="<%=application.getContextPath()%>/resources/img/image.jpg"></div>
+									<div class="event_detail">
+										<div class="tag_title"><span class="tag">#여행</span>6대륙 정복한 프로여행러 Hayley의 사람과 여행사이</div>
+										<div class="meeting_date">7월 1일 토</div>
+									</div></a>
+							</td>
+							<td class="sgrouop_event_swiper_slide" style="width: 192px; margin-right: 16px;">
+								<a href="/learn_run/small_group/sgroupView">
+									<div class="thumnail"><img class="thumnail_picture" src="<%=application.getContextPath()%>/resources/img/image.jpg"></div>
+									<div class="event_detail">
+										<div class="tag_title"><span class="tag">#여행</span>6대륙 정복한 프로여행러 Hayley의 사람과 여행사이</div>
+										<div class="meeting_date">7월 1일 토</div>
+									</div></a>
+							</td>
+							<td class="sgrouop_event_swiper_slide" style="width: 192px; margin-right: 16px;">
+								<a href="/learn_run/small_group/sgroupView">
+									<div class="thumnail"><img class="thumnail_picture" src="<%=application.getContextPath()%>/resources/img/image.jpg"></div>
+									<div class="event_detail">
+										<div class="tag_title"><span class="tag">#여행</span>6대륙 정복한 프로여행러 Hayley의 사람과 여행사이</div>
+										<div class="meeting_date">7월 1일 토</div>
+									</div></a>
+							</td>
+							<td class="sgrouop_event_swiper_slide" style="width: 192px; margin-right: 16px;">
+								<a href="/learn_run/small_group/sgroupView">
+									<div class="thumnail"><img class="thumnail_picture" src="<%=application.getContextPath()%>/resources/img/image.jpg"></div>
+									<div class="event_detail">
+										<div class="tag_title"><span class="tag">#여행</span>6대륙 정복한 프로여행러 Hayley의 사람과 여행사이</div>
+										<div class="meeting_date">7월 1일 토</div>
+									</div></a>
+							</td>
+						</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div style="margin-top: 70px; width: 300px; height: 100px; margin-left: 800px;">
+				<a href="/learn_run/small_group/sgroupWrite" class="sgroup_register">등록하기</a>
+			</div>
+		</div>
 	</section>
 <c:import url="../temp/footer.jsp" />
 
+<script type="text/javascript">
+ 
+    var amt = 23;
+    var gap = 208;
+ 
+    var cnt = 0;
+    var init_amt = amt;
+ 
+    function scroll_right(){
+        document.getElementById('sgroup_event_title_wrap').scrollLeft += amt;
+        if(cnt >= gap){
+            cnt = 0;
+            var adj = document.getElementById('sgroup_event_title_wrap').scrollLeft % gap;
+            document.getElementById('sgroup_event_title_wrap').scrollLeft -= adj;
+            amt = init_amt;
+        }
+        else{
+            amt = Math.ceil(amt / 1.2);
+            setTimeout(scroll_right, 10);
+        }
+        cnt = cnt + amt;
+    }
+ 
+    function scroll_left(){
+        document.getElementById('sgroup_event_title_wrap').scrollLeft -= amt;
+        if(cnt >= gap){
+            cnt = 0;
+            var adj = document.getElementById('sgroup_event_title_wrap').scrollLeft % gap;
+            if(adj > 0) adj = gap - adj
+            document.getElementById('sgroup_event_title_wrap').scrollLeft += adj;
+            amt = init_amt;
+        }
+        else{
+            amt = Math.ceil(amt / 1.2);
+            setTimeout(scroll_left, 10);
+        }
+        cnt = cnt + amt;
+    }
+ 
+</script>
 </body>
 </html>

@@ -36,7 +36,7 @@
 <section id="main_wrap">
 <!-- 메인화면 slide 시작 -->
 <div id="lecture_banner">
-	<div class="uk-slidenav-position" data-uk-slider="{center:true, autoplay:true, autoplayInterval:1111114500}">
+	<div class="uk-slidenav-position" data-uk-slider="{center:true, autoplay:true, autoplayInterval:4500}">
 		    <div class="uk-slider-container">
 		        <ul class="uk-slider"> 
 		            <li><a href="#" draggable="false"><div class="img_size"><figure><img style="width: 48%; height: 100%; float: right;" src="<%=application.getContextPath()%>/resources/img/image.jpg" draggable="false"></figure>
