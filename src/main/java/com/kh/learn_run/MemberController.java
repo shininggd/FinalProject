@@ -1,6 +1,8 @@
 package com.kh.learn_run;
 
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,6 +17,7 @@ import com.kh.member.student.StudentDTO;
 import com.kh.member.student.StudentServiceImpl;
 import com.kh.member.tutor.TutorDTO;
 import com.kh.member.tutor.TutorServiceImpl;
+import com.kh.purchase.PurchaseDTO;
 import com.kh.util.ListInfo;
 import com.kh.util.Cupon;
 
@@ -188,8 +191,9 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/myPurchase")
-	public void goMyPurchase() {
-		
+	public void goMyPurchase(HttpSession session, Model model) throws Exception{
+		List<PurchaseDTO> ar = studentServiceImpl.goMyPurchase((MemberDTO)session.getAttribute("member"));
+	
 	}
 	
 	@RequestMapping(value="/myPoint")

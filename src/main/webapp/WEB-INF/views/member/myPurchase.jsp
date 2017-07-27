@@ -9,6 +9,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/basic_table.css">
+<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/member/myPurchase.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/member/myStudy.css">
 </head>
 <body>
@@ -20,7 +21,7 @@
 		<div id="header_contents">
 			<div id="user-photo"></div>
 			<div id="tabs">
-				<div id="user_name">장태주</div>
+				<div id="user_name">${member.name}</div>
 				<div id="tab-box">
 					<a class="tab" href="/learn_run/member/myStudy">내 스터디</a>
 					<a class="tab selected" href="/learn_run/member/myPurchase">내 구매 내역</a>
@@ -38,7 +39,24 @@
 		
 		<h1 id="mystudy_h1">내 결제 내역</h1>
 		<div id="mystudy_list">
-			
+			<table>
+				<c:forEach items="">
+					<tr>
+						<td>강의</td>
+						<td>강사</td>
+						<td>결제금액</td>
+						<td>결제수단</td>
+						<td>결제일</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</c:forEach>
+			</table>
 		</div>
 	
 	</div>
