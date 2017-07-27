@@ -45,7 +45,7 @@
 	<context:component-scan base-package="com.kh.board" />
 	<context:component-scan base-package="com.kh.board.notice" />
 	<context:component-scan base-package="com.kh.purchase" />
-
+	<context:component-scan base-package="com.kh.chul" />
 	
 	
 </beans:beans>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="ChulMapper">
+  
+  <select id="chulList" resultType="com.kh.chul.ChulDTO">
+		select * from chul 
+	</select>
+	
+  <insert id="ChulWrite" parameterType="com.kh.chul.ChulDTO">
+  insert into chul values(chul_seq.nextval,#{writer},#{contents},sysdate)
+  </insert>
+  
+  </mapper>
