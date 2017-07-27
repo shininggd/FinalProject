@@ -37,9 +37,10 @@
                 alert(result.trim()); 
              }
          });	
-		 
 		 window.opener.ListLoad();
+		 setTimeout(function () {
 		 window.close();
+		},500);
 		
 	});
 </script>

@@ -61,7 +61,7 @@ public class MessageController {
 		}
 		model.addAttribute("message", message);
 		
-		return "common/resultMessage";
+		return "message/messageSendResult";
 	}
 	
 	@RequestMapping(value="messageDelete")
