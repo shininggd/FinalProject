@@ -12,6 +12,16 @@
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyList.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyView.css">
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript">
+	$(function () {
+		$("#emptyM").click(function() {
+			alert("로그인 후 이용 가능합니다.");
+		});
+	});
+
+</script>
+
 </head>
 <body>
 <c:import url="../temp/header.jsp"></c:import>
@@ -34,16 +44,20 @@
 		<hr class="sideHr">
 		<div class="sideBottom">
 			<div class="bottomBoxes">
-			<span class="howPrice">참가비</span> <span class="attendPrice"><fmt:formatNumber type="currency" currencySymbol="">${dto.price }</fmt:formatNumber>원</span> 
+			<span class="howPrice">참가비</span><span class="attendPrice"><fmt:formatNumber type="currency" currencySymbol="">${dto.price }</fmt:formatNumber>원</span> 
 			</div>
 			<div class="bottomBoxes">
-			<input type="button" value="참여 신청하기" class="attendBtn btn">
+			<c:if test="${not empty member.id}">
+				<a role="button" href="studyPurchase?num=${dto.num}&tid=${dto.tid}" class="attendBtn btn"><h4>참여신청하기</h4></a>
+			</c:if>
+			<c:if test="${empty member.id}">
+				<a role="button" href="#" id="emptyM" class="attendBtn btn"><h4>참여신청하기</h4></a>
+			</c:if>
 			</div>
 			<div class="bottomBoxes">
 			<a class="favoriteBtn btn">♡  찜하기</a> 
 			</div>
 			
-		
 		</div>
 		
 		

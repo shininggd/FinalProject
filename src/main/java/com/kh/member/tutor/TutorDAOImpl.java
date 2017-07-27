@@ -36,7 +36,6 @@ public class TutorDAOImpl implements MemberDAO{
 		return sqlSession.selectOne(NAMESPACE+"tutorLogin", memberDTO);
 	}
 
-
 	@Override
 	public String memberIdCheck(String id) throws Exception {
 		

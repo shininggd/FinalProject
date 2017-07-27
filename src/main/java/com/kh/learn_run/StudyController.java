@@ -3,11 +3,14 @@ package com.kh.learn_run;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.member.tutor.TutorDTO;
 import com.kh.study.StudyDTO;
@@ -68,10 +71,11 @@ public class StudyController {
 		return path;
 	}
 	@RequestMapping(value = "studyView", method = RequestMethod.POST)
-	public void update(StudyDTO studyDTO,Model model)throws Exception{
+	public String update(StudyDTO studyDTO,Model model)throws Exception{
 		
 		
 		studyService.update(studyDTO);
+
 		HashMap<Object, Object> ar =studyService.studyView(studyDTO.getNum(), studyDTO.getTid());
 		StudyDTO dto = (StudyDTO) ar.get("study");
 		TutorDTO tutor = (TutorDTO)ar.get("tutor");
@@ -79,11 +83,10 @@ public class StudyController {
 		model.addAttribute("tutor",tutor);
 		model.addAttribute("profile",ar.get("profile"));
 	
+		return "redirect: /learn_run/";
 
 	}
 
-
-	
 	@RequestMapping(value="myStudyList", method = RequestMethod.POST)
 	public String myStudy(Model model ,String id) {
 		System.out.println("studyList");
@@ -102,6 +105,16 @@ public class StudyController {
 		System.out.println(listInfo.getSearch());
 		model.addAttribute("list", studyService.homeList(listInfo));
 	}
-
 	
+	@RequestMapping(value="/studyPurchase", method=RequestMethod.GET)
+	public ModelAndView studyPurchase(HttpServletRequest request, int num, String type) throws Exception{
+	
+		StudyDTO studyDTO = studyService.studydto(num);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("dto", studyDTO);
+		return mv;
+	} 
+	
+
 }
