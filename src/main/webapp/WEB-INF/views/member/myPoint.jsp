@@ -43,7 +43,7 @@
 			<div id="point_status">
 				<div id="myPoint_wrap">
 					<div class="myPoint" id="myPoint_1">
-					현재 나의 포인트 
+					현재 나의 Point
 					</div>
 					<div class="myPoint" id="myPoint_2">
 					<span id="point_span"><fmt:formatNumber type="currency" currencySymbol="">${member.point}</fmt:formatNumber></span>
@@ -54,22 +54,35 @@
 				<c:if test="${member.grade eq 'tutor' }">
 				<div id="myGPoint_wrap">
 					<div class="myPoint" id="myPoint_1">
-					현재 나의 <p id="point_G">G</p>포인트 
+					현재 나의 <p id="point_G">G</p>point 
 					</div>
 					<div class="myPoint" id="myPoint_2">
-					<span id="Gpoint_span">${member.gpoint }</span>
+					<span id="Gpoint_span"><fmt:formatNumber type="currency" currencySymbol="">${member.gpoint}</fmt:formatNumber></span>
 					<img id="point_img" src="/learn_run/resources/img/member/point.png">
 					</div>
 				</div>
 				</c:if>
 			</div>
 			
-			<h3 id="gift_h3">포인트 -> 도서문화 상품권으로 교환</h3>
+			<h3 id="gift_h3">포인트 사용</h3>
+			
+			<div id="point_submenu">
+				<span id="gift_btn"><strong>[point]</strong>포인트->문화상품권</span>
+				<c:if test="${member.grade eq 'tutor' }">
+				<span id="givePoint_btn"><strong>[Gpoint]</strong>포인트 선물하기</span>
+				</c:if>
+			</div>
 			
 			<div id="giftCard_wrap">
+				<p>-보유하신 포인트에서 도서문화상품권으로 교환합니다.</p>
+				<p>-도서문화상품권의 금액 만큼 포인트가 차감되고 메세지를 통해 일련번호가 전송됩니다.</p>
 				<input class="gc_radio" type="radio" name="gc_radio" value="5000"><img class="giftCard" src="/learn_run/resources/img/member/giftCard5000.jpg">
 				<input class="gc_radio" type="radio" name="gc_radio" value="10000"><img class="giftCard" src="/learn_run/resources/img/member/giftCard10000.jpg">
-				<input type="button" id="gc_btn" value="교환하기 >">
+				<input type="button" id="gc_btn" value="교환하기                  >">
+			</div>
+			
+			<div id="giveP_wrap">
+				
 			</div>
 		</div>
 	
@@ -93,6 +106,20 @@
 		});
 		
 		
+	});
+	
+	$("#gift_btn").click(function () {
+		$("#giftCard_wrap").css("display","inline-block");
+		$("#giveP_wrap").css("display","none");
+	});
+	
+	$("#givePoint_btn").click(function () {
+		$("#giftCard_wrap").css("display","none");
+		$("#giveP_wrap").css("display","inline-block");
+		
+		$.post("givePoint",{id:'${member.id}'},function(result) {
+			
+		});
 	});
 	
 	function myPoint() {

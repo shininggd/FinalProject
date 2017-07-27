@@ -28,7 +28,7 @@
 	</insert>
 	
 	<select id="studentLogin" parameterType="com.kh.member.MemberDTO" resultType="com.kh.member.student.StudentDTO">
-		select * from member where id=#{id} and pw=#{pw}
+		select * from member where id=#{id} and pw=#{pw} and grade='student'
 	</select>
 	
 	<update id="studentUpdate" parameterType="com.kh.member.MemberDTO">

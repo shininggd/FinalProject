@@ -73,7 +73,7 @@ $(function(){
   	var ch_email = "";
 
 //id중복확인
-  		$("#id").change(function(){
+  		$("#join_id").change(function(){
   			ch_id = $(this).prop("value")
   			$.post("member/IdCheck",
   					{id:ch_id},
@@ -102,9 +102,8 @@ $(function(){
 		});
   		
   		/* pw일치여부 시작 */
-          $("#pw").change(function(){
-           
-           if($("#pw").val()==$("#pw2").val()){
+          $("#join_pw").change(function(){
+           if($("#join_pw").val()==$("#join_pw2").val()){
               $("#pwmessage").html("<font color=blue>사용 가능한 비밀번호 입니다.</font>");
               pw_check = true; 
            }else{
@@ -115,9 +114,8 @@ $(function(){
         }); 
   		
   		
-         $("#pw2").change(function(){
-             
-             if($("#pw").val()==$("#pw2").val()){
+         $("#join_pw2").change(function(){
+             if($("#join_pw").val()==$("#join_pw2").val()){
                 $("#pwmessage").html("<font color=blue>사용 가능한 비밀번호 입니다.</font>");
                 pw_check = true; 
              }else{
@@ -131,7 +129,6 @@ $(function(){
   		/* email 형식 */
   		$("#email").change(function() {
 			ch_email = $(this).prop("value");
-			alert(ch_email);
 			var reg_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
 			
 			if(!reg_email.test(ch_email)){
@@ -163,9 +160,9 @@ $(function(){
   					all_check = false;
   				}
 
-  				if($("#id").val() == "" ||
-  					$("#pw").val() == "" ||
-  					$("#pw2").val() == "" ||
+  				if($("#join_id").val() == "" ||
+  					$("#join_pw").val() == "" ||
+  					$("#join_pw2").val() == "" ||
   					$("#name").val() == "" ||
   					$("#birth").val() == "" ||
   					$("#email").val() == "" ||
@@ -173,15 +170,11 @@ $(function(){
   					$("#phone").val()  == "") {
   						alert("필수 항목을 모두 입력해주세요.");
   				}
-  				
-
  				if(email_check == false){
   					alert("이메일 주소 형식을 확인해주세요.");
   					all_check = false;
 
   				}
-
-  				
   				if(id_check == false){
   					alert("아이디를 확인해주세요.");
   					all_check = false;
@@ -266,7 +259,7 @@ $(function(){
 <header>
 	<div id="level_test_banner">
 		<div id="level_test_banner_content">
-			STEP 1. 런앤런이 처음이라면? 먼저 레벨테스트부터 시작해보세요!
+			<span id="level_test_banner_span">STEP 1. 런앤런이 처음이라면? 먼저 레벨테스트부터 시작해보세요!</span>
 		</div>
 		<input type="button" id="close_banner">
 	</div>
@@ -344,16 +337,16 @@ $(function(){
 	          						
 	          						<table>
 	          						<tr>
-	          						<td class="infoIndex">ID</td><td><input type="text" name="id" id="id" placeholder="ID를 입력하세요"></td>
+	          						<td class="infoIndex">ID</td><td><input type="text" name="id" id="join_id" placeholder="ID를 입력하세요"></td>
 	          						</tr>
 	          						<tr>
 	          						<td colspan="2"><span id="idmessage"></span></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">PW</td><td><input type="password" name="pw" id="pw" placeholder="PW를 입력하세요"></td>
+									<td class="infoIndex">PW</td><td><input type="password" name="pw" id="join_pw" placeholder="PW를 입력하세요"></td>
 									</tr>
 									<tr>
-									<td class="infoIndex">PW 확인</td><td><input type="password" id="pw2" name="pw2" placeholder="PW를  다시 입력하세요"></td>
+									<td class="infoIndex">PW 확인</td><td><input type="password" id="join_pw2" name="pw2" placeholder="PW를  다시 입력하세요"></td>
 									</tr>
 									<tr>
 									<td colspan="2"><span id="pwmessage"></span></td>									
@@ -430,6 +423,7 @@ $(function(){
 								<a class="my_page_menu" href="/learn_run/member/myStudy" style="text-decoration: none;">내 스터디</a>
 								<a class="my_page_menu" href="/learn_run/member/myPurchase" style="text-decoration: none;">내 구매 내역</a>
 								<a class="my_page_menu" href="/learn_run/member/myPoint" style="text-decoration: none;">내 포인트</a>
+								<a class="my_page_menu" href="/learn_run/member/myPage" style="text-decoration: none;">MY PAGE</a>
 								<c:if test="${member.id eq 'admin' }">
 								<a class="my_page_menu" href="/learn_run/member/adminPage" style="text-decoration: none;">관리자 페이지</a>
 								</c:if>

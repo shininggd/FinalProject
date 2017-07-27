@@ -56,6 +56,8 @@ public class TutorDAOImpl implements MemberDAO{
 		return count;
 	}
 	public int tutorDelete(TutorDTO tutorDTO){
-		return sqlSession.delete(NAMESPACE+"tutorDelete", tutorDTO);
+		int result = sqlSession.delete(NAMESPACE+"tutorDelete", tutorDTO);
+		int result2 = sqlSession.delete(NAMESPACE+"memberDelete", tutorDTO);
+		return result+result2;
 	}
 }

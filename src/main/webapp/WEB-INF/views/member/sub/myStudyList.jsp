@@ -13,18 +13,38 @@
 	<c:forEach items="${list}" var="dto">
 		<div class="myStudy_wrap">
 			<div class="myStudy_contents">
-			<p id="myStudy_title">강의명 : ${dto.title }</p><br>
-			${dto.tid } &nbsp;
-			${dto.category } &nbsp;
-			${dto.location }
-			<c:if test="${dto.location eq '온라인' }">
-			<img class="on_off" src="/learn_run/resources/img/study/${dto.onOff}.png">
-			</c:if>
+			<p class="thumb"><img src="/learn_run/resources/img/study/learnRun.jpg"></p>
+			<p class="tit">
+				${dto.title }
+				<span class="line">|</span>
+				${dto.tid }
+				<span class="line">|</span>
+				${dto.sDate }
+			</p>
+			<p class="info">
+				<span class="cell">
+					<strong>Location:</strong>
+					${dto.location }
+					<c:if test="${dto.location eq '온라인' }">
+					<img class="on_off" src="/learn_run/resources/img/study/${dto.onOff}.png">
+					</c:if>
+				</span>
+				<span class="cell">
+					<strong>LV:</strong>
+					${dto.lv }
+				</span>
+				<span class="cell">
+					<strong>Category:</strong>
+					${dto.category }
+				</span>
+			</p>
+			
+			
 			</div>
 			
 			<div class="myStudy_buttons">
 				<input type="button" id="" value="강의페이지">
-				<c:if test="${dto.location eq '온라인' }">
+				<c:if test="${dto.location eq '온라인' and dto.onOff eq 'on' }">
 				<input type="button" id="" value="강의 입장">
 				</c:if>
 			</div>

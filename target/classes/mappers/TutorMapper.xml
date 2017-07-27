@@ -29,7 +29,7 @@
 	
 	<select id="tutorLogin" parameterType="com.kh.member.MemberDTO" resultType="com.kh.member.tutor.TutorDTO">
 		select M.*, T.* from member M, tutor T 
-		where M.id=#{id} and M.pw=#{pw} and M.id=T.id
+		where M.id=#{id} and M.pw=#{pw} and M.id=T.id and M.grade = 'tutor'
 	</select>
 	
 	<select id="tutorStudyInfo" parameterType="java.lang.String" resultType="com.kh.member.tutor.TutorDTO">
@@ -63,6 +63,9 @@
 	</select>
 	<delete id="tutorDelete" parameterType="com.kh.member.tutor.TutorDTO">
 		delete from tutor where id=#{id}
+	</delete>
+	<delete id="memberDelete" parameterType="com.kh.member.tutor.TutorDTO">
+		delete from member where id=#{id}
 	</delete>
 
 </mapper>
