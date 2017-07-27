@@ -22,34 +22,6 @@
 	});
 }) 
 </script>
-<style type="text/css">
-.pagingBox{
-	width: 240px;
-	height: 30px;
-	margin: 0 auto;
-	text-align: center;
-}
-.pagingText{
-	color: color: #3c3c3c;
-	font-size: 25px;
-	text-decoration: none;
-}
-.pagingArrowR{
-	width: 20px; 
-	height: 20px;
-	-webkit-transform: rotate(90deg) scale(1) skew(1deg) translate(0px);
--moz-transform: rotate(90deg) scale(1) skew(1deg) translate(0px);
--o-transform: rotate(90deg) scale(1) skew(1deg) translate(0px);
-}
-.pagingArrowL{
-width: 20px; 
-	height: 20px;
--webkit-transform: rotate(270deg) scale(1) skew(1deg) translate(0px);
--moz-transform: rotate(270deg) scale(1) skew(1deg) translate(0px);
--o-transform: rotate(270deg) scale(1) skew(1deg) translate(0px);
-}
-
-</style>
 </head>
 <body>
 <c:import url="../temp/header.jsp"></c:import>

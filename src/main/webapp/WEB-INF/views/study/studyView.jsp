@@ -21,7 +21,6 @@
 	});
 
 </script>
-
 </head>
 <body>
 <c:import url="../temp/header.jsp"></c:import>
@@ -63,7 +62,12 @@
 		
 	</div>
 	<div class="imageBox">
-	
+		<c:if test="${dto.fname != null }">
+		<img alt="${dto.oname }" class="imgFView" src="<c:url value="/resources/img/study/upload/${dto.fname }"/>">
+		</c:if>
+		<c:if test="${dto.fname == null }">
+		<img alt="Learn&Run" class="imgFView" src="<c:url value="/resources/img/studyImage.png"/>">
+		</c:if>
 	</div>
 	<div class="levelBox">
 		<div class="levelTop">Level</div>
