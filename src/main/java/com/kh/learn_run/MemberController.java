@@ -294,7 +294,16 @@ public class MemberController {
 		return "member/sub/GPstudentList";
 	}
 	
-	public void pointGive() {
+	@RequestMapping(value="/pointGive")
+	public String pointGive(MemberDTO memberDTO,String sid,Model model) {
+		int result = tutorServiceImpl.GP(memberDTO, sid);
+		String message = "보내기 실패";
+		if(result>1) {
+			message = "보내기 성공";
+		}
+		model.addAttribute("message", message);
+		
+		return "common/resultMessage";
 		
 	}
 	
@@ -303,6 +312,18 @@ public class MemberController {
 		String result = studentServiceImpl.myPoint(memberDTO);
 		MemberDTO dto = (MemberDTO)session.getAttribute("member");
 		dto.setPoint(Integer.parseInt(result));
+		session.setAttribute("member", dto);
+		
+		model.addAttribute("message", result);
+		
+		return "common/resultMessage";
+	}
+	
+	@RequestMapping(value="/mygP")
+	public String mygPoint(MemberDTO memberDTO,Model model,HttpSession session) throws Exception {
+		String result = tutorServiceImpl.mygPoint(memberDTO);
+		TutorDTO dto = (TutorDTO)session.getAttribute("member");
+		dto.setGpoint(Integer.parseInt(result));
 		session.setAttribute("member", dto);
 		
 		model.addAttribute("message", result);

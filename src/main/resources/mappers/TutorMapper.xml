@@ -75,5 +75,17 @@
 	<select id="GPstudentList2" parameterType="java.lang.Integer" resultType="java.lang.String">
 		select id from memberstudy where snum=#{num}
 	</select>
+	
+	<update id="givePoint" parameterType="com.kh.member.MemberDTO">
+		update tutor set gpoint = gpoint-#{point} where id=#{id}
+	</update>
+	
+	<update id="plusPoint" parameterType="com.kh.member.MemberDTO">
+		update member set point = point+#{point} where id=#{id}
+	</update>
+	
+	<select id="mygPoint" parameterType="com.kh.member.tutor.TutorDTO" resultType="java.lang.String">
+		select gpoint from tutor where id=#{id}
+	</select>
 
 </mapper>

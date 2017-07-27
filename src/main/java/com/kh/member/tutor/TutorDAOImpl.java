@@ -78,10 +78,22 @@ public class TutorDAOImpl implements MemberDAO{
 		resultList.clear();
 		resultList.addAll(hs);
 		
-		for(String s:resultList) {
-			System.out.println(s);
-		}
-		
 		return resultList;
+	}
+	
+	public int GP(MemberDTO memberDTO,String sid) {
+		System.out.println(memberDTO.getId());
+		System.out.println(memberDTO.getPoint());
+		int result1 = sqlSession.update(NAMESPACE+"givePoint", memberDTO);
+		memberDTO.setId(sid);
+		System.out.println(memberDTO.getId());
+		System.out.println(memberDTO.getPoint());
+		int result2 = sqlSession.update(NAMESPACE+"plusPoint", memberDTO);
+		
+		return result1+result2;
+	}
+	
+	public String mygPoint(MemberDTO memberDTO) {
+		return sqlSession.selectOne(NAMESPACE+"mygPoint",memberDTO);
 	}
 }

@@ -88,7 +88,7 @@
 				
 				</div>
 				<div id="gpinput_wrap">
-				<strong>선물하실 포인트 :</strong><input type="text" id="givePoint" name="point"><img id="gpoint_img" src="/learn_run/resources/img/member/point.png">
+				<strong>선물하실 포인트 :</strong><input type="number" id="givePoint" name="point"><img id="gpoint_img" src="/learn_run/resources/img/member/point.png">
 				</div><br>
 				<input type="button" id="gp_btn" value="선물하기                  >">
 			</div>
@@ -127,20 +127,30 @@
 		
 		StudentList();
 		
-		$.post("givePoint",{id:'${member.id}'},function(result) {
-			
-		});
+		
 	});
 	
 	$("#gp_btn").click(function() {
+		var sid = $("#GPstudentList").prop("value");
 		var point = $("#givePoint").prop("value");
-		$.post("");
+		
+		$.post("pointGive",{id:'${member.id}',sid:sid,point:point},function(result) {
+			alert(result.trim());
+			mygPoint();
+		});
 	});
 	
 	function myPoint() {
 		$.post("myP",{id:"${member.id}"},function(result) {
 			var p = result.trim();
 			$("#point_span").html(numberWithCommas(p));
+		});
+	}
+	
+	function mygPoint() {
+		$.post("mygP",{id:'${member.id}'},function(result){
+			var p = result.trim();
+			$("#Gpoint_span").html(numberWithCommas(p));
 		});
 	}
 	
@@ -151,7 +161,7 @@
 	function StudentList() {
 		$.post("GPStudentList",{tid:'${member.id}'},function(result) {
 			$("#GPstudentList_wrap").html(result.trim());
-		})
+		});
 	}
 
 
