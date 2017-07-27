@@ -54,6 +54,5 @@
 		</c:forEach>
 		<c:if test="${listInfo.curBlock < listInfo.totalBlock}">
 			<span class="Mgooh" id="${listInfo.lastNum+1}">[다음]</span>
-		</c:if>
-						
+		</c:if>		
 	</div>

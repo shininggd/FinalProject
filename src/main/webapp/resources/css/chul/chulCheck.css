@@ -1,1 +1,41 @@
 @CHARSET "UTF-8";
+#sub_tit{
+	width: 959px;
+	height: 62px;
+	border: 1px solid #f0f0f5;
+}
+#year_month{
+	width: 900px;
+	height: 40px;
+}
+
+#year_month_day{
+	width: 900px;
+	border-spacing: 2px;
+    border-color: grey;
+    text-align: center;
+}
+#calan_show{
+	margin: 5px;
+}
+#chulfrm{
+	width: 900px;
+	height: 100px;
+}
+#contec{
+	float: left;
+}
+#ConSB{
+	width: 100px;
+	height: 70px;
+	margin-bottom: 30px;
+}
+#chullist_table{
+	width: 900px;
+	min-height: 100px;
+	table-layout:inherit;
+}
+#chullist_table th, tr, td {
+	border-bottom: 1px dashed gray;
+	text-align: center;
+}
