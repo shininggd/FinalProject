@@ -1,5 +1,6 @@
 package com.kh.chul;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -15,8 +16,8 @@ public class ChulDAO {
 	SqlSession sqlSession;
 	private final String NAMESPACE = "ChulMapper.";
 	
-	public List<ChulDTO> Chullist(ListInfo listInfo) throws Exception{
-		return sqlSession.selectList(NAMESPACE+"chulList", listInfo);
+	public List<ChulDTO> Chullist() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"chulList");
 	};
 	public int ChulWrite(ChulDTO chulDTO) throws Exception{
 		return sqlSession.insert(NAMESPACE+"ChulWrite", chulDTO);

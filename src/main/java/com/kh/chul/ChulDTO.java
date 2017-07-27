@@ -7,6 +7,7 @@ private int num;
 private String writer;
 private String contents;
 private Date reg_date;
+
 public int getNum() {
 	return num;
 }

@@ -1,5 +1,9 @@
 package com.kh.learn_run;
 
+
+
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -25,21 +29,27 @@ public class ChulCheckController {
 	@Autowired
 	private ChulDAO chulDAO;
 	
-	@RequestMapping(value="/chulCheck")
+	@RequestMapping(value="/chulCheck", method=RequestMethod.GET)
 	public void goChul() {
 		
 	}
-	@RequestMapping(value="chulCheck", method=RequestMethod.GET)
-	public void Chullist(ListInfo listInfo,Model model, HttpSession httpSession)throws Exception{
-		List<ChulDTO> chul = chulService.Chullist(listInfo);
-		String cheid = ((MemberDTO)httpSession.getAttribute("member")).getId();
+
+	@RequestMapping(value="/chulList", method=RequestMethod.POST)
+	public String ChulList(Model model,String da, HttpSession httpSession)throws Exception{
+		Date date=null;
+		
+		if(da.equals("0")) {
+		date = new Date(System.currentTimeMillis());
+		}else {
+			date = Date.valueOf(da);
+		}
+		List<ChulDTO> chul = chulService.Chullist(date);	
+		
 		model.addAttribute("result", chul);
-		model.addAttribute("cheid", cheid);
-		model.addAttribute("totalCount", chulService.Ccount(listInfo));
-		model.addAttribute("listInfo", listInfo);
+		return "chul/chulList";
 	}
 	
-	@RequestMapping(value="chulCheck", method=RequestMethod.POST)
+	@RequestMapping(value="/chulCheck", method=RequestMethod.POST)
 	public ModelAndView ChulWrite( String writer, String contents)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		ChulDTO chulDTO = new ChulDTO();
@@ -55,4 +65,5 @@ public class ChulCheckController {
 		
 		return mv;
 	}
+	
 }

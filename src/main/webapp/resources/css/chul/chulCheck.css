@@ -30,12 +30,66 @@
 	height: 70px;
 	margin-bottom: 30px;
 }
-#chullist_table{
-	width: 900px;
-	min-height: 100px;
-	table-layout:inherit;
+#contents_wrap {
+	background-color: #f9f9f9;
+	margin-left: 100px;
+	padding-left: 100px;
+	width: 738px;
 }
-#chullist_table th, tr, td {
-	border-bottom: 1px dashed gray;
+
+#chulfrm {
+	margin: 0;
+}
+
+#contents {
+	margin-top: 10px;
+}
+
+#chulList {
+	margin-top: 50px;
+}
+
+#chullist_table {
+	table-layout: fixed;
+	margin: 0 auto;
+}
+
+#chullist_table td {
+	border-bottom: 1px gray dashed;
+}
+
+.chulLIst_tr {
+	border-bottom : 1px gray dashed;
+	height: 30px;
+}
+
+.chulWriter {
+	width: 100px;
+}
+
+.chulContents {
+	width: 500px;
+
+}
+.chulDate {
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+	color: #38465b;
+	margin-left: 10px;
+}
+#chaul_day_wrap {
+	padding : 0 30px 0 30px;
+	margin-left: 100px;
+	background-color: #f9f9f9;
+	display: inline;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+}
+
+#chaul_day_wrap span {
 	text-align: center;
+	font-size: 13px;
+	margin: 0;
+	padding: 0;
 }
