@@ -58,15 +58,13 @@
 	
 	$("#paySmart").click(function() {
 		
-		/* var year = $("#year").prop("value");
-		var month = $("#month").prop("value");
-		var day = $("#day").prop("value"); */
 		var phone = $("#phone_smart").prop("value");
 		var birth = $("#birth").prop("value");
 		
 		
 		$.post("smartCheck", {birth:birth,phone:phone}, function(data) {
-			alert(data.trim());
+			//alert(data.trim());
+			
 			var smartCheck = false;
 			
 			if(data.trim() == 'true'){
@@ -95,11 +93,40 @@
 	
 	$("#payAccount").click(function() {
 		
-			if($(".account").val() != null){
-				href.location="";
-			}else{
-				alert("계좌번호를 정확히 입력해주시기 바랍니다.")
-			}
+		var bank = $("#bank").prop("value");
+		var account = $("#account").prop("value");
+		var length = account.length;
+		var bank_length;
+
+		
+		if(bank == '국민' || bank =='기업'){
+			bank_length = 14
+		}
+		if(bank == '농협' || bank == '우리'){
+			bank_length = 13
+		}
+		if(bank == '신한'){
+			bank_length = 12
+		}
+		if(account == null || length != bank_length){
+			alert("계좌번호를 정확히 입력해주시기 바랍니다.")
+		}
+		
+		if(bank_length == length){
+			payCheck = true;
+		}else{
+			payCheck = false;
+		}
+		
+		if(payCheck == true){
+			alert("신청이 정상적으로 완료되었습니다.");
+			$("#p_frm_account").submit();
+	 		
+	 		window.opener.top.location.href="/learn_run/study/payComplete";
+		}else{
+			alert("신청이 정상적으로 완료되지 않았습니다. 다시 시도하거나 문의주시기 바랍니다. ")
+		}
+	
 	});
 	});
 
@@ -232,21 +259,6 @@
 								<tr>
 								<td>생년월일</td>
 								<td>
-								<%-- <select id="year" name="year">
-									<c:forEach begin="1910" end="2017" var="i">
-									<option value="${i}">${i}</option>
-									</c:forEach>	
-								</select>년
-								<select id="month" name="month">
-									<c:forEach begin="1" end="12" var="i">
-									<option value="${i}" >${i}</option>
-									</c:forEach>
-								</select>월
-								<select id="day" name="day">								
-									<c:forEach begin="1" end="31" var="i">
-									<option value="${i}">${i}</option>
-									</c:forEach>
-								</select>일 --%>
 								<input type="date" name="birth" id="birth">
 								</td>
 								</tr>
@@ -264,7 +276,15 @@
 					</c:if>
 					<c:if test="${dto.type eq 'account'}">
 					<h3>무통장입금</h3>
-						<form action="payDo" id="p_frm_account">
+						<form action="payDo" id="p_frm_account" method="post">
+							<input type="hidden" name="product" value="${dto.product}">
+							<input type="hidden" name="price" value="${dto.price}">
+							<input type="hidden" name="name" value="${dto.name}">
+							<input type="hidden" name="id" value="${dto.id}">
+							<input type="hidden" name="type" value="${dto.type}">
+							<input type="hidden" name="snum" value="${dto.snum }">
+							<input type="hidden" name="tid" value="${dto.tid }">
+						</form>
 							<table class="p-table">
 								<thead>
 									<tr>
@@ -287,7 +307,6 @@
 								<tr>
 									<td>이름</td>
 									<td>${member.name}</td>
-									
 								</tr>
 								<tr>
 									<td>은행</td>
@@ -297,23 +316,19 @@
 									<option value="신한">신한</option>
 									<option value="우리">우리</option>
 									<option value="농협">농협</option>
-									<option value="하나">하나</option>
 									<option value="기업">기업</option>
-									<option value="외환">외환</option>
-									<option value="부산">부산</option>
-									<option value="제주">제주</option>
 									</select>
 									</td>
 								</tr>
 								<tr>
 									<td>계좌입력</td>
-									<td><input type="text" id="account1" class="account">-<input type="text" id="account2" class="account">-<input type="text" id="account3" class="account"></td>
+									<td><input type="text" id="account" maxlength="14" placeholder="' - '을 제외하고 입력해주세요."></td>
 								</tr>
 							</table>
 							<a role="button" class="payDo" id="payAccount">결제하기</a>
 							
 				
-						</form>
+						
 					</c:if>
 				</div>
 </body>

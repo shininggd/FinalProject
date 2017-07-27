@@ -22,7 +22,7 @@ public class PurchaseController {
 		
 	@RequestMapping(value="/purchaseDo",method=RequestMethod.POST)
 	public void purchaseDo(PurchaseDTO purchaseDTO, Model model) throws Exception{
-		System.out.println(purchaseDTO.getProduct());
+		//System.out.println(purchaseDTO.getProduct());
 	 model.addAttribute("dto", purchaseDTO);
 		
 	}

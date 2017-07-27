@@ -27,7 +27,7 @@
 				 mt=(ch-sh)/2;      
 				 
 				 var type = $("#type").prop("value");
-				 alert(type);
+				 //alert(type);
 				 $("#type_value").prop("value",type);
 				 
 				/* window.open('/learn_run/study/purchaseDo?num=${dto.num}&title=${dto.title}&tid=${dto.tid}&name=${member.name}&price=${dto.price}&type='+type,'purchase_frm','width='+sw+',height='+sh+',top='+mt+',left='+ml+',resizable=no'); */
