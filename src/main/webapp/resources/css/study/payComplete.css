@@ -3,6 +3,10 @@
 .clear{
 	clear: both;
 }
+
+#main_section{
+	background-color: #ebebeb;
+}
 .titleContainer{
 	width : 450px; 
 	height : 60px;
@@ -15,20 +19,22 @@
 	float : left;
 	margin-top: 7px;
 	margin-left : 10px; 
-	
+
 	
 }
 #p-step1{
 	width: 230px;
 	height: 80px;
 	border: 3px solid orange;
-	color: #999999;  	
+	color: #999999;
+	background-color: white; 	
 }
 #p-step2{
 	width: 230px;
 	height: 80px;
 	border: 3px solid orange;
 	color: #999999;
+	background-color: white;
 }
 #p-step3{
 	width: 230px;
@@ -50,8 +56,10 @@
 	width: 690px;
 	height: 150px;
 	border: 1px solid black;
+	background-color: white;
 }
 #completeMsg{
+	margin-top : 35px;
 	margin-left: 220px;
 	color: rgb(254, 156, 200);
 }
@@ -63,5 +71,5 @@
 	margin-left: 190px;
 }
 #home{
-	margin-left: 70px;
+	margin-left: 90px;
 }
