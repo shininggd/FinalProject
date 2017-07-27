@@ -80,3 +80,17 @@
 	margin-top: 20px;
 	cursor: pointer;
 }
+
+#message_contents {
+	min-height: 400px;
+	height: auto;
+}
+#messageDel_btn {
+	float: right;
+	border: none;
+	background-color: black;
+	color: white;
+	font-size: 20px;
+	padding: 10px 20px;
+	margin-top: 10px;
+}
