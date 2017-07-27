@@ -9,7 +9,7 @@ public class FileSaver {
 	
 	public String fileSave(MultipartFile file, String realPath) throws Exception {
 		String Fname = Calendar.getInstance().getTimeInMillis()+"_"+file.getOriginalFilename();
-		
+		System.out.println("파일세이버"+Fname);
 		System.out.println(realPath);
 		File path = new File(realPath);
 		

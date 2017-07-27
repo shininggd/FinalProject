@@ -126,6 +126,11 @@ public class StudyDAO {
 		
 		return list;
 	}
+	public List<StudyDTO> studySlider(){
+		
+		return sqlSession.selectList(NAMESPACE+"studySlider");
+	}
+	
 	
 	
 	

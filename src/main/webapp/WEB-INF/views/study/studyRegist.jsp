@@ -26,7 +26,7 @@
 		각양각색 스터디<br>
 		 <span class="fcolor">Learn&Run</span>
 		</div>
-		<form action="studyRegistInsert" method="post" id="frm" name="frm" enctype="multipart/data-form">
+		<form action="studyRegistInsert" method="post" id="frm" name="frm" enctype="multipart/form-data">
 			<input type="hidden"  name="tid" value="${member.id }">
 			<div class="form_main">
 				<div class="form_top">	
@@ -49,6 +49,7 @@
 							<option value="천호동">천호동</option>
 						</select> 
 					인원 <input type="number" min="1" max="99" class="people_box" name="people" id="people">
+					배너이미지 <input type="file" style="background-color: white" name="f1" id="f1">
 				</div> 			
 			
 			<div class="form_other">기   간 <input type="date" name="sDate" class="other_box" id="sDate"> - 
@@ -97,6 +98,7 @@ nhn.husky.EZCreator.createInIFrame({
 		$("#sDate").val()== "" ||
 		$("#lDate").val()== "" ||
 		$("#price").val() =="" ||
+		$("#f1").val() =="" ||
 		$("#price").val()*1 <=0*1 ||
 		$("#people").val()*1 <0*1 ||
 		$("#people").val()*1>100*1

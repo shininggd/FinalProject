@@ -1,17 +1,25 @@
 package com.kh.learn_run;
 
+import java.io.File;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.kh.file.FileService;
 import com.kh.member.tutor.TutorDTO;
 import com.kh.study.StudyDTO;
 import com.kh.study.StudyService;
+import com.kh.util.FileSaver;
 import com.kh.util.ListInfo;
 
 @Controller
@@ -53,9 +61,29 @@ public class StudyController {
 	}
 
 	@RequestMapping(value = "studyRegistInsert", method = RequestMethod.POST)
-	public String regist(StudyDTO studyDTO)throws Exception{
-		System.out.println(studyDTO.getContents());
-		studyService.regist(studyDTO);
+	public String regist(StudyDTO studyDTO, MultipartFile f1,MultipartHttpServletRequest request)throws Exception{
+		
+		String realPath = request.getSession().getServletContext().getRealPath("resources/img/study/upload");
+		
+		/*Iterator<String> it = request.getFileNames();
+		MultipartFile f=null;
+		while(it.hasNext()) {
+			String name = it.next();
+			f = request.getFile(name);
+			System.out.println("oriname="+f.getOriginalFilename());
+			
+		}*/
+		
+		String fileName = UUID.randomUUID().toString();
+		
+		
+		studyDTO.setOname(f1.getOriginalFilename());;
+		studyDTO.setFname(fileName+"_"+studyDTO.getOname());
+		int i =studyService.regist(studyDTO);
+		if(i>0){
+			File f2 = new File(realPath,studyDTO.getFname());
+			FileCopyUtils.copy(f1.getBytes() , f2);
+		}
 		return "redirect: /learn_run/";
 
 	}
@@ -102,6 +130,10 @@ public class StudyController {
 		System.out.println(listInfo.getSearch());
 		model.addAttribute("list", studyService.homeList(listInfo));
 	}
-
+	@RequestMapping(value="studySlider", method=RequestMethod.GET)
+	public void studySlider(Model model) throws Exception{
+		
+		model.addAttribute("list", studyService.studySlider());
+	}
 	
 }

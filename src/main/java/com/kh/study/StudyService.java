@@ -17,6 +17,7 @@ public class StudyService {
 	
 
 	public List<StudyDTO> list(ListInfo listInfo)throws Exception{
+		listInfo.setPerPage(6);
 		listInfo.makePage(studyDAO.count(listInfo));
 		listInfo.makeRow();
 		return studyDAO.list(listInfo);
@@ -48,6 +49,10 @@ public class StudyService {
 	
 	public List<StudyDTO> myStudyList(List<String> snums) {
 		return studyDAO.myStudyList(snums);
+	}
+	public List<StudyDTO> studySlider(){
+		return studyDAO.studySlider();
+		
 	}
 	
 	
