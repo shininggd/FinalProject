@@ -286,6 +286,18 @@ public class MemberController {
 		return "common/resultMessage"; 
 	}
 	
+	@RequestMapping(value="GPStudentList")
+	public String GPStudentList(String tid,Model model) {
+		List<String> list = tutorServiceImpl.GPstudentList(tid);
+		model.addAttribute("list", list);
+		
+		return "member/sub/GPstudentList";
+	}
+	
+	public void pointGive() {
+		
+	}
+	
 	@RequestMapping(value="/myP")
 	public String myPoint(MemberDTO memberDTO,Model model,HttpSession session) throws Exception {
 		String result = studentServiceImpl.myPoint(memberDTO);

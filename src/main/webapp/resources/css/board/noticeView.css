@@ -48,9 +48,11 @@
 
 #contents {
 	border: 2px solid gray;
-	width: 725px;
+	min-width: 725px;
 	min-height: 300px;
+	width: auto;
 	height: auto;
+	overflow: auto;
 }
 
 .viewPage_btn {

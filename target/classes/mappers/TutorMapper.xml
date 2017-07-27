@@ -67,5 +67,13 @@
 	<delete id="memberDelete" parameterType="com.kh.member.tutor.TutorDTO">
 		delete from member where id=#{id}
 	</delete>
+	
+	<select id="GPstudentList1" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select num from study where tid=#{tid}
+	</select>
+	
+	<select id="GPstudentList2" parameterType="java.lang.Integer" resultType="java.lang.String">
+		select id from memberstudy where snum=#{num}
+	</select>
 
 </mapper>

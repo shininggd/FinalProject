@@ -69,7 +69,7 @@
 			<div id="point_submenu">
 				<span id="gift_btn"><strong>[point]</strong>포인트->문화상품권</span>
 				<c:if test="${member.grade eq 'tutor' }">
-				<span id="givePoint_btn"><strong>[Gpoint]</strong>포인트 선물하기</span>
+				<span id="givePoint_btn"><strong>[Gpoint]</strong>학생에게 포인트 선물하기</span>
 				</c:if>
 			</div>
 			
@@ -82,7 +82,15 @@
 			</div>
 			
 			<div id="giveP_wrap">
+				<p>-보유하신 Gpoint를 학생에게 point로 선물합니다.</p>
+				<p>-Gpoint는 학생에게 선물하는 용도로만 사용 가능합니다.</p>
+				<div id="GPstudentList_wrap">
 				
+				</div>
+				<div id="gpinput_wrap">
+				<strong>선물하실 포인트 :</strong><input type="text" id="givePoint" name="point"><img id="gpoint_img" src="/learn_run/resources/img/member/point.png">
+				</div><br>
+				<input type="button" id="gp_btn" value="선물하기                  >">
 			</div>
 		</div>
 	
@@ -117,9 +125,16 @@
 		$("#giftCard_wrap").css("display","none");
 		$("#giveP_wrap").css("display","inline-block");
 		
+		StudentList();
+		
 		$.post("givePoint",{id:'${member.id}'},function(result) {
 			
 		});
+	});
+	
+	$("#gp_btn").click(function() {
+		var point = $("#givePoint").prop("value");
+		$.post("");
 	});
 	
 	function myPoint() {
@@ -131,6 +146,12 @@
 	
 	function numberWithCommas(x) {
 	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+	
+	function StudentList() {
+		$.post("GPStudentList",{tid:'${member.id}'},function(result) {
+			$("#GPstudentList_wrap").html(result.trim());
+		})
 	}
 
 

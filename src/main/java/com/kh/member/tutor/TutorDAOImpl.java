@@ -1,6 +1,8 @@
 package com.kh.member.tutor;
 
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 
@@ -58,5 +60,28 @@ public class TutorDAOImpl implements MemberDAO{
 		int result = sqlSession.delete(NAMESPACE+"tutorDelete", tutorDTO);
 		int result2 = sqlSession.delete(NAMESPACE+"memberDelete", tutorDTO);
 		return result+result2;
+	}
+	public List<String> GPstudentList(String tid) {
+		List<Integer> list1 = sqlSession.selectList(NAMESPACE+"GPstudentList1", tid);
+		
+		List<String> list2 = new ArrayList<String>();
+		List<String> resultList = new ArrayList<String>();
+		for(int i=0; i<list1.size(); i++) {
+			list2 = (sqlSession.selectList(NAMESPACE+"GPstudentList2", list1.get(i)));
+			for(int j=0; j<list2.size(); j++) {
+				resultList.add(list2.get(j));
+			}
+		}
+		
+		HashSet hs = new HashSet();
+		hs.addAll(resultList);
+		resultList.clear();
+		resultList.addAll(hs);
+		
+		for(String s:resultList) {
+			System.out.println(s);
+		}
+		
+		return resultList;
 	}
 }
