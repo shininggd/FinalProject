@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
-
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-
+import org.springframework.web.servlet.ModelAndView;
 import com.kh.file.FileService;
 import com.kh.member.tutor.TutorDTO;
 import com.kh.study.StudyDTO;
@@ -96,10 +96,11 @@ public class StudyController {
 		return path;
 	}
 	@RequestMapping(value = "studyView", method = RequestMethod.POST)
-	public void update(StudyDTO studyDTO,Model model)throws Exception{
+	public String update(StudyDTO studyDTO,Model model)throws Exception{
 		
 		
 		studyService.update(studyDTO);
+
 		HashMap<Object, Object> ar =studyService.studyView(studyDTO.getNum(), studyDTO.getTid());
 		StudyDTO dto = (StudyDTO) ar.get("study");
 		TutorDTO tutor = (TutorDTO)ar.get("tutor");
@@ -107,11 +108,10 @@ public class StudyController {
 		model.addAttribute("tutor",tutor);
 		model.addAttribute("profile",ar.get("profile"));
 	
+		return "redirect: /learn_run/";
 
 	}
 
-
-	
 	@RequestMapping(value="myStudyList", method = RequestMethod.POST)
 	public String myStudy(Model model ,String id) {
 		System.out.println("studyList");
@@ -130,10 +130,24 @@ public class StudyController {
 		System.out.println(listInfo.getSearch());
 		model.addAttribute("list", studyService.homeList(listInfo));
 	}
+<<<<<<< HEAD
 	@RequestMapping(value="studySlider", method=RequestMethod.GET)
 	public void studySlider(Model model) throws Exception{
 		
 		model.addAttribute("list", studyService.studySlider());
 	}
+=======
+>>>>>>> Test
 	
+	@RequestMapping(value="/studyPurchase", method=RequestMethod.GET)
+	public ModelAndView studyPurchase(HttpServletRequest request, int num, String type) throws Exception{
+	
+		StudyDTO studyDTO = studyService.studydto(num);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("dto", studyDTO);
+		return mv;
+	} 
+	
+
 }

@@ -78,8 +78,11 @@ public class MemberController {
 	@RequestMapping(value="/studentLogin", method=RequestMethod.POST)
 	public ModelAndView studentLogin(MemberDTO memberDTO, HttpSession session)throws Exception{
 		
-		System.out.println("studentLogin");
-		memberDTO = studentServiceImpl.memberLogin(memberDTO, session);
+		if(memberDTO.getGrade().equals("student")){
+			memberDTO = studentServiceImpl.memberLogin(memberDTO, session);
+		}else{
+			memberDTO = tutorServiceImpl.memberLogin(memberDTO, session);
+		}
 		String message = "로그인에 실패하였습니다.";
 		if(memberDTO != null){
 			message = "로그인에 성공하였습니다.";
@@ -161,6 +164,8 @@ public class MemberController {
 		mv.addObject("message", message);
 		return mv;
 	}
+	
+	
 	
 	@RequestMapping(value="/find_id")
 	public String goFindId(){
