@@ -19,6 +19,8 @@
 	font-weight: bold;
 	margin: 23px 0 0 10px;
 	color: white;
+}
+#level_test_banner_span {
 	cursor: pointer;
 }
 #close_banner{

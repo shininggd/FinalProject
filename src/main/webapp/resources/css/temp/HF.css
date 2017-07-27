@@ -427,7 +427,7 @@ header > #header_content > #header_menu > article > a{
 	margin-left: 26%;
 }
 
-#login_input #id,#pw {
+#login_input #id, #login_input #pw {
 	display: block;
     margin-top: 6px;
     width: 100%;
@@ -494,8 +494,7 @@ header > #header_content > #header_menu > article > a{
 	top: 72px;
 	right: 200px;
 	width: 500px;
-	min-height: 470px;
-	height : auto;
+	height: 520px;
 	background-color: white;
 	box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px, rgba(0,0,0,0.5) 2px 2px 3px 3px;
    	z-index : 100;
