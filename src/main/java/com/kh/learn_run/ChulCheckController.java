@@ -66,4 +66,16 @@ public class ChulCheckController {
 		return mv;
 	}
 	
+	@RequestMapping(value="chulDelete")
+	public String chulDelete(String num,Model model) throws Exception {
+		int result = chulService.cDelete(num);
+		String message = "삭제 실패";
+		if(result>0) {
+			message = "삭제 성공";
+		}
+		model.addAttribute("message", message);
+		
+		return "common/resultMessage";
+	}
+	
 }

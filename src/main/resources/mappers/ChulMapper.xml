@@ -13,4 +13,7 @@
   insert into chul values(chul_seq.nextval,#{writer},#{contents},sysdate)
   </insert>
   
+  <delete id="chulDelete" parameterType="java.lang.String">
+  	delete chul where num=#{num}
+  </delete>
   </mapper>

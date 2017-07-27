@@ -10,7 +10,7 @@
 			<td class="chulContents">${i.contents}<span class="chulDate">${i.reg_date}</span></td>
 			<td>
 				<c:if test="${i.writer eq member.id }">
-					<span>X</span>
+					<span class="chul_del" id="${i.num}">X</span>
 				</c:if>
 			</td>
 		</tr>

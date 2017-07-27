@@ -93,3 +93,7 @@
 	margin: 0;
 	padding: 0;
 }
+.chul_del {
+	cursor: pointer;
+	color: red;
+}

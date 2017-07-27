@@ -38,6 +38,15 @@ $("#chulCheck_btn").click(function () {
 	$("#chulfrm").submit();
 });
 
+$("#chulList").on("click",".chul_del",function() {
+	var num = $(this).prop("id");
+	
+	$.post("chulDelete",{num:num},function(result) {
+		alert(result.trim());
+		getList(day);
+	});
+});
+
 function getList(da) {
 	
 	$.post("chulList",{da:da},function(result) {

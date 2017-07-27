@@ -22,8 +22,8 @@ public class ChulDAO {
 	public int ChulWrite(ChulDTO chulDTO) throws Exception{
 		return sqlSession.insert(NAMESPACE+"ChulWrite", chulDTO);
 	};
-	public int delete(int num) throws Exception{
-		return 0;
+	public int delete(String num) throws Exception{
+		return sqlSession.delete(NAMESPACE+"chulDelete", num);
 	};
 	public int Ccount(ListInfo listInfo){
 		int count = sqlSession.selectOne(NAMESPACE+"Ccount", listInfo);

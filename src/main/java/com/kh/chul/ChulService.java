@@ -35,4 +35,8 @@ public class ChulService {
 		return chulDAO.Ccount(listInfo);
 
 	}
+	
+	public int cDelete(String num) throws Exception {
+		return chulDAO.delete(num);
+	}
 }
