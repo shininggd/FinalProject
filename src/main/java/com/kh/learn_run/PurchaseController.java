@@ -29,7 +29,7 @@ public class PurchaseController {
 	
 	@RequestMapping(value="/payDo", method=RequestMethod.POST)
 	public void payDo(PurchaseDTO purchaseDTO, Model model) throws Exception{
-		System.out.println("controller");
+		System.out.println("payDo");
 		purchaseService.payComplete(purchaseDTO);
 		purchaseService.addMemberStudy(purchaseDTO);
 		model.addAttribute("dto", purchaseDTO);
@@ -45,16 +45,21 @@ public class PurchaseController {
 		 return "common/resultMessage"; 		
 	}
 	
-/*	@RequestMapping(value="/payComplete")
+	@RequestMapping(value="/payComplete")
 	public void payComplete() throws Exception{
 		
 	}
-	*/
+	
 	
 	
 	@RequestMapping(value="/smartCheck")
 	public String smartCheck(HttpServletRequest request, Model model) throws Exception{
 		String message = "false";
+		
+		System.out.println("birth"+request.getParameter("birth"));
+		System.out.println("phone"+request.getParameter("phone"));
+		
+		System.out.println("result="+purchaseService.paySmart(request));
 		
 		if(purchaseService.paySmart(request) != null){
 			message = "true";			

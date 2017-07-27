@@ -14,7 +14,7 @@
  $(function () {
 	 
 		var payCheck = false;
-		var smartCheck = false;
+		
 		
 	$("#ch_cardNum").click(function() {
 		
@@ -58,27 +58,29 @@
 	
 	$("#paySmart").click(function() {
 		
-		var year = $("#year").val();
-		var month = $("#month").val();
-		var day = $("#day").val();
-		var phone = $("#phone").val();
-		alert(year+"-"+month+"-"+day);
+		/* var year = $("#year").prop("value");
+		var month = $("#month").prop("value");
+		var day = $("#day").prop("value"); */
+		var phone = $("#phone_smart").prop("value");
+		var birth = $("#birth").prop("value");
 		
-		$.post("smartCheck", {year:year,month:month,day:day,phone:phone}, function(data) {
-			if(data.trim() =='true'){
+		
+		$.post("smartCheck", {birth:birth,phone:phone}, function(data) {
+			alert(data.trim());
+			var smartCheck = false;
+			
+			if(data.trim() == 'true'){
 				smartCheck = true;
 			}else{
 				smartCheck = false;
 			}		
 			
-		});
-		
 		if(smartCheck == true){
 			//생일을 올바르게 입력한 경우
 				
 			alert("결제가 완료되었습니다. 내역은 마이페이지에서 확인가능합니다.");
 	 		$("#p_frm_smart").submit();
-	 		window.close();
+	 		
 	 		window.opener.top.location.href="/learn_run/study/payComplete";
 			
 		}else{
@@ -87,6 +89,8 @@
 			return false;
 			
 		}
+		});
+		
 	});
 	
 	$("#payAccount").click(function() {
@@ -228,22 +232,22 @@
 								<tr>
 								<td>생년월일</td>
 								<td>
-								<select name="year">
+								<%-- <select id="year" name="year">
 									<c:forEach begin="1910" end="2017" var="i">
 									<option value="${i}">${i}</option>
 									</c:forEach>	
 								</select>년
-								<select name="month">
+								<select id="month" name="month">
 									<c:forEach begin="1" end="12" var="i">
 									<option value="${i}" >${i}</option>
 									</c:forEach>
 								</select>월
-								<select name="day">								
+								<select id="day" name="day">								
 									<c:forEach begin="1" end="31" var="i">
 									<option value="${i}">${i}</option>
 									</c:forEach>
-								</select>일
-									
+								</select>일 --%>
+								<input type="date" name="birth" id="birth">
 								</td>
 								</tr>
 								<tr>
@@ -251,7 +255,7 @@
 								<td id="phone_all">
 								<span id="phone">*가입 시 입력한 연락처를 입력해주세요*</span>
 								<br>
-								<input type="text" name="phone" placeholder="예) 010-0000-0000">
+								<input type="text" id="phone_smart" name="phone" placeholder="예) 010-0000-0000">
 								</td>
 								</tr>
 							</table>

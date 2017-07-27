@@ -1,11 +1,14 @@
 package com.kh.purchase;
 
 import java.sql.Date;
+import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.databind.deser.std.DateDeserializers.CalendarDeserializer;
 import com.kh.member.MemberDTO;
 
 
@@ -63,9 +66,10 @@ public class PurchaseService {
 		
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setPhone(request.getParameter("phone"));
-		Date birth = Date.valueOf(request.getParameter("year")+"-"+request.getParameter("month")+"-"+request.getParameter("day"));
-		memberDTO.setBirth(birth);
-
+		memberDTO.setBirth(Date.valueOf(request.getParameter("birth")));
+		
+		/*Date birth = Date.valueOf(request.getParameter("year")+"-"+request.getParameter("month")+"-"+request.getParameter("day"));*/
+	
 		return purchaseDAO.paySmart(memberDTO);
 	}
 	
