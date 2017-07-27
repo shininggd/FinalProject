@@ -130,14 +130,13 @@ public class StudyController {
 		System.out.println(listInfo.getSearch());
 		model.addAttribute("list", studyService.homeList(listInfo));
 	}
-<<<<<<< HEAD
+
 	@RequestMapping(value="studySlider", method=RequestMethod.GET)
 	public void studySlider(Model model) throws Exception{
 		
 		model.addAttribute("list", studyService.studySlider());
 	}
-=======
->>>>>>> Test
+
 	
 	@RequestMapping(value="/studyPurchase", method=RequestMethod.GET)
 	public ModelAndView studyPurchase(HttpServletRequest request, int num, String type) throws Exception{
