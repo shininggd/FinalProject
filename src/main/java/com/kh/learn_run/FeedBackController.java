@@ -96,6 +96,7 @@ public class FeedBackController {
 			}
 			File f2 = new File(realPath,feedBack_UploadDTO.getFname());
 			FileCopyUtils.copy(feedUp.getBytes() , f2);
+			model.addAttribute("file", feedBackService.checkUpload(feedBackDTO.getNum()));
 		}
 		
 		HashMap<Object, Object> map =  feedBackService.studyPage(feedBackDTO.getSnum());
