@@ -20,7 +20,7 @@
 		
 		<div id="section_left">
 			<div id="left_header">
-				메시지(<span id="messageCount"></span>)
+				메시지(<span class="messageCount"></span>)
 				<img id="write_img" src="/learn_run/resources/img/temp/message_write.png">
 			</div>
 			<div id="left_contents">
@@ -29,12 +29,17 @@
 		</div>
 		<div id="section_right">
 			<div id="right_contents">
+				<div id="message_contents_wrap">
 				
-				<!-- <div id="no_message">
+				</div>
+				<div class="message_status" id="no_message">
 					<img src="/learn_run/resources/img/temp/noMessage.png">
-					<span id="message_span">아직 메세지가 없습니다.</span>
-				</div> -->
-				
+					<span id="message_span">새로운 메세지가 없습니다.</span>
+				</div>
+				<div class="message_status" id="new_message">
+					<img src="/learn_run/resources/img/temp/noMessage.png">
+					<span id="message_span"><span class="messageCount"></span>개의 새로운 메세지가 있습니다.</span>
+				</div>
 			</div>
 		</div>
 
@@ -46,12 +51,14 @@
 
 <script type="text/javascript">
 	
+
 	ListLoad();
 	
 	$("#left_contents").on("click",".ML_title",function() {
 		var num = $(this).prop("title");
 		$.post("messageView",{num:num},function(result) {
-			$("#right_contents").html(result.trim());
+			$("#message_contents_wrap").css("display","block");
+			$("#message_contents_wrap").html(result.trim());
 			ListLoad();
 		});
 	});
@@ -72,9 +79,8 @@
 		var num = $("#messageNum").val();
 		$.post("messageDelete",{num:num},function(result) {
 			alert(result.trim());
+			$("#message_contents_wrap").css("display","none");
 			ListLoad();
-			$("#right_contents").html("");
-			
 		});
 	});
 	
@@ -87,8 +93,21 @@
 	
 	function MessageCount() {
 		$.post("messageCount",{id:'${member.id}'},function(result) {
-			$("#messageCount").html(result.trim());
+			var count = result.trim();
+			noMessage(count);
 		});
+	}
+	
+	function noMessage(c) {
+		
+		if(c*1 == 0) {
+			$("#no_message").css("display","block");
+			$("#new_message").css("display","none");
+		}else {
+			$("#no_message").css("display","none");
+			$("#new_message").css("display","block");
+		}
+		$(".messageCount").html(c);
 	}
 	
 </script>

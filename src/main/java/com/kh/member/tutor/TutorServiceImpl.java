@@ -70,6 +70,17 @@ public class TutorServiceImpl implements MemberService{
 		return tutorDAOImpl.tutorDelete(tutorDTO);
 	}
 	
+	public List<String> GPstudentList(String tid) {
+		return tutorDAOImpl.GPstudentList(tid);
+	}
+	
+	public int GP(MemberDTO memberDTO,String sid) {
+		return tutorDAOImpl.GP(memberDTO, sid);
+	}
+	
+	public String mygPoint(MemberDTO memberDTO) {
+		return tutorDAOImpl.mygPoint(memberDTO);
+	}
 }
 	
 	

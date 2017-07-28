@@ -28,4 +28,5 @@
 	<select id="messageCount" parameterType="java.lang.String" resultType="java.lang.Integer">
 		select count(num) from message where id=#{id} and read='f'
 	</select>
+	
 </mapper>

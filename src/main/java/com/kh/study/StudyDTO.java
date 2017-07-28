@@ -18,7 +18,20 @@ public class StudyDTO {
 	private String title;
 	private String contents;
 	private String onOff;
-	
+	private String oname;
+	private String fname;
+	public String getOname() {
+		return oname;
+	}
+	public void setOname(String oname) {
+		this.oname = oname;
+	}
+	public String getFname() {
+		return fname;
+	}
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
 	public int getNum() {
 		return num;
 	}

@@ -11,86 +11,20 @@
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/basic_table.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyList.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/feedback/feedback_basic.css">
+<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/feedback/feedback_list.css">
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-<style type="text/css">
-.listBlock{
-	width: 750px;
-	height: 950px;
-	margin-top:10 px;
-	float: right;
-	overflow: hidden;
-	background: none;
-	
-}
-.listBox{
-	margin-top: 12px;
-	width: 700px;
-	height: 950px;
-	background: none;
-	
-}
-.oneBox{
-	margin-top: 3px;
-	width: 100%;
-	height: 90px;
-	background-color: white;
-	border-radius: 10px;
-	
-}
-.writer{
-    
-    color: #7097cc;
-    letter-spacing: -1px;
-    font-weight: bold;
-    margin-left: 5px;
-}
-.title{
-    color: #000;
-    font-size: 16px;
-    margin-left: 5px;
-}
-.reg_date{
-	font-size: 12px;
-	color: #999;
-    font-family: tahoma;
-    margin-left: 5px;
-}
-.contents{
-    color: #767676;
-    margin-left:5px;
-    width: 680px;
-    height: 45px;
-    font-size: 15px;
-    text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden; 
-	
-}
-.searchBox{
-	height: 30px;
-	float: right;
-	line-height: 30px;
-	background-color: blue;
-	overflow: hidden;
-	}
-.kind{
-	height: 30px;
 
-}	
 
-</style>
 <script type="text/javascript">
 $(function () {
 	var find = "snum,category,";
 	$("#btn").click(function() {
-		 var search = document.frm.snum.value+","+document.frm.category.value+","+document.frm.searchText.value; 
-		 alert(document.frm.category.value); 
-		alert(document.frm.snum.value);
-		alert(document.frm.searchText.value);
-		alert(document.frm.kind.value);
-		 document.frm.find.value = find+document.frm.kind.value;
+		 var search = document.frm.snum.value+","+document.frm.category.value+","+document.frm.searchText.value;
+		var temp = find+$(".kind").val();
+   		document.frm.find.value = temp;
 		document.frm.search.value = search;
-		document.frm.submit(); 
+		document.frm.submit();   
+
 	});	
 })
 
@@ -101,21 +35,22 @@ $(function () {
 <!-- ======================================== 섹션=============================================  -->
 <section id="main_section">
 <div class="main_block">
-	<div class="block_top"> 
-		<img class="profileImage" src="<c:url value="/resources/img/member/profilePhoto/${fname }"/>">
-		
-		<div class="titleBox">
-		${dto.title}
-		</div>
-		
-	</div>
-	<div class="listBlock">
+	<!--===================상단====================================  -->
+	<c:import url="feedbackTop.jsp"></c:import>
+	<!--===============================================================  -->
 	
+	
+	<div class="listBlock">
 	<div class="listBox">
 		<c:forEach items="${list }" var="i"  varStatus="s" >
 			<div class="oneBox"> 
 			<span class="writer"> ${i.writer }</span> <span class="reg_date">${i.reg_date }</span><br>
-			<span class="title">${i.title }</span>
+		<c:if test="${i.depth>0 }">
+			[Re]
+			<c:forEach begin="1" end="${i.depth }" var="t" varStatus="tt">
+			&ensp;
+			</c:forEach>	
+		</c:if><span class="title"><a href="feedbackView?num=${i.num }&snum=${dto.num}">${i.title }</a></span>
 			
 			<div class="contents">
 				${i.contents}
@@ -141,15 +76,15 @@ $(function () {
 		</div>
 		<div class="searchBox">
 		<form action="feedbackList" method="get" name="frm">
+				<input type="hidden" name="find" >
+				<input type="hidden" name="search">
+				<input type="hidden" name="category" value="${category }">
+				<input type="hidden" name="snum" value="${dto.num }" >
 				<select class="kind" name="kind">
 					<option value="title">제목</option>
 					<option value="writer">작성자</option>
 				</select>
-				<input type="hidden" name="find">
-				<input type="hidden" name="search">
-				<input type="hidden" name="category" value="${category }">
-				<input type="hidden" name="snum" value="${dto.num }">
-				<input type="text" name="searchText">
+				<input type="text" name="searchText" value="${searchText }">
 				 
 				<input type="button" value="검색" id="btn">
 				</form>
@@ -162,44 +97,10 @@ $(function () {
 	
 	
 	
+	
+	<!--===================좌측====================================  -->
+	<c:import url="feedbackSide.jsp"></c:import>
 	<!--===============================================================  -->
-	<div class="leftBox">
-	<div class="marginTop"></div>
-		<div class="studyViewBox">
-		
-			<div class="marginTop"></div>
-			<div class="viewBoxTop">
-				<span class="studyStatus">&ensp;『강의상태』</span>	
-				<div class="marginTopS"></div>
-				<c:if test="${dto.onOff == 'on' }">
-				<img class="switch" src="<c:url value="/resources/img/study/onSwitch.png"/>">
-				</c:if>
-				<c:if test="${dto.onOff == 'off' }">
-				<img class="switch" src="<c:url value="/resources/img/study/offSwitch.png"/>">
-				</c:if>
-			</div>
-			<div class="marginTopS"></div>
-			<input type="button" value="『참여하기』" class="enterButton">
-
-		</div>
-		<a href="feedbackWrite?snum=${dto.num }"><img class="feed_write" src="<c:url value="/resources/img/study/feed_write.jpg"/>"></a>
-
-		<div class="categoryTBox">		
-			<span class="categoryTitle">게시판</span>
-		</div>
-		<div class="categoryList"> 
-			<ul class="categoryUl">
-				<li><p><a href="feedbackList?find=snum,category&search=${dto.num },튜터와함께">튜터와 함께</a></p> </li>
-				<li><p><a href="feedbackList?find=snum,category&search=${dto.num },우리들의 이야기">우리들의 이야기</a></p> </li>
-				<li><p><a href="feedbackList?find=snum,category&search=${dto.num },자유게시판">자유게시판</a></p> </li>
-			</ul>
-		</div>
-	<div class="tempBox"> 
-			
-		</div>
-	
-	
-	</div>
 </div>
 </section>
 <!-- ======================================== 섹션END==========================================  -->

@@ -22,8 +22,12 @@
 	width: 780px;
 	height: 400px;
 	overflow: hidden;;
-	background-color: lime;
+	
 	}
+	.imgFView{
+	width: 100%;
+	height: 100%;
+}
 	/*이미지 박스 끝 */
 	
 	/* 레벨 표기 박스 */
@@ -228,6 +232,13 @@
 		background-color: #ef6c00;
 		border: 1px solid #ef6c00;
 		color: #fff;
+		text-align: justify;
+		text-decoration: none;
+	}
+	
+	.attendBtn h4{
+		margin-top: 7%;
+		margin-left: 25%;
 	}
 	.favoriteBtn{
 	width: 99.5%;

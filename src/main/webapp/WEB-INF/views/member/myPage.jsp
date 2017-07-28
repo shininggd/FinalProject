@@ -67,7 +67,7 @@
 		    <input id="profile_submit" type="button" value="변경 완료">
 		</form>
 		<div id="member_leave">
-			<a id="member_leave_a" href="#">회원 탈퇴</a>
+			<span id="member_leave_a" >회원 탈퇴</span>
 		</div>
 	</div>
 
@@ -114,6 +114,13 @@
              }
          });	
 		
+	});
+	
+	$("#member_leave_a").click(function () {
+		$.post("${member.grade}_Delete",{id:'${member.id}'},function(result){
+			alert(result.trim());
+			location.href = "/learn_run/";
+		});
 	});
 	
 	function profileChange(fname) {

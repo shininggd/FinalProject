@@ -1,0 +1,95 @@
+@CHARSET "UTF-8";
+.download{
+		float: right;
+		font-size: 15px;
+		color: rgb(255, 166, 77);
+	}
+.downIcon{
+		width: 15px;
+		height: 15px;
+		display: inline;
+}
+.viewBlock{
+	width: 750px;
+	min-height: 950px;
+	float: right;	
+}
+.viewBox{
+margin-top:12px;
+width: 740px;
+
+border-radius: 10px;
+background-color: white;
+min-height: 1000px;
+}
+.oneBox{
+	margin-top: 15px;
+	width: 100%;
+	min-height: 900px;
+	border-top: 3px groove #d0d0d0;
+	border-bottom: 5px double #d0d0d0;
+	border-bottom-style: groove;
+    
+	
+}
+.oneBoxTop{
+	margin-left: 10px;
+}
+.writer{
+    
+    color: #7097cc;
+    letter-spacing: -1px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.title{
+    color: #000;
+    font-size: 30px;
+    margin-left: 5px;
+}
+.reg_date{
+	font-size: 12px;
+	color: #999;
+    font-family: tahoma;
+    margin-left: 5px;
+}
+.contentsBox{
+	margin-top:34px;
+	width: 99.5%;
+	min-height: 750px;
+	border: 2px solid #d0d0d0;
+	
+}
+.replyBtnBox{
+	width: 100%;
+	height: 70px;
+	
+	overflow: hidden;
+}
+.replyBtn{
+	margin-top: 17.5px;
+	margin-left:300px;
+	width:140px;
+	height:35px;
+	text-align:center;
+	line-height: 35px;
+	display:inline-block;
+	border: 2px solid #ebebeb;
+	background-color: white;
+	
+}
+	.reply_write{
+		margin-left: 5px;
+	}
+.updateBtn{
+margin-top: 17.5px;
+	margin-left:10px;
+	width:80px;
+	height:35px;
+	text-align:center;
+	line-height: 35px;
+	display:inline-block;
+	border: 2px solid #ebebeb;
+	
+
+}

@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="FeedBackMapper">
-    <sql id="whereList">
+  <sql id="whereList">
  	<trim prefix="where" prefixOverrides="and || or">
   		<if test="search0 != null and find0 =='snum'">snum = #{search0}
   			<if test="search1 != null and find1 == 'category'">and category like '%' || #{search1} || '%'</if>
@@ -12,11 +12,13 @@
   	 </if>
   	</trim>
   </sql>
+  
  <select id="list" resultType="com.kh.feedback.FeedBackDTO" parameterType="java.util.Map">
   	select * from (select rownum R, S.* from (select * from feedback
   	 <include refid="whereList"></include>
   	 order by ref desc, step asc) S) where R between #{startRow} and #{lastRow} 
   </select>
+ 
   <select id="view" resultType="com.kh.feedback.FeedBackDTO" parameterType="java.lang.Integer">
   	select * from feedback where num = #{num}
   
@@ -41,7 +43,25 @@
   <update id="replyUpdate" parameterType="com.kh.feedback.FeedBackDTO">
   update feedback set step = step + 1 where ref = #{ref} and step > #{step}
   </update>
+  <select id="homeList" resultType="com.kh.feedback.FeedBackDTO" parameterType="java.util.Map">
+  	select * from (select rownum R, S.* from (select * from feedback
+  	 <include refid="whereList"></include>
+  	 order by num desc) S) where R between 1 and 7 
+  </select>
+  <insert id="feedback_upload" parameterType="com.kh.feedback.FeedBack_UploadDTO">
+  		insert into feedback_upload(num,fname,oname) values(#{num}, #{fname}, #{oname})
+  </insert>
+  <update id="feedback_upload_update" parameterType="com.kh.feedback.FeedBack_UploadDTO">
+  		update feedback_upload set fname = #{fname}, oname = #{oname} where num = #{num}
+  </update>
+
   
+  <select id="max_num" resultType="java.lang.Integer">
+  	select max(num) from feedback
+  </select>
+  <select id="checkUpload" parameterType="java.lang.Integer" resultType="com.kh.feedback.FeedBack_UploadDTO">
+  	select * from feedback_upload where num = #{num}
+  </select>
   
  
  

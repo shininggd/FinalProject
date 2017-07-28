@@ -1,4 +1,8 @@
 @CHARSET "UTF-8";
+.homeCategory:HOVER{
+	cursor: pointer;
+	
+}
 .houseImage{
 	
 	float: right;
@@ -65,7 +69,7 @@ body {
 .banner_bottom_text{
 	position: absolute;
     bottom: 98px;
-    width: 138.52px;
+    width: 200px;
     height: 29px;
 }
 .price_value{

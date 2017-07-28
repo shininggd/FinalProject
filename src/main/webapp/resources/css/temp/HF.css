@@ -29,7 +29,7 @@ margin: 0 auto;
 }
 
 #header-left-menus{
-width: 450px;
+width: 550px;
 float: left;
 padding-top: 20px;
 display: inline-block;
@@ -405,7 +405,8 @@ header > #header_content > #header_menu > article > a{
 	/* z-index: 999; */
 	background-color: white;
 	box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px, rgba(0,0,0,0.5) 2px 2px 3px 3px;
-    z-index : 100;
+   z-index : 100;
+   font-size: small;
 
 }
 
@@ -417,8 +418,8 @@ header > #header_content > #header_menu > article > a{
 	margin-left: 10%;
 }
 
-#selectGrade{
-	margin-left: -5%;
+.selectGrade_login{
+	margin-left: -25px;
 }
 
 #login_input {
@@ -426,7 +427,7 @@ header > #header_content > #header_menu > article > a{
 	margin-left: 26%;
 }
 
-#login_input #id,#pw {
+#login_input #id, #login_input #pw {
 	display: block;
     margin-top: 6px;
     width: 100%;
@@ -447,7 +448,11 @@ header > #header_content > #header_menu > article > a{
 
 .findInfo{
 	display: inline;
-	
+	cursor: pointer;
+}
+
+.infoCon{
+	text-align: left;
 }
 
 #con-btn{
@@ -460,6 +465,7 @@ header > #header_content > #header_menu > article > a{
 	margin-right : 5%;
 	padding: 7.5px 15px;
 	text-decoration: none;
+	cursor: pointer;
 	
 }
 
@@ -478,22 +484,28 @@ header > #header_content > #header_menu > article > a{
 	color: orange;
 }
 
+.selectGrade_join{
+	margin-right: 50px;
+}
+
 #joinForm {
 	display: none;
 	position: absolute;
 	top: 72px;
 	right: 200px;
 	width: 500px;
-	height: 470px;
+	height: 520px;
 	background-color: white;
 	box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px, rgba(0,0,0,0.5) 2px 2px 3px 3px;
    	z-index : 100;
+   	font-size: small;
 }
 
 #joinFrm {
 	margin-top: 5%;
 	margin-left: 20%;
-	width: 60%;
+	width: 350px;
+	
 }
 
 #joinFrm > table{
@@ -504,11 +516,11 @@ header > #header_content > #header_menu > article > a{
 .infoIndex{
 
 	height: 30px;
-	text-align: center;
+	/* text-align: center; */
 }
 
 #joinForm .input_phone {
-	width: 150px;
+	width: 120px;
 }
 
 #joinForm #join {
@@ -518,7 +530,7 @@ header > #header_content > #header_menu > article > a{
 	width: 80px;
 	height: 30px;
 	margin-top: 10px;
-	margin-right : 5%;
+	margin-right : 55px;
 	padding: 7.5px 15px;
 	text-decoration: none;
 }
@@ -562,6 +574,8 @@ header > #header_content > #header_menu > article > a{
 	color: white;
 	padding: 5px 20px;
 }
+
+
 
 /* ==========find_id 끝========= */
 

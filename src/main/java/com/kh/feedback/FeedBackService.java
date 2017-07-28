@@ -49,9 +49,14 @@ public class FeedBackService {
 		listInfo.setPerPage(9);
 		listInfo.makePage(feedBackDAOImpl.count(listInfo));
 		listInfo.makeRow();
-		System.out.println(listInfo.getPerPage());
 		
-		
+		return feedBackDAOImpl.list(listInfo);
+	}
+	public List<BoardDTO> homeList(ListInfo listInfo) throws Exception {
+		listInfo.setPerPage(7);
+		listInfo.makePage(feedBackDAOImpl.count(listInfo));
+		listInfo.makeRow();
+
 		return feedBackDAOImpl.list(listInfo);
 	}
 	public int reply(BoardDTO boardDTO) throws Exception{
@@ -63,6 +68,18 @@ public class FeedBackService {
 		
 		return feedBackDAOImpl.studyPage(num);
 	}
-
-
+	public int feedback_upload(FeedBack_UploadDTO back_UploadDTO){
+		
+		return feedBackDAOImpl.feedback_upload(back_UploadDTO);
+	}
+public int feedback_upload_update(FeedBack_UploadDTO back_UploadDTO){
+		
+		return feedBackDAOImpl.feedback_upload_update(back_UploadDTO);
+	}
+	public int feedback_max(){
+		return feedBackDAOImpl.feedback_max();
+	}
+	public FeedBack_UploadDTO checkUpload(int num){
+		return feedBackDAOImpl.checkUpload(num);
+	}
 }

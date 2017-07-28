@@ -1,0 +1,71 @@
+@CHARSET "UTF-8";
+.goView:HOVER{
+	cursor: pointer;
+	
+}
+.bothSixbox{
+width: 750px;
+height: 575px;
+
+margin-top: 12px;
+float: right;
+margin-right:15px;
+position: static;
+}
+.bothLeftBox{
+width: 49%;
+height: 100%;
+display: inline-block;
+margin-left: 4px;
+overflow: hidden;
+}
+.bothRightBox{
+width: 49%;
+height: 100%;
+display: inline-block;
+margin-left: 2px;
+overflow: hidden;
+}
+.whatBox{
+	width: 100%;
+	height: 30px;
+	border-bottom: 2px solid #d5dce5;;
+	font-size: 20px;
+	
+}
+.more{
+	float: right;
+	font-size: 14px;
+	line-height: 30px;
+}
+.whatList{
+	margin-top: 10px;
+	width: 99.7%;
+	height: 60px;
+	border-radius: 5px;
+	background-color: white;
+	overflow: hidden;
+	
+}
+.tibox{
+	width: 80%;
+	height: 100%;
+	display: inline-block;
+	line-height:60px;
+	color: #3c3c3c;
+	overflow:hidden;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    float: left;
+    font-size: 18px;
+}
+.regbox{
+	width: 18%;
+	height: 100%;	
+	display: inline-block;
+	line-height:68px;
+	text-align:right;
+	font-size: 12px;
+    color: #999;
+    float: left;
+}

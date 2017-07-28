@@ -78,9 +78,11 @@ public class FeedBackDAOImpl implements BoardDAO {
 			map.put("find"+i, far[i]);
 			;
 		}
+
 		map.put("startRow",listInfo.getStartRow());
 		map.put("lastRow",listInfo.getLastRow());
-		List<BoardDTO> ar = sqlSession.selectList(NAMESPACE+"list", map); 
+		List<BoardDTO> ar = sqlSession.selectList(NAMESPACE+"list", map);
+		
 			
 		return ar;
 	}
@@ -98,6 +100,21 @@ public class FeedBackDAOImpl implements BoardDAO {
 		map.put("fname", sqlSession.selectOne("TutorMapper.tutorImage",studyDTO.getTid()));
 		return  map;
 		
+	}
+	public int feedback_upload(FeedBack_UploadDTO feedBack_UploadDTO){
+	
+		return sqlSession.insert(NAMESPACE+"feedback_upload", feedBack_UploadDTO);
+	}
+	public int feedback_upload_update(FeedBack_UploadDTO feedBack_UploadDTO){
+		
+		return sqlSession.insert(NAMESPACE+"feedback_upload_update", feedBack_UploadDTO);
+	}
+	public int feedback_max(){
+		
+		return (Integer)sqlSession.selectOne(NAMESPACE+"max_num");
+	}
+	public FeedBack_UploadDTO checkUpload(int num){
+		return sqlSession.selectOne(NAMESPACE+"checkUpload", num);
 	}
 
 }

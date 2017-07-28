@@ -7,9 +7,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/basic_table.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyList.css">
+<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
  $(function() {
@@ -22,34 +22,6 @@
 	});
 }) 
 </script>
-<style type="text/css">
-.pagingBox{
-	width: 240px;
-	height: 30px;
-	margin: 0 auto;
-	text-align: center;
-}
-.pagingText{
-	color: color: #3c3c3c;
-	font-size: 25px;
-	text-decoration: none;
-}
-.pagingArrowR{
-	width: 20px; 
-	height: 20px;
-	-webkit-transform: rotate(90deg) scale(1) skew(1deg) translate(0px);
--moz-transform: rotate(90deg) scale(1) skew(1deg) translate(0px);
--o-transform: rotate(90deg) scale(1) skew(1deg) translate(0px);
-}
-.pagingArrowL{
-width: 20px; 
-	height: 20px;
--webkit-transform: rotate(270deg) scale(1) skew(1deg) translate(0px);
--moz-transform: rotate(270deg) scale(1) skew(1deg) translate(0px);
--o-transform: rotate(270deg) scale(1) skew(1deg) translate(0px);
-}
-
-</style>
 </head>
 <body>
 <c:import url="../temp/header.jsp"></c:import>
@@ -120,7 +92,7 @@ width: 20px;
 							
 							<div class="boxMiddle_2">
 								<fmt:formatNumber type="currency" currencySymbol="">${i.price }</fmt:formatNumber>원 <span class="people">${i.people }명</span>
-								<a href="../feedback/studyPage?snum=${dto.num }"><img class="houseImage" src="<c:url value="/resources/img/study/houseIcon.jpg"/>"></a>
+								<a href="../feedback/studyPage?snum=${i.num }"><img class="houseImage" src="<c:url value="/resources/img/study/houseIcon.jpg"/>"></a>
 								 
 							</div>
 							<div class="boxBottom">

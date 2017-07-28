@@ -15,6 +15,8 @@ import com.kh.member.student.StudentDTO;
 import com.kh.member.student.StudentServiceImpl;
 import com.kh.member.tutor.TutorDTO;
 import com.kh.member.tutor.TutorServiceImpl;
+import com.kh.message.MessageDTO;
+import com.kh.message.MessageService;
 import com.kh.util.ListInfo;
 import com.kh.util.Cupon;
 
@@ -29,6 +31,8 @@ public class MemberController {
 	private StudentServiceImpl studentServiceImpl;
 	@Autowired
 	private TutorServiceImpl tutorServiceImpl;
+	@Autowired
+	private MessageService messageservice;
 	
 	@RequestMapping(value="/IdCheck", method=RequestMethod.POST)
 	public String memberIdCheck(String id, Model model) throws Exception{
@@ -78,8 +82,11 @@ public class MemberController {
 	@RequestMapping(value="/studentLogin", method=RequestMethod.POST)
 	public ModelAndView studentLogin(MemberDTO memberDTO, HttpSession session)throws Exception{
 		
-		System.out.println("studentLogin");
-		memberDTO = studentServiceImpl.memberLogin(memberDTO, session);
+		if(memberDTO.getGrade().equals("student")){
+			memberDTO = studentServiceImpl.memberLogin(memberDTO, session);
+		}else{
+			memberDTO = tutorServiceImpl.memberLogin(memberDTO, session);
+		}
 		String message = "로그인에 실패하였습니다.";
 		if(memberDTO != null){
 			message = "로그인에 성공하였습니다.";
@@ -161,6 +168,8 @@ public class MemberController {
 		mv.addObject("message", message);
 		return mv;
 	}
+	
+	
 	
 	@RequestMapping(value="/find_id")
 	public String goFindId(){
@@ -253,17 +262,23 @@ public class MemberController {
 	}
 
 	@RequestMapping(value="/pointGC")
-	public String pointGC(MemberDTO memberDTO, Model model,HttpSession session ) throws Exception {
+	public String pointGC(MemberDTO memberDTO, Model model) throws Exception {
 		int result = studentServiceImpl.pointGC(memberDTO);
 		
 		Cupon Cupon = new Cupon();
 		String cupon = Cupon.cuponCreate();
 		
+		MessageDTO messageDTO = new MessageDTO();
+		messageDTO.setId(memberDTO.getId());
+		messageDTO.setSender("admin");
+		messageDTO.setTitle("도서문화상품권 일련번호 입니다.");
+		messageDTO.setContents(cupon);
 		
+		messageservice.messageWrite(messageDTO);
 		
 		String message = "Trade Fail";
 		if(result>0) {
-			message = "Trade Success = "+cupon;
+			message = "Trade Success = ";
 		}
 		
 		model.addAttribute("message", message);
@@ -271,11 +286,44 @@ public class MemberController {
 		return "common/resultMessage"; 
 	}
 	
+	@RequestMapping(value="GPStudentList")
+	public String GPStudentList(String tid,Model model) {
+		List<String> list = tutorServiceImpl.GPstudentList(tid);
+		model.addAttribute("list", list);
+		
+		return "member/sub/GPstudentList";
+	}
+	
+	@RequestMapping(value="/pointGive")
+	public String pointGive(MemberDTO memberDTO,String sid,Model model) {
+		int result = tutorServiceImpl.GP(memberDTO, sid);
+		String message = "보내기 실패";
+		if(result>1) {
+			message = "보내기 성공";
+		}
+		model.addAttribute("message", message);
+		
+		return "common/resultMessage";
+		
+	}
+	
 	@RequestMapping(value="/myP")
 	public String myPoint(MemberDTO memberDTO,Model model,HttpSession session) throws Exception {
 		String result = studentServiceImpl.myPoint(memberDTO);
 		MemberDTO dto = (MemberDTO)session.getAttribute("member");
 		dto.setPoint(Integer.parseInt(result));
+		session.setAttribute("member", dto);
+		
+		model.addAttribute("message", result);
+		
+		return "common/resultMessage";
+	}
+	
+	@RequestMapping(value="/mygP")
+	public String mygPoint(MemberDTO memberDTO,Model model,HttpSession session) throws Exception {
+		String result = tutorServiceImpl.mygPoint(memberDTO);
+		TutorDTO dto = (TutorDTO)session.getAttribute("member");
+		dto.setGpoint(Integer.parseInt(result));
 		session.setAttribute("member", dto);
 		
 		model.addAttribute("message", result);
@@ -305,28 +353,35 @@ public class MemberController {
 	}
 	
 	//delete
-		@RequestMapping(value="student_Delete", method=RequestMethod.POST)
-	public String studentDelete(String id, Model model){
+	@RequestMapping(value="student_Delete", method=RequestMethod.POST)
+	public String studentDelete(String id, Model model,HttpSession session){
 		StudentDTO studentDTO = new StudentDTO();
 		studentDTO.setId(id);
 		int del = studentServiceImpl.memberDelete(studentDTO);
 		String message="삭제 실패";
 		if(del>0){
 			message="Delete Success";
+			session.invalidate();
 				}
 			model.addAttribute("message", message);	
 			return "common/resultMessage";	
 	}
-		@RequestMapping(value="tutor_Delete", method=RequestMethod.POST)
-		public String tutorDelete(String id, Model model){
+	@RequestMapping(value="tutor_Delete", method=RequestMethod.POST)
+	public String tutorDelete(String id, Model model,HttpSession session){
 			TutorDTO tutorDTO = new TutorDTO();
 			tutorDTO.setId(id);
 			int del = tutorServiceImpl.tutorDelete(tutorDTO);
 			String message="삭제 실패";
-			if(del>0){
+			if(del>1){
 				message="Delete Success";
+				session.invalidate();
 					}
 				model.addAttribute("message", message);	
 				return "common/resultMessage";	
-		}
+	}
+	
+	@RequestMapping(value="givePoint")
+	public void givePoint() {
+		
+	}
 }

@@ -91,11 +91,11 @@
 	padding-left: 15px;
 	width: 320px;
 	height: 60px;
-	border: 2px #ef6c00 solid;
+	border: 2px #7ab6b4 solid;
 	text-align: center;
 	margin-top: 30px;
 	float: left;
-	background-color: #ef6c00;
+	background-color: #7ab6b4;
 	color: white;
 }
 
@@ -104,11 +104,11 @@
 	padding-left: 15px;
 	width: 320px;
 	height: 60px;
-	border: 2px #ef6c00 solid;
+	border: 2px #7ab6b4 solid;
 	text-align: center;
 	margin-top: 30px;
 	float: left;
-	background-color: #ef6c00;
+	background-color: #7ab6b4;
 	color: white;
 }
 
@@ -132,6 +132,12 @@
 	float: left;
 }
 
+#Gpoint_span {
+	display: table-cell;
+	vertical-align:middle;
+	float: left;
+}
+
 #point_img {
 	width: 30px;
 	height: 30px;
@@ -146,8 +152,8 @@
 }
 
 .giftCard {
-	width: 200px;
-	height: 70px;
+	width: 250px;
+	height: 120px;
 }
 #point_status {
 	display: block;
@@ -159,29 +165,101 @@
 	border-bottom: 2px solid #ebebeb;
 	padding: 10px 0 10px 0;
 	margin-top: 130px;
+}
+
+#point_submenu span {
+	margin-right: 50px;
+	cursor: pointer;
+}
+
+#point_submenu span strong {
+	font-size: 15px;
 	color: #ef6c00;
 }
 
 #giftCard_wrap {
-	margin-top: 20px;
-	width: 800px;
-	height: 100px;
-	display: inline-block;
+	display: none;
+	margin-top: 50px;
+	margin-left: 120px;
+	padding-top: 20px;
+	padding-left: 20px;
+	width: 650px;
+	height: 300px;
+	vertical-align: middle;
+}
+
+#giveP_wrap {
+	display: none;
+	margin-top: 50px;
+	margin-left: 120px;
+	padding-top: 20px;
+	padding-left: 20px;
+	width: 650px;
+	height: 300px;
 	vertical-align: middle;
 }
 
 .gc_radio {
 	margin-bottom: 20px;
+	margin-left: 20px;
 	height: 70px;
 }
 
 #gc_btn {
-	background-color: #ef6c00;
+	background-color: #7ab6b4;
 	border: none;
 	color: white;
-	font-size: 15px;
+	font-size: 20px;
 	font-weight: bold;
 	padding: 10px 5px 10px 5px;
-	margin-left: 50px;
-	margin-bottom: 30px;
+	float: right;
+	cursor: pointer;
+}
+
+#givePoint {
+    margin-top: 6px;
+    width: 100px;
+    height: 25px;
+    background: transparent;
+    outline: 0;
+    border: none;
+    border-bottom: 2px solid #b4b4b4;
+    font-size: 20pt;
+    float: left;
+    margin-left: 30px;
+}
+#gpoint_img {
+	width: 30px;
+	height: 30px;
+	float: left;
+}
+#GPstudentList_wrap {
+	float: left;
+	display: inline;
+	margin-top: 40px;
+	margin-right: 20px;
+}
+#GPstudentList_wrap select {
+	font-size: 20px;
+}
+
+#gpinput_wrap {
+	display: inline;
+	margin-top: 40px;
+	float: left;
+}
+#gpinput_wrap strong {
+	float: left;
+}
+
+#gp_btn {
+	background-color: #7ab6b4;
+	border: none;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 10px 5px 10px 5px;
+	float: right;
+	cursor: pointer;
+	margin-top: 80px;
 }

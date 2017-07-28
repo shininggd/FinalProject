@@ -84,4 +84,6 @@ public class MessageController {
 		model.addAttribute("message", result);
 		return "common/resultMessage";
 	}
+	
+	
 }

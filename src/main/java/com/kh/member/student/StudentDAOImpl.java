@@ -45,6 +45,10 @@ public class StudentDAOImpl implements MemberDAO{
 		
 		return sqlSession.selectOne(NAMESPACE+"PwFind", memberDTO);
 	}
+	public MemberDTO gradeCheck(String id) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"gradeCheck", id);
+	}
+	
 	@Override
 	public String memberIdCheck(String id) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"IdCheck", id);

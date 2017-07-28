@@ -19,10 +19,11 @@ import com.kh.util.ListInfo;
 public class TestClass extends MyAbstarctTestUnit{
 
 	@Autowired
-	private FeedBackService feedBackDAO; 
+	private FeedBackDAOImpl feedBackDAO; 
 	@Test
 	public void test()throws Exception {
 		
+		System.out.println(feedBackDAO.feedback_max());
 
 		
 	}
