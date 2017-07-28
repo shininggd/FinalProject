@@ -35,12 +35,12 @@
              type: 'POST',
              success: function(result){
                 alert(result.trim()); 
+                window.opener.ListLoad();
+       		 	window.close();
              }
          });	
-		 window.opener.ListLoad();
-		 setTimeout(function () {
-		 window.close();
-		},1000);
+		
+		
 		
 	});
 </script>

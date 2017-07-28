@@ -91,6 +91,9 @@
 	min-height: 400px;
 	height: auto;
 }
+#message_contents_wrap {
+	display: none;
+}
 #messageDel_btn {
 	float: right;
 	border: none;

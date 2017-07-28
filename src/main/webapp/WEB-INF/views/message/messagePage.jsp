@@ -29,6 +29,9 @@
 		</div>
 		<div id="section_right">
 			<div id="right_contents">
+				<div id="message_contents_wrap">
+				
+				</div>
 				<div class="message_status" id="no_message">
 					<img src="/learn_run/resources/img/temp/noMessage.png">
 					<span id="message_span">새로운 메세지가 없습니다.</span>
@@ -48,14 +51,14 @@
 
 <script type="text/javascript">
 	
+
 	ListLoad();
-	var count;
-	var new_message;
 	
 	$("#left_contents").on("click",".ML_title",function() {
 		var num = $(this).prop("title");
 		$.post("messageView",{num:num},function(result) {
-			$("#right_contents").html(result.trim());
+			$("#message_contents_wrap").css("display","block");
+			$("#message_contents_wrap").html(result.trim());
 			ListLoad();
 		});
 	});
@@ -76,9 +79,8 @@
 		var num = $("#messageNum").val();
 		$.post("messageDelete",{num:num},function(result) {
 			alert(result.trim());
+			$("#message_contents_wrap").css("display","none");
 			ListLoad();
-			$("#right_contents").html("");
-			
 		});
 	});
 	
@@ -86,27 +88,26 @@
 		$.post("messageList",{id:'${member.id}'},function(result) {
 			$("#left_contents").html(result.trim());
 			MessageCount();
-			noMessage(count);
 		});
 	}
 	
 	function MessageCount() {
 		$.post("messageCount",{id:'${member.id}'},function(result) {
-			count = result.trim();
-			$(".messageCount").html(count);
+			var count = result.trim();
 			noMessage(count);
 		});
 	}
 	
-	function noMessage(count) {
-		if(count*1 == 0) {
+	function noMessage(c) {
+		
+		if(c*1 == 0) {
 			$("#no_message").css("display","block");
 			$("#new_message").css("display","none");
 		}else {
 			$("#no_message").css("display","none");
 			$("#new_message").css("display","block");
 		}
-		$(".messageCount").html(count);
+		$(".messageCount").html(c);
 	}
 	
 </script>
