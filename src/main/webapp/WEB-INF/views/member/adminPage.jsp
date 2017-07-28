@@ -158,8 +158,8 @@ $(function(){
 			<div id="mystudy_menubar">
 			<input type="button" id="tutorinfo" value="TutorInfo">
 			<input type="button" id="memberinfo" value="StudentInfo">
+			<hr>
 			</div>
-			
 				<div id="mystudy_tutorinfoview">
 
 				

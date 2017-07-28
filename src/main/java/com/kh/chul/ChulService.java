@@ -21,7 +21,6 @@ public class ChulService {
 		
 		for(int i=0; i<list.size(); i++) {
 			if(list.get(i).getReg_date().equals(date)) {
-				System.out.println("equls");
 				list2.add(list.get(i));
 			}
 		}

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/member/sub/memberOversight.css">
-<div>
+<div class ="admin_page_search">
 					<form name="mem_search" id="mem_search" method="post">
 						<input type="hidden" name="curPage" id="curPage">
 						<!-- 페이징 넘어갈 때 처음 검색한 find값 가져오기 -->
@@ -18,7 +18,7 @@
 					</form>
 				</div>
 <table id="memberinfo_table">
-	<tr>
+	<tr class="tr_cs">
 		<th>id</th>
 		<th>name</th>
 		<th>birth</th>
