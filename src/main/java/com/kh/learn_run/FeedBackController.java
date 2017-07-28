@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.UUID;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -68,6 +70,7 @@ public class FeedBackController {
 		model.addAttribute("dto", map.get("dto"));
 		model.addAttribute("fname", map.get("fname"));
 		model.addAttribute("view", feedBackService.view(num));	
+		model.addAttribute("file", feedBackService.checkUpload(num));
 	}
 	//글보기용 끝
 	//글수정용
@@ -144,6 +147,18 @@ public class FeedBackController {
 		HashMap<Object, Object> map =  feedBackService.studyPage(feedBackDTO.getSnum());
 		model.addAttribute("dto", map.get("dto"));
 		model.addAttribute("fname", map.get("fname"));
+	}
+	@RequestMapping(value="fileDown")
+	public ModelAndView fileDown(String filename, String oriname, HttpSession session) throws Exception{
+		String realPath = session.getServletContext().getRealPath("resources/img/feedback/upload");
+		ModelAndView mv = new ModelAndView();
+		File file = new File(realPath, filename);
+		mv.setViewName("download");
+		mv.addObject("downloadFile",file);
+		mv.addObject("oriName",oriname);
+		return mv;
+		
+		
 	}
 	
 
