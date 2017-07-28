@@ -13,7 +13,6 @@
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/feedback/feedback_basic.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/feedback/feedback_view.css">
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-
 </head>
 <body>
 <c:import url="../temp/header.jsp"></c:import>
@@ -31,11 +30,16 @@
 				<div class="oneBoxTop">
 					<span class="writer"> ${view.writer }</span> <span class="reg_date">${view.reg_date }</span><br>
 					<span class="title">${view.title }</span>
+					
 				</div>
 				<div class="contentsBox">
 				${view.contents }
 				</div>
-				
+				<c:if test="${file.fname != null  }">
+				<a href="fileDown?filename=${file.fname }&oriname=${file.oname }"><span class="download">
+				<img class="downIcon" src="<c:url value="/resources/img/feedback/downIcon.png"/>">
+				${file.oname }</span></a>
+				</c:if>
 			</div>
 			<div class="replyBtnBox">
 				<a href="feedbackReply?num=${view.num }"><div class="replyBtn"> 

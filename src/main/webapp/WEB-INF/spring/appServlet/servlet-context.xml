@@ -21,7 +21,15 @@
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="1"/>
 	</beans:bean>
+	<!-- 다운로드 용 빈  -->
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="0"></beans:property>
+	</beans:bean>
+	<beans:bean class="com.kh.file.Download" id="download"></beans:bean>	
+	
+	
 	<!-- 강의 등록시 사용하는 인터셉터  -->
 	<beans:bean class="com.kh.interceptor.InsertInterceptor" id="insertInterceptor">
 	</beans:bean>

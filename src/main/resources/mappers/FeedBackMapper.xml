@@ -54,6 +54,7 @@
   <update id="feedback_upload_update" parameterType="com.kh.feedback.FeedBack_UploadDTO">
   		update feedback_upload set fname = #{fname}, oname = #{oname} where num = #{num}
   </update>
+
   
   <select id="max_num" resultType="java.lang.Integer">
   	select max(num) from feedback
