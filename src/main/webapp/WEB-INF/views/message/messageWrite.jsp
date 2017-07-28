@@ -40,7 +40,7 @@
 		 window.opener.ListLoad();
 		 setTimeout(function () {
 		 window.close();
-		},500);
+		},1000);
 		
 	});
 </script>
