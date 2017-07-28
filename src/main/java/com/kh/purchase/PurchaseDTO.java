@@ -13,6 +13,9 @@ public class PurchaseDTO {
 	private String type;
 	private Date p_date;
 	private String tid;
+	private String bank;
+	private String cnumber;
+	private String pnumber;
 	
 	public int getNum() {
 		return num;
@@ -68,6 +71,34 @@ public class PurchaseDTO {
 	public void setTid(String tid) {
 		this.tid = tid;
 	}
+	public String getBank() {
+		if(this.bank == null){
+			this.bank = "";
+		}
+		return bank;
+	}
+	public void setBank(String bank) {
+		this.bank = bank;
+	}
+	public String getCnumber() {
+		if(this.cnumber == null){
+			this.cnumber = "";
+		}
+		return cnumber;
+	}
+	public void setCnumber(String cnumber) {
+		this.cnumber = cnumber;
+	}
+	public String getPnumber() {
+		if(this.pnumber == null){
+			this.pnumber = "";
+		}
+		return pnumber;
+	}
+	public void setPnumber(String pnumber) {
+		this.pnumber = pnumber;
+	}
+	
 	
 	
 

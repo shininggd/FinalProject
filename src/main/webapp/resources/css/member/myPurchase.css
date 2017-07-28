@@ -84,12 +84,28 @@
 }
 
 #purchaseList{
-	width : 650px;
-	margin-left : 150px;
-	overflow : scroll;
-	border: 1px black solid;
+	width : 750px;
+	margin-left : 100px;
+	margin-top : 60px;
+	border-top: 1px black solid;
+	border-bottom : 2.5px gray solid;
 	text-align: center;
+	border-collapse: collapse;
 }
+
+#index{
+	background-color: gray;
+	color: white;
+}
+
 #index-product{
-	width: 250px;
+	width: 370px;
+}
+
+#title-product{
+	text-align: left;
+}
+#moreFunc{
+	text-align: right;
+	text-decoration: none;
 }

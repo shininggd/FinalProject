@@ -135,7 +135,7 @@ $(function(){
 		<div id="header_contents">
 			<div id="user-photo"></div>
 			<div id="tabs">
-				<div id="user_name">장태주</div>
+				<div id="user_name">${member.name}</div>
 				<div id="tab-box">
 					<a class="tab" href="/learn_run/member/myStudy">내 스터디</a>
 					<c:if test="${member.grade eq 'student'}">
