@@ -44,6 +44,12 @@
   <update id="studyUpdate" parameterType="com.kh.study.StudyDTO">
   	update study set sdate =#{sDate}, ldate = #{lDate}, lv =#{lv}, category =#{category} , 
   	price =#{price}, people =#{people} , location =#{location}, title =#{title}, contents =#{contents}
+  	<if test="oname!=null">
+  	,oname = #{oname}
+  	</if>
+  	<if test="fname!=null">
+  	, fname = #{fname}
+  	</if>
   	where num = #{num}
   </update>
   

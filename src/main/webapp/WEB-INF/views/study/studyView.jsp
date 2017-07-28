@@ -66,7 +66,7 @@
 		<img alt="${dto.oname }" class="imgFView" src="<c:url value="/resources/img/study/upload/${dto.fname }"/>">
 		</c:if>
 		<c:if test="${dto.fname == null }">
-		<img alt="Learn&Run" class="imgFView" src="<c:url value="/resources/img/studyImage.png"/>">
+		<img alt="Learn&Run" class="imgFView" src="<c:url value="/resources/img/study/learnRun.jpg"/>">
 		</c:if>
 	</div>
 	<div class="levelBox">

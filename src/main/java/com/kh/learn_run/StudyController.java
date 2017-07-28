@@ -64,16 +64,6 @@ public class StudyController {
 	public String regist(StudyDTO studyDTO, MultipartFile f1,MultipartHttpServletRequest request)throws Exception{
 		
 		String realPath = request.getSession().getServletContext().getRealPath("resources/img/study/upload");
-		
-		/*Iterator<String> it = request.getFileNames();
-		MultipartFile f=null;
-		while(it.hasNext()) {
-			String name = it.next();
-			f = request.getFile(name);
-			System.out.println("oriname="+f.getOriginalFilename());
-			
-		}*/
-		
 		String fileName = UUID.randomUUID().toString();
 		
 		
@@ -96,10 +86,20 @@ public class StudyController {
 		return path;
 	}
 	@RequestMapping(value = "studyView", method = RequestMethod.POST)
-	public String update(StudyDTO studyDTO,Model model)throws Exception{
+	public String update(StudyDTO studyDTO,Model model,MultipartFile f1,MultipartHttpServletRequest request)throws Exception{
 		
+		String fileName = UUID.randomUUID().toString();
+		String realPath = request.getSession().getServletContext().getRealPath("resources/img/study/upload");
+		if(!f1.getOriginalFilename().equals("")){
+		studyDTO.setOname(f1.getOriginalFilename());;
+		studyDTO.setFname(fileName+"_"+studyDTO.getOname());
+		}
 		
-		studyService.update(studyDTO);
+		int i = studyService.update(studyDTO);
+		if(i>0 && !f1.getOriginalFilename().equals("")){
+			File f2 = new File(realPath,studyDTO.getFname());
+			FileCopyUtils.copy(f1.getBytes() , f2);
+		}
 
 		HashMap<Object, Object> ar =studyService.studyView(studyDTO.getNum(), studyDTO.getTid());
 		StudyDTO dto = (StudyDTO) ar.get("study");

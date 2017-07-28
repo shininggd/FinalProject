@@ -48,7 +48,19 @@
   	 <include refid="whereList"></include>
   	 order by num desc) S) where R between 1 and 7 
   </select>
+  <insert id="feedback_upload" parameterType="com.kh.feedback.FeedBack_UploadDTO">
+  		insert into feedback_upload(num,fname,oname) values(#{num}, #{fname}, #{oname})
+  </insert>
+  <update id="feedback_upload_update" parameterType="com.kh.feedback.FeedBack_UploadDTO">
+  		update feedback_upload set fname = #{fname}, oname = #{oname} where num = #{num}
+  </update>
   
+  <select id="max_num" resultType="java.lang.Integer">
+  	select max(num) from feedback
+  </select>
+  <select id="checkUpload" parameterType="java.lang.Integer" resultType="com.kh.feedback.FeedBack_UploadDTO">
+  	select * from feedback_upload where num = #{num}
+  </select>
   
  
  

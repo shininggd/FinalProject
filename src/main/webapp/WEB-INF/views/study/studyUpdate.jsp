@@ -26,7 +26,7 @@
 		각양각색 스터디<br>
 		 <span class="fcolor">Learn&Run</span>
 		</div>
-		<form action="studyView" method="post" id="frm" name="frm" enctype="multipart/data-form">
+		<form action="studyView" method="post" id="frm" name="frm" enctype="multipart/form-data">
 			<input type="hidden" name="num" value="${dto.num }">
 			<input type="hidden" name="tid" value="${dto.tid }">
 			<div class="form_main">
@@ -50,6 +50,7 @@
 							<option value="천호동" <c:if test="${dto.location eq '천호동'}">selected="selected"</c:if>>천호동</option>
 						</select> 
 					인원 <input type="number" min="1" max="99" class="people_box" name="people" id="people" value="${dto.people }">
+					배너이미지 <input type="file"  name="f1" id="f1" >
 				</div> 			
 			
 			<div class="form_other">기   간 <input type="date" name="sDate" class="other_box" id="sDate" value="${dto.sDate }"> - 
