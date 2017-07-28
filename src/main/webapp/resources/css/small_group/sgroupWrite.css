@@ -10,7 +10,7 @@ a{
 	min-height: 100%;
     padding: 54px 0 418px;
     margin-top: -72px;
-    margin-bottom: -418px;
+    margin-bottom: -419px;
 }
 .write_wrap_1{
 	background: #fbfbfa;
@@ -37,7 +37,7 @@ a{
 	text-align: left;
 }
 .write_1_tag{
-	margin-top: 30px;
+	margin-top: 5px;
 	font-size: 15pt;
 	font-weight: 600;
 }
@@ -47,7 +47,7 @@ a{
 	color: #ef6c00;
 }
 .write_1_title{
-	margin-top: 15px;
+	margin-top: 5px;
 	font-size: 15pt;
 	font-weight: 600;
 }
@@ -56,7 +56,7 @@ a{
 	font-weight: 600;
 }
 .write_1_date{
-	margin-top: 50px;
+	margin-top: 20px;
 	font-size: 15pt;
 	font-weight: 600;
 }
@@ -77,7 +77,7 @@ a{
 	border: 1px #a0a0a0 solid;
 }
 .write_1_location{
-	margin-top: 70px;
+	margin-top: 10px;
 	font-size: 11pt;
 	font-weight: 900;
 	color: #a0a0a0;
@@ -121,4 +121,209 @@ a{
 	color: #a0a0a0;
 	border: 1px #a0a0a0 solid;
 	width: 50px;
+}
+.write_wrap_2{
+	background: #fbfbfa;
+	height: 1200px;
+	overflow: hidden;
+}
+.write_2{
+	text-align: left;
+	margin-left: 450px;
+	margin-top: 50px;
+}
+.write_2_sgroupEvent{
+	font-size: 15pt;
+	font-weight: 600;
+}
+.write_2_content{
+	margin-top: 20px;
+}
+.write_2_content_input{
+	width: 600px;
+	height: 300px;
+}
+.write_2_host{
+	margin-top: 85px;
+	font-size: 13pt;
+	font-weight: 700;
+}
+.write_2_host_picture{
+	margin-top: 50px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid black;
+    float: left;
+    text-align: center;
+}
+.write_2_host_detail{
+	widows: 80px;
+	height: 80px;
+	margin-top: 65px;
+	margin-left: 40px;
+	display: inline-block;
+	border-bottom: 1px solid #a0a0a0;
+}
+.write_2_special_host{
+	font-size: 10pt;
+	font-weight: 900;
+	color: #a0a0a0;
+}
+.write_2_host_name{
+	font-size: 12pt;
+	font-weight: 900;
+	margin-top: 5px;
+}
+.write_wrap_3{
+	height: 540px;
+	background-color: #b1d6e1;
+}
+.write_3_picture{
+	margin: 0 auto;
+    max-width: 100pc;
+    height: 100%;
+	font-size: 15pt;
+	font-weight: 600; 
+}
+.write_3_picture_img{	
+	background: transparent 50% 50% no-repeat;
+}
+.write_wrap_4{
+	background-color: #fbfbfa;
+	overflow: hidden;
+}
+.write_4{
+	height: 550px;
+	margin: 0 auto;
+    max-width: 100pc;
+    margin-left: 450px;
+}
+.write_4_qna{
+	margin-top: 70px;
+	font-size: 14pt;
+	font-weight: 800;
+	width: 700px;
+	height: 90px;
+	border-bottom: 1px solid #a0a0a0;
+}
+.write_4_qna_1st{
+	margin-top: 20px;
+	height: 90px;
+	width: 700px;
+	border-bottom: 1px solid #a0a0a0;
+}
+.write_4_qna_1st_q{
+	font-size: 11pt;
+	font-weight: 900;
+	width: 230px;
+	float: left;
+}
+.write_4_qna_1st_a{
+	font-size: 10pt;
+	font-weight: 800;
+	width: 470px;
+	float: left;
+	color: #a0a0a0;
+}
+.write_4_qna_2nd{
+	margin-top: 20px;
+	height: 90px;
+	width: 700px;
+	border-bottom: 1px solid #a0a0a0;
+}
+.write_4_qna_2nd_q{
+	font-size: 11pt;
+	font-weight: 900;
+	width: 230px;
+	float: left;
+}
+.write_4_qna_2nd_a{
+	font-size: 10pt;
+	font-weight: 800;
+	width: 470px;
+	float: left;
+	color: #a0a0a0;
+}
+.write_4_qna_3rd{
+	margin-top: 20px;
+	height: 90px;
+	width: 700px;
+	border-bottom: 1px solid #a0a0a0;
+}
+.write_4_qna_3rd_q{
+	font-size: 11pt;
+	font-weight: 900;
+	width: 230px;
+	float: left;
+}
+.write_4_qna_3rd_a_1{
+	font-size: 10pt;
+	font-weight: 800;
+	width: 470px;
+	float: left;
+	color: #ef6c00;
+}
+.write_4_qna_3rd_a_2{
+	font-size: 10pt;
+	font-weight: 800;
+	width: 470px;
+	float: left;
+	color: #a0a0a0;
+}
+.write_wrap_5{
+	background: #d5d9bc;
+	overflow: hidden;
+	height: 540px;
+}
+.write_5_picture{
+	margin: 0 auto;
+    max-width: 100pc;
+    height: 540px;
+	font-size: 15pt;
+	font-weight: 600;
+}
+.write_5_content{
+	width: 500px;
+	height: 300px;
+	margin: 0 auto;
+	margin-top: 110px;
+	text-align: center;
+}
+.write_5_host_picture{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-left: 200px;
+    margin-top: 30px;
+}
+.write_5_host_picture_info{
+	font-size: 10pt;
+	font-weight: 600;
+	color: white;
+	margin-top: 10px;
+}
+.write_5_1st{
+	margin-top: 20px;
+	font-size: 25pt;
+	color: white;
+}
+.write_5_2nd{
+	font-size: 25pt;
+	font-weight: 900;
+	color: white;
+}
+.write_5_3rd{
+	margin-top: 25px;
+	font-size: 12pt;
+	font-weight: 600;
+	color: white;
+}
+.sgroup_submit{
+	width: 150px;
+	height: 30px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 870px;
 }

@@ -35,16 +35,16 @@
 				<div class="view_2_content">여행도 좋고 사람도 좋아한다면?</div>
 				<div class="view_2_location_picture"><img src=""></div>
 				<div class="view_2_host">#Special 호스트 소개</div>
-				<div class="view_2_host_picture"><img src=""></div>
+				<div class="view_2_host_picture"><img class="view_2_host_picture_img" src="<c:url value="/resources/img/member/profilePhoto/${profile }"/>"></div>
 				<div class="view_2_host_detail">
 					<div class="view_2_special_host">SPECIAL HOST</div>
 					<div class="view_2_host_name">Hayley Lee</div>
 				</div>
-				<div class="view_2_host_content">유럽의 대도시부터 오지여행까지!</div>
+				<div class="view_2_host_info">${tutor.introduce }</div>
 			</div>
 		</div>
 		<div class="view_wrap_3">
-			<div class="view_3_picture"><img alt="" src=""></div>
+			<div class="view_3_picture"><img class="view_3_picture_img" src="<%=application.getContextPath()%>/resources/img/sgroupWrite.png"></div>
 		</div>
 		<div class="view_wrap_4">
 			<div class="view_4">
@@ -67,7 +67,7 @@
 		<div class="view_wrap_5">
 			<div class="view_5_picture">
 				<div class="view_5_content">
-					<div class="view_5_host_picture"><img src=""></div>
+					<div class="view_5_host_picture"><img class="view_5_host_picture_img" src="<c:url value="/resources/img/member/profilePhoto/${profile }"/>"></div>
 					<div class="view_5_1st">Will you come join us?</div>
 					<div class="view_5_2nd">It's gonna be fun!</div>
 					<div class="view_5_3rd">본 이벤트는 Learn&Run 멤버만 참여 가능합니다.</div>

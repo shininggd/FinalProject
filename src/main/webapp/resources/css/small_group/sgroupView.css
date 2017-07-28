@@ -19,7 +19,6 @@ a{
 .view_1_picture{
 	width: 500px;
 	height: 500px;
-	border: 1px solid black;
 	float: left;
 	margin-top: 100px;
 	margin-left: 450px;
@@ -27,7 +26,6 @@ a{
 .view_1_content_detail{
 	width: 500px;
 	height: 500px;
-	border: 1px solid black;
 	float: left;
 	margin-top: 100px;
 	margin-left: 70px;
@@ -80,13 +78,13 @@ a{
 }
 .view_wrap_2{
 	background: #fbfbfa;
-	height: 1400px;
+	height: 1100px;
 	overflow: hidden;
 }
 .view_2{
 	text-align: left;
 	margin-left: 450px;
-	margin-top: 100px;
+	margin-top: 50px;
 }
 .view_2_sgroupEvent{
 	font-size: 15pt;
@@ -103,6 +101,8 @@ a{
 }
 .view_2_host{
 	margin-top: 85px;
+	font-size: 13pt;
+	font-weight: 700;
 }
 .view_2_host_picture{
 	margin-top: 50px;
@@ -111,6 +111,10 @@ a{
     border-radius: 50%;
     border: 1px solid black;
     float: left;
+}
+.view_2_host_picture_img{
+	width: 100%;
+	height: 100%;
 }
 .view_2_host_detail{
 	widows: 80px;
@@ -130,9 +134,8 @@ a{
 	font-weight: 900;
 	margin-top: 5px;
 }
-.view_2_host_content{
-	margin-top: 40px;
-	margin-left: 120px;
+.view_2_host_info{
+	
 }
 .view_wrap_3{
 	height: 540px;
@@ -142,14 +145,18 @@ a{
 	margin: 0 auto;
     max-width: 100pc;
     height: 100%;
-    border: 1px solid black;
+	font-size: 15pt;
+	font-weight: 600; 
+}
+.view_3_picture_img{	
+	background: transparent 50% 50% no-repeat;
 }
 .view_wrap_4{
 	background-color: #fbfbfa;
 	overflow: hidden;
 }
 .view_4{
-	height: 774px;
+	height: 550px;
 	margin: 0 auto;
     max-width: 100pc;
     margin-left: 450px;
@@ -239,7 +246,6 @@ a{
 .view_5_content{
 	width: 500px;
 	height: 300px;
-	border: 1px solid black;
 	margin: 0 auto;
 	margin-top: 120px;
 	text-align: center;
@@ -248,9 +254,13 @@ a{
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    border: 1px solid black;
+    border: 2px solid white;
     margin-left: 200px;
     margin-top: 50px;
+}
+.view_5_host_picture_img{
+	width: 100%;
+	height: 100%;
 }
 .view_5_1st{
 	margin-top: 20px;
