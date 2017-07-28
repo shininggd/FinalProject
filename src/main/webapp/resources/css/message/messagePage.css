@@ -42,6 +42,12 @@
 }
 
 #no_message {
+	display: none;
+	padding: 200px 75pt;
+	text-align: center;
+}
+#new_message {
+	display: none;
 	padding: 200px 75pt;
 	text-align: center;
 }
