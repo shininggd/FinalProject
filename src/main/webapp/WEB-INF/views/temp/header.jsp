@@ -436,7 +436,9 @@ $(function(){
 							</section>
 							<section class="my_page_list_section">
 								<a class="my_page_menu" href="/learn_run/member/myStudy" style="text-decoration: none;">내 스터디</a>
-								<a class="my_page_menu" href="/learn_run/member/myPurchase" style="text-decoration: none;">내 구매 내역</a>
+								<c:if test="${member.grade eq 'student'}">
+									<a class="my_page_menu" href="/learn_run/member/myPurchase" style="text-decoration: none;">내 구매 내역</a>					
+								</c:if>
 								<a class="my_page_menu" href="/learn_run/member/myPoint" style="text-decoration: none;">내 포인트</a>
 								<c:if test="${member.id eq 'admin' }">
 								<a class="my_page_menu" href="/learn_run/member/adminPage" style="text-decoration: none;">관리자 페이지</a>

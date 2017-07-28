@@ -81,7 +81,6 @@ public class StudentServiceImpl implements MemberService{
 	}
 	
 	public List<StudentDTO> goMyPurchase(MemberDTO memberDTO) throws Exception{
-		
 		return studentDAOImpl.goMyPurchase(memberDTO);
 	}
 }

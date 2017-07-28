@@ -192,8 +192,10 @@ public class MemberController {
 	
 	@RequestMapping(value="/myPurchase")
 	public void goMyPurchase(HttpSession session, Model model) throws Exception{
-		List<PurchaseDTO> ar = studentServiceImpl.goMyPurchase((MemberDTO)session.getAttribute("member"));
-	
+		List<StudentDTO> ar = studentServiceImpl.goMyPurchase((MemberDTO)session.getAttribute("member"));
+		
+		model.addAttribute("dto", ar);
+		
 	}
 	
 	@RequestMapping(value="/myPoint")
