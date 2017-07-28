@@ -68,6 +68,18 @@ public class FeedBackService {
 		
 		return feedBackDAOImpl.studyPage(num);
 	}
-
-
+	public int feedback_upload(FeedBack_UploadDTO back_UploadDTO){
+		
+		return feedBackDAOImpl.feedback_upload(back_UploadDTO);
+	}
+public int feedback_upload_update(FeedBack_UploadDTO back_UploadDTO){
+		
+		return feedBackDAOImpl.feedback_upload_update(back_UploadDTO);
+	}
+	public int feedback_max(){
+		return feedBackDAOImpl.feedback_max();
+	}
+	public FeedBack_UploadDTO checkUpload(int num){
+		return feedBackDAOImpl.checkUpload(num);
+	}
 }

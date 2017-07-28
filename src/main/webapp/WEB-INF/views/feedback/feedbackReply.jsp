@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyList.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/study/studyRegist.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/feedback/feedback_form_main.css">
+<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/feedback/feedback_upload.css">
 <script type="text/javascript" src="<%=application.getContextPath()%>/resources/SE2/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 </head>
@@ -27,7 +28,7 @@
 		각양각색 스터디<br>
 		 <span class="fcolor">Learn&Run</span>
 		</div>
-		<form action="studyPage" method="post" id="frm" name="frm" enctype="multipart/data-form">
+		<form action="studyPage" method="post" id="frm" name="frm" enctype="multipart/form-data">
 			<input type="hidden"  name="snum" value="${dto.snum }">
 			<input type="hidden"  name="writer" value="${member.id }">
 			<input type="hidden" name="category" value="${dto.category }">
@@ -43,6 +44,9 @@
 				 		   
 				</div>
 			</div>
+			<div class="up_form">
+					<input type="file" name="feedUp" id="feedUp">
+				</div>
 			<div class="textSE">
 			<textarea id="contents" name="contents"></textarea></div>
 			<div class="submit_box">

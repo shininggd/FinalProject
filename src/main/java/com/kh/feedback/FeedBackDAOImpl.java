@@ -101,5 +101,20 @@ public class FeedBackDAOImpl implements BoardDAO {
 		return  map;
 		
 	}
+	public int feedback_upload(FeedBack_UploadDTO feedBack_UploadDTO){
+	
+		return sqlSession.insert(NAMESPACE+"feedback_upload", feedBack_UploadDTO);
+	}
+	public int feedback_upload_update(FeedBack_UploadDTO feedBack_UploadDTO){
+		
+		return sqlSession.insert(NAMESPACE+"feedback_upload_update", feedBack_UploadDTO);
+	}
+	public int feedback_max(){
+		
+		return (Integer)sqlSession.selectOne(NAMESPACE+"max_num");
+	}
+	public FeedBack_UploadDTO checkUpload(int num){
+		return sqlSession.selectOne(NAMESPACE+"checkUpload", num);
+	}
 
 }

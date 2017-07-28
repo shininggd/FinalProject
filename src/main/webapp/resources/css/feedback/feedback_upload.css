@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+.up_form{
+width: 99.15%;
+height: 50px;
+margin-left: 4px;
+margin-top: 3px;
+line-height: 50px;
+background-color: rgb(205, 205, 205);
+border-bottom: 2px solid gray;
+overflow: hidden;
+}
+#feedUp{
+	border-radius:5px;
+	background-color: white;
+}

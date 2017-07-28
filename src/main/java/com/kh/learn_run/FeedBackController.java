@@ -1,17 +1,23 @@
 package com.kh.learn_run;
 
+import java.io.File;
 import java.util.HashMap;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.board.BoardDTO;
 import com.kh.feedback.FeedBackDTO;
 import com.kh.feedback.FeedBackService;
+import com.kh.feedback.FeedBack_UploadDTO;
 import com.kh.study.StudyDTO;
 import com.kh.util.ListInfo;
 
@@ -35,15 +41,10 @@ public class FeedBackController {
 	@RequestMapping(value="feedbackList")
 	public void list(ListInfo listInfo,Model model,String kind, String searchText,String find)throws Exception{
 		String getSnum []  = listInfo.getSearch().split(",");
-		System.out.println("그냥find"+find);
-		System.out.println("리스트인포find"+listInfo.getFind());
-		System.out.println("그냥kind"+kind);
-		System.out.println("리스트인포Search"+listInfo.getSearch());
 		HashMap<Object, Object> map =  feedBackService.studyPage(Integer.valueOf(getSnum[0]));
 		model.addAttribute("category",getSnum[1]);
 		model.addAttribute("dto", map.get("dto"));
 		model.addAttribute("fname", map.get("fname"));
-		System.out.println(feedBackService.list(listInfo).size());
 		model.addAttribute("list", feedBackService.list(listInfo));
 		model.addAttribute("kind",kind);
 		model.addAttribute("searchText",searchText);
@@ -75,8 +76,25 @@ public class FeedBackController {
 		model.addAttribute("dto", feedBackService.view(num));	
 	}
 	@RequestMapping(value="feedbackView",method=RequestMethod.POST)
-	public void update(FeedBackDTO feedBackDTO, Model model) throws Exception{
-		feedBackService.update(feedBackDTO);
+	public void update(FeedBackDTO feedBackDTO, Model model ,MultipartFile feedUp,MultipartHttpServletRequest request) throws Exception{
+		int i = feedBackService.update(feedBackDTO);
+		if(i>0 && !feedUp.getOriginalFilename().equals("")){
+			String realPath = request.getSession().getServletContext().getRealPath("resources/img/feedback/upload");
+			String fileName = UUID.randomUUID().toString();
+			FeedBack_UploadDTO feedBack_UploadDTO = new FeedBack_UploadDTO();
+			feedBack_UploadDTO.setOname(feedUp.getOriginalFilename());;
+			feedBack_UploadDTO.setFname(fileName+"_"+feedBack_UploadDTO.getOname());
+			feedBack_UploadDTO.setNum(feedBackDTO.getNum());
+			if(feedBackService.checkUpload(feedBackDTO.getNum())==null){
+				feedBackService.feedback_upload(feedBack_UploadDTO);
+			}else{
+				feedBackService.feedback_upload_update(feedBack_UploadDTO);
+				
+			}
+			File f2 = new File(realPath,feedBack_UploadDTO.getFname());
+			FileCopyUtils.copy(feedUp.getBytes() , f2);
+		}
+		
 		HashMap<Object, Object> map =  feedBackService.studyPage(feedBackDTO.getSnum());
 		model.addAttribute("dto", map.get("dto"));
 		model.addAttribute("fname", map.get("fname"));
@@ -99,13 +117,30 @@ public class FeedBackController {
 	//글쓰기용 끝
 	//쓰고 답글달기용
 	@RequestMapping(value="studyPage", method = RequestMethod.POST)
-	public void write(FeedBackDTO feedBackDTO, Model model, String kind)throws Exception{
+	public void write(FeedBackDTO feedBackDTO, Model model, String kind,MultipartFile feedUp,MultipartHttpServletRequest request)throws Exception{
+		int i = 0;
+		System.out.println(feedUp.getOriginalFilename());
+		String realPath = request.getSession().getServletContext().getRealPath("resources/img/feedback/upload");
+		String fileName = UUID.randomUUID().toString();
+		FeedBack_UploadDTO feedBack_UploadDTO = new FeedBack_UploadDTO();
+		if(!feedUp.getOriginalFilename().equals("")){
+			feedBack_UploadDTO.setOname(feedUp.getOriginalFilename());;
+			feedBack_UploadDTO.setFname(fileName+"_"+feedBack_UploadDTO.getOname());
+			}
 		if(kind.equals("write")){
-			feedBackService.write(feedBackDTO);
+			i =feedBackService.write(feedBackDTO);
+			
 		}else{
-			feedBackService.reply(feedBackDTO);
+			i = feedBackService.reply(feedBackDTO);
 		}
 		
+		feedBack_UploadDTO.setNum(feedBackService.feedback_max()); 
+		if(i>0 && !feedUp.getOriginalFilename().equals("")){
+			feedBack_UploadDTO.setNum(feedBackService.feedback_max());
+			feedBackService.feedback_upload(feedBack_UploadDTO);
+			File f2 = new File(realPath,feedBack_UploadDTO.getFname());
+			FileCopyUtils.copy(feedUp.getBytes() , f2);
+		}
 		HashMap<Object, Object> map =  feedBackService.studyPage(feedBackDTO.getSnum());
 		model.addAttribute("dto", map.get("dto"));
 		model.addAttribute("fname", map.get("fname"));
