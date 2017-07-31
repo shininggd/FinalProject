@@ -87,12 +87,19 @@
 	width : 750px;
 	margin-left : 100px;
 	margin-top : 60px;
+<<<<<<< HEAD
 	border-top : 1px solid black;
 	border-bottom : 2.5px gray solid;
 	border-collapse : collapse;
 	border: 1px black solid;
+=======
+	border-top: 1px black solid;
+	border-bottom : 2.5px gray solid;
+>>>>>>> fc33da6d65c44c48abc9d113cf37c1d7129153d4
 	text-align: center;
+	border-collapse: collapse;
 }
+<<<<<<< HEAD
 #index{
 	background-color: gray;
 	color: white;
@@ -102,6 +109,18 @@
 #index-product{
 	width: 370px;
 }
+=======
+
+#index{
+	background-color: gray;
+	color: white;
+}
+
+#index-product{
+	width: 370px;
+}
+
+>>>>>>> fc33da6d65c44c48abc9d113cf37c1d7129153d4
 #title-product{
 	text-align: left;
 }

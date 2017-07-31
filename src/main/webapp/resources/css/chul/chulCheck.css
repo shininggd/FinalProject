@@ -41,6 +41,10 @@
 	margin: 0;
 }
 
+#chulCheck_btn{
+	cursor: pointer;
+}
+
 #contents {
 	margin-top: 10px;
 }
@@ -92,6 +96,7 @@
 	font-size: 13px;
 	margin: 0;
 	padding: 0;
+	cursor: pointer;
 }
 .chul_del {
 	cursor: pointer;

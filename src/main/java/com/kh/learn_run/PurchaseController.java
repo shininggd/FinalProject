@@ -29,7 +29,7 @@ public class PurchaseController {
 	
 	@RequestMapping(value="/payDo", method=RequestMethod.POST)
 	public void payDo(PurchaseDTO purchaseDTO, Model model) throws Exception{
-		System.out.println("payDo");
+		
 		purchaseService.payComplete(purchaseDTO);
 		purchaseService.addMemberStudy(purchaseDTO);
 		model.addAttribute("dto", purchaseDTO);
@@ -69,5 +69,9 @@ public class PurchaseController {
 		return "common/resultMessage";
 	}
 	
+	@RequestMapping(value="/callReceipt")
+	public void callReceipt(){
+		
+	}
 	
 }

@@ -16,11 +16,17 @@
 	$(function () {
 		$(".callReceipt").click(function() {
 			var num = $(this).prop("id");
+	$(function() {
+		$(".callReceipt").click(function() {
+			
+		var num = $(this).prop("id");
+		
 			$.post("callReceipt", {num:num}, function(data) {
 				
 			});
 			
 		});
+
 	});
 </script>
 <c:import url="../temp/header.jsp"></c:import>
@@ -56,8 +62,8 @@
 						<td id="index-product">강의</td>
 						<td>강사</td>
 						<td>결제금액</td>
-						<td>결제수단</td>
-						<td>결제일</td>
+						<td >결제수단</td>
+						<td >결제일</td>
 					</tr>
 				<c:forEach items="${dto}" var="i" >
 					<tr>
