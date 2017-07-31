@@ -11,10 +11,13 @@ a{
     padding: 54px 0 418px;
     margin-top: -72px;
     margin-bottom: -419px;
+    background: #fbfbfa;
 }
 .write_wrap_1{
-	background: #fbfbfa;
+	
 	height: 742px;
+	width: 1100px;
+	margin-left: 150px;
 }
 .write_1_picture{
 	width: 500px;
@@ -22,7 +25,6 @@ a{
 	border: 1px solid black;
 	float: left;
 	margin-top: 100px;
-	margin-left: 450px;
 	font-size: 15pt;
 	font-weight: 600;
 	
@@ -33,7 +35,6 @@ a{
 	border: 1px solid black;
 	float: left;
 	margin-top: 100px;
-	margin-left: 70px;
 	text-align: left;
 }
 .write_1_tag{
