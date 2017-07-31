@@ -1,0 +1,295 @@
+@CHARSET "UTF-8";
+body{
+	margin: 0;
+}
+ul{
+	list-style: none;
+}
+li{
+	display: list-item;
+    text-align: -webkit-match-parent;
+}
+a{
+	color: #000;
+    text-decoration: none;
+}
+#small_group_list_page{
+	box-sizing: border-box;
+	min-height: 100%;
+    padding: 54px 0 418px;
+    margin-top: -72px;
+    margin-bottom: -416px;
+}
+.top_banner{
+	position: relative;
+    overflow: hidden;
+    background: #a0a0a0;
+    height: 45pc;
+}
+.sgroup_video{
+	min-width: 100%;
+}
+.banner_content{
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.banner_label{
+	margin: 170px auto 24px;
+    width: 15pc;
+    height: 36px;
+    background: transparent url(https://cdn.studysearch.co.kr/static/images/community-event/list-assets.607504ab09c2.png);
+    text-indent: -9999em;
+}
+.banner_title{
+	margin-bottom: 2in;
+    text-align: center;
+    font-size: 3pc;
+    font-weight: 800;
+    line-height: 1.25em;
+    color: #fff;
+}
+.banner_description{
+	font-size: 1pc;
+    font-weight: 600;
+    line-height: 1.69em;
+    text-align: center;
+    color: #fff;
+}
+.banner_arrow{
+	margin: 23px auto 42px;
+    width: 24px;
+    height: 14px;
+    background: transparent url(https://cdn.studysearch.co.kr/static/images/community-event/list-assets.607504ab09c2.png)0 -60px;
+}
+.sgroup_check_it{
+	padding: 110px 0;
+    background: radial-gradient(farthest-corner at 0 0,#ffc400 24%,#ffa804 48%,#ff6c00 84%);
+	margin-top: 100px;
+}
+.check_label{
+	margin: 0 auto 36px;
+    width: 15pc;
+    height: 36px;
+    background: transparent url(https://cdn.studysearch.co.kr/static/images/community-event/list-assets.607504ab09c2.png);
+}
+
+.check_title{
+	text-align: center;
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.33em;
+    color: #fff;
+}
+.check_weekend{
+	margin-top: 24px;
+    text-align: center;
+    font-weight: 700;
+    color: #7b4314;
+}
+.sgroup_list_section{
+	background: #fafafa;
+    overflow: hidden;
+}
+.member_only{
+	margin: 3pc auto 98px;
+    box-sizing: border-box;
+    width: 60pc;
+    height: 60px;
+    border: 2px solid #ebebeb;
+    border-radius: 4px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+}
+.alert_icon{
+	display: inline-block;
+    vertical-align: top;
+    margin: 21px 9pt 0 0;
+    width: 1pc;
+    height: 1pc;
+    background: transparent url(https://cdn.studysearch.co.kr/static/images/community-event/list-assets.607504ab09c2.png)0 -20pc;
+}
+.orange{
+	color: #ef6c00;
+}
+.sgroup_section_content{
+	width: 1022px;
+    margin: 0 auto;
+}
+.event_list{
+	margin-top: 90pt;
+}
+.coming_soon{
+	margin-bottom: 90pt;
+}
+.point{
+	display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    margin-left: 4px;
+    width: 9pt;
+    height: 9pt;
+    border-radius: 50%;
+    border: 3px solid #ebebeb;
+}
+.coming_soon_text{
+	display: inline-block;
+    vertical-align: top;
+    margin-left: 24px;
+    font-size: 1pc;
+    font-weight: 700;
+    color: #484d53;
+}
+.bold{
+	font-weight: 900;
+    color: #ef6c00;
+}
+.sgroup_event_section{
+	background: #f0f0f0;
+    padding: 168px 0 15pc;
+    height: 400px;
+}
+.section_content{
+	width: 64pc;
+    margin: 0 auto;
+}
+.section_title{
+	font-size: 42px;
+    font-weight: 700;
+    color: #000;
+}
+.swiper_box{
+	position: relative;
+    margin-top: 60px;
+    width: 1100px;
+}
+#sgroup_event_title_wrap{
+	overflow: hidden;
+}
+.swiper_wrapper{
+	position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+}
+.sgrouop_event_swiper_slide{
+	display: inline-block;
+    height: 100%;
+    position: relative;
+}
+.thumnail{
+	height: 2in;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+.thumnail_picture{
+	width: 192px;
+	height: 192px;
+}
+.tag_title{
+	margin-top: 1pc;
+    font-size: 10pt;
+    font-weight: 500;
+    color: #000;
+}
+.tag{
+	color: #ef6c00;
+    font-weight: 700;
+}
+.meeting_date{
+	margin-top: 16pt;
+    font-size: 9pt;
+    font-weight: 400;
+    color: #a0a0a0;
+}
+.sgroup_register{
+	font-size: 18pt;
+	font-weight: 600;
+	color: #fff;
+	background-color:#ef6c00; 
+	margin-left: 100px;
+    padding: 5px 13px 5px 12px;
+}
+
+
+/* css화살표시작 */
+.css_arrow_right {
+    display: inline-block;
+    position: relative;
+    margin: 0 0 0 8px;
+    padding: 0;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-left-color: #ef6c00;
+}
+.css_arrow_right:before, .css_arrow_right:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+}
+.css_arrow_right:before {
+    left: -30px;
+    margin-top: -10px;
+    border: 10px solid transparent;
+    border-right-color: #ef6c00;
+}
+.css_arrow_right:after {
+    left: -20px;
+    margin-top: -14px;
+    border: 14px solid transparent;
+    border-left-color: #eee;
+}
+.css_arrow_left {
+    display: inline-block;
+    position: relative;
+    margin: 0 0 0 8px;
+    padding: 0;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-left-color: #ef6c00;
+}
+.css_arrow_left:before, .css_arrow_left:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+}
+.css_arrow_left:before {
+    left: -30px;
+    margin-top: -10px;
+    border: 10px solid transparent;
+    border-right-color: #ef6c00;
+}
+.css_arrow_left:after {
+    left: -28px;
+    margin-top: -14px;
+    border: 14px solid transparent;
+    border-right-color: #eee;
+}
+#button_previous{
+	background-position: 0 -360px;
+    left: -24px;
+    top: 96px;
+    margin-left: -10px;
+}
+#button_next{
+	background-position: -36px -360px;
+    right: -24px;
+    top: 96px;
+    margin-left: 1012px;
+}
+/* css화살표 끝 */

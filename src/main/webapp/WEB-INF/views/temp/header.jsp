@@ -277,7 +277,7 @@ $(function(){
 					<span class="header_bar"></span>
 					<a class="menu2" href="/learn_run/chul/chulCheck">출석체크</a>
 					<span class="header_bar"></span>
-					<a class="menu3" href="./small_group/small_group">소모임</a>
+					<a class="menu3" href="/learn_run/small_group/sgroup">소모임</a>
 					<span class="header_bar"></span>
 					<a class="menu4" href="/learn_run/board/noticePage">NOTICE</a>
 					<ul id="theme_menus_popup">
