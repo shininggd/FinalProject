@@ -5,10 +5,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	.mainGround{
+		width: 1200px;
+		height: 1300px;
+		background-color: gray;
+	}
+
+</style>
 </head>
 <body>
-
-<h1>온라인 강의 페이지</h1>
+<div class="mainGround">
+<h1>온라인 보컬!</h1>
 <h2>${room_id}</h2>
 
 <!-- 비디오 들어갈 위치 -->
@@ -47,7 +55,7 @@
     
 </div>
 
-
+</div>
 <script type="text/javascript">
 
 /* 접속 주소가 http로 접속시에 다시 https로 접속하게 하는 코드 */

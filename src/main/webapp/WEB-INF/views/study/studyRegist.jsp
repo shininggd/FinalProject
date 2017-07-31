@@ -33,6 +33,7 @@
 					 제목 <select name="category" class="top_box" id="category">
 								<option value="영어회화">영어회화</option>
 								<option value="중국어회화">중국어회화</option>
+								<option value="보컬">보컬</option>
 						   </select>
 						<select name="lv" class="top_box" id="lv" >
 								<option value="초보">초보</option>

@@ -20,4 +20,8 @@ public class OnlineController {
 		
 		return path;
 	}
+	@RequestMapping(value="subject/onlineStudyVocal")
+	public void vocalTemp(){
+		
+	}
 }
