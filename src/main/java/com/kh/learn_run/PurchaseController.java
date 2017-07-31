@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.member.MemberDTO;
 import com.kh.purchase.PurchaseDTO;
@@ -69,9 +70,13 @@ public class PurchaseController {
 		return "common/resultMessage";
 	}
 	
-	@RequestMapping(value="/callReceipt")
-	public void callReceipt(){
-		
+	@RequestMapping(value="/callReceipt", method=RequestMethod.GET)
+	public ModelAndView callReceipt(HttpServletRequest request, int num) throws Exception{
+	
+		PurchaseDTO purchaseDTO = purchaseService.callReceipt(num);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("pdto", purchaseDTO);
+		return mv;
 	}
 	
 }

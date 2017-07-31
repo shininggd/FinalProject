@@ -13,17 +13,10 @@
 </head>
 <body>
 <script type="text/javascript">
-	$(function () {
-		$(".callReceipt").click(function() {
-			var num = $(this).prop("id");
+
 	$(function() {
 		$(".callReceipt").click(function() {
-			
-		var num = $(this).prop("id");
-		
-			$.post("callReceipt", {num:num}, function(data) {
-				
-			});
+			 $("#receipt").toggle();
 			
 		});
 
@@ -76,41 +69,49 @@
 					<tr>
 						<td colspan="5" id="moreFunc">
 							<span class="callReceipt" id="${i.num}">영수증 보기</span>
-						</td>
-					</tr>
-				</c:forEach>
-			</table>
-		</div>
 		<!-- 영수증 보기 -->
 			<div id="receipt">
-				<form action="">
+				<form>
 					<fieldset>
 						<legend><h3>결제 영수증</h3></legend>
 						<table>
 							<tr>
 								<td>강의 : </td>
-								<td></td>
+								<td>${pdto.product}</td>
 							</tr>
 							<tr>
 								<td>튜터 : </td>
-								<td></td>
+								<td>${pdto.tid}</td>
 							</tr>
 							<tr>
 								<td>결제금액 : </td>
-								<td></td>
+								<td>${pdto.price }</td>
 							</tr>
 							<tr>
 								<td>결제정보 : </td>
-								<td></td>
+								<c:if test="${not empty bank}">
+								<td>${pdto.bank}</td>
+								</c:if>
+								<c:if test="${not empty cnumber}">
+								<td>${pdto.cnumber}</td>
+								</c:if>
+								<c:if test="${not empty pnumber}">
+								<td>${pdto.pnumber}</td>
+								</c:if>
 							</tr>
 							<tr>
 								<td>결제일 : </td>
-								<td></td>
+								<td>${pdto.p_date }</td>
 							</tr>
 						</table>
 					</fieldset>
 				</form>
 			</div>	
+						</td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
 	</div>
 
 

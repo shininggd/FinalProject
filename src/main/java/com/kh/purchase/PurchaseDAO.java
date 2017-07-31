@@ -34,7 +34,9 @@ public class PurchaseDAO {
 		return sqlSession.insert(NAMESPACE+"addMemberStudy", purchaseDTO);
 	}
 	
-	
+	public PurchaseDTO callReceipt(int num) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"callReceipt", num);
+	}
 	
 	
 	

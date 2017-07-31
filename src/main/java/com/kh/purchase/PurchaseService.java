@@ -77,5 +77,10 @@ public class PurchaseService {
 		return purchaseDAO.addMemberStudy(purchaseDTO);
 	}
 	
+	public PurchaseDTO callReceipt(int num) throws Exception{
+		return purchaseDAO.callReceipt(num);
+		
+	}
+	
 	
 }
