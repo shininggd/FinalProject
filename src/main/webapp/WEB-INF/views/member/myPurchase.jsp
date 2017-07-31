@@ -10,9 +10,19 @@
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/basic_table.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/member/myPurchase.css">
-
 </head>
 <body>
+<script type="text/javascript">
+	$(function () {
+		$(".callReceipt").click(function() {
+			var num = $(this).prop("id");
+			$.post("callReceipt", {num:num}, function(data) {
+				
+			});
+			
+		});
+	});
+</script>
 <c:import url="../temp/header.jsp"></c:import>
 
 <section id="main_section">
@@ -42,7 +52,7 @@
 		<h1 id="mystudy_h1">내 결제 내역</h1>
 		<div id="mystudy_list">
 			<table id="purchaseList">
-					<tr>
+					<tr id="index">
 						<td id="index-product">강의</td>
 						<td>강사</td>
 						<td>결제금액</td>
@@ -51,26 +61,56 @@
 					</tr>
 				<c:forEach items="${dto}" var="i" >
 					<tr>
-						<td>${i.product}</td>
+						<td id="title-product">${i.product}</td>
 						<td>${i.tid }</td>
 						<td>${i.price }</td>
 						<td>${i.type }</td>
 						<td>${i.p_date}</td>
 					</tr>
+					<tr>
+						<td colspan="5" id="moreFunc">
+							<span class="callReceipt" id="${i.num}">영수증 보기</span>
+						</td>
+					</tr>
 				</c:forEach>
 			</table>
 		</div>
-	
+		<!-- 영수증 보기 -->
+			<div id="receipt">
+				<form action="">
+					<fieldset>
+						<legend><h3>결제 영수증</h3></legend>
+						<table>
+							<tr>
+								<td>강의 : </td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>튜터 : </td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>결제금액 : </td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>결제정보 : </td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>결제일 : </td>
+								<td></td>
+							</tr>
+						</table>
+					</fieldset>
+				</form>
+			</div>	
 	</div>
 
 
 </section>
 
 <c:import url="../temp/footer.jsp"></c:import>
-<script type="text/javascript">
-	
 
-	
-</script>
 </body>
 </html>
