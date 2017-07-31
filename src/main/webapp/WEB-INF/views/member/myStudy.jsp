@@ -47,6 +47,7 @@
 	
 	<form action="/learn_run/study/online/onlineStudyPage" id="online_frm" method="post">
 		<input type="hidden" id="room_id_value" name="room_id">
+		<input type="hidden" id="category_value" name="category">
 	</form>
 
 
@@ -63,7 +64,9 @@
 	
 	$("#mystudy_list").on("click",".online_btn",function() {
 		var room_id = "roomId"+$(this).prop("id");
-		$("#room_id_value").prop("value",room_id);
+		var category = "roomId"+$(this).prop("title");
+		$("#room_id_value").prop("value", room_id);
+		$("#category_value").prop("value", category);
 		$("#online_frm").submit();
 	});
 
