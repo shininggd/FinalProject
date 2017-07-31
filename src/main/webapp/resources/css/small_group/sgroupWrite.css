@@ -25,6 +25,7 @@ a{
 	margin-left: 450px;
 	font-size: 15pt;
 	font-weight: 600;
+	display: inline-block;
 	
 }
 .write_1_content_detail{
@@ -35,6 +36,8 @@ a{
 	margin-top: 100px;
 	margin-left: 70px;
 	text-align: left;
+	display: inline-block;
+	position: absolute;
 }
 .write_1_tag{
 	margin-top: 5px;
@@ -131,6 +134,7 @@ a{
 	text-align: left;
 	margin-left: 450px;
 	margin-top: 50px;
+	display: inline-block;
 }
 .write_2_sgroupEvent{
 	font-size: 15pt;
@@ -185,6 +189,7 @@ a{
     height: 100%;
 	font-size: 15pt;
 	font-weight: 600; 
+	display: inline-block;
 }
 .write_3_picture_img{	
 	background: transparent 50% 50% no-repeat;
@@ -286,9 +291,10 @@ a{
 .write_5_content{
 	width: 500px;
 	height: 300px;
-	margin: 0 auto;
 	margin-top: 110px;
 	text-align: center;
+	margin-left: 600px;
+	display: inline-block;
 }
 .write_5_host_picture{
     width: 80px;
