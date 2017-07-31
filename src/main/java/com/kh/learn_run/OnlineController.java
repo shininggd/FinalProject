@@ -16,9 +16,9 @@ public class OnlineController {
 		String path = null;
 
 		if(category.equals("프로그래밍")) {
-			path = "study/subject/onlineStudyPrograming";
+			path = "study/online/subject/onlineStudyPrograming";
 		}
-		if(category.equals("영여회화")) {
+		if(category.equals("영어회화")) {
 			path = "study/online/subject/onlineStudyEnglish";
 		}
 		
