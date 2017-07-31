@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="SgroupMapper">
+    
+  <insert id="sgroupWrite" parameterType="com.kh.sgroup.SgroupDTO">
+  	insert into community(num, fname, oname, tag, title, c_day, c_time, location, price, detail, people, contents, writer, id)
+  	values(community_seq.nextval,#{fname}, #{oname}, #{tag}, #{title}, #{c_day}, #{c_time}, #{location}, #{price}, #{detail}, #{people}, #{contents}, #{writer}, #{id})
+  </insert>
+  
+  <insert id="community_upload" parameterType="com.kh.sgroup.Sgroup_UploadDTO">
+  		insert into community_upload(num,fname,oname) values(#{num}, #{fname}, #{oname})
+  </insert>
+  
+  <select id="max_num" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+  	select max(num) from community
+  </select>
+  
+  <select id="sgroupList" parameterType="java.lang.Integer" resultType="com.kh.sgroup.SgroupDTO">
+  	select * from(select rownum R, S.* from (select * from community order by num desc) S) where R between 1 and 9
+  </select>
+  
+  <select id="sgroupView" parameterType="java.lang.Integer" resultType="com.kh.sgroup.SgroupDTO">
+  	select * from community where num=#{num}
+  </select>
+  <select id="sgroupImage" parameterType="java.lang.Integer" resultType="com.kh.sgroup.SgroupDTO">
+		select fname from community where num = #{num}
+  </select>
+  </mapper>
