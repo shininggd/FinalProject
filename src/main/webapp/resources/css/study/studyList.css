@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 /* ======================================== 섹션=============================================  */
+	.imgFView2{
+	width: 270px;
+	height: 275px;
+}
 .pagingBox{
 	width: 240px;
 	height: 30px;
@@ -230,8 +234,8 @@ hr{
 	margin-top: 10px;
 	position: static;
 	width: 100%;
-	min-height: 17.2pc;
-	background-color: red;
+	height: 17.2pc;
+	
 	background-size: cover;
 }
 /*리스트 부분 끝  */

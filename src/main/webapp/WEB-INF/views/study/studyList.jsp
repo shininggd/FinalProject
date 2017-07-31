@@ -96,7 +96,13 @@
 								 
 							</div>
 							<div class="boxBottom">
-							
+							<c:if test="${i.fname == null }">
+							<img alt="Learn&Run" class="imgFView2" src="<c:url value="/resources/img/study/learnRun.jpg"/>">
+							</c:if>
+							<c:if test="${i.fname != null }">
+							<img class="imgFView2" src="<c:url value="/resources/img/study/upload/${i.fname}"/>">
+							</c:if>
+								
 							</div>
 							
 							
