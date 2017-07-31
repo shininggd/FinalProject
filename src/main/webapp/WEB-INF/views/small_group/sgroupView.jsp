@@ -15,7 +15,7 @@
 <c:import url="../temp/header.jsp" />
 	<section id="sgroup_eventView_page">
 		<div class="view_wrap_1">
-			<div class="view_1_picture"><img src="<c:url value="/resources/img/sgroup/upload/${sgroup1}"/>"></div>
+			<div class="view_1_picture"><img class="view_1_picture_img" src="<%=application.getContextPath()%>/resources/img/sgroup/upload/${sgroup.fname}"></div>
 			<div class="view_1_content_detail">
 				<div class="view_1_tag">#${sgroup.tag}</div>
 				<div class="view_1_title">${sgroup.title}</div>
@@ -76,10 +76,10 @@
 		<c:if test="${member.id==sgroup.id||member.grade=='admin'}">
 		<div style="width: 100%; height: 150px;">
 			<div style="width: 250px; height: 100px;float: left; margin-top: 50px; margin-left: 670px;">
-				<a href="/learn_run/small_group/sgroupWrite" class="sgroup_register">수정하기</a>
+				<a href="sgroupUpdate?num=${sgroup.num }" class="sgroup_button">수정하기</a>
 			</div>
 			<div style="width: 250px; height: 100px; float: left; margin-top: 50px;">
-				<a href="/learn_run/small_group/sgroupWrite" class="sgroup_register">삭제하기</a>
+				<a href="sgroupDelete?num=${sgroup.num }" class="sgroup_button">삭제하기</a>
 			</div>
 		</div>
 		</c:if>	

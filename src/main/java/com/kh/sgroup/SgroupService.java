@@ -29,4 +29,13 @@ public class SgroupService {
 	public  HashMap<Object, Object> sgroupView(Integer num, String tid)throws Exception{
 		return sgroupDAO.sgroupView(num, tid);
 	}
+	public int update(SgroupDTO sgroupDTO)throws Exception{
+		return sgroupDAO.update(sgroupDTO);
+	}
+	public SgroupDTO update(int num)throws Exception{
+		return sgroupDAO.updateView(num);
+	}
+	public int delete(int num) throws Exception {
+		return sgroupDAO.delete(num);
+	}
 }

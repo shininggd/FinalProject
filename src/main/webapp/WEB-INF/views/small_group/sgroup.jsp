@@ -72,7 +72,7 @@
 				</div>
 			</div>
 			<c:if test="${not empty member && member.grade!='student'}">
-			<div style="margin-top: 70px; width: 300px; height: 100px; margin-left: 800px;">
+			<div style="margin-top: 70px; width: 300px; height: 100px; margin-left: 40%;">
 				<a href="/learn_run/small_group/sgroupWrite" class="sgroup_register">등록하기</a>
 			</div>
 			</c:if>
