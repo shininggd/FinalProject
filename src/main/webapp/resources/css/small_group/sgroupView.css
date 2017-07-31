@@ -22,6 +22,7 @@ a{
 	float: left;
 	margin-top: 100px;
 	margin-left: 450px;
+	display: inline-block;
 }
 .view_1_content_detail{
 	width: 500px;
@@ -30,6 +31,8 @@ a{
 	margin-top: 100px;
 	margin-left: 70px;
 	text-align: left;
+	display: inline-block;
+	position: absolute;
 }
 .view_1_tag{
 	margin-top: 30px;
@@ -85,6 +88,7 @@ a{
 	text-align: left;
 	margin-left: 450px;
 	margin-top: 50px;
+	display: inline-block;
 }
 .view_2_sgroupEvent{
 	font-size: 15pt;
@@ -250,9 +254,10 @@ a{
 .view_5_content{
 	width: 500px;
 	height: 300px;
-	margin: 0 auto;
 	margin-top: 120px;
 	text-align: center;
+	margin-left: 600px;
+	display: inline-block;
 }
 .view_5_host_picture{
     width: 80px;
@@ -282,4 +287,12 @@ a{
 	font-size: 12pt;
 	font-weight: 600;
 	color: white;
+}
+.sgroup_register{
+	font-size: 18pt;
+	font-weight: 600;
+	color: #fff;
+	background-color:#ef6c00; 
+	margin-left: 100px;
+    padding: 5px 13px 5px 12px;
 }
