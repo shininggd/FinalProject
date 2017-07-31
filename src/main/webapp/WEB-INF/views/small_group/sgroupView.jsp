@@ -72,7 +72,15 @@
 					<div class="view_5_3rd">본 이벤트는 Learn&Run 멤버만 참여 가능합니다.</div>
 				</div>
 			</div>
-		</div>		
+		</div>	
+		<c:if test="${member.id==community.id || member.grade=='admin'}">
+			<div style="margin-top: 70px; width: 300px; height: 100px; margin-left: 800px; float: left;">
+				<a href="/learn_run/small_group/sgroupWrite" class="sgroup_register">수정하기</a>
+			</div>
+			<div style="width: 300px; height: 100px; margin-left: 50px;">
+				<a href="/learn_run/small_group/sgroupWrite" class="sgroup_register">삭제하기</a>
+			</div>
+		</c:if>	
 	</section>
 <c:import url="../temp/footer.jsp" />
 </body>

@@ -283,3 +283,11 @@ a{
 	font-weight: 600;
 	color: white;
 }
+.sgroup_register{
+	font-size: 18pt;
+	font-weight: 600;
+	color: #fff;
+	background-color:#ef6c00; 
+	margin-left: 100px;
+    padding: 5px 13px 5px 12px;
+}
