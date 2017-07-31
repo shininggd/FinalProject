@@ -25,7 +25,7 @@
 				<div id="tab-box">
 					<a class="tab" href="/learn_run/member/myStudy">내 스터디</a>
 					<c:if test="${member.grade eq 'student'}">
-					<a class="tab selected" href="/learn_run/member/myPurchase">내 구매 내역</a>
+					<a class="tab" href="/learn_run/member/myPurchase">내 구매 내역</a>
 					</c:if>
 					<a class="tab selected" href="/learn_run/member/myPoint">내 포인트</a>
 					<a class="tab" href="/learn_run/member/myPage">내 프로필</a>

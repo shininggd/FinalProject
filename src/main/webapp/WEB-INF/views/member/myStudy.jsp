@@ -24,7 +24,7 @@
 				<div id="tab-box">
 					<a class="tab selected" href="/learn_run/member/myStudy">내 스터디</a>
 					<c:if test="${member.grade eq 'student'}">
-					<a class="tab selected" href="/learn_run/member/myPurchase">내 구매 내역</a>
+					<a class="tab" href="/learn_run/member/myPurchase">내 구매 내역</a>
 					</c:if>
 					<a class="tab" href="/learn_run/member/myPoint">내 포인트</a>
 					<a class="tab" href="/learn_run/member/myPage">내 프로필</a>
@@ -44,6 +44,10 @@
 		</div>
 	
 	</div>
+	
+	<form action="/learn_run/study/online/onlineStudyPage" id="online_frm" method="post">
+		<input type="hidden" id="room_id_value" name="room_id">
+	</form>
 
 
 </section>
@@ -55,6 +59,12 @@
 	
 	$.post("../study/myStudyList",{id:id},function(result) {
 		$("#mystudy_list").html(result);
+	});
+	
+	$("#mystudy_list").on("click",".online_btn",function() {
+		var room_id = "roomId"+$(this).prop("id");
+		$("#room_id_value").prop("value",room_id);
+		$("#online_frm").submit();
 	});
 
 	
