@@ -17,10 +17,10 @@ import com.kh.member.tutor.TutorDTO;
 import com.kh.sgroup.SgroupDTO;
 import com.kh.sgroup.SgroupService;
 import com.kh.sgroup.Sgroup_UploadDTO;
-import com.kh.study.StudyDTO;
+import com.kh.util.FileSaver;
 
 @Controller
-@RequestMapping(value = "/small_group")
+@RequestMapping(value = "/small_group/**")
 public class Small_GroupController {
 	
 	@Autowired 
@@ -38,7 +38,6 @@ public class Small_GroupController {
 		model.addAttribute("sgroup", sgroup);
 		model.addAttribute("tutor", tutor);
 		model.addAttribute("profile",ar.get("profile"));
-		model.addAttribute("sgroup1",ar.get("sgroup1"));
 	}
 	@RequestMapping(value = "sgroupWrite", method = RequestMethod.GET)
 	public void sgroupWrite() throws Exception{
@@ -66,5 +65,45 @@ public class Small_GroupController {
 			}
 		}
 		model.addAttribute("sgroupList", sgroupService.sgroupList());
+	}
+	
+	@RequestMapping(value = "sgroupUpdate", method=RequestMethod.GET)
+	public String update(Model model, Integer num) throws Exception{
+		String path = "small_group/sgroupUpdate";
+		model.addAttribute("dto", sgroupService.update(num)); 
+
+		return path;
+	}
+	@RequestMapping(value = "sgroupUpdate", method = RequestMethod.POST)
+	public String update(SgroupDTO sgroupDTO,Model model,MultipartFile f1,MultipartHttpServletRequest request)throws Exception{
+		
+		String fileName = UUID.randomUUID().toString();
+		String realPath = request.getSession().getServletContext().getRealPath("resources/img/sgroup/upload");
+		if(!f1.getOriginalFilename().equals("")){
+		sgroupDTO.setOname(f1.getOriginalFilename());;
+		sgroupDTO.setFname(fileName+"_"+sgroupDTO.getOname());
+		}
+		
+		int i = sgroupService.update(sgroupDTO);
+		if(i>0 && !f1.getOriginalFilename().equals("")){
+			FileSaver fs = new FileSaver();
+			fs.fileSave(f1, realPath);
+		}
+		model.addAttribute("sgroupList", sgroupService.sgroupList());
+		return "small_group/sgroup";
+	}
+	
+	@RequestMapping(value="sgroupDelete")
+	public String delete(int num, Model model) throws Exception {
+		int result = sgroupService.delete(num);
+		String message = "삭제 실패";
+		if(result>0) {
+			message = "삭제 성공";
+		}
+		
+		model.addAttribute("message", message);
+		model.addAttribute("sgroupList", sgroupService.sgroupList());
+		model.addAttribute("path", "/learn_run/small_group/sgroup");
+		return "common/MLresult";
 	}
 }
