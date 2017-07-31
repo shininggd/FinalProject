@@ -39,7 +39,6 @@ public class Small_GroupController {
 		model.addAttribute("tutor", tutor);
 		model.addAttribute("profile",ar.get("profile"));
 		model.addAttribute("sgroup1",ar.get("sgroup1"));
-		model.addAttribute("study", ar.get("study"));
 	}
 	@RequestMapping(value = "sgroupWrite", method = RequestMethod.GET)
 	public void sgroupWrite() throws Exception{

@@ -65,7 +65,6 @@
 		</div>
 		<div class="view_wrap_5">
 			<div class="view_5_picture">
-			<%-- <img src="<c:url value="/resources/img/study/upload/${study}"/>"> --%>
 				<div class="view_5_content">
 					<div class="view_5_host_picture"><img class="view_5_host_picture_img" src="<c:url value="/resources/img/member/profilePhoto/${profile }"/>"></div>
 					<div class="view_5_1st">Will you come join us?</div>

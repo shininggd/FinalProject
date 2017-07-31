@@ -17,7 +17,6 @@ public class SgroupDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "SgroupMapper.";
 	private final String TUTORSPACE = "TutorMapper.";
-	private final String STUDYSPACE = "StudyMapper.";
 	
 	public int write(SgroupDTO sgroupDTO)throws Exception{
 		return sqlSession.insert(NAMESPACE+"sgroupWrite", sgroupDTO);
@@ -41,7 +40,6 @@ public class SgroupDAO {
 		ar.put("sgroup", this.sgroupOneView(num));
 		ar.put("tutor",sqlSession.selectOne(TUTORSPACE+"tutorStudyInfo",tid));
 		ar.put("profile",sqlSession.selectOne(TUTORSPACE+"tutorImage",tid));
-		ar.put("study", sqlSession.selectOne(STUDYSPACE+"studyImage", num));
 		ar.put("sgroup1", sqlSession.selectOne(NAMESPACE+"sgroupImage", num));
 		return ar;
 	}
