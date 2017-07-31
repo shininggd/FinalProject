@@ -79,6 +79,10 @@ public class StudentServiceImpl implements MemberService{
 	public int memberDelete(StudentDTO studentDTO){
 		return studentDAOImpl.memberDelete(studentDTO);
 	}
+	
+	public List<StudentDTO> goMyPurchase(MemberDTO memberDTO) throws Exception{
+		return studentDAOImpl.goMyPurchase(memberDTO);
+	}
 }
 		
 

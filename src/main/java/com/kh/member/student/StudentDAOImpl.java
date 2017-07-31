@@ -51,8 +51,7 @@ public class StudentDAOImpl implements MemberDAO{
 	
 	@Override
 	public String memberIdCheck(String id) throws Exception {
-		return sqlSession.selectOne(NAMESPACE+"IdCheck", id);
-		
+		return sqlSession.selectOne(NAMESPACE+"IdCheck", id);	
 	}
 
 	public int pointGC(MemberDTO memberDTO) throws Exception {
@@ -74,4 +73,9 @@ public class StudentDAOImpl implements MemberDAO{
 	public int memberDelete(StudentDTO studentDTO){
 		return sqlSession.delete(NAMESPACE+"memberDelete", studentDTO);
 	}
+	
+	public List<StudentDTO> goMyPurchase(MemberDTO memberDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"goMyPurchase", memberDTO);
+	}
+	
 }

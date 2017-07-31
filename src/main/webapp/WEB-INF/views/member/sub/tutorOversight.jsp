@@ -3,7 +3,7 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/member/sub/tutorOversight.css">
 
-	<div>
+	<div class ="admin_page_search">
 					<form name="frm_search" id="frm_search" method="post">
 						<input type="hidden" name="curPage" id="curPage">
 						<!-- 페이징 넘어갈 때 처음 검색한 find값 ${listInfo.find }가져오기 -->
@@ -20,8 +20,8 @@
 				</div>
 				
 <table id="tutorinfo_table">
-	<tr>
-		<th>id</th>
+	<tr class="tr_cs">
+		<th class="id_th" id="id_header">id</th>
 		<th>lv</th>
 		<th>right</th>
 		<th>change</th>
@@ -29,7 +29,7 @@
 	</tr>
 	<c:forEach items="${data}" var="i" varStatus="s">
 	<tr>
-		<td id="tutoids${s.index}" title="${i.id}">${i.id}
+		<td class="id_th" id="tutoids${s.index}" title="${i.id}">${i.id}
 		</td>
 	
 		<td>

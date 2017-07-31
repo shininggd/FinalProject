@@ -9,15 +9,14 @@
 	
 }
 
-#header_content {
+#header_contents {
     padding-top: 24px;
     width: 60pc;
     margin: 0 auto;
 }
 
-#user-photo {
+.user_photo {
 	display: inline-block;
-    background-image: url(/learn_run/resources/img/member/defult_user.png);
     background-size: cover;
     background-position: 50% 50%;
     float: left;
@@ -25,6 +24,7 @@
     height: 72px;
     border-radius: 50%;
 }
+
 
 #tabs {
 	margin-left: 81pt;
@@ -83,8 +83,13 @@
     color: #3c3c3c;
 }
 
-#mystudy_list {
-	border-top: 1px solid #ebebeb;
-    list-style: none;
-	
+#purchaseList{
+	width : 650px;
+	margin-left : 150px;
+	overflow : scroll;
+	border: 1px black solid;
+	text-align: center;
+}
+#index-product{
+	width: 250px;
 }

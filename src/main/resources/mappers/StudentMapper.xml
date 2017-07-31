@@ -74,4 +74,10 @@
 	<delete id="memberDelete" parameterType="com.kh.member.student.StudentDTO">
 		delete from member where id=#{id}
 	</delete>
+	
+	<select id="goMyPurchase" parameterType="com.kh.member.MemberDTO" resultType="com.kh.purchase.PurchaseDTO">
+		select * from purchase where id=#{id}
+	</select>
+
+	
 </mapper>

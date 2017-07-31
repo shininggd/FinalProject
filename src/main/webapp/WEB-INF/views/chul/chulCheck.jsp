@@ -22,10 +22,7 @@ $(function(){
 getList(day);
 
 $("#calan_show").html(year+"년"+month+"월");
-	
-	$(".Cgoo").click(function(){
-		
-	});
+
 
 $(".chul_day").click(function(){
 

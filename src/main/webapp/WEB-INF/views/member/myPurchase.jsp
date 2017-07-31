@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/basic_table.css">
-<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/member/myStudy.css">
+<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/member/myPurchase.css">
+
 </head>
 <body>
 <c:import url="../temp/header.jsp"></c:import>
@@ -20,10 +21,12 @@
 		<div id="header_contents">
 			<div id="user-photo"></div>
 			<div id="tabs">
-				<div id="user_name">장태주</div>
+				<div id="user_name">${member.name}</div>
 				<div id="tab-box">
 					<a class="tab" href="/learn_run/member/myStudy">내 스터디</a>
+					<c:if test="${member.grade eq 'student'}">
 					<a class="tab selected" href="/learn_run/member/myPurchase">내 구매 내역</a>
+					</c:if>
 					<a class="tab" href="/learn_run/member/myPoint">내 포인트</a>
 					<a class="tab" href="/learn_run/member/myPage">내 프로필</a>
 					<c:if test="${member.id eq 'admin' }">
@@ -38,7 +41,24 @@
 		
 		<h1 id="mystudy_h1">내 결제 내역</h1>
 		<div id="mystudy_list">
-			
+			<table id="purchaseList">
+					<tr>
+						<td id="index-product">강의</td>
+						<td>강사</td>
+						<td>결제금액</td>
+						<td>결제수단</td>
+						<td>결제일</td>
+					</tr>
+				<c:forEach items="${dto}" var="i" >
+					<tr>
+						<td>${i.product}</td>
+						<td>${i.tid }</td>
+						<td>${i.price }</td>
+						<td>${i.type }</td>
+						<td>${i.p_date}</td>
+					</tr>
+				</c:forEach>
+			</table>
 		</div>
 	
 	</div>
