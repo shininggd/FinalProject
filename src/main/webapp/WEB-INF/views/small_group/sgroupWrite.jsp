@@ -14,13 +14,13 @@
 </head>
 <body>
 <c:import url="../temp/header.jsp" />
-	<form action="sgroupWriteInsert" method="post" id="frm" name="frm">
 	<section id="sgroup_eventWrite_page">
+	<form action="sgroup" method="post" id="frm" name="frm" enctype="multipart/form-data">
 		<div class="write_wrap_1">
-			<div class="write_1_picture">썸네일 사진<br><input type="file" style="width: 500px; height: 500px;"></div>
+			<div class="write_1_picture">썸네일 사진<br><input type="file" name="f1" style="width: 500px; height: 500px;"></div>
 			<div class="write_1_content_detail">
 				<div class="write_1_tag">태그 : <input class="write_1_tag_input" id="tag" name="tag" type="text" placeholder=" ex)여행"></div>
-				<div class="write_1_title">제목 : <br><textarea id="contents1" name="contents1" class="write_1_title_input" rows="3" cols="25"></textarea></div>
+				<div class="write_1_title">제목 : <br><textarea id="title" name="title" class="write_1_title_input" rows="3" cols="25"></textarea></div>
 				<div class="write_1_date">날짜 : <input class="write_1_date_input" id="c_day" name="c_day" type="text" placeholder="ex)2017년 7월 1일 토"></div>
 				<div class="write_1_time">시간 : <input class="write_1_time_input" id="c_time" name="c_time" type="text" placeholder="ex)저녁 7시 00분"></div>
 				<div class="write_1_location">장소 : <input class="write_1_location_input" id="location" name="location" type="text" placeholder="ex)합정역 카페"></div>
@@ -41,12 +41,12 @@
 					<div class="write_2_special_host">SPECIAL HOST</div>
 					<div class="write_2_host_name">이름 : ${member.name } </div>
 					<input type="hidden" value="${member.id }" name="id">
-					<input type="hidden" value="${member.name }" name="name">
+					<input type="hidden" value="${member.name }" name="writer">
 				</div>
 			</div>
 		</div>
 		<div class="write_wrap_3">
-			<div class="write_3_picture"><img class="write_3_picture_img" src="<%=application.getContextPath()%>/resources/img/sgroupWrite.png"></div>
+			<div class="write_3_picture"><img class="write_3_picture_img" src="<%=application.getContextPath()%>/resources/img/sgroup/sgroupWrite.png"></div>
 		</div>
 		<div class="write_wrap_4">
 			<div class="write_4">
@@ -78,26 +78,44 @@
 			</div>
 		</div>
 		<input type="submit" id="savebutton" value="Submit!" class="sgroup_submit">
-	</section>
 	</form>
+	</section>
 <c:import url="../temp/footer.jsp" />
 <script type="text/javascript">
 var contents = document.getElementById("contents");
 //전역변수선언
 var editor_object = [];
- 
+
 nhn.husky.EZCreator.createInIFrame({
-    oAppRef: editor_object,
-    elPlaceHolder: "contents",
-    sSkinURI: "<%=application.getContextPath()%>/resources/SE2/SmartEditor2Skin.html", 
-    htParams : {
-        // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-        bUseToolbar : true,             
-        // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-        bUseVerticalResizer : true,     
-        // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-        bUseModeChanger : true, 
-    }
+  oAppRef: editor_object,
+  elPlaceHolder: "contents",
+  sSkinURI: "<%=application.getContextPath()%>/resources/SE2/SmartEditor2Skin.html", 
+  htParams : {
+      // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+      bUseToolbar : true,             
+      // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+      bUseVerticalResizer : true,     
+      // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+      bUseModeChanger : true, 
+  }
+});
+
+var contents = document.getElementById("title");
+//전역변수선언
+var editor_object1 = [];
+
+nhn.husky.EZCreator.createInIFrame({
+  oAppRef: editor_object1,
+  elPlaceHolder: "title",
+  sSkinURI: "<%=application.getContextPath()%>/resources/SE2/SmartEditor2Skin.html", 
+  htParams : {
+      // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+      bUseToolbar : true,             
+      // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+      bUseVerticalResizer : false,     
+      // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+      bUseModeChanger : true, 
+  }
 });
 
     $("#savebutton").click(function(){
@@ -106,8 +124,6 @@ nhn.husky.EZCreator.createInIFrame({
         if(		$("#tag").val()== "" ||
     			$("#c_day").val()== "" ||
     			$("#c_time").val()== "" ||
-    			$("#contents").val()== "" ||
-    			$("#contents1").val()== "" ||
     			$("#location").val()== "" ||
     			$("#detail").val()== "" ||
     			$("#price").val()*1 <=0*1 ||
@@ -120,6 +136,7 @@ nhn.husky.EZCreator.createInIFrame({
     	        }
         
         editor_object.getById["contents"].exec("UPDATE_CONTENTS_FIELD", []);
+        editor_object1.getById["title"].exec("UPDATE_CONTENTS_FIELD", []);
 		$("#frm").submit();
         
         //폼 submit

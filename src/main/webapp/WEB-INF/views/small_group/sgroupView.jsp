@@ -15,36 +15,35 @@
 <c:import url="../temp/header.jsp" />
 	<section id="sgroup_eventView_page">
 		<div class="view_wrap_1">
-			<div class="view_1_picture"><img src=""></div>
+			<div class="view_1_picture"><img src="<c:url value="/resources/img/sgroup/upload/${sgroup.fname}"/>"></div>
 			<div class="view_1_content_detail">
-				<div class="view_1_tag">#여행</div>
-				<div class="view_1_title">6대륙 정복한<br>프로여행러 Hayley의<br>"여행과 사람사이"</div>
-				<div class="view_1_date">2017년 7월 1일 토</div>
-				<div class="view_1_time">저녁 7시 00분</div>
-				<div class="view_1_location">@합정역 카페</div>
+				<div class="view_1_tag">#${sgroup.tag}</div>
+				<div class="view_1_title">${sgroup.title}</div>
+				<div class="view_1_date">${sgroup.c_day}</div>
+				<div class="view_1_time">${sgroup.c_time}</div>
+				<div class="view_1_location">@${sgroup.location}</div>
 				<div class="view_1_price">
-					<div class="view_1_price_per">참가비 15,000원</div>
-					<div class="view_1_price_detail">(1 Free drink, 뒷풀이비용 미포함)</div>
+					<div class="view_1_price_per">참가비 ${sgroup.price}원</div>
+					<div class="view_1_price_detail">(${sgroup.detail})</div>
 				</div>
-				<div class="view_1_people">선착순 30명</div>
+				<div class="view_1_people">선착순 ${sgroup.people}명</div>
 			</div>
 		</div>
 		<div class="view_wrap_2">
 			<div class="view_2">
-				<div class="view_2_sgroupEvent">#7월 1일, 소그룹 Event!</div>
-				<div class="view_2_content">여행도 좋고 사람도 좋아한다면?</div>
-				<div class="view_2_location_picture"><img src=""></div>
+				<div class="view_2_sgroupEvent">#${sgroup.c_day}, 소그룹 Event!</div>
+				<div class="view_2_content">${sgroup.contents}</div>
 				<div class="view_2_host">#Special 호스트 소개</div>
 				<div class="view_2_host_picture"><img class="view_2_host_picture_img" src="<c:url value="/resources/img/member/profilePhoto/${profile }"/>"></div>
 				<div class="view_2_host_detail">
 					<div class="view_2_special_host">SPECIAL HOST</div>
-					<div class="view_2_host_name">Hayley Lee</div>
+					<div class="view_2_host_name">${sgroup.writer}</div>
 				</div>
-				<div class="view_2_host_info">${tutor.introduce }</div>
+				<div class="view_2_host_info">${tutor.introduce}</div>
 			</div>
 		</div>
 		<div class="view_wrap_3">
-			<div class="view_3_picture"><img class="view_3_picture_img" src="<%=application.getContextPath()%>/resources/img/sgroupWrite.png"></div>
+			<div class="view_3_picture"><img class="view_3_picture_img" src="<%=application.getContextPath()%>/resources/img/sgroup/sgroupWrite.png"></div>
 		</div>
 		<div class="view_wrap_4">
 			<div class="view_4">
@@ -65,7 +64,7 @@
 			</div>
 		</div>
 		<div class="view_wrap_5">
-			<div class="view_5_picture">
+			<div class="view_5_picture"><img src="<c:url value="/resources/img/study/upload/${study.fname}"/>">
 				<div class="view_5_content">
 					<div class="view_5_host_picture"><img class="view_5_host_picture_img" src="<c:url value="/resources/img/member/profilePhoto/${profile }"/>"></div>
 					<div class="view_5_1st">Will you come join us?</div>

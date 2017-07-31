@@ -54,6 +54,7 @@
 	<context:component-scan base-package="com.kh.board.notice" />
 	<context:component-scan base-package="com.kh.purchase" />
 	<context:component-scan base-package="com.kh.chul" />
+	<context:component-scan base-package="com.kh.sgroup" />
 	
 	
 </beans:beans>

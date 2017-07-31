@@ -14,11 +14,25 @@ public class SgroupDTO {
 	private String c_time;
 	private int price;
 	private String location;
-	private String fName;
-	private String oName;
+	private String fname;
+	private String oname;
 	private String tag;
 	private String detail;
 	private String id;
+	
+	
+	public String getFname() {
+		return fname;
+	}
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+	public String getOname() {
+		return oname;
+	}
+	public void setOname(String oname) {
+		this.oname = oname;
+	}
 	public String getId() {
 		return id;
 	}
@@ -84,18 +98,6 @@ public class SgroupDTO {
 	}
 	public void setLocation(String location) {
 		this.location = location;
-	}
-	public String getfName() {
-		return fName;
-	}
-	public void setfName(String fName) {
-		this.fName = fName;
-	}
-	public String getoName() {
-		return oName;
-	}
-	public void setoName(String oName) {
-		this.oName = oName;
 	}
 	public String getTag() {
 		return tag;

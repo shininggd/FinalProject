@@ -54,86 +54,28 @@
 					<div id="sgroup_event_title_wrap" style="width: 1024px; height: 284px;">
 						<table class="" width="1024" align="center" cellpadding="0" cellspacing="0">
 						<tr class="swiper_wrapper">
+						<c:forEach items="${sgroupList}" var="s" >
 							<td class="sgrouop_event_swiper_slide" style="width: 192px; margin-right: 16px;">
-								<a href="/learn_run/small_group/sgroupView">
-									<div class="thumnail"><img class="thumnail_picture" src="<%=application.getContextPath()%>/resources/img/image.jpg"></div>
+								<a href="sgroupView?num=${s.num}&tid=${s.id}">
+									<div class="thumnail"><img class="thumnail_picture" src="<%=application.getContextPath()%>/resources/img/sgroup/upload/${s.fname}"></div>
 									<div class="event_detail">
-										<div class="tag_title"><span class="tag">#여행</span>6대륙 정복한 프로여행러 Hayley의 사람과 여행사이</div>
-										<div class="meeting_date">7월 1일 토</div>
-									</div></a>
+										<div class="tag_title"><span class="tag">${s.tag}</span>${s.title}</div>
+										<div class="meeting_date">${s.c_day}</div>
+									</div>
+									
+									</a>
 							</td>
-							<td class="sgrouop_event_swiper_slide" style="width: 192px; margin-right: 16px;">
-								<a href="/learn_run/small_group/sgroupView">
-									<div class="thumnail"><img class="thumnail_picture" src="<%=application.getContextPath()%>/resources/img/image.jpg"></div>
-									<div class="event_detail">
-										<div class="tag_title"><span class="tag">#여행</span>6대륙 정복한 프로여행러 Hayley의 사람과 여행사이</div>
-										<div class="meeting_date">7월 1일 토</div>
-									</div></a>
-							</td>
-							<td class="sgrouop_event_swiper_slide" style="width: 192px; margin-right: 16px;">
-								<a href="/learn_run/small_group/sgroupView">
-									<div class="thumnail"><img class="thumnail_picture" src="<%=application.getContextPath()%>/resources/img/image.jpg"></div>
-									<div class="event_detail">
-										<div class="tag_title"><span class="tag">#여행</span>6대륙 정복한 프로여행러 Hayley의 사람과 여행사이</div>
-										<div class="meeting_date">7월 1일 토</div>
-									</div></a>
-							</td>
-							<td class="sgrouop_event_swiper_slide" style="width: 192px; margin-right: 16px;">
-								<a href="/learn_run/small_group/sgroupView">
-									<div class="thumnail"><img class="thumnail_picture" src="<%=application.getContextPath()%>/resources/img/image.jpg"></div>
-									<div class="event_detail">
-										<div class="tag_title"><span class="tag">#여행</span>6대륙 정복한 프로여행러 Hayley의 사람과 여행사이</div>
-										<div class="meeting_date">7월 1일 토</div>
-									</div></a>
-							</td>
-							<td class="sgrouop_event_swiper_slide" style="width: 192px; margin-right: 16px;">
-								<a href="/learn_run/small_group/sgroupView">
-									<div class="thumnail"><img class="thumnail_picture" src="<%=application.getContextPath()%>/resources/img/image.jpg"></div>
-									<div class="event_detail">
-										<div class="tag_title"><span class="tag">#여행</span>6대륙 정복한 프로여행러 Hayley의 사람과 여행사이</div>
-										<div class="meeting_date">7월 1일 토</div>
-									</div></a>
-							</td>
-							<td class="sgrouop_event_swiper_slide" style="width: 192px; margin-right: 16px;">
-								<a href="/learn_run/small_group/sgroupView">
-									<div class="thumnail"><img class="thumnail_picture" src="<%=application.getContextPath()%>/resources/img/image.jpg"></div>
-									<div class="event_detail">
-										<div class="tag_title"><span class="tag">#여행</span>6대륙 정복한 프로여행러 Hayley의 사람과 여행사이</div>
-										<div class="meeting_date">7월 1일 토</div>
-									</div></a>
-							</td>
-							<td class="sgrouop_event_swiper_slide" style="width: 192px; margin-right: 16px;">
-								<a href="/learn_run/small_group/sgroupView">
-									<div class="thumnail"><img class="thumnail_picture" src="<%=application.getContextPath()%>/resources/img/image.jpg"></div>
-									<div class="event_detail">
-										<div class="tag_title"><span class="tag">#여행</span>6대륙 정복한 프로여행러 Hayley의 사람과 여행사이</div>
-										<div class="meeting_date">7월 1일 토</div>
-									</div></a>
-							</td>
-							<td class="sgrouop_event_swiper_slide" style="width: 192px; margin-right: 16px;">
-								<a href="/learn_run/small_group/sgroupView">
-									<div class="thumnail"><img class="thumnail_picture" src="<%=application.getContextPath()%>/resources/img/image.jpg"></div>
-									<div class="event_detail">
-										<div class="tag_title"><span class="tag">#여행</span>6대륙 정복한 프로여행러 Hayley의 사람과 여행사이</div>
-										<div class="meeting_date">7월 1일 토</div>
-									</div></a>
-							</td>
-							<td class="sgrouop_event_swiper_slide" style="width: 192px; margin-right: 16px;">
-								<a href="/learn_run/small_group/sgroupView">
-									<div class="thumnail"><img class="thumnail_picture" src="<%=application.getContextPath()%>/resources/img/image.jpg"></div>
-									<div class="event_detail">
-										<div class="tag_title"><span class="tag">#여행</span>6대륙 정복한 프로여행러 Hayley의 사람과 여행사이</div>
-										<div class="meeting_date">7월 1일 토</div>
-									</div></a>
-							</td>
+							</c:forEach>						
 						</tr>
 						</table>
 					</div>
 				</div>
 			</div>
+			<c:if test="${not empty member && member.grade!='student'}">
 			<div style="margin-top: 70px; width: 300px; height: 100px; margin-left: 800px;">
 				<a href="/learn_run/small_group/sgroupWrite" class="sgroup_register">등록하기</a>
 			</div>
+			</c:if>
 		</div>
 	</section>
 <c:import url="../temp/footer.jsp" />

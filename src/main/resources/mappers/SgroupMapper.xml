@@ -9,4 +9,19 @@
   	values(community_seq.nextval,#{fname}, #{oname}, #{tag}, #{title}, #{c_day}, #{c_time}, #{location}, #{price}, #{detail}, #{people}, #{contents}, #{writer}, #{id})
   </insert>
   
+  <insert id="community_upload" parameterType="com.kh.sgroup.Sgroup_UploadDTO">
+  		insert into community_upload(num,fname,oname) values(#{num}, #{fname}, #{oname})
+  </insert>
+  
+  <select id="max_num" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+  	select max(num) from community
+  </select>
+  
+  <select id="sgroupList" parameterType="java.lang.Integer" resultType="com.kh.sgroup.SgroupDTO">
+  	select * from(select rownum R, S.* from (select * from community order by num desc) S) where R between 1 and 9
+  </select>
+  
+  <select id="sgroupView" parameterType="java.lang.Integer" resultType="com.kh.sgroup.SgroupDTO">
+  	select * from community where num=#{num}
+  </select>
   </mapper>
