@@ -14,10 +14,19 @@ public class OnlineController {
 		model.addAttribute("room_id", room_id);
 		
 		String path = null;
+
 		if(category.equals("프로그래밍")) {
 			path = "study/subject/onlineStudyPrograming";
 		}
+		if(category.equals("영여회화")) {
+			path = "study/online/subject/onlineStudyEnglish";
+		}
 		
 		return path;
+	}
+	
+	@RequestMapping(value="subject/onlineStudyVocal")
+	public void vocalTemp(){
+		
 	}
 }

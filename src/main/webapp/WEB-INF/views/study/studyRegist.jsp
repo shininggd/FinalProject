@@ -31,11 +31,11 @@
 			<div class="form_main">
 				<div class="form_top">	
 					 제목 <select name="category" class="top_box" id="category">
-								<option value="영어회화">프로그래밍</option>
-								<option value="중국어회화">영어회화</option>
+								<option value="프로그래밍">프로그래밍</option>
+								<option value="영어회화">영어회화</option>
 								<option value="중국어회화">중국어회화</option>
-								<option value="중국어회화">일본어회화</option>
-								<option value="중국어회화">보컬</option>
+								<option value="일본어회화">일본어회화</option>
+								<option value="보컬">보컬</option>
 						   </select>
 						<select name="lv" class="top_box" id="lv" >
 								<option value="초보">초보</option>

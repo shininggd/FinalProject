@@ -142,6 +142,7 @@ a{
 }
 .write_2_content{
 	margin-top: 20px;
+	width: 630px;
 }
 .write_2_content_input{
 	width: 600px;
@@ -293,7 +294,7 @@ a{
 	height: 300px;
 	margin-top: 110px;
 	text-align: center;
-	margin-left: 600px;
+	margin-left: 550px;
 	display: inline-block;
 }
 .write_5_host_picture{

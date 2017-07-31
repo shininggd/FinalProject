@@ -69,6 +69,10 @@ body {
     font-weight: 300;
     color: #fff;
     line-height: 1.43em;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    
 }
 .banner_bottom_text{
 	position: absolute;
