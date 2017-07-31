@@ -44,6 +44,10 @@
 		</div>
 	
 	</div>
+	
+	<form action="/learn_run/study/online/onlineStudyPage" id="online_frm" method="post">
+		<input type="hidden" id="room_id_value" name="room_id">
+	</form>
 
 
 </section>
@@ -55,6 +59,12 @@
 	
 	$.post("../study/myStudyList",{id:id},function(result) {
 		$("#mystudy_list").html(result);
+	});
+	
+	$("#mystudy_list").on("click",".online_btn",function() {
+		var room_id = "roomId"+$(this).prop("id");
+		$("#room_id_value").prop("value",room_id);
+		$("#online_frm").submit();
 	});
 
 	
