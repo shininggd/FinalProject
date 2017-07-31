@@ -5,8 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="https://cdn.webrtc-experiment.com:443/rmc3.min.js"></script>
-<script src="https://cdn.webrtc-experiment.com:443/socket.io.js"></script>
+<script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
+<script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style type="text/css">
 	video{
 		width: 400px;
@@ -78,25 +79,27 @@ var videosContainer = document.getElementById('videos_container');
 var remoteVideosContainer = document.getElementById('remote_videos_container');
 
 connection.onstream = function(event) {
-	var vodeo = event.mediaElement;
-	if(event.type == 'local'){
+	var video = event.mediaElement;
+	videosContainer.appendChild(video);
+	/* if(event.type == 'local'){
 	videosContainer.appendChild(video);
 	}
 	if(event.type == 'remote'){
 		remoteVideosContainer.appendChild(video);
-	}
+	} */
 	
 	
 	
 	
 };
-
-
-document.getElementById("btn-open-or-join-room").onclick = function() {
+$("#btn-open-or-join-room").click(function () {
+	
 	this.disabled = true;
-	var roomid = document.getElementById('roomId')
-	connenction.openOrJoin(roomid.value || "predefined-roomid");
-};
+	connection.openOrJoin("predefined-roomid");
+});
+
+/* document.getElementById("btn-open-or-join-room").onclick = function() {
+}; */
 
 
 
