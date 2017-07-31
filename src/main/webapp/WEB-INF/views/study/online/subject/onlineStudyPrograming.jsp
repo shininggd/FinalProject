@@ -4,86 +4,176 @@
 <html>
 <head>
 <title>Home</title>
-<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
-<link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/basic_table.css">
-<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js" ></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script >
+<script src="https://cdn.webrtc-experiment.com:443/FileBufferReader.js"></script >
 <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script >
 
 <style type="text/css">
 
-video {
-	width: 400px;
+#online_body {
+	background-color: #0e0c13;
+	color: #dad8de;
+}
+
+
+
+.chat-output {
+	overflow: auto;
+	height: 300px;
+}
+
+#videos_container {
+	width: 70%;
+	height: 30%;
+	border: 1px black solid;
+	margin: 0;
+	display: inline;
+}
+
+#videos_container video {
+	width: 500px;
 	border-radius: 15px;
 }
 
-.main_container {
-	height: 600px;
+#remote_videos_container {
+	border-top: 1px solid #2c2541;
+	width: 70%;
+	height: 70%;
+	border: 1px black solid;
+	margin: 0;
+	display: inline-block;
+	overflow: hidden;
+	margin-top: 30px;
+}
+
+#remote_videos_container video {
+	width: 300px;
+	border-radius: 15px;
+}
+#chat-container {
+	width: 25%;
+	height: 100%;
+	float: right;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 1px black solid;
+	overflow: hidden;
+	border-left: 1px solid #2c2541;
+}
+
+#file-container {
+	height: 40%;
+	width: 100%;
+	border: 1px solid black;
+	display: inline-block;
+	padding: 0 20px;
+}
+
+.chat-output {
+	height: 40%;
+	width: 100%;
+	border: 1px solid black;
+	display: inline-block;
+	padding: 0 20px;
+}
+
+.chat-input {
+	display: inline-block;
+	padding: 15 0 15 0;
+	margin-left: 70px;
+}
+
+#input-text-chat {
+	width: 350px;
+	height: 80px;
+	border: 1px solid #2c2541;
+	background-color: #0e0c13;
+	color: #dad8de;
+	text-align: center;
+}
+
+#share-file {
+	position: absolute;
+	right: 29px;
+	bottom: 15px;
+	border: 1px solid #2c2541;
+	background-color: #0e0c13;
+	color: #dad8de;
+	font-size: 25px;
+}
+
+#leave_online_btn {
+	position: absolute;
+	right: 0;
+	top: 0;
+	border: 1px solid #2c2541;
+	background-color: #0e0c13;
+	color: #dad8de;
+	font-size: 25px;
 }
 
 </style>
 
 </head>
-<body>
-<c:import url="../../temp/header.jsp"></c:import>
+<body id="online_body">
 
 <section id="main_section">
 
 <div class="main_container">
 
 
-
-<hr>
-
 <!-- 비디오 들어갈 위치 -->
 <div id="videos_container">
 
 </div>
 
-<hr>
+
 
 <div id="remote_videos_container">
 
 </div>
 
-</div>
-
-
 <div id="chat-container">
 
-	<input type="text" id="input-text-chat" placeholder="Enter Text Chat">
-	<button id="share-file" disabled>Share File</button>
+	
                 
-    <div id="file-container">
+    <div id="file-container">  
+    	<div><h4>파일업로드</h4></div>
+    </div>             
     
-    </div>
-                
     <div class="chat-output">
-    
-    </div>
-    
+    	<div><h4>채팅창</h4></div>
+    </div>	
+    <div class="chat-input">
+    <input type="text" id="input-text-chat">
+	<button id="share-file">Share File</button>
+	<input type="button" id="leave_online_btn" value="Close">
+	</div>
 </div>
 
 
+</div>
+
 </section>
-<c:import url="../../temp/footer.jsp"></c:import>
 
 <script type="text/javascript">
 
-
 if (document.location.protocol == 'http:') {
-    document.location.href = document.location.href.replace('http:', 'https:');
-}
-
+	document.location.href = document.location.href.replace('http:', 'https:')+"?room_id=${room_id}"; 
+}  
 
 //화상채팅용/////////////////////////////////////////////////////////////////////////
 var connection = new RTCMultiConnection();
 connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
 
 
+
 connection.session = {
 audio: true,
-video: true
+video: true,
+data: true
 };
 
 
@@ -106,13 +196,55 @@ connection.onstream = function(event) {
 	
 };
 
-    //입력한 방이름에 맞는 방에 입장
-    var roomid = '${room_id}';
-    
-    connection.openOrJoin(roomid);
+   /////////////////채팅, 파일업로드/////////////////////////////////////////
+   			connection.enableFileSharing = true; 
+   			connection.filesContainer = document.getElementById('file-container');
+   			
+   			connection.onmessage = appendDIV;
+   			
+			 document.getElementById('share-file').onclick = function() {
+                var fileSelector = new FileSelector();
+                fileSelector.selectSingleFile(function(file) {
+                    connection.send(file);
+                });
+            };
+            document.getElementById('input-text-chat').onkeyup = function(e) {
+                if (e.keyCode != 13) return;
+                // removing trailing/leading whitespace
+                this.value = this.value.replace(/^\s+|\s+$/g, '');
+                if (!this.value.length) return;
+                connection.send("${member.id} : "+this.value);
+                appendDIV("${member.id} : "+this.value);
+                this.value = '';
+            };
+            
+            var chatContainer = document.querySelector('.chat-output');
+            
+            function appendDIV(event) {
+                var div = document.createElement('div');
+                div.innerHTML = event.data || event;
+                /* chatContainer.insertBefore(div, chatContainer.firstChild); */
+                $(div).insertAfter(".chat-output div:last");
+                div.tabIndex = 0;
+                div.focus();
+                document.getElementById('input-text-chat').focus();
+                
+            }
+///////////////////////////////////////////////////////////////////////
+          //입력한 방이름에 맞는 방에 입장   
+          	alert('${param.room_id}');
+        	connection.openOrJoin('${param.room_id}'); 
+        	
+        	$("#leave_online_btn").click(function () {
+        		connection.attachStreams.forEach(function(localStream) {
+        	        localStream.stop();
+        	    });
+        	    // close socket.io connection
+        	    connection.close();
+        	    location.href = "/learn_run/";
+			});
+        	
 
- /////////////////////////////////////////////////////////////////////////////////
-    
 </script>
 </body>
 </html>

@@ -91,6 +91,10 @@
 <c:import url="temp/footer.jsp" />
 
 <script type="text/javascript">
+if (document.location.protocol == 'https:') {
+	document.location.href = document.location.href.replace('https:', 'http:'); 
+}  
+
 studySlider();
 homList('category','영어회화');
 $(".homeCategory").click(function() {

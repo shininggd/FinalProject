@@ -85,8 +85,7 @@ public class StudyDAO {
 		if(listInfo.getSearch()==null||listInfo.getSearch()==""){
 			listInfo.setSearch("영어회화");
 		}
-		//System.out.println(listInfo.getFind()+"3");
-		//System.out.println(listInfo.getSearch()+"3");
+		
 		List<StudyDTO> ar = new ArrayList<StudyDTO>();
 		ar = sqlSession.selectList(NAMESPACE+"homeList",listInfo);
 		return ar;
@@ -119,9 +118,9 @@ public class StudyDAO {
 		StudyDTO studyDTO = null;
 		for(int i=0; i< snums.size(); i++) {
 			int num = Integer.parseInt(snums.get(i));
-			System.out.println(num);
+		
 			studyDTO = sqlSession.selectOne(NAMESPACE+"myStudyList", num);
-			System.out.println(studyDTO.getOnOff());
+			
 			list.add(studyDTO);
 		}
 		return list;

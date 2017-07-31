@@ -115,7 +115,6 @@ public class StudyController {
 	@RequestMapping(value="myStudyList", method = RequestMethod.POST)
 	public String myStudy(Model model ,String id) {
 		System.out.println("studyList");
-		System.out.println(id);
 		List<String> snums = studyService.myStudyListNum(id);
 		
 		List<StudyDTO> list = studyService.myStudyList(snums);
