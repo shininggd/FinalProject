@@ -35,11 +35,11 @@ public class Small_GroupController {
 		HashMap<Object, Object> ar = sgroupService.sgroupView(num, tid);
 		TutorDTO tutor=(TutorDTO)ar.get("tutor");
 		SgroupDTO sgroup = (SgroupDTO)ar.get("sgroup");
-		StudyDTO study = (StudyDTO)ar.get("study");
-		model.addAttribute("profile",ar.get("profile"));
 		model.addAttribute("sgroup", sgroup);
 		model.addAttribute("tutor", tutor);
-		model.addAttribute("study", study);
+		model.addAttribute("profile",ar.get("profile"));
+		model.addAttribute("sgroup1",ar.get("sgroup1"));
+		model.addAttribute("study", ar.get("study"));
 	}
 	@RequestMapping(value = "sgroupWrite", method = RequestMethod.GET)
 	public void sgroupWrite() throws Exception{

@@ -15,7 +15,7 @@
 <c:import url="../temp/header.jsp" />
 	<section id="sgroup_eventView_page">
 		<div class="view_wrap_1">
-			<div class="view_1_picture"><img src="<c:url value="/resources/img/sgroup/upload/${sgroup.fname}"/>"></div>
+			<div class="view_1_picture"><img src="<c:url value="/resources/img/sgroup/upload/${sgroup1}"/>"></div>
 			<div class="view_1_content_detail">
 				<div class="view_1_tag">#${sgroup.tag}</div>
 				<div class="view_1_title">${sgroup.title}</div>
@@ -64,7 +64,8 @@
 			</div>
 		</div>
 		<div class="view_wrap_5">
-			<div class="view_5_picture"><img src="<c:url value="/resources/img/study/upload/${study.fname}"/>">
+			<div class="view_5_picture">
+			<%-- <img src="<c:url value="/resources/img/study/upload/${study}"/>"> --%>
 				<div class="view_5_content">
 					<div class="view_5_host_picture"><img class="view_5_host_picture_img" src="<c:url value="/resources/img/member/profilePhoto/${profile }"/>"></div>
 					<div class="view_5_1st">Will you come join us?</div>

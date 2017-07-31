@@ -70,6 +70,10 @@
   
   <select id="studydto" parameterType="java.lang.Integer" resultType="com.kh.study.StudyDTO" >
 		select * from study where num=#{num}
-	</select>
+  </select>
+	
+  <select id="studyImage" parameterType="java.lang.Integer" resultType="com.kh.study.StudyDTO">
+		select fname from study where num = #{num}
+  </select>
 
   </mapper>

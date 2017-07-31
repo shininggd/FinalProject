@@ -24,4 +24,7 @@
   <select id="sgroupView" parameterType="java.lang.Integer" resultType="com.kh.sgroup.SgroupDTO">
   	select * from community where num=#{num}
   </select>
+  <select id="sgroupImage" parameterType="java.lang.Integer" resultType="com.kh.sgroup.SgroupDTO">
+		select fname from community where num = #{num}
+  </select>
   </mapper>

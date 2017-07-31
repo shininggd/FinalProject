@@ -41,7 +41,8 @@ public class SgroupDAO {
 		ar.put("sgroup", this.sgroupOneView(num));
 		ar.put("tutor",sqlSession.selectOne(TUTORSPACE+"tutorStudyInfo",tid));
 		ar.put("profile",sqlSession.selectOne(TUTORSPACE+"tutorImage",tid));
-		ar.put("study", sqlSession.selectOne(STUDYSPACE+"studyImage", tid));
+		ar.put("study", sqlSession.selectOne(STUDYSPACE+"studyImage", num));
+		ar.put("sgroup1", sqlSession.selectOne(NAMESPACE+"sgroupImage", num));
 		return ar;
 	}
 	public SgroupDTO sgroupOneView(Integer num) throws Exception{
