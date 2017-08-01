@@ -114,8 +114,7 @@ public class StudyController {
 
 	@RequestMapping(value="myStudyList", method = RequestMethod.POST)
 	public String myStudy(Model model ,String id) {
-		System.out.println("studyList");
-		System.out.println(id);
+		
 		List<String> snums = studyService.myStudyListNum(id);
 		
 		List<StudyDTO> list = studyService.myStudyList(snums);
@@ -124,6 +123,17 @@ public class StudyController {
 		
 		return "member/sub/myStudyList";
 	}
+	
+	@RequestMapping(value="tutorStudyList", method = RequestMethod.POST)
+	public String tutorStudy(Model model ,String id) {
+		
+		List<StudyDTO> list = studyService.tutorStudyList(id);
+		
+		model.addAttribute("list", list);
+		
+		return "member/sub/tutorStudyList";
+	}
+	
 	@RequestMapping(value="studyHomeList", method=RequestMethod.GET)
 	public void homeStudy(Model model, ListInfo listInfo) throws Exception{
 		System.out.println(listInfo.getFind());
