@@ -14,6 +14,7 @@
 #online_body {
 	background-color: #0e0c13;
 	color: #dad8de;
+	overflow: hidden;
 }
 
 
@@ -25,24 +26,24 @@
 
 #videos_container {
 	width: 70%;
-	height: 30%;
+	height: 50%;
 	border: 1px black solid;
 	margin: 0;
-	display: inline;
 }
 
 #videos_container video {
 	width: 500px;
 	border-radius: 15px;
+	margin-top: 50px;
+	margin-left: 30%;
 }
 
 #remote_videos_container {
 	border-top: 1px solid #2c2541;
 	width: 70%;
-	height: 70%;
+	height: 50%;
 	border: 1px black solid;
 	margin: 0;
-	display: inline-block;
 	overflow: hidden;
 	margin-top: 30px;
 }
@@ -69,6 +70,8 @@
 	border: 1px solid black;
 	display: inline-block;
 	padding: 0 20px;
+	overflow: auto;
+	border-bottom: 1px solid #2c2541;
 }
 
 .chat-output {
@@ -82,16 +85,15 @@
 .chat-input {
 	display: inline-block;
 	padding: 15 0 15 0;
-	margin-left: 70px;
+	width: 100%;
 }
 
 #input-text-chat {
-	width: 350px;
+	width: 100%;
 	height: 80px;
 	border: 1px solid #2c2541;
 	background-color: #0e0c13;
 	color: #dad8de;
-	text-align: center;
 }
 
 #share-file {
@@ -114,6 +116,13 @@
 	font-size: 25px;
 }
 
+.hr {
+	display: block;
+	width: 75%;
+	height: 1px;
+	background-color: #2c2541;
+	border: 1px solid #2c2541;
+}
 </style>
 
 </head>
@@ -129,7 +138,7 @@
 
 </div>
 
-
+<div class="hr"></div>
 
 <div id="remote_videos_container">
 
@@ -153,7 +162,6 @@
 	</div>
 </div>
 
-
 </div>
 
 </section>
@@ -167,9 +175,6 @@ if (document.location.protocol == 'http:') {
 //화상채팅용/////////////////////////////////////////////////////////////////////////
 var connection = new RTCMultiConnection();
 connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
-
-
-
 connection.session = {
 audio: true,
 video: true,
@@ -232,8 +237,22 @@ connection.onstream = function(event) {
             }
 ///////////////////////////////////////////////////////////////////////
           //입력한 방이름에 맞는 방에 입장   
-          	alert('${param.room_id}');
-        	connection.openOrJoin('${param.room_id}'); 
+          	
+          
+          var roomid = '${room_id}'
+          
+			/* connection.openOrJoin(roomid, function() {
+  			 if(!connection.isInitiator) return; // this line is optional
+   				connection.becomePublicModerator();
+			}); */
+			
+			connection.checkPresence('room-id', function(isRoomExist, roomid) {
+			    if (isRoomExist === true) {
+			        connection.join(roomid);
+			    } else {
+			        connection.open(roomid);
+			    }
+			});
         	
         	$("#leave_online_btn").click(function () {
         		connection.attachStreams.forEach(function(localStream) {

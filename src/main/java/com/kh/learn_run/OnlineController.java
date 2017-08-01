@@ -15,7 +15,7 @@ public class OnlineController {
 
 	@RequestMapping(value="/subject/onlineStudyPrograming")
 	public void goOnlineStudy(String room_id,Model model) {
-	
+		System.out.println("controller="+room_id);
 		model.addAttribute("room_id", room_id);
 		
 	}
