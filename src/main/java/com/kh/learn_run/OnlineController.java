@@ -10,20 +10,21 @@ public class OnlineController {
 
 	@RequestMapping(value="onlineStudyPage")
 
-	public String goOnlineStudy(String room_id,Model model,String category) {
-		System.out.println("room="+room_id);
+	public String goOnlineStudy(String room_id, Model model, String category) {
+		//System.out.println("room="+room_id);
 		model.addAttribute("room_id", room_id);
 		
 		String path = null;
-		if(category.equals("영여회화")) {
+		if(category.equals("영어회화")) {
 			path = "study/online/subject/onlineStudyEnglish";
 		}
 		if(category.equals("중국어회화")){
-			path="study/online/subject/onlieStudyChinese";
+			path="study/online/subject/onlineStudyChinese";
 		}
 		
 		return path;
 	}
+	
 	@RequestMapping(value="subject/onlineStudyVocal")
 	public void vocalTemp(){
 		
