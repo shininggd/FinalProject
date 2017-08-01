@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.member.MemberDTO;
 import com.kh.purchase.PurchaseDTO;
@@ -29,7 +30,7 @@ public class PurchaseController {
 	
 	@RequestMapping(value="/payDo", method=RequestMethod.POST)
 	public void payDo(PurchaseDTO purchaseDTO, Model model) throws Exception{
-		System.out.println("payDo");
+		
 		purchaseService.payComplete(purchaseDTO);
 		purchaseService.addMemberStudy(purchaseDTO);
 		model.addAttribute("dto", purchaseDTO);
@@ -69,5 +70,6 @@ public class PurchaseController {
 		return "common/resultMessage";
 	}
 	
-	
+
+
 }

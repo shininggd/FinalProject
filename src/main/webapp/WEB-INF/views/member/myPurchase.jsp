@@ -10,9 +10,23 @@
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/HF.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/temp/basic_table.css">
 <link rel="stylesheet" type="text/css" href="<%=application.getContextPath()%>/resources/css/member/myPurchase.css">
-
 </head>
 <body>
+<script type="text/javascript">
+
+	$(function() {
+		
+		$(".callReceipt").click(function() {
+			var id = $(this).prop("id");
+			$.post("sub/receipt", {num:id}, function(data) {
+				data = data.trim();
+			 $("#receipt"+id).html(data);
+			});
+			$("#tr"+id).toggle();
+		});
+
+	});
+</script>
 <c:import url="../temp/header.jsp"></c:import>
 
 <section id="main_section">
@@ -42,35 +56,42 @@
 		<h1 id="mystudy_h1">내 결제 내역</h1>
 		<div id="mystudy_list">
 			<table id="purchaseList">
-					<tr>
+					<tr id="index">
 						<td id="index-product">강의</td>
 						<td>강사</td>
 						<td>결제금액</td>
-						<td>결제수단</td>
-						<td>결제일</td>
+						<td >결제수단</td>
+						<td >결제일</td>
 					</tr>
 				<c:forEach items="${dto}" var="i" >
 					<tr>
-						<td>${i.product}</td>
+						<td id="title-product">${i.product}</td>
 						<td>${i.tid }</td>
 						<td>${i.price }</td>
 						<td>${i.type }</td>
 						<td>${i.p_date}</td>
 					</tr>
+					<tr>
+						<td colspan="5" id="moreFunc">
+							<span class="callReceipt" id="${i.num}">상세내역 보기</span>
+						</td>
+					</tr>
+			
+			<tr class="receipt" id="tr${i.num}">
+				<td colspan="5" id="receipt${i.num}">
+				
+				</td>
+			</tr>	
+			
 				</c:forEach>
 			</table>
 		</div>
-	
 	</div>
 
 
 </section>
 
 <c:import url="../temp/footer.jsp"></c:import>
-<script type="text/javascript">
-	
 
-	
-</script>
 </body>
 </html>

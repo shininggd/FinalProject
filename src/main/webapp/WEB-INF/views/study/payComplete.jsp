@@ -38,7 +38,7 @@
 		<div id="containerContents">
 			<div id="whereToGo">
 				<h3 id="completeMsg">참여 신청이 완료되었습니다.</h3>
-				<a href="#" class="toGo" id="record">신청내역 확인하러가기</a>&nbsp;&nbsp;<a href="../" class="toGo" id="home">홈으로</a>
+				<a href="/learn_run/member/myPurchase" class="toGo" id="record">신청내역 확인하러가기</a>&nbsp;&nbsp;<a href="../" class="toGo" id="home">홈으로</a>
 				
 			</div>
 		</div>

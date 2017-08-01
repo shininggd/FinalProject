@@ -82,9 +82,9 @@
 				<td>${dto.price}</td>
 				<td>
 					<select id="type" name="type">
-						<option value="card">카드</option>
-						<option value="smart">휴대폰</option>
-						<option value="account">계좌이체</option>
+						<option value="카드">카드</option>
+						<option value="휴대폰">휴대폰</option>
+						<option value="무통장입금">무통장입금</option>
 					</select>
 				</td>
 				</tr>
