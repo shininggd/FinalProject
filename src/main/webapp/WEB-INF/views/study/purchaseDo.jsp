@@ -14,6 +14,7 @@
  $(function () {
 	 
 		var payCheck = false;
+		var str = "";
 		
 		
 	$("#ch_cardNum").click(function() {
@@ -23,7 +24,7 @@
 		var cardNum3 = $("#cardNum3").val();
 		var cardNum4 = $("#cardNum4").val();
 		
-		var str = cardNum1+cardNum2+cardNum3+cardNum4;
+		str = cardNum1+cardNum2+cardNum3+cardNum4;
 		
 		
 		$.post("cardNumCheck",{str:str}, function(data) {
@@ -43,12 +44,16 @@
 	});
 	
 	$("#payCard").click(function() {
-	
+			var cardCom = $("#cardCom").val();
+			var card_value = cardCom+"/"+str;
+		
 			if(payCheck==false){
 				alert("올바르지 않은 정보입니다.");
 				return false;
 			}else{
+				
 				alert("결제가 완료되었습니다. 내역은 마이페이지에서 확인가능합니다.");
+				$("#card_value").prop("value",card_value);
 		 		$("#p_frm_card").submit();
 		 		 				 		
 		 		window.opener.top.location.href="/learn_run/study/payComplete";
@@ -77,6 +82,7 @@
 			//생일을 올바르게 입력한 경우
 				
 			alert("결제가 완료되었습니다. 내역은 마이페이지에서 확인가능합니다.");
+			$("#phone_value").prop("value", phone);
 	 		$("#p_frm_smart").submit();
 	 		
 	 		window.opener.top.location.href="/learn_run/study/payComplete";
@@ -93,19 +99,21 @@
 	
 	$("#payAccount").click(function() {
 		
-		var bank = $("#bank").prop("value");
+		var bankName = $("#bankName").prop("value");
 		var account = $("#account").prop("value");
+		var bank = bankName+'/'+account;
+		alert(bank);
 		var length = account.length;
 		var bank_length;
 
 		
-		if(bank == '국민' || bank =='기업'){
+		if(bankName == '국민' || bankName =='기업'){
 			bank_length = 14
 		}
-		if(bank == '농협' || bank == '우리'){
+		if(bankName == '농협' || bankName == '우리'){
 			bank_length = 13
 		}
-		if(bank == '신한'){
+		if(bankName == '신한'){
 			bank_length = 12
 		}
 		if(account == null || length != bank_length){
@@ -120,6 +128,7 @@
 		
 		if(payCheck == true){
 			alert("신청이 정상적으로 완료되었습니다.");
+			$("#bank_value").prop("value",bank);
 			$("#p_frm_account").submit();
 	 		
 	 		window.opener.top.location.href="/learn_run/study/payComplete";
@@ -154,7 +163,7 @@
 			</div>
 				<div class="clear"></div>
 				<div class="containerContents">
-					<c:if test="${dto.type eq 'card'}">
+					<c:if test="${dto.type eq '카드'}">
 						<h3>카드 결제</h3>
 						<form action="payDo" id="p_frm_card" method="POST">
 							<input type="hidden" name="product" value="${dto.product}">
@@ -164,6 +173,7 @@
 							<input type="hidden" name="type" value="${dto.type}">
 							<input type="hidden" name="snum" value="${dto.snum }">
 							<input type="hidden" name="tid" value="${dto.tid }">
+							<input type="hidden" name="cnumber" id="card_value">
 						</form>
 							<table class="p-table">
 								<thead>
@@ -221,7 +231,7 @@
 							
 						
 					</c:if>
-					<c:if test="${dto.type eq 'smart'}">
+					<c:if test="${dto.type eq '휴대폰'}">
 					<h3>스마트 결제</h3>
 						<form action="payDo" id="p_frm_smart" method="POST">
 						
@@ -232,7 +242,7 @@
 							<input type="hidden" name="type" value="${dto.type}">
 							<input type="hidden" name="snum" value="${dto.snum }">
 							<input type="hidden" name="tid" value="${dto.tid }">
-					
+							<input type="hidden" name="pnumber" id="phone_value">
 							<table class="p-table">
 								<thead>
 									<tr>
@@ -274,7 +284,7 @@
 							<a role="button" class="payDo" id="paySmart">결제하기</a>
 						</form>
 					</c:if>
-					<c:if test="${dto.type eq 'account'}">
+					<c:if test="${dto.type eq '무통장입금'}">
 					<h3>무통장입금</h3>
 						<form action="payDo" id="p_frm_account" method="post">
 							<input type="hidden" name="product" value="${dto.product}">
@@ -284,6 +294,7 @@
 							<input type="hidden" name="type" value="${dto.type}">
 							<input type="hidden" name="snum" value="${dto.snum }">
 							<input type="hidden" name="tid" value="${dto.tid }">
+							<input type="hidden" name="bank" id="bank_value">
 						</form>
 							<table class="p-table">
 								<thead>
@@ -311,7 +322,7 @@
 								<tr>
 									<td>은행</td>
 									<td>
-									<select id="bank">
+									<select id="bankName">
 									<option value="국민">국민</option>
 									<option value="신한">신한</option>
 									<option value="우리">우리</option>

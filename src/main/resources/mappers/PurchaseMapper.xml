@@ -15,11 +15,10 @@
 	
 	<insert id="payComplete" parameterType="com.kh.purchase.PurchaseDTO">
 		insert into purchase values 
-		(purchase_seq.nextval, #{price}, #{product}, #{id}, #{name}, #{type}, sysdate, #{snum}, #{tid})
+		(purchase_seq.nextval, #{price}, #{product}, #{id}, #{name}, #{type}, sysdate, #{snum}, #{tid}, #{bank}, #{cnumber}, #{pnumber})
 	</insert>
 	
-	<insert id="addMemberStudy">
-		insert into memberstudy (snum, id, reg_date) 
-		select snum, id, p_date from purchase where snum=#{snum}
+	<insert id="addMemberStudy" parameterType="com.kh.purchase.PurchaseDTO">
+		insert into memberstudy values(#{snum}, #{id}, sysdate)
 	</insert>
 </mapper>

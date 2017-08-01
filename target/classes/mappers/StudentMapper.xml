@@ -78,6 +78,9 @@
 	<select id="goMyPurchase" parameterType="com.kh.member.MemberDTO" resultType="com.kh.purchase.PurchaseDTO">
 		select * from purchase where id=#{id}
 	</select>
-
+	
+	<select id="callReceipt" parameterType="java.lang.Integer" resultType="com.kh.purchase.PurchaseDTO">
+		select * from purchase where num=#{num}
+	</select>
 	
 </mapper>

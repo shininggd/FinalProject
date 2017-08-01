@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import com.kh.member.MemberDAO;
 import com.kh.member.MemberDTO;
 import com.kh.member.tutor.TutorDTO;
+import com.kh.purchase.PurchaseDTO;
 import com.kh.util.ListInfo;
 
 @Repository
@@ -76,6 +77,10 @@ public class StudentDAOImpl implements MemberDAO{
 	
 	public List<StudentDTO> goMyPurchase(MemberDTO memberDTO) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"goMyPurchase", memberDTO);
+	}
+	
+	public PurchaseDTO callReceipt(int num) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"callReceipt", num);
 	}
 	
 }

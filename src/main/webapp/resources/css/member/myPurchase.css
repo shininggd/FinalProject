@@ -84,12 +84,45 @@
 }
 
 #purchaseList{
-	width : 650px;
-	margin-left : 150px;
-	overflow : scroll;
-	border: 1px black solid;
+	width : 750px;
+	margin-left : 100px;
+	margin-top : 60px;
+	border-top : 1px solid black;
+	border-bottom : 2.5px gray solid;
+	border-collapse : collapse;
 	text-align: center;
+
+}
+
+#index{
+	background-color: gray;
+	color: white;
+	width: 550px;
+	margin-top: 70px;
 }
 #index-product{
-	width: 250px;
+	width: 370px;
 }
+
+#title-product{
+	text-align: left;
+}
+#moreFunc{
+	text-align: right;
+	text-decoration: none;
+}
+.receipt{
+	width: 300px;
+	height : 200px;
+	display: none;
+}
+.receipt tr{
+	text-align: center;
+}
+
+#purchaseList fieldset {
+	width: 500px;
+	margin: 0 auto;
+}
+
+#purchaseList fieldset
