@@ -64,10 +64,11 @@
 	
 	$("#mystudy_list").on("click",".online_btn",function() {
 		var room_id = "roomId"+$(this).prop("id");
-		var category = $(this).prop("title");
-		$("#room_id_value").prop("value",room_id);
-		$("#category_value").prop("value",category);
-		
+
+		var category = "roomId"+$(this).prop("title");
+		$("#room_id_value").prop("value", room_id);
+		$("#category_value").prop("value", category);
+
 		$("#online_frm").submit();
 	});
 
