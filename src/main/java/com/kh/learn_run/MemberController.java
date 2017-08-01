@@ -197,8 +197,13 @@ public class MemberController {
 	@RequestMapping(value="/myPurchase")
 	public void goMyPurchase(HttpSession session, Model model) throws Exception{
 		List<StudentDTO> ar = studentServiceImpl.goMyPurchase((MemberDTO)session.getAttribute("member"));
-		
 		model.addAttribute("dto", ar);
+	}
+	
+	@RequestMapping(value="/sub/receipt")
+	public void callReceipt(String num, Model model) throws Exception{
+		PurchaseDTO purchaseDTO = studentServiceImpl.callReceipt(Integer.parseInt(num));
+		model.addAttribute("pdto", purchaseDTO);
 		
 	}
 	

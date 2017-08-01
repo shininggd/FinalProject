@@ -90,7 +90,6 @@
 	border-top : 1px solid black;
 	border-bottom : 2.5px gray solid;
 	border-collapse : collapse;
-	border: 1px black solid;
 	text-align: center;
 
 }
@@ -112,8 +111,18 @@
 	text-align: right;
 	text-decoration: none;
 }
-#receipt{
-	width: 650px;
-	margin-left: 175px;
+.receipt{
+	width: 300px;
+	height : 200px;
 	display: none;
 }
+.receipt tr{
+	text-align: center;
+}
+
+#purchaseList fieldset {
+	width: 500px;
+	margin: 0 auto;
+}
+
+#purchaseList fieldset

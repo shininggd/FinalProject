@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.deser.std.DateDeserializers.CalendarDeserializer;
+import com.kh.board.BoardDTO;
+import com.kh.board.notice.NoticeService;
 import com.kh.member.MemberDTO;
 
 
@@ -75,11 +77,6 @@ public class PurchaseService {
 	
 	public int addMemberStudy(PurchaseDTO purchaseDTO) throws Exception{
 		return purchaseDAO.addMemberStudy(purchaseDTO);
-	}
-	
-	public PurchaseDTO callReceipt(int num) throws Exception{
-		return purchaseDAO.callReceipt(num);
-		
 	}
 	
 	

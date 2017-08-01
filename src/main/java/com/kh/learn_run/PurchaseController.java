@@ -70,13 +70,6 @@ public class PurchaseController {
 		return "common/resultMessage";
 	}
 	
-	@RequestMapping(value="/callReceipt", method=RequestMethod.GET)
-	public ModelAndView callReceipt(HttpServletRequest request, int num) throws Exception{
-	
-		PurchaseDTO purchaseDTO = purchaseService.callReceipt(num);
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("pdto", purchaseDTO);
-		return mv;
-	}
-	
+
+
 }

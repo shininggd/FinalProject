@@ -15,6 +15,7 @@ import com.kh.member.MemberDAO;
 import com.kh.member.MemberDTO;
 import com.kh.member.MemberService;
 import com.kh.member.tutor.TutorDTO;
+import com.kh.purchase.PurchaseDTO;
 import com.kh.util.ListInfo;
 @Service
 public class StudentServiceImpl implements MemberService{
@@ -49,8 +50,6 @@ public class StudentServiceImpl implements MemberService{
 		
 		return studentDAOImpl.PwFind(memberDTO);
 	}
-	
-
 
 	@Override
 	public String memberIdCheck(String id) throws Exception {
@@ -82,6 +81,10 @@ public class StudentServiceImpl implements MemberService{
 	
 	public List<StudentDTO> goMyPurchase(MemberDTO memberDTO) throws Exception{
 		return studentDAOImpl.goMyPurchase(memberDTO);
+	}
+	
+	public PurchaseDTO callReceipt(int num) throws Exception{
+		return studentDAOImpl.callReceipt(num);
 	}
 }
 		

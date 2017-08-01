@@ -15,9 +15,14 @@
 <script type="text/javascript">
 
 	$(function() {
+		
 		$(".callReceipt").click(function() {
-			 $("#receipt").toggle();
-			
+			var id = $(this).prop("id");
+			$.post("sub/receipt", {num:id}, function(data) {
+				data = data.trim();
+			 $("#receipt"+id).html(data);
+			});
+			$("#tr"+id).toggle();
 		});
 
 	});
@@ -68,47 +73,16 @@
 					</tr>
 					<tr>
 						<td colspan="5" id="moreFunc">
-							<span class="callReceipt" id="${i.num}">영수증 보기</span>
-		<!-- 영수증 보기 -->
-			<div id="receipt">
-				<form>
-					<fieldset>
-						<legend><h3>결제 영수증</h3></legend>
-						<table>
-							<tr>
-								<td>강의 : </td>
-								<td>${pdto.product}</td>
-							</tr>
-							<tr>
-								<td>튜터 : </td>
-								<td>${pdto.tid}</td>
-							</tr>
-							<tr>
-								<td>결제금액 : </td>
-								<td>${pdto.price }</td>
-							</tr>
-							<tr>
-								<td>결제정보 : </td>
-								<c:if test="${not empty bank}">
-								<td>${pdto.bank}</td>
-								</c:if>
-								<c:if test="${not empty cnumber}">
-								<td>${pdto.cnumber}</td>
-								</c:if>
-								<c:if test="${not empty pnumber}">
-								<td>${pdto.pnumber}</td>
-								</c:if>
-							</tr>
-							<tr>
-								<td>결제일 : </td>
-								<td>${pdto.p_date }</td>
-							</tr>
-						</table>
-					</fieldset>
-				</form>
-			</div>	
+							<span class="callReceipt" id="${i.num}">상세내역 보기</span>
 						</td>
 					</tr>
+			
+			<tr class="receipt" id="tr${i.num}">
+				<td colspan="5" id="receipt${i.num}">
+				
+				</td>
+			</tr>	
+			
 				</c:forEach>
 			</table>
 		</div>
