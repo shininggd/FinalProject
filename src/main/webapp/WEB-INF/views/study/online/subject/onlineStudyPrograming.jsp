@@ -164,12 +164,22 @@
 
 </div>
 
+<form id="https_frm" method="post">
+	<input type="hidden" id="https_value" name="https">
+	<input type="hidden" id="room_id_value" name="room_id" value="${room_id }">
+	<input type="hidden" id="num_value" name="num" value="${num }">
+	<input type="hidden" id="category_value" name="category" value="${category }">
+</form>
+
 </section>
 
 <script type="text/javascript">
 
 if (document.location.protocol == 'http:') {
-	document.location.href = document.location.href.replace('http:', 'https:')+"?room_id=${room_id}"; 
+	/* document.location.href = document.location.href.replace('http:', 'https:');  */
+	var path = document.location.href.replace('http:', 'https:');
+	$("#https_frm").prop("action",path);
+	$("#https_frm").submit();
 }  
 
 //화상채팅용/////////////////////////////////////////////////////////////////////////
@@ -239,15 +249,15 @@ connection.onstream = function(event) {
           //입력한 방이름에 맞는 방에 입장   
           	
           
-          var roomid = '${room_id}'
-          
+          var roomid = '${room_id}';
+          alert(roomid);
 			/* connection.openOrJoin(roomid, function() {
   			 if(!connection.isInitiator) return; // this line is optional
    				connection.becomePublicModerator();
 			}); */
 			
-			connection.checkPresence('room-id', function(isRoomExist, roomid) {
-			    if (isRoomExist === true) {
+			connection.checkPresence(roomid, function(isRoomExist, roomid) {
+			    if (isRoomExist == true) {
 			        connection.join(roomid);
 			    } else {
 			        connection.open(roomid);
@@ -255,12 +265,23 @@ connection.onstream = function(event) {
 			});
         	
         	$("#leave_online_btn").click(function () {
-        		connection.attachStreams.forEach(function(localStream) {
-        	        localStream.stop();
-        	    });
-        	    // close socket.io connection
-        	    connection.close();
-        	    location.href = "/learn_run/";
+        		
+        		if('${member.grade}' == 'tutor') {
+        			$.post("studyClose",{num:'${num}'},function(result) {
+        				alert(result.trim());
+        				connection.attachStreams.forEach(function(localStream) {
+        	        		localStream.stop();
+        	    			connection.close();
+        	   			});
+        	    		location.href = "/learn_run/";
+        	   
+        			});
+        		};
+        		
+        		if('${member.grade}' == 'student') {
+        			location.href = "/learn_run/";
+        		};
+        		
 			});
         	
 

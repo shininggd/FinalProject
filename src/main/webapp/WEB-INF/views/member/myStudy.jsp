@@ -42,12 +42,16 @@
 		<div id="mystudy_list">
 			
 		</div>
+		<div id="tutor_list">
+		
+		</div>
 	
 	</div>
 	
 	<form action="/learn_run/study/online/onlineStudyPage" id="online_frm" method="post">
 		<input type="hidden" id="room_id_value" name="room_id">
 		<input type="hidden" id="category_value" name="category">
+		<input type="hidden" id="num_value" name="num">
 	</form>
 
 
@@ -57,23 +61,50 @@
 
 <script type="text/javascript">
 	var id = '${member.id}';
+	var grade = '${member.grade}';
 	
-	$.post("../study/myStudyList",{id:id},function(result) {
-		$("#mystudy_list").html(result);
-	});
+	if(grade == 'student') {
+		getStudentList();
+	}
+	if(grade == 'tutor'){
+		getTutorList();
+		
+	}
 	
 	$("#mystudy_list").on("click",".online_btn",function() {
-		var room_id = "roomId"+$(this).prop("id")+"zxcv1234";
+		var num = $(this).prop("id");
+		var room_id = "roomid"+$(this).prop("id");
 		var category = $(this).prop("title");
+		$("#num_value").prop("value",num);
 		$("#room_id_value").prop("value",room_id);
-		
-		if(category == '프로그래밍') {
-			$("#online_frm").prop("action","/learn_run/study/online/subject/onlineStudyPrograming");
-		}
+		$("#category_value").prop("value",category);
 		
 		$("#online_frm").submit();
 	});
-
+	
+	$("#tutor_list").on("click",".open_btn",function() {
+		var num = $(this).prop("id");
+		var room_id = "roomid"+$(this).prop("id");
+		var category = $(this).prop("title");
+		$("#num_value").prop("value",num);
+		$("#room_id_value").prop("value",room_id);
+		$("#category_value").prop("value",category);
+		
+		$("#online_frm").prop("action","/learn_run/study/online/openStudyPage");
+		$("#online_frm").submit();
+	});
+	
+	function getStudentList() {
+		$.post("../study/myStudyList",{id:id},function(result) {
+			$("#mystudy_list").html(result);
+		});
+	}
+	
+	function getTutorList() {
+		$.post("../study/tutorStudyList",{id:id},function(result) {
+			$("#tutor_list").html(result);
+		});
+	}
 	
 </script>
 </body>

@@ -68,8 +68,24 @@
   	select * from study where num=#{num}
   </select>
   
+  <select id="tutorStudyList" parameterType="java.lang.String" resultType="com.kh.study.StudyDTO">
+  	select * from study where tid=#{id}
+  </select>
+  
   <select id="studydto" parameterType="java.lang.Integer" resultType="com.kh.study.StudyDTO" >
 		select * from study where num=#{num}
   </select>
+  
+  <update id="openStudy" parameterType="java.lang.Integer">
+  		update study set onoff='on' where num=#{num}
+  </update>
+  
+  <select id="onoffStudy" parameterType="java.lang.Integer" resultType="java.lang.String">
+  	select onoff from study where num=#{num}
+  </select>
+  
+  <update id="closeStudy" parameterType="java.lang.Integer">
+  		update study set onoff='off' where num=#{num}
+  </update>
 
   </mapper>

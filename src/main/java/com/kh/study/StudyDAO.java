@@ -134,6 +134,18 @@ public class StudyDAO {
 	public StudyDTO studydto(int num){
 		return sqlSession.selectOne(NAMESPACE+"studydto", num);
 	}
-
+	
+	public List<StudyDTO> tutorStudyList(String id) {
+		return sqlSession.selectList(NAMESPACE+"tutorStudyList", id);
+	}
+	public int openStudy(int num) {
+		return sqlSession.update(NAMESPACE+"openStudy", num);
+	}
+	public int closeStudy(int num) {
+		return sqlSession.update(NAMESPACE+"closeStudy", num);
+	}
+	public String onoffStudy(int num) {
+		return sqlSession.selectOne(NAMESPACE+"onoffStudy", num);
+	}
 
 }

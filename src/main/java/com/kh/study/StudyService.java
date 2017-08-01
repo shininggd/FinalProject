@@ -57,6 +57,18 @@ public class StudyService {
 	public StudyDTO studydto(int num){
 		return studyDAO.studydto(num);
 	}
+	public List<StudyDTO> tutorStudyList(String id) {
+		return studyDAO.tutorStudyList(id);
+	}
+	public int openStudy(int num) {
+		return studyDAO.openStudy(num);
+	}
+	public int closeStudy(int num) {
+		return studyDAO.closeStudy(num);
+	}
+	public String onoffStudy(int num) {
+		return studyDAO.onoffStudy(num);
+	}
 	
 	
 }
