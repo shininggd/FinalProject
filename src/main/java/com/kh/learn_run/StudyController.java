@@ -71,8 +71,10 @@ public class StudyController {
 		studyDTO.setFname(fileName+"_"+studyDTO.getOname());
 		int i =studyService.regist(studyDTO);
 		if(i>0){
-			File f2 = new File(realPath,studyDTO.getFname());
-			FileCopyUtils.copy(f1.getBytes() , f2);
+			/*File f2 = new File(realPath,studyDTO.getFname());
+			FileCopyUtils.copy(f1.getBytes() , f2);*/
+			FileSaver fs = new FileSaver();
+			fs.fileSave(f1, realPath);
 		}
 		return "redirect: /learn_run/";
 
@@ -138,6 +140,7 @@ public class StudyController {
 	public void homeStudy(Model model, ListInfo listInfo) throws Exception{
 		System.out.println(listInfo.getFind());
 		System.out.println(listInfo.getSearch());
+		listInfo.setSearch("");
 		model.addAttribute("list", studyService.homeList(listInfo));
 	}
 

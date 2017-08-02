@@ -29,6 +29,19 @@ public class OnlineController {
 		if(category.equals("프로그래밍")) {
 			path = "study/online/subject/onlineStudyPrograming";
 		}
+		if(category.equals("영어회화")) {
+			path = "study/online/subject/onlineStudyPrograming";
+		}
+		if(category.equals("중국어회화")) {
+			path = "study/online/subject/onlineStudyPrograming";
+		}
+		if(category.equals("일본어회화")) {
+			path = "study/online/subject/onlineStudyPrograming";
+		}
+		if(category.equals("보컬")) {
+			path = "study/online/subject/onlineStudyPrograming";
+		}
+		
 		
 		return path;
 	}
@@ -47,6 +60,18 @@ public class OnlineController {
 		
 		String path=null;
 		if(category.equals("프로그래밍")) {
+			path = "study/online/subject/onlineStudyPrograming";
+		}
+		if(category.equals("영어회화")) {
+			path = "study/online/subject/onlineStudyPrograming";
+		}
+		if(category.equals("중국어회화")) {
+			path = "study/online/subject/onlineStudyPrograming";
+		}
+		if(category.equals("일본어회화")) {
+			path = "study/online/subject/onlineStudyPrograming";
+		}
+		if(category.equals("보컬")) {
 			path = "study/online/subject/onlineStudyPrograming";
 		}
 		
