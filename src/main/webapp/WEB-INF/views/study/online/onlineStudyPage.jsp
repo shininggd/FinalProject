@@ -39,7 +39,7 @@
 	<input type="text" id="input-text-chat" placeholder="Enter Text Chat">
 	
 	<!-- 파일공유 -->
-	<button id="share-file" disabled>Share File</button>
+	<button id="share-file" >Share File</button>
              
     <!-- 채팅 입력시 출력창 -->         
     <div class="chat-output">

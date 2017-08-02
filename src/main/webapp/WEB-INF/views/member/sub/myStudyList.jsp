@@ -46,6 +46,7 @@
 				<input type="button" id="" value="강의페이지">
 				<c:if test="${dto.location eq '온라인' and dto.onOff eq 'on' }">
 				<input class="online_btn" type="button" id="${dto.num }" title="${dto.category }" value="강의 입장">
+
 				</c:if>
 			</div>
 		</div>

@@ -77,8 +77,8 @@
 		var category = $(this).prop("title");
 		$("#num_value").prop("value",num);
 		$("#room_id_value").prop("value",room_id);
-		$("#category_value").prop("value",category);
-		
+		$("#category_value").prop("value",category);		
+
 		$("#online_frm").submit();
 	});
 	

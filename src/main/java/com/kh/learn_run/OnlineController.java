@@ -22,9 +22,12 @@ public class OnlineController {
 	@RequestMapping(value="/onlineStudyPage")
 	public String goOnlineStudy(String room_id,Model model,String category) {
 		System.out.println("controller="+room_id);
+		//System.out.println("room="+room_id);
+
 		model.addAttribute("room_id", room_id);
 		model.addAttribute("category", category);
 		
+
 		String path=null;
 		if(category.equals("프로그래밍")) {
 			path = "study/online/subject/onlineStudyPrograming";
@@ -32,10 +35,23 @@ public class OnlineController {
 		if(category.equals("중국어회화")) {
 			path = "study/online/subject/onlineStudyChinese";
 		}
-		
+		if(category.equals("영어회화")) {
+			path = "study/online/subject/onlineStudyChinese";
+
+		}
+		if(category.equals("일본어회화")) {
+			path = "study/online/subject/onlineStudyChinese";
+
+		}
+		if(category.equals("보컬")) {
+			path = "study/online/subject/onlineStudyChinese";
+
+		}
+	
 		return path;
 	}
 	
+
 	@RequestMapping(value="/openStudyPage")
 	public String openOnlineStudy(String room_id,Model model,String category,String num) {
 		System.out.println("controller="+room_id);
@@ -76,4 +92,5 @@ public class OnlineController {
 		return "common/resultMessage";
 	}
 	
+
 }
